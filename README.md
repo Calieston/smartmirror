@@ -9,6 +9,7 @@ The goal of the module was to realize an innovation project with focus on the te
 - [Calieston](https://github.com/Calieston)
 - [RomanKol](https://github.com/RomanKo)
 - [Coriux](https://github.com/Coriux)
+- [ma4a](https://github.com/ma4a)
 
 ## Technologies and Tools
 - Node.js 
