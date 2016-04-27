@@ -1,0 +1,55 @@
+{
+  "name": "smartmirror",
+  "version": "0.0.1",
+  "description": "Smart Mirror with nodejs backend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "jscs": "jscs app/",
+    "jshint": "jshint app",
+    "mocha": "mocha --recursive ",
+    "mochaWatch": "mocha --watch --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Calieston/smartmirror.git"
+  },
+  "keywords": [
+    "smartmirror",
+    "node",
+    "tdd",
+    "npm",
+    "raspberrypi",
+    "smarthome"
+  ],
+  "author": "rk056, ms435, cu009, cv015",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Calieston/smartmirror/issues"
+  },
+  "homepage": "https://github.com/Calieston/smartmirror#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express-generator": "^4.13.1",
+    "jscs": "^3.0.3",
+    "jshint": "^2.9.2",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "express": "~4.13.1",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1",
+    "serve-favicon": "~2.3.0"
+  },
+  "jshintConfig": {
+    "node": true,
+    "esversion": 6
+  },
+  "jscsConfig": {
+    "preset": "node-style-guide",
+    "excludeFiles": ["app/models/*"]
+  }
+}
