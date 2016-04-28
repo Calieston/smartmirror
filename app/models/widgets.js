@@ -11,7 +11,7 @@ var widgetSchema = new Schema({
     x: Number,
     y: Number
   },
-  settings: Mixed
+  settings: {}
 });
 
 module.exports = mongoose.model('Widget', widgetSchema);

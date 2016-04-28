@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Widget = require('./widget');
+var Widget = require('./widgets');
 
 var userSchema = new Schema({
   name:  String,

@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Sensor = require('./sensor');
+var Sensor = require('./sensors');
 
 var systemSchema = new Schema({
   wifi: {

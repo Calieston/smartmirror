@@ -7,7 +7,7 @@
     "start": "node index.js",
     "jscs": "jscs app/",
     "jshint": "jshint app",
-    "mocha": "mocha --recursive ",
+    "mocha": "mocha --recursive",
     "mochaWatch": "mocha --watch --recursive"
   },
   "repository": {
@@ -30,10 +30,13 @@
   "homepage": "https://github.com/Calieston/smartmirror#readme",
   "devDependencies": {
     "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
     "express-generator": "^4.13.1",
     "jscs": "^3.0.3",
     "jshint": "^2.9.2",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "mocha-mongoose": "^1.2.0",
+    "mongodb": "^2.1.18"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
@@ -41,6 +44,7 @@
     "debug": "~2.2.0",
     "express": "~4.13.1",
     "jade": "~1.11.0",
+    "mongoose": "^4.4.14",
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   },
@@ -50,6 +54,8 @@
   },
   "jscsConfig": {
     "preset": "node-style-guide",
-    "excludeFiles": ["app/models/*"]
+    "excludeFiles": [
+      "app/models/*"
+    ]
   }
 }
