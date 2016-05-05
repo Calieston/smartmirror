@@ -69,7 +69,8 @@ gulp.task('watch', ['scss'], function () {
   browserSync.init({
     open: false,
     notify: true,
-    proxy: 'localhost:3000/'
+    proxy: 'localhost:3000/',
+    port: 8080
   });
 
   gulp.watch(['./app/**/*.*'], ['scss', reload]);
