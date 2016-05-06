@@ -12,7 +12,15 @@ router.get('/system', function(req, res, next) {
 });
 
 /* GET user page. */
-router.get('/user/:user', function(req, res, next) {
+router.get('/users/', function(req, res, next) {
+  res.render('user', {
+    title: 'SmartMirror Backend User Profile',
+    user: 'User: ' + req.params.user,
+  });
+});
+
+/* GET user page. */
+router.get('/users/:user', function(req, res, next) {
   res.render('user', {
     title: 'SmartMirror Backend User Profile',
     user: 'User: ' + req.params.user,
