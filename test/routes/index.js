@@ -7,10 +7,11 @@ chai.use(chaiHttp);
 describe("Webview Backend Check", function() {
 
   it("Backend Landing Page can be viewed", function(done) {
-    chai.request('http://localhost:3000/')
+    chai.request('http://localhost:3000')
     .get('/')
     .end(function(err, res) {
-      done();  // <= Call done to signal callback end
+      expect(res).to.have.status(200);
+      done();
     });
   });
 
@@ -18,7 +19,8 @@ describe("Webview Backend Check", function() {
     chai.request('http://localhost:3000/system')
     .get('/')
     .end(function(err, res) {
-      done();  // <= Call done to signal callback end
+      expect(res).to.have.status(200);
+      done();
     });
   });
 
@@ -26,7 +28,8 @@ describe("Webview Backend Check", function() {
     chai.request('http://localhost:3000/users/Roman')
     .get('/')
     .end(function(err, res) {
-      done();  // <= Call done to signal callback end
+      expect(res).to.have.status(200);
+      done();
     });
   });
 });

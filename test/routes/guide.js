@@ -7,10 +7,11 @@ chai.use(chaiHttp);
 describe("Webview Guide Check", function() {
 
   it("Guide Page can be viewed", function(done) {
-    chai.request('http://localhost:3000/')
+    chai.request('http://localhost:3000')
     .get('/')
     .end(function(err, res) {
-      done();  // <= Call done to signal callback end
+      expect(res).to.have.status(200);
+      done();
     });
   });
 });
