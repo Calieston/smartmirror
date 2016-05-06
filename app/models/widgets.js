@@ -1,17 +1,35 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+var Modules = require('./modules');
+
 var widgetSchema = new Schema({
-  name: String,
+  module: {
+    type: Schema.ObjectId,
+    ref: 'Modules'
+  },
+  name: {
+    type: String
+  },
   position: {
-    x: Number,
-    y: Number
+    x: {
+      type: Number
+    },
+    y: {
+      type: Number
+    }
   },
   size: {
-    x: Number,
-    y: Number
+    x: {
+      type: Number
+    },
+    y: {
+      type: Number
+    }
   },
   settings: {}
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('Widget', widgetSchema);

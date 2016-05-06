@@ -4,11 +4,19 @@ var Schema = mongoose.Schema;
 var Widget = require('./widgets');
 
 var userSchema = new Schema({
-  name:  String,
-  bdate: Date,
+  name:  {
+    type: String
+  },
+  bdate: {
+    type: Date
+  },
   auth: {
-    rfid: String,
-    password: String
+    rfid: {
+      type: String
+    },
+    password: {
+      type: String
+    }
   },
   widgets: [
     {
@@ -16,9 +24,17 @@ var userSchema = new Schema({
       ref: 'Widget'
     }
   ],
-  theme: String,
-  active: Boolean,
-  lastLogin: Date
+  theme: {
+    type: String
+  },
+  active: {
+    type: Boolean
+  },
+  lastLogin: {
+    type: Date
+  }
+}, {
+  timestamps: true
 });
 
 module.exports = mongoose.model('User', userSchema);

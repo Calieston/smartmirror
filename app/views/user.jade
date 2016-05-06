@@ -4,3 +4,23 @@ block content
   h1= title
   h2= user
   p Welcome to #{title}
+
+  form(action="/" method="post")
+    label(for="name") Name:
+    input(type="text" name="name")
+    br
+
+    label(for="bdate") Geburtstag:
+    input(type="text" name="bdate")
+    br
+
+    label(for="theme") Theme:
+    select(name="theme")
+      option(value="Light")
+      option(value="Theme 2")
+
+    label(for="active") Aktiv:
+    input(type="checkbox" name="active")
+    br
+
+    button(type="submit") Speichern
