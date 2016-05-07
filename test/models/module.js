@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Module = require('./../../app/models/modules');
 
-describe("DB Module Check", function() {
+describe("DB Module Check", () => {
 
-  beforeEach(function(done) {
+  beforeEach((done) => {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", function(done) {
+  it("Data can be saved", (done) => {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
@@ -24,7 +24,7 @@ describe("DB Module Check", function() {
     }).save(done);
   });
 
-  it("Data can be queried", function(done) {
+  it("Data can be queried", (done) => {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
@@ -33,7 +33,7 @@ describe("DB Module Check", function() {
       url: 'www.urltogit.de',
       status: 'installing',
       version: '0.1'
-    }).save(function(err, model){
+    }).save((err, model) => {
       if (err) return done(err);
 
       new Module({
@@ -44,15 +44,15 @@ describe("DB Module Check", function() {
         url: 'www.urltogit.de',
         status: 'installing',
         version: '0.1'
-      }).save(function(err, model){
+      }).save((err, model) => {
         if (err) return done(err);
 
-        Module.find({}, function(err, modules){
+        Module.find({}, (err, modules) => {
           if (err) return done(err);
 
           expect(modules).to.have.length(3);
 
-          modules.forEach(function(module) {
+          modules.forEach((module) => {
             expect(module).to.have.property('author')
               .that.is.a('string');
             expect(module).to.have.property('createdAt')
@@ -82,7 +82,7 @@ describe("DB Module Check", function() {
   });
 
   it("Data can be updated", function (done) {
-    Module.findOne({}, function (err, module) {
+    Module.findOne({}, (err, module) => {
 
       if (err) return done(err);
 
@@ -92,7 +92,7 @@ describe("DB Module Check", function() {
 
       setTimeout( function () {
 
-        module.save(function (err, module){
+        module.save((err, module) => {
           if (err) return done(err);
 
           expect(module).to.have.property('author')
@@ -111,7 +111,7 @@ describe("DB Module Check", function() {
 
   });
 
-  it("DB can be cleared", function(done) {
+  it("DB can be cleared", (done) => {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
@@ -120,13 +120,13 @@ describe("DB Module Check", function() {
       url: 'www.urltogit.de',
       status: 'installing',
       version: '0.1'
-    }).save(function(err, model){
+    }).save((err, model) => {
       if (err) return done(err);
 
-      clearDB(function(err){
+      clearDB((err) => {
         if (err) return done(err);
 
-        Module.find({}, function(err, modules){
+        Module.find({}, (err, modules) => {
           if (err) return done(err);
 
           expect(modules).to.have.length(0);

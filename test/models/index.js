@@ -4,26 +4,26 @@ var mongoose = require('mongoose');
 var Dummy = mongoose.model('Dummy', new mongoose.Schema({a:Number}));
 var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
-describe("DB Check", function() {
+describe("DB Check", () => {
 
-  beforeEach(function(done) {
+  beforeEach((done) => {
     if (mongoose.connection.db) return done();
 
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", function(done) {
+  it("Data can be saved", (done) => {
     new Dummy({a: 1}).save(done);
   });
 
-  it("Data can be queried", function(done) {
-    new Dummy({a: 1}).save(function(err, model){
+  it("Data can be queried", (done) => {
+    new Dummy({a: 1}).save((err, model) => {
       if (err) return done(err);
 
-      new Dummy({a: 2}).save(function(err, model){
+      new Dummy({a: 2}).save((err, model) => {
         if (err) return done(err);
 
-        Dummy.find({}, function(err, docs){
+        Dummy.find({}, (err, docs) => {
           if (err) return done(err);
 
           expect(docs).to.have.length(3);
@@ -33,14 +33,14 @@ describe("DB Check", function() {
     });
   });
 
-  it("DB can be cleared", function(done) {
-    new Dummy({a: 5}).save(function(err, model){
+  it("DB can be cleared", (done) => {
+    new Dummy({a: 5}).save((err, model) => {
       if (err) return done(err);
 
-      clearDB(function(err){
+      clearDB((err) => {
         if (err) return done(err);
 
-        Dummy.find({}, function(err, docs){
+        Dummy.find({}, (err, docs) => {
           if (err) return done(err);
 
           expect(docs).to.have.length(0);

@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Widget = require('./../../app/models/widgets');
 
-describe("DB Widget Check", function() {
+describe("DB Widget Check", () => {
 
-  beforeEach(function(done) {
+  beforeEach((done) => {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", function(done) {
+  it("Data can be saved", (done) => {
     new Widget({
       name: 'Widget1',
       position: {
@@ -27,7 +27,7 @@ describe("DB Widget Check", function() {
     }).save(done);
   });
 
-  it("Data can be queried", function(done) {
+  it("Data can be queried", (done) => {
     new Widget({
       name: 'Widget2',
       position: {
@@ -39,7 +39,7 @@ describe("DB Widget Check", function() {
         y: 2
       },
       settings: {}
-    }).save(function(err, model){
+    }).save((err, model) => {
       if (err) return done(err);
 
       new Widget({
@@ -53,15 +53,15 @@ describe("DB Widget Check", function() {
         y: 3
       },
       settings: {}
-    }).save(function(err, model){
+    }).save((err, model) => {
         if (err) return done(err);
 
-        Widget.find({}, function(err, widgets){
+        Widget.find({}, (err, widgets) => {
           if (err) return done(err);
 
           expect(widgets).to.have.length(3);
 
-          widgets.forEach(function(widget) {
+          widgets.forEach((widget) => {
             expect(widget).to.have.property('name')
               .that.is.a('string');
             expect(widget).to.have.property('position')
@@ -84,7 +84,7 @@ describe("DB Widget Check", function() {
     });
   });
 
-  it("DB can be cleared", function(done) {
+  it("DB can be cleared", (done) => {
     new Widget({
       name: 'Widget4',
       position: {
@@ -96,13 +96,13 @@ describe("DB Widget Check", function() {
         y: 4
       },
       settings: {}
-    }).save(function(err, model){
+    }).save((err, model) => {
       if (err) return done(err);
 
-      clearDB(function(err){
+      clearDB((err) => {
         if (err) return done(err);
 
-        Widget.find({}, function(err, widgets){
+        Widget.find({}, (err, widgets) => {
           if (err) return done(err);
 
           expect(widgets).to.have.length(0);

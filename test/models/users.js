@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Users = require('./../../app/models/users');
 
-describe('DB Users Check', function () {
+describe('DB Users Check', () => {
 
-  beforeEach(function (done) {
+  beforeEach((done) => {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", function(done) {
+  it("Data can be saved", (done) => {
     new Users({
       name:  'Max',
       bdate: 'Fri Sep 16 2011 19:05:17 GMT+0900 (JST)',
@@ -27,7 +27,7 @@ describe('DB Users Check', function () {
     }).save(done);
   });
 
-  it("Data can be queried", function(done) {
+  it("Data can be queried", (done) => {
 
     new new Users({
       name:  'Hans',
@@ -40,7 +40,7 @@ describe('DB Users Check', function () {
       theme: 'Dark',
       active: true,
       lastLogin: 'Fri Sep 14 2011 19:05:17 GMT+0900 (JST)'
-    }).save(function(err, model){
+    }).save((err, model) => {
       if (err) return done(err);
 
       new Users({
@@ -54,13 +54,13 @@ describe('DB Users Check', function () {
         theme: 'Dark',
         active: false,
         lastLogin: 'Fri Sep 13 2011 19:05:17 GMT+0900 (JST)'
-      }).save(function(err, model){
+      }).save((err, model) => {
         if (err) return done(err);
 
-        Users.find({}, function(err, users){
+        Users.find({}, (err, users) => {
           if (err) return done(err);
 
-          users.forEach( function(user) {
+          users.forEach((user) => {
 
             expect(user).to.have.property('name')
             .that.is.a('string');
@@ -86,7 +86,7 @@ describe('DB Users Check', function () {
   });
 
 
-  it("DB can be cleared", function(done) {
+  it("DB can be cleared", (done) => {
 
     new Users({
       name:  'Heike',
@@ -99,7 +99,7 @@ describe('DB Users Check', function () {
       theme: 'Dark',
       active: true,
       lastLogin: 'Fri Sep 13 2011 19:05:17 GMT+0900 (JST)'
-    }).save(function(err, model){
+    }).save((err, model) => {
 
       clearDB(function(err){
         if (err) return done(err);

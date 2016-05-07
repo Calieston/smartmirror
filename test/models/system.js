@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var System = require('./../../app/models/system');
 
-describe('DB System Check', function () {
+describe('DB System Check', () => {
 
-  beforeEach(function (done) {
+  beforeEach((done) => {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", function(done) {
+  it("Data can be saved", (done) => {
     new System({
       wifi: {
         ssid: 'ACLCICHCGC',
@@ -27,7 +27,7 @@ describe('DB System Check', function () {
     }).save(done);
   });
 
-  it("Data can be queried", function(done) {
+  it("Data can be queried", (done) => {
 
     System.findOne({}, function(err, system){
       if (err) return done(err);
@@ -53,12 +53,12 @@ describe('DB System Check', function () {
 
   });
 
-  it("DB can be cleared", function(done) {
+  it("DB can be cleared", (done) => {
 
-    clearDB(function(err){
+    clearDB((err) => {
       if (err) return done(err);
 
-      System.find({}, function(err, system){
+      System.find({}, (err, system) => {
         if (err) return done(err);
 
         expect(system).to.have.length(0);
