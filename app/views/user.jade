@@ -1,11 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  h2= user
+  h1=title
+  h2=user
   p Welcome to #{title}
 
-  form(action="/" method="post")
+  form(action="/users" method="post")
     label(for="name") Name:
     input(type="text" name="name")
     br
@@ -16,11 +16,12 @@ block content
 
     label(for="theme") Theme:
     select(name="theme")
-      option(value="Light")
-      option(value="Theme 2")
+      option(value="theme1") Theme1
+      option(value="theme2") Theme2
+    br
 
     label(for="active") Aktiv:
-    input(type="checkbox" name="active")
+    input(type="checkbox" name="active" value="true" checked)
     br
 
     button(type="submit") Speichern

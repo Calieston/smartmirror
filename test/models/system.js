@@ -29,7 +29,7 @@ describe('DB System Check', () => {
 
   it("Data can be queried", (done) => {
 
-    System.findOne({}, function(err, system){
+    System.findOne({}, (err, system) => {
       if (err) return done(err);
 
       expect(system).to.have.property('wifi')

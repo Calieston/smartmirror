@@ -4,32 +4,63 @@ var chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-describe("Webview Backend Check", function() {
+var host = 'http://localhost:3000';
 
-  it("Backend Landing Page can be viewed", function(done) {
-    chai.request('http://localhost:3000')
+describe("Webview Backend Check", () => {
+
+  it("Backend Landing Page can be viewed", (done) => {
+    chai.request(host)
     .get('/')
-    .end(function(err, res) {
-      expect(res).to.have.status(200);
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .to.be.html;
       done();
     });
   });
 
-  it("System Config Page can be viewed", function(done) {
-    chai.request('http://localhost:3000/system')
-    .get('/')
-    .end(function(err, res) {
-      expect(res).to.have.status(200);
+  it("System Config Page can be viewed", (done) => {
+    chai.request(host)
+    .get('/system')
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .to.be.html;
       done();
     });
   });
 
-  it("User Details Page can be viewed", function(done) {
-    chai.request('http://localhost:3000/users/Roman')
-    .get('/')
-    .end(function(err, res) {
-      expect(res).to.have.status(200);
+  it("Add User Page can be viewed", (done) => {
+    chai.request(host)
+    .get('/users')
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .to.be.html;
       done();
     });
   });
+
+  /*Creates timeout error ?!?!*/
+  /*it("Add User Page can be viewed", (done) => {
+    chai.request(host)
+    .post('/users')
+    .field('name', 'Testname')
+    .field('bdate', '2016-05-01')
+    .field('theme', 'light')
+    .field('active', 'true')
+    .end((err, res) => {
+      expect(res).to.have.status(304)
+      .to.be.html;
+      done();
+    });
+  });*/
+
+  it("User Details Page can be viewed", (done) => {
+    chai.request(host)
+    .get('/users/Roman')
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .to.be.html;
+      done();
+    });
+  });
+
 });

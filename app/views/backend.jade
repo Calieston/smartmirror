@@ -1,0 +1,50 @@
+extends layout
+
+block content
+  h1 Smart Mirror Backend
+
+  section#users
+    h1 Users
+
+    if users.length == 0
+      h2 No Users
+    else
+      table
+        thead
+          tr
+            th Username
+            th Status
+            th LastLogin
+            th Delete
+
+        tbody
+          each user in users
+            tr
+              td
+                strong=user.name
+              td
+                p=user.active
+              td
+                time=user.lastLogin
+              td
+                a(href="users/#{user.id}/delete") Delete
+
+    a(href="users")
+      button Add User
+
+  section#modules
+    h1 Modules
+
+    p ToDo
+
+  section#sensors
+    h1 Sensors
+
+    p ToDo
+
+  section#system
+    h1 Systemsettings
+
+    p ToDo
+
+
