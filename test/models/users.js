@@ -14,7 +14,10 @@ describe('DB Users Check', () => {
 
   it("Data can be saved", (done) => {
     new Users({
-      name:  'Max',
+      firstname:  'Max',
+      lastname:  'Mustermann',
+      username:  'mmustermann',
+      mail:  'max.mustermann@smartmirror.com',
       bdate: 'Fri Sep 16 2011 19:05:17 GMT+0900 (JST)',
       auth: {
         rfid: 'a123',
@@ -30,7 +33,10 @@ describe('DB Users Check', () => {
   it("Data can be queried", (done) => {
 
     new new Users({
-      name:  'Hans',
+      firstname:  'Felix',
+      lastname:  'Bauer',
+      username:  'fbauer',
+      mail:  'felix.bauer@smartmirror.com',
       bdate: 'Fri Sep 17 2011 19:05:17 GMT+0900 (JST)',
       auth: {
         rfid: 'b234',
@@ -44,16 +50,19 @@ describe('DB Users Check', () => {
       if (err) return done(err);
 
       new Users({
-        name:  'Heike',
-        bdate: 'Fri Sep 18 2011 19:05:17 GMT+0900 (JST)',
-        auth: {
-          rfid: 'c345',
-          password: 'c345'
-        },
-        widgets: [],
-        theme: 'Dark',
-        active: false,
-        lastLogin: 'Fri Sep 13 2011 19:05:17 GMT+0900 (JST)'
+      firstname:  'Heike',
+      lastname:  'Thomann',
+      username:  'hthomann',
+      mail:  'heike.thomann@smartmirror.com',
+      bdate: 'Fri Sep 18 2011 19:05:17 GMT+0900 (JST)',
+      auth: {
+        rfid: 'c456',
+        password: 'c456'
+      },
+      widgets: [],
+      theme: 'Dark',
+      active: true,
+      lastLogin: 'Fri Sep 13 2011 19:05:17 GMT+0900 (JST)'
       }).save((err, model) => {
         if (err) return done(err);
 
@@ -62,7 +71,13 @@ describe('DB Users Check', () => {
 
           users.forEach((user) => {
 
-            expect(user).to.have.property('name')
+            expect(user).to.have.property('firstname')
+            .that.is.a('string');
+            expect(user).to.have.property('lastname')
+            .that.is.a('string');
+            expect(user).to.have.property('username')
+            .that.is.a('string');
+            expect(user).to.have.property('mail')
             .that.is.a('string');
             expect(user).to.have.property('bdate')
             .that.is.a('date');
@@ -89,11 +104,14 @@ describe('DB Users Check', () => {
   it("DB can be cleared", (done) => {
 
     new Users({
-      name:  'Heike',
+      firstname:  'Heike',
+      lastname:  'Thomann',
+      username:  'hthomann',
+      mail:  'heike.thomann@smartmirror.com',
       bdate: 'Fri Sep 18 2011 19:05:17 GMT+0900 (JST)',
       auth: {
-        rfid: 'c345',
-        password: 'c345'
+        rfid: 'c456',
+        password: 'c456'
       },
       widgets: [],
       theme: 'Dark',

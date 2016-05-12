@@ -6,7 +6,16 @@ var Schema = mongoose.Schema;
 var Widget = require('./widgets');
 
 var userSchema = new Schema({
-  name:  {
+  username: {
+    type: String
+  },
+  firstname: {
+    type: String
+  },
+  lastname: {
+    type: String
+  },
+  mail: {
     type: String
   },
   bdate: {
@@ -20,12 +29,10 @@ var userSchema = new Schema({
       type: String
     }
   },
-  widgets: [
-    {
-      type: Schema.ObjectId,
-      ref: 'Widget'
-    }
-  ],
+  widgets: [{
+    type: Schema.ObjectId,
+    ref: 'Widget'
+  }],
   theme: {
     type: String
   },
