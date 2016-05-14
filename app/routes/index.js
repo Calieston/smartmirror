@@ -2,8 +2,12 @@
 
 var express = require('express');
 var router = express.Router();
-
 var User = require('./../models/users');
+var userController = require('../controllers/user');
+
+router.route('/users')
+  .get(userController.getUsers)
+  .post(userController.createUser);
 
 /* GET backend landing page. */
 router.get('/', (req, res, next) => {
@@ -33,37 +37,7 @@ router.get('/system', (req, res, next) => {
   });
 });
 
-/* User page. */
-router.route('/users')
-  .get((req, res, next) => {
-    res.render('user', {
-      title: 'SmartMirror Backend Add User Profile',
-    });
-  })
-  /* Post Form Data */
-  .post((req, res, next) => {
 
-    /* Create new user */
-    let newUser = new User({
-      name: req.body.name,
-      bdate: req.body.bdate,
-      theme: req.body.theme,
-      active: (req.body.active == 'true' ? true : false),
-    });
-
-    /* Save new user */
-    let query = newUser.save();
-    /* Query Promise */
-    query.then((user) => {
-      res.redirect('/');
-    })
-    /* Catch Error */
-    .catch((err) => {
-      console.error(err);
-      res.redirect('/?error=newUser');
-    });
-
-  });
 
 /* GET user page. */
 router.get('/users/:user', (req, res, next) => {
