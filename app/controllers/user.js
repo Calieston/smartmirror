@@ -6,30 +6,51 @@ var User = require('../models/users');
 // REQ JSON: username, password, mail
 // RES JSON: user / error
 exports.createUser = function(req, res) {
-		// Create new user instance and insert data
-		var newUser = User({
-			username: req.body.name,
-			bdate: req.body.bdate,
-			theme: req.body.theme,
-			active: (req.body.active == 'true' ? true : false),
+	// Create new user instance and insert data
+	var newUser = User({
+		username: req.body.name,
+		bdate: req.body.bdate,
+		theme: req.body.theme,
+		active: (req.body.active == 'true' ? true : false),
+	});
+	/* Save new user */
+	let query = newUser.save();
+	/* Query Promise */
+	query.then((user) => {
+			res.redirect('/');
+		})
+		/* Catch Error */
+		.catch((err) => {
+			console.error(err);
+			res.redirect('/?error=newUser');
 		});
-		/* Save new user */
-		let query = newUser.save();
-		/* Query Promise */
-		query.then((user) => {
-				res.redirect('/');
-			})
-			/* Catch Error */
-			.catch((err) => {
-				console.error(err);
-				res.redirect('/?error=newUser');
-			});
-	}
+}
 
 // Render view to create a new user
 exports.getUserCreateForm = function(req, res) {
-    res.render('user', {
-      title: 'SmartMirror Backend Add User Profile',
-    });
+	res.render('user', {
+		title: 'SmartMirror Backend Add User Profile',
+	});
 
 }
+exports.getUsers = function(req, res) {
+	User.find({}, function(err, users) {
+		res.json(users);
+	});
+}
+
+exports.deleteUser = function(req, res) {
+
+	/* Query for deleting a user by id */
+	let query = User.findByIdAndRemove(req.params.user).exec();
+
+	/* Query Promise */
+	query.then(() => {
+			res.redirect('/?msg=userdeleted');
+		})
+		/* Catch Error */
+		.catch((err) => {
+			res.redirect('/?error=delete');
+		});
+
+};

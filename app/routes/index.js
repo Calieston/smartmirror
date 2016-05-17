@@ -6,8 +6,14 @@ var User = require('./../models/users');
 var userController = require('../controllers/user');
 
 router.route('/users')
+  .get(userController.getUsers)
+
+router.route('/users/new')
   .get(userController.getUserCreateForm)
   .post(userController.createUser);
+
+router.route('/users/:user/delete')
+  .get(userController.deleteUser);
 
 /* GET backend landing page. */
 router.get('/', (req, res, next) => {
@@ -38,7 +44,6 @@ router.get('/system', (req, res, next) => {
 });
 
 
-
 /* GET user page. */
 router.get('/users/:user', (req, res, next) => {
   res.render('user', {
@@ -47,21 +52,6 @@ router.get('/users/:user', (req, res, next) => {
   });
 });
 
-/* Delete User */
-router.get('/users/:user/delete', (req, res, next) => {
 
-  /* Query for deleting a user by id */
-  let query = User.findByIdAndRemove(req.params.user).exec();
-
-  /* Query Promise */
-  query.then(() => {
-    res.redirect('/?msg=userdeleted');
-  })
-  /* Catch Error */
-  .catch((err) => {
-    res.redirect('/?error=delete');
-  });
-
-});
 
 module.exports = router;

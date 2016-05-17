@@ -30,7 +30,7 @@ describe("Webview Backend Check", () => {
 
   it("Add User Page can be viewed", (done) => {
     chai.request(host)
-    .get('/users')
+    .get('/users/new')
     .end((err, res) => {
       expect(res).to.have.status(200)
       .to.be.html;

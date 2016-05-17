@@ -8,29 +8,43 @@ var host = 'http://localhost:3000';
 
 describe("User Controller Check", () => {
 
-  it("New user form can be viewed", (done) => {
-    chai.request(host)
-    .get('/users')
-    .end((err, res) => {
-      expect(res).to.have.status(200)
-      .to.be.html;
-      done();
-    });
-  });
+      it("Open new user form", (done) => {
+        chai.request(host)
+          .get('/users/new')
+          .end((err, res) => {
+            expect(res).to.have.status(200)
+              .to.be.html;
+            done();
+          });
+      });
 
-  it("New User can be added", (done) => {
-    chai.request(host)
-    .post('/users')
-    .send({
-      username: 'testuser',
-      bdate: 'Fri Sep 19 1992 12:05:17 GMT+0900 (JST)',
-      theme: 'Light',
-      active: 'true'
-      })
-    .end((err, res) => {
-      expect(res).to.have.status(200)
-      .to.be.html;
-      done();
+      it("Add a new user", (done) => {
+        chai.request(host)
+          .post('/users/new')
+          .send({
+            username: 'testuser',
+            bdate: 'Fri Sep 19 1992 12:05:17 GMT+0900 (JST)',
+            theme: 'Light',
+            active: 'true'
+          })
+          .end((err, res) => {
+            expect(res).to.have.status(200)
+              .to.be.html;
+            done();
+          });
+      });
+
+      it("Delete a user", (done) => {
+        chai.request(host)
+          .get('/users')
+          .end(function(err, res) {
+            chai.request(host)
+              .get('/users/' + res.body[0]._id + '/delete')
+              .end(function(error, response) {
+                done();
+              })
+          })
+      });
+
+
     });
-  });
-});
