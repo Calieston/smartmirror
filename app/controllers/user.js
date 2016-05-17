@@ -6,7 +6,6 @@ var User = require('../models/users');
 // REQ JSON: username, password, mail
 // RES JSON: user / error
 exports.createUser = function(req, res) {
-		console.log('call controller method');
 		// Create new user instance and insert data
 		var newUser = User({
 			username: req.body.name,
@@ -14,8 +13,6 @@ exports.createUser = function(req, res) {
 			theme: req.body.theme,
 			active: (req.body.active == 'true' ? true : false),
 		});
-
-
 		/* Save new user */
 		let query = newUser.save();
 		/* Query Promise */
@@ -28,10 +25,9 @@ exports.createUser = function(req, res) {
 				res.redirect('/?error=newUser');
 			});
 	}
-	// Create User
-	// REQ JSON: username, password, mail
-	// RES JSON: user / error
-exports.getUsers = function(req, res) {
+
+// Render view to create a new user
+exports.getUserCreateForm = function(req, res) {
     res.render('user', {
       title: 'SmartMirror Backend Add User Profile',
     });

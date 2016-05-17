@@ -6,7 +6,7 @@ var User = require('./../models/users');
 var userController = require('../controllers/user');
 
 router.route('/users')
-  .get(userController.getUsers)
+  .get(userController.getUserCreateForm)
   .post(userController.createUser);
 
 /* GET backend landing page. */
