@@ -53,7 +53,7 @@ describe("Webview Backend Check", () => {
     });
   });*/
 
-  it("User Details Page can be viewed", (done) => {
+/*  it("User Details Page can be viewed", (done) => {
     chai.request(host)
     .get('/users/Roman')
     .end((err, res) => {
@@ -61,6 +61,6 @@ describe("Webview Backend Check", () => {
       .to.be.html;
       done();
     });
-  });
+  });*/
 
 });

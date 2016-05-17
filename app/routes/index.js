@@ -13,7 +13,11 @@ router.route('/users/new')
   .post(userController.createUser);
 
 router.route('/users/:user/delete')
-  .get(userController.deleteUser);
+  .get(userController.deleteUserById);
+
+router.route('/users/:id/edit')
+  .get(userController.getUserById)
+  .post(userController.updateUser);
 
 /* GET backend landing page. */
 router.get('/', (req, res, next) => {
@@ -23,16 +27,16 @@ router.get('/', (req, res, next) => {
 
   /* Query Promise */
   query.then((users) => {
-    res.render('backend', {
-      title: 'SmartMirror Backend Landingpage',
-      users: users,
+      res.render('backend', {
+        title: 'SmartMirror Backend Landingpage',
+        users: users,
+      });
+    })
+    /* Error Handling */
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
     });
-  })
-  /* Error Handling */
-  .catch((err) => {
-    console.error(err);
-    res.send(404);
-  });
 
 });
 
@@ -42,16 +46,5 @@ router.get('/system', (req, res, next) => {
     title: 'SmartMirror Backend Sytem Config',
   });
 });
-
-
-/* GET user page. */
-router.get('/users/:user', (req, res, next) => {
-  res.render('user', {
-    title: 'SmartMirror Backend User Profile',
-    user: 'User: ' + req.params.user,
-  });
-});
-
-
 
 module.exports = router;

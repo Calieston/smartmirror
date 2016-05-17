@@ -15,7 +15,7 @@ block content
             th Username
             th Status
             th LastLogin
-            th Delete
+            th Actions
 
         tbody
           each user in users
@@ -28,6 +28,8 @@ block content
                 time=user.lastLogin
               td
                 a(href="users/#{user.id}/delete") Delete
+                =" "
+                a(href="users/#{user.id}/edit") Edit
 
     a(href="users/new")
       button Add User
