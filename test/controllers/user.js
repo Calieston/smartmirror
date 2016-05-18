@@ -34,18 +34,6 @@ describe("User Controller Check", () => {
       });
   });
 
-  it("Delete a user", (done) => {
-    chai.request(host)
-      .get('/users')
-      .end(function(err, res) {
-        chai.request(host)
-          .get('/users/' + res.body[0]._id + '/delete')
-          .end(function(err, res) {
-            done();
-          })
-      })
-  });
-
   it("Update a user", (done) => {
     chai.request(host)
       .get('/users')
@@ -67,5 +55,16 @@ describe("User Controller Check", () => {
       })
   });
 
+  it("Delete a user", (done) => {
+    chai.request(host)
+      .get('/users')
+      .end(function(err, res) {
+        chai.request(host)
+          .get('/users/' + res.body[0]._id + '/delete')
+          .end(function(err, res) {
+            done();
+          })
+      })
+  });
 
 });
