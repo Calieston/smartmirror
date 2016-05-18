@@ -35,9 +35,9 @@ The goal of the module was to realize an innovation project with focus on the te
 - When ever you change a file, the browser will refresh automaticly
 
 ## Commits
-- Before commiting, run the three following tests
+- Before commiting, run the three following tests and fix the errors
 - Unit Tests: `npm mocha` or `npm mochaWatch` (runs tests on filechange)
-- Codestyle: `npm jshint`
+- Codestyle: `npm jscs`
 - Codequality: `npm jshint`
 
 ## Error FAQ
