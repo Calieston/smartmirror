@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Sensor = require('./../../app/models/sensors');
 
-describe('DB Sensor Check', () => {
+describe('DB Sensor Check', function() {
 
-  beforeEach((done) => {
+  beforeEach(function(done) {
     if (mongoose.connection.db) return done();
       mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", (done) => {
+  it("Data can be saved", function(done) {
     new Sensor({
       address: '77',
       connection: 'i2c',
@@ -20,7 +20,7 @@ describe('DB Sensor Check', () => {
     }).save(done);
   });
 
-  it("Data can be queried", (done) => {
+  it("Data can be queried", function(done) {
     new Sensor({
       address: '66',
       connection: 'i2c',
@@ -57,7 +57,7 @@ describe('DB Sensor Check', () => {
     });
   });
 
-  it("DB can be cleared", (done) => {
+  it("DB can be cleared", function(done) {
     new new Sensor({
       address: '44',
       connection: 'i2c',

@@ -6,9 +6,9 @@ chai.use(chaiHttp);
 
 var host = 'http://localhost:3000';
 
-describe("User Controller Check", () => {
+describe("User Controller Check", function() {
 
-  it("Open new user form", (done) => {
+  it("Open new user form", function(done) {
     chai.request(host)
       .get('/users/new')
       .end((err, res) => {
@@ -18,7 +18,7 @@ describe("User Controller Check", () => {
       });
   });
 
-  it("Add a new user", (done) => {
+  it("Add a new user", function(done) {
     chai.request(host)
       .post('/users/new')
       .send({
@@ -34,7 +34,7 @@ describe("User Controller Check", () => {
       });
   });
 
-  it("Update a user", (done) => {
+  it("Update a user", function(done) {
     chai.request(host)
       .get('/users')
       .end(function(err, res) {
@@ -55,7 +55,7 @@ describe("User Controller Check", () => {
       })
   });
 
-  it("Delete a user", (done) => {
+  it("Delete a user", function(done) {
     chai.request(host)
       .get('/users')
       .end(function(err, res) {

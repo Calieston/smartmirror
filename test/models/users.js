@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Users = require('./../../app/models/users');
 
-describe('DB Users Check', () => {
+describe('DB Users Check', function() {
 
-  beforeEach((done) => {
+  beforeEach(function(done) {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", (done) => {
+  it("Data can be saved", function(done) {
     new Users({
       firstname:  'Max',
       lastname:  'Mustermann',
@@ -30,7 +30,7 @@ describe('DB Users Check', () => {
     }).save(done);
   });
 
-  it("Data can be queried", (done) => {
+  it("Data can be queried", function(done) {
 
     new new Users({
       firstname:  'Felix',
@@ -101,7 +101,7 @@ describe('DB Users Check', () => {
   });
 
 
-  it("DB can be cleared", (done) => {
+  it("DB can be cleared", function(done) {
 
     new Users({
       firstname:  'Heike',

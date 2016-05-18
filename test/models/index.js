@@ -4,19 +4,19 @@ var mongoose = require('mongoose');
 var Dummy = mongoose.model('Dummy', new mongoose.Schema({a:Number}));
 var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
-describe("DB Check", () => {
+describe("DB Check", function() {
 
-  beforeEach((done) => {
+  beforeEach(function(done) {
     if (mongoose.connection.db) return done();
 
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", (done) => {
+  it("Data can be saved", function(done) {
     new Dummy({a: 1}).save(done);
   });
 
-  it("Data can be queried", (done) => {
+  it("Data can be queried", function(done) {
     new Dummy({a: 1}).save((err, model) => {
       if (err) return done(err);
 
@@ -33,7 +33,7 @@ describe("DB Check", () => {
     });
   });
 
-  it("DB can be cleared", (done) => {
+  it("DB can be cleared", function(done) {
     new Dummy({a: 5}).save((err, model) => {
       if (err) return done(err);
 

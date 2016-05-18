@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Widget = require('./../../app/models/widgets');
 
-describe("DB Widget Check", () => {
+describe("DB Widget Check", function() {
 
-  beforeEach((done) => {
+  beforeEach(function(done) {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", (done) => {
+  it("Data can be saved", function(done) {
     new Widget({
       name: 'Widget1',
       position: {
@@ -27,7 +27,7 @@ describe("DB Widget Check", () => {
     }).save(done);
   });
 
-  it("Data can be queried", (done) => {
+  it("Data can be queried", function(done) {
     new Widget({
       name: 'Widget2',
       position: {
@@ -84,7 +84,7 @@ describe("DB Widget Check", () => {
     });
   });
 
-  it("DB can be cleared", (done) => {
+  it("DB can be cleared", function(done) {
     new Widget({
       name: 'Widget4',
       position: {

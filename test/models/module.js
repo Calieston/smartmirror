@@ -5,14 +5,14 @@ var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Module = require('./../../app/models/modules');
 
-describe("DB Module Check", () => {
+describe("DB Module Check", function() {
 
-  beforeEach((done) => {
+  beforeEach(function(done) {
     if (mongoose.connection.db) return done();
     mongoose.connect(dbURI, done);
   });
 
-  it("Data can be saved", (done) => {
+  it("Data can be saved", function(done) {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
@@ -24,7 +24,7 @@ describe("DB Module Check", () => {
     }).save(done);
   });
 
-  it("Data can be queried", (done) => {
+  it("Data can be queried", function(done) {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
@@ -111,7 +111,7 @@ describe("DB Module Check", () => {
 
   });
 
-  it("DB can be cleared", (done) => {
+  it("DB can be cleared", function(done) {
     new Module({
       author: 'Ein Name',
       description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',

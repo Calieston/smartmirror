@@ -4,10 +4,10 @@ var chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-describe("Webview Guide Check", () => {
+describe("Webview Smartmirror Check", function() {
 
-  it("Guide Page can be viewed", (done) => {
-    chai.request('http://localhost:3000')
+  it("Smartmirror Page can be viewed", function(done) {
+    chai.request('http://localhost:3000/smartmirror')
     .get('/')
     .end((err, res) => {
       expect(res).to.have.status(200);

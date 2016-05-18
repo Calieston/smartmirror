@@ -6,9 +6,9 @@ chai.use(chaiHttp);
 
 var host = 'http://localhost:3000';
 
-describe("Webview Backend Check", () => {
+describe("Webview Backend Check", function() {
 
-  it("Backend Landing Page can be viewed", (done) => {
+  it("Backend Landing Page can be viewed", function(done) {
     chai.request(host)
     .get('/')
     .end((err, res) => {
@@ -18,7 +18,7 @@ describe("Webview Backend Check", () => {
     });
   });
 
-  it("System Config Page can be viewed", (done) => {
+  it("System Config Page can be viewed", function(done) {
     chai.request(host)
     .get('/system')
     .end((err, res) => {
@@ -28,7 +28,7 @@ describe("Webview Backend Check", () => {
     });
   });
 
-  it("Add User Page can be viewed", (done) => {
+  it("Add User Page can be viewed", function(done) {
     chai.request(host)
     .get('/users/new')
     .end((err, res) => {
@@ -39,7 +39,7 @@ describe("Webview Backend Check", () => {
   });
 
   /*Creates timeout error ?!?!*/
-  /*it("Add User Page can be viewed", (done) => {
+  /*it("Add User Page can be viewed", function(done) {
     chai.request(host)
     .post('/users')
     .field('name', 'Testname')
@@ -53,7 +53,7 @@ describe("Webview Backend Check", () => {
     });
   });*/
 
-/*  it("User Details Page can be viewed", (done) => {
+/*  it("User Details Page can be viewed", function(done) {
     chai.request(host)
     .get('/users/Roman')
     .end((err, res) => {
