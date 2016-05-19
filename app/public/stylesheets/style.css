@@ -22,3 +22,23 @@ label {
 	min-width: 80px;
 	display: inline-block;
 }
+
+.card{
+width: 200px;
+border: 1px solid gray;
+min-height: 150px;
+padding-: 10px;
+margin: 0px;
+}
+
+p{
+  margin: 10px;
+  line-height: 1.4em;
+  font-size: 1.2em;
+}
+
+img{
+  border-radius: 50%;
+  width: 70px;
+  margin: 10px;
+}

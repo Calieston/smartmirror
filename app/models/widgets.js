@@ -21,6 +21,12 @@ var widgetSchema = new Schema({
       type: Number
     }
   },
+  temperature: {
+    type: String
+  },
+  status: {
+    type: String
+  },
   size: {
     x: {
       type: Number
