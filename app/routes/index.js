@@ -5,6 +5,7 @@ var router = express.Router();
 var User = require('./../models/users');
 var userController = require('../controllers/user');
 var systemController = require('./../controllers/system');
+var modulesController = require('./../controllers/modules');
 
 router.route('/users')
   .get(userController.getUsers);
@@ -28,7 +29,7 @@ router.get('/', (req, res, next) => {
 
   /* Query Promise */
   query.then((users) => {
-      res.render('backend', {
+      res.render('backend_home', {
         title: 'SmartMirror Backend Landingpage',
         users: users,
       });
@@ -46,7 +47,7 @@ router.route('/system')
   .get((req, res, next) => {
     systemController.get().then((system) => {
       console.log(system.wifi);
-      res.render('system', {
+      res.render('backend_systemsettings', {
         title: 'SmartMirror Backend Sytem Config',
         system: system.wifi,
       });
@@ -54,7 +55,7 @@ router.route('/system')
   })
   .post((req, res, next) => {
     systemController.update(req.body).then((system) => {
-      res.render('system', {
+      res.render('backend_systemsettings', {
         system: system.wifi
       });
     })
@@ -62,6 +63,16 @@ router.route('/system')
     .catch((err) => {
       console.error(err);
       res.send(404);
+    });
+  });
+
+router.route('/modules')
+  .get((req, res, next) => {
+    modulesController.getAll().then((modules) => {
+      console.log(modules);
+      res.render('backend_modules', {
+        modules: modules
+      });
     });
   });
 

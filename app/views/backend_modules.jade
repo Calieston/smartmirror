@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  header
+    h1 Moduleübersicht
+
+  section
+    h2 Module suchen
+    p Todo
+
+  section
+    h2 Installierte Module
+
+    if modules.length == 0
+      h2 No Modules
+    else
+      table
+        thead
+          tr
+            th Module
+            th Description
+            th Version
+            th Link
+
+        tbody
+          each module in modules
+            tr
+              td
+                strong=module.name
+              td
+                p=module.description
+              td
+                time=module.version
+              td
+                a(href=module.url) Info
