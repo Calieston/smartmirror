@@ -56,7 +56,7 @@ router.route('/system')
   .post((req, res, next) => {
     systemController.update(req.body).then((system) => {
       res.render('backend_systemsettings', {
-        system: system.wifi
+        system: system.wifi,
       });
     })
     /* Error Handling */
@@ -71,7 +71,7 @@ router.route('/modules')
     modulesController.getAll().then((modules) => {
       console.log(modules);
       res.render('backend_modules', {
-        modules: modules
+        modules: modules,
       });
     });
   });

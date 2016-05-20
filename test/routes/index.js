@@ -77,5 +77,16 @@ describe('Backend Users Sites', function () {
   });*/
 });
 
+describe('Backend Modules Site', function () {
+  it('Modules Overview', function (done) {
+    chai.request(host)
+    .get('/modules')
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .and.to.be.html;
+      done();
+    });
+  });
+});
 
 

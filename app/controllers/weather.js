@@ -11,8 +11,7 @@ exports.getWeather = function(req, res) {
     city = 'Stuttgart';
   }
   // Api call to fetch weather data
-  client.get('http://api.openweathermap.org/data/2.5/weather?q='
-    + city + '&lang=de&units=metric&APPID=384c499db848052e6aeed5df1388d5e7',
+  client.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&lang=de&units=metric&APPID=384c499db848052e6aeed5df1388d5e7',
    function(data, response) {
     // Convert in json
     JSON.stringify(data);
