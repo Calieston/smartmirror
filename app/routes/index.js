@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('./../models/users');
 var userController = require('../controllers/user');
+var systemController = require('./../controllers/system');
 
 router.route('/users')
   .get(userController.getUsers);
@@ -41,10 +42,27 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET system config page. */
-router.get('/system', (req, res, next) => {
-  res.render('index', {
-    title: 'SmartMirror Backend Sytem Config',
+router.route('/system')
+  .get((req, res, next) => {
+    systemController.get().then((system) => {
+      console.log(system.wifi);
+      res.render('system', {
+        title: 'SmartMirror Backend Sytem Config',
+        system: system.wifi,
+      });
+    });
+  })
+  .post((req, res, next) => {
+    systemController.update(req.body).then((system) => {
+      res.render('system', {
+        system: system.wifi
+      });
+    })
+    /* Error Handling */
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
+    });
   });
-});
 
 module.exports = router;
