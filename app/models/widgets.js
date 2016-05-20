@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
+var path = require('path');
 var Schema = mongoose.Schema;
 
 var Modules = require('./modules');
@@ -39,5 +40,9 @@ var widgetSchema = new Schema({
 }, {
   timestamps: true
 });
+
+widgetSchema.virtual('path').get(function() {
+  return __dirname + './../modules/' + this.name + '/view.jade';
+})
 
 module.exports = mongoose.model('Widget', widgetSchema);

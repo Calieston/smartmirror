@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Smartmirror
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header
+      p Hallo, #{user.username}
+      - var time = new Date();
+      time=time.toLocaleString()
+    h1= userid
+    each widget in user.widgets
+      section(id=widget.name, data-x=widget.position.x, data-y=widget.position.y)
+        != templateRender(widget.path, {widget: widget, path:path})
+
+    each widget in user.widgets
+      script(src='./../modules/' + widget.name + '/script.js')
