@@ -1,7 +1,6 @@
 var dbURI = 'mongodb://localhost/smartmirror-test';
 var expect = require('chai').expect;
 var mongoose = require('mongoose');
-var clearDB = require('mocha-mongoose')(dbURI, {noClear: true});
 
 var Module = require('./../../app/models/modules');
 
@@ -107,32 +106,6 @@ describe("DB Module Check", function() {
 
       }, 1100);
 
-    });
-
-  });
-
-  it("DB can be cleared", function(done) {
-    new Module({
-      author: 'Ein Name',
-      description: 'Lorem ipsum Anim Ut non tempor Duis nulla ea id nulla labore ex.',
-      details: 'www.eine_andere_url.com',
-      name: 'ModuleNo1',
-      url: 'www.urltogit.de',
-      status: 'installing',
-      version: '0.1'
-    }).save((err, model) => {
-      if (err) return done(err);
-
-      clearDB((err) => {
-        if (err) return done(err);
-
-        Module.find({}, (err, modules) => {
-          if (err) return done(err);
-
-          expect(modules).to.have.length(0);
-          done();
-        });
-      });
     });
   });
 });

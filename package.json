@@ -7,8 +7,8 @@
     "start": "node index.js",
     "jscs": "jscs app/",
     "jshint": "jshint app",
-    "mocha": "mocha --recursive",
-    "mochaWatch": "mocha --watch --recursive"
+    "mocha": "mocha ./test/test.js",
+    "mochaWatch": "mocha --watch ./test/test.js"
   },
   "repository": {
     "type": "git",

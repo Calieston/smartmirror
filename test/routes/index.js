@@ -18,6 +18,9 @@ describe("Webview Backend Check", function() {
     });
   });
 
+});
+
+describe('Backend System Config', function () {
   it("System Config Page can be viewed", function(done) {
     chai.request(host)
     .get('/system')
@@ -27,7 +30,18 @@ describe("Webview Backend Check", function() {
       done();
     });
   });
+/*  it('System Config page update', function (done) {
+    chai.request(host)
+    .post('/system')
+    .end((err, res) => {
+      expect(res).to.have.status(200)
+      .and.to.be.html;
+      done();
+    });
+  });*/
+});
 
+describe('Backend Users Sites', function () {
   it("Add User Page can be viewed", function(done) {
     chai.request(host)
     .get('/users/new')
@@ -37,7 +51,6 @@ describe("Webview Backend Check", function() {
       done();
     });
   });
-
   /*Creates timeout error ?!?!*/
   /*it("Add User Page can be viewed", function(done) {
     chai.request(host)
@@ -47,8 +60,8 @@ describe("Webview Backend Check", function() {
     .field('theme', 'light')
     .field('active', 'true')
     .end((err, res) => {
-      expect(res).to.have.status(304)
-      .to.be.html;
+      expect(res).to.redirect()
+      .and.to.be.html;
       done();
     });
   });*/
@@ -58,9 +71,11 @@ describe("Webview Backend Check", function() {
     .get('/users/Roman')
     .end((err, res) => {
       expect(res).to.have.status(200)
-      .to.be.html;
+      .and.to.be.html;
       done();
     });
   });*/
-
 });
+
+
+

@@ -52,18 +52,4 @@ describe('DB System Check', function() {
     });
 
   });
-
-  it("DB can be cleared", function(done) {
-
-    clearDB((err) => {
-      if (err) return done(err);
-
-      System.find({}, (err, system) => {
-        if (err) return done(err);
-
-        expect(system).to.have.length(0);
-        done();
-      });
-    });
-  });
 });

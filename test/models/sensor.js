@@ -56,25 +56,4 @@ describe('DB Sensor Check', function() {
       });
     });
   });
-
-  it("DB can be cleared", function(done) {
-    new new Sensor({
-      address: '44',
-      connection: 'i2c',
-      name: 'move'
-    }).save((err, model) => {
-      if (err) return done(err);
-
-      clearDB((err) => {
-        if (err) return done(err);
-
-        Sensor.find({}, (err, sensors) => {
-          if (err) return done(err);
-
-          expect(sensors).to.have.length(0);
-          done();
-        });
-      });
-    });
-  });
 });

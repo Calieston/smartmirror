@@ -99,36 +99,4 @@ describe('DB Users Check', function() {
       });
     });
   });
-
-
-  it("DB can be cleared", function(done) {
-
-    new Users({
-      firstname:  'Heike',
-      lastname:  'Thomann',
-      username:  'hthomann',
-      mail:  'heike.thomann@smartmirror.com',
-      bdate: 'Fri Sep 18 2011 19:05:17 GMT+0900 (JST)',
-      auth: {
-        rfid: 'c456',
-        password: 'c456'
-      },
-      widgets: [],
-      theme: 'Dark',
-      active: true,
-      lastLogin: 'Fri Sep 13 2011 19:05:17 GMT+0900 (JST)'
-    }).save((err, model) => {
-
-      clearDB(function(err){
-        if (err) return done(err);
-
-        Users.find({}, function(err, user){
-          if (err) return done(err);
-
-          expect(user).to.have.length(0);
-          done();
-        });
-      });
-    });
-  });
 });

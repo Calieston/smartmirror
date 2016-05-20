@@ -84,31 +84,5 @@ describe("DB Widget Check", function() {
     });
   });
 
-  it("DB can be cleared", function(done) {
-    new Widget({
-      name: 'Widget4',
-      position: {
-        x: 4,
-        y: 4
-      },
-      size: {
-        x: 4,
-        y: 4
-      },
-      settings: {}
-    }).save((err, model) => {
-      if (err) return done(err);
 
-      clearDB((err) => {
-        if (err) return done(err);
-
-        Widget.find({}, (err, widgets) => {
-          if (err) return done(err);
-
-          expect(widgets).to.have.length(0);
-          done();
-        });
-      });
-    });
-  });
 });
