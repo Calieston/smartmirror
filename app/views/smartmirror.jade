@@ -6,12 +6,13 @@ html
   body
     header
       p Hallo, #{user.username}
-      - var time = new Date();
-      time=time.toLocaleString()
+      time=new Date().toLocaleString()
     h1= userid
-    each widget in user.widgets
-      section(id=widget.name, data-x=widget.position.x, data-y=widget.position.y)
-        != templateRender(widget.path, {widget: widget, path:path})
 
+    //- Create Widget Container
     each widget in user.widgets
-      script(src='./../modules/' + widget.name + '/script.js')
+      section(id=widget._id class=[widget.name, 'widget'], data-x=widget.position.x, data-y=widget.position.y data-module=widget.module)
+
+    //- Load all core scripts
+    //- script(src='/javascripts/angular.js')
+    script(src='/javascripts/main.js')

@@ -6,27 +6,35 @@ var jade = require('jade');
 
 var smartmirrorController = require('./../controllers/smartmirror');
 
-var path = require('path');
-
 /* GET smartmirror interface page. */
 router.get('/', (req, res, next) => {
   res.render('index', { title: 'SmartMirror Interface' });
-  /*Res.sendFile(path.resolve('public/index.html'));*/
 });
 
-/*Router.route('/weather')
-  .get(weatherController.getWeather)
-  .post(weatherController.getWeather);
-*/
-
-router.get('/:id', (req, res, next) => {
-
-  smartmirrorController.get(req.params.id).then((user) => {
-    res.render('smartmirror', {
-      user: user,
-      templateRender: jade.renderFile
+router.route('/:userId')
+  .get((req, res) => {
+    smartmirrorController.getUser(req.params.userId).then((user) => {
+      res.render('smartmirror', {
+        user: user,
+      });
     });
   });
-});
+
+router.route('/module/:module')
+  .get((req, res) => {
+
+    smartmirrorController.getWidget(req.params.module).then((widget) => {
+      let Module = require(
+        './../modules/' + widget.module.name + '/controller.js');
+      let test = Module.get(widget.settings);
+
+      console.log(test);
+
+      res.send(test);
+    });
+  })
+  .post((req, res) => {
+    res.send('Widget.POST ' + req.params.module);
+  });
 
 module.exports = router;

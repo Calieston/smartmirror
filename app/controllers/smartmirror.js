@@ -1,12 +1,21 @@
 'use strict';
 
 var User = require('./../models/users');
+var Widget = require('./../models/widgets');
+var Module = require('./../models/modules');
 
-exports.get = function(userid) {
-  let query = User.findById(userid);
-      query.populate('widgets');
+exports.getUser = (id) => {
+  let query = User.findById(id)
+    .lean()
+    .populate('widgets');
 
-  query.exec()
+  return query.exec();
+};
 
-  return query;
-}
+exports.getWidget = (id) => {
+  let query = Widget.findById(id)
+    .lean()
+    .populate('module');
+
+  return query.exec();
+};
