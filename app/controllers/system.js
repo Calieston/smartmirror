@@ -3,7 +3,8 @@
 var System = require('./../models/system');
 
 exports.get = function() {
-  let query = System.findOne({});
+  let query = System.findOne({})
+    .lean();
   return query.exec();
 };
 
