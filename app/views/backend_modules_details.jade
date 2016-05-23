@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  header
+    h1 Moduldetails
+    p Gefundene Daten aus URL: #{url}
+
+  section
+    h2 Name:
+    strong=details.name
+
+    h2 Description:
+    strong=details.description
+
+    h2 Version:
+    strong=details.version
+
+    h2 Author:
+    strong=details.author
+
+  form(action="modules/install")
+    input(type="hidden" value=url)
+    button(type="submit") Modul installieren

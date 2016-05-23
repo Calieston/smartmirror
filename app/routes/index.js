@@ -69,11 +69,26 @@ router.route('/system')
 router.route('/modules')
   .get((req, res, next) => {
     modulesController.getAll().then((modules) => {
-      console.log(modules);
       res.render('backend_modules', {
         modules: modules,
       });
     });
   });
+
+
+router.route('/modules/details')
+  .post((req, res) => {
+    modulesController.loadModuleDetails({
+      owner: req.body.owner,
+      repo: req.body.repo})
+    .then((details) => {
+      res.render('backend_modules_details.jade', {
+        owner: req.body.owner,
+        repo: req.body.repo,
+        details: details
+      });
+    });
+  });
+
 
 module.exports = router;

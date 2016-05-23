@@ -5,11 +5,19 @@ block content
     h1 Moduleübersicht
 
   section
-    h2 Module suchen
-    p Todo
+    h2 Github Module installieren
+    form(action="details" method="POST")
+      label(for="owner") Owner
+      input(type="text" name="owner" id="owner" placeholder="Owner")
+
+      label(for="repo") Repo
+      input(type="text" name="repo" id="repo" placeholder="Repo")
+
+      button(type="submit") Laden
 
   section
     h2 Installierte Module
+
 
     if modules.length == 0
       h2 No Modules
