@@ -80,15 +80,25 @@ router.route('/modules/details')
   .post((req, res) => {
     modulesController.loadModuleDetails({
       owner: req.body.owner,
-      repo: req.body.repo})
-    .then((details) => {
+      repo: req.body.repo,})
+    .then((data) => {
       res.render('backend_modules_details.jade', {
         owner: req.body.owner,
         repo: req.body.repo,
-        details: details
+        details: data.json,
+        package: JSON.stringify(data.json),
+        url: data.url,
       });
     });
   });
 
+router.route('/modules/install')
+  .post((req, res) => {
+    modulesController.installModule({
+      url: req.body.url,
+      name: req.body.name,
+    });
+    res.redirect('/modules?msg=moduleinstalling');
+  });
 
 module.exports = router;

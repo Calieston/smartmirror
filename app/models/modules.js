@@ -11,9 +11,6 @@ var moduleSchema = new Schema({
   description: {
     type: String
   },
-  details: {
-    type: String
-  },
   name: {
     type: String,
     required: true
@@ -22,7 +19,7 @@ var moduleSchema = new Schema({
     type: String,
     enum: ['error','installed', 'installing']
   },
-  url: {
+  homepage: {
     type: String
   },
   version: {
