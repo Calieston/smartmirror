@@ -16,10 +16,12 @@ var widgetSchema = new Schema({
   },
   position: {
     x: {
-      type: Number
+      type: Number,
+      default: 0
     },
     y: {
-      type: Number
+      type: Number,
+      default: 0
     }
   },
   status: {
@@ -27,10 +29,12 @@ var widgetSchema = new Schema({
   },
   size: {
     x: {
-      type: Number
+      type: Number,
+      default: 1
     },
     y: {
-      type: Number
+      type: Number,
+      default: 1
     }
   },
   settings: {}

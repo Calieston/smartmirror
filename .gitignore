@@ -33,4 +33,5 @@ node_modules
 .node_repl_history
 
 # Smartmirror Modules
-**/app/modules/**
+**/app/**/modules/*.jade
+**/app/**/modules/*.js

@@ -29,29 +29,18 @@ exports.loadModuleDetails = function(params) {
 exports.installModule = function(params) {
 
   let url = params.url;
-  let moduleDir = path.join(__dirname, './../modules/', params.name, '/');
-
-  // Cerate module directory
-  if (!fs.existsSync(moduleDir)) {
-    fs.mkdirSync(moduleDir);
-  }
-
   var modulePackage;
 
   loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
-    return saveFile({
-      path: moduleDir + 'package.json',
-      data: data,
-    });
   })
   .then(() => {
     return loadFileFromServer({url: url + 'app/controller.js'});
   })
   .then((data) => {
     return saveFile({
-      path: moduleDir + 'controller.js',
+      path: path.join(__dirname, './../controllers/modules/', params.name + '.js'),
       data: data,
     });
   })
@@ -60,7 +49,7 @@ exports.installModule = function(params) {
   })
   .then((data) => {
     return saveFile({
-      path: moduleDir + 'view.jade',
+      path: path.join(__dirname, './../views/modules/', params.name + '.jade'),
       data: data,
     });
   })
@@ -122,11 +111,14 @@ function loadFileFromServer(params) {
 
 function saveFile(params) {
 
+  console.log(params)
+
   return new Promise((resolve, reject) => {
 
     let file = fs.writeFile(params.path, params.data, (err) => {
 
       if (err) {
+        console.log(err);
         reject(err);
       }
 

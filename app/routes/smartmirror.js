@@ -2,6 +2,8 @@
 var express = require('express');
 var router = express.Router();
 var jade = require('jade');
+var path = require('path');
+var fs = require('fs');
 // Var weatherController = require('../controllers/weather');
 
 var smartmirrorController = require('./../controllers/smartmirror');
@@ -23,18 +25,20 @@ router.route('/:userId')
 router.route('/module/:module')
   .get((req, res) => {
 
-    smartmirrorController.getWidget(req.params.module).then((widget) => {
-      let Module = require(
-        './../modules/' + widget.module.name + '/controller.js');
-      let test = Module.get(widget.settings);
+    smartmirrorController.getWidget(req.params.module)
+    .then((widget) => {
 
-      console.log(test);
+      let ctrl = './../controllers/modules/' + widget.module.name;
+      let Modul = require(ctrl);
 
-      res.send(test);
+      Modul.get(widget.settings)
+      .then((data) => {
+        let view = 'modules/' + widget.module.name + '.jade';
+        res.render(view, {
+          feed: data
+        });
+      });
     });
-  })
-  .post((req, res) => {
-    res.send('Widget.POST ' + req.params.module);
   });
 
 module.exports = router;

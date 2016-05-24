@@ -20,6 +20,7 @@ exports.createWidget = function(params) {
     .exec();
 
   query.then((module) => {
+
     let settings = {};
     Object.keys(params.form).forEach((key) => {
       if (key.indexOf('settings_') > -1) {
@@ -28,16 +29,16 @@ exports.createWidget = function(params) {
     });
 
     let newWidget = Widget({
-      module: query._id,
+      module: module._id,
       name: params.form.name,
       settings: settings,
     });
 
     newWidget.save();
 
-    newWidget.then((widget) => {
+/*    newWidget.then((widget) => {
       //todo add widget to  userprofile
-    });
+    });*/
 
     return newWidget;
   })
