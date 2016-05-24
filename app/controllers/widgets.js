@@ -8,6 +8,8 @@ exports.getAll = function(params) {
   let query = Widget.find({})
     .lean();
 
+    // ToDo: All widgets or all user widgets?
+
   return query.exec();
 };
 
@@ -33,6 +35,10 @@ exports.createWidget = function(params) {
 
     newWidget.save();
 
+    newWidget.then((widget) => {
+      //todo add widget to  userprofile
+    });
+
     return newWidget;
   })
   .catch((err) => {
@@ -46,20 +52,8 @@ exports.deleteWidgetById = function(params) {
 
   let query = Widget.findByIdAndRemove(params.widget);
 
+  // Todo
+  // Search for all users who have the widget, remove it
+
   return query.exec();
 };
-
-/*exports.loadModuleDetails = function(params) {
-
-  const baseUrl = 'https://raw.githubusercontent.com/';
-  let url = baseUrl + params.owner + '/' + params.repo + '/master/';
-
-  return loadFileFromServer({url: url + 'package.json'})
-  .then((data) => {
-    return {
-      json: JSON.parse(data),
-      url: url,
-    };
-  });
-};
-*/
