@@ -24,7 +24,8 @@ var moduleSchema = new Schema({
   },
   version: {
     type: String
-  }
+  },
+  settings: {}
 }, {
   timestamps: true
 });

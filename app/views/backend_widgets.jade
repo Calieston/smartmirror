@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  header
+    h1 Widgetübersicht
+
+  aside
+    h2 Installierte Module
+
+    if modules.length == 0
+      h2 No Modules
+    else
+      table
+        thead
+          tr
+            th Module
+            th Neues Widget erstellen
+
+        tbody
+          each module in modules
+            tr
+              td
+                strong=module.name
+                p=module.description
+              td
+                form(action="widgets/create/#{module._id}" method="POST")
+                  label(for="widget") Name
+                  input(type="text" id="name" name="name" placeholder="name")
+                  each input, inputKey in module.settings
+                    label(for="settings_#{inputKey}")=input.desc
+                    input(type=input.type id="settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc)
+                  br
+                  button(type="submit") Widget erstellen
+
+  section
+    h2 Widgets
+
+    if widgets.length == 0
+      h2 No widgets
+    else
+      table
+        thead
+          tr
+            th Widget
+            th Edit
+            th Delete
+
+        tbody
+          each widget in widgets
+            tr
+              td
+                strong=widget.name
+              td
+                a(href="widgets/edit/#{widget._id}") Bearbeiten
+              td
+                a(href="widgets/remove/#{widget._id}") Löschen

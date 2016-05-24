@@ -17,7 +17,7 @@ exports.loadModuleDetails = function(params) {
   const baseUrl = 'https://raw.githubusercontent.com/';
   let url = baseUrl + params.owner + '/' + params.repo + '/master/';
 
-  return loadFileFromServer(url + 'package.json')
+  return loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     return {
       json: JSON.parse(data),
@@ -38,7 +38,7 @@ exports.installModule = function(params) {
 
   var modulePackage;
 
-  loadFileFromServer(url + 'package.json')
+  loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
     return saveFile({
@@ -47,7 +47,7 @@ exports.installModule = function(params) {
     });
   })
   .then(() => {
-    return loadFileFromServer(url + 'app/controller.js');
+    return loadFileFromServer({url: url + 'app/controller.js'});
   })
   .then((data) => {
     return saveFile({
@@ -56,7 +56,7 @@ exports.installModule = function(params) {
     });
   })
   .then(() => {
-    return loadFileFromServer(url + 'app/view.jade');
+    return loadFileFromServer({url: url + 'app/view.jade'});
   })
   .then((data) => {
     return saveFile({
@@ -72,6 +72,7 @@ exports.installModule = function(params) {
       status: 'installed',
       homepage: modulePackage.homepage || '',
       version: modulePackage.version,
+      settings: modulePackage.smartmirror || null,
     });
 
     let query = newModule.save();
@@ -83,12 +84,12 @@ exports.installModule = function(params) {
   });
 };
 
-function loadFileFromServer(url) {
+function loadFileFromServer(params) {
 
   return new Promise((resolve, reject) => {
 
     // Fire the get request
-    const request = https.get(url, (response) => {
+    const request = https.get(params.url, (response) => {
 
       // Handle http errors
       if (response.statusCode < 200 || response.statusCode > 299) {
@@ -113,15 +114,13 @@ function loadFileFromServer(url) {
 
     // Handle connection errors of the request
     request.on('error', (err) => {
-      console.error(err);
+      console.log(err);
       reject(err);
     });
   });
 }
 
 function saveFile(params) {
-
-  console.log(params);
 
   return new Promise((resolve, reject) => {
 
@@ -133,5 +132,20 @@ function saveFile(params) {
 
       resolve(params.data);
     });
+  });
+}
+
+function removeDir(params) {
+
+  return new Promise((resolve, reject) => {
+
+    if (!fs.existsSync(params.path)) {
+      reject();
+    }
+
+    let files = fs.readdirSync(params.path);
+
+    resolve(files);
+
   });
 }

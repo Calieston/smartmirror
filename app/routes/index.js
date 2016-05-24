@@ -6,6 +6,7 @@ var User = require('./../models/users');
 var userController = require('../controllers/user');
 var systemController = require('./../controllers/system');
 var modulesController = require('./../controllers/modules');
+var widgetsController = require('./../controllers/widgets');
 
 router.route('/users')
   .get(userController.getUsers);
@@ -66,6 +67,7 @@ router.route('/system')
     });
   });
 
+/* Modules */
 router.route('/modules')
   .get((req, res, next) => {
     modulesController.getAll().then((modules) => {
@@ -74,7 +76,6 @@ router.route('/modules')
       });
     });
   });
-
 
 router.route('/modules/details')
   .post((req, res) => {
@@ -100,5 +101,68 @@ router.route('/modules/install')
     });
     res.redirect('/modules?msg=moduleinstalling');
   });
+
+router.route('/modules/remove')
+  .get((req, res) => {
+    res.send('ToDo');
+  });
+
+/* Widgets */
+router.route('/widgets')
+  .get((req, res) => {
+    modulesController.getAll()
+    .then((modules) => {
+      widgetsController.getAll()
+      .then((widgets) => {
+        return {
+          widgets: widgets,
+          modules: modules,
+        };
+      })
+      .then((params) => {
+        res.render('backend_widgets', {
+          widgets: params.widgets,
+          modules: params.modules,
+        });
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(404);
+    });
+  });
+
+router.route('/widgets/create/:module')
+  .post((req, res) => {
+    widgetsController.createWidget({
+      module: req.params.module,
+      form: req.body,
+    })
+    .then((data) => {
+      res.redirect('/widgets?status=moduleinstalled');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/widgets?status=error');
+    });
+  });
+
+router.route('/widgets/edit/:widget')
+  .get((req, res) => {
+    res.send('Todo');
+  });
+
+router.route('/widgets/remove/:widget')
+  .get((req, res) => {
+    widgetsController.deleteWidgetById({widget: req.params.widget})
+    .then((widget) => {
+      res.redirect('/widgets?status=widgetremoved');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/widgets?status=error');
+    });
+  });
+
 
 module.exports = router;
