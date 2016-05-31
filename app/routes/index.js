@@ -8,10 +8,10 @@ var systemController = require('./../controllers/system');
 var modulesController = require('./../controllers/modules');
 var widgetsController = require('./../controllers/widgets');
 
-router.route('/users')
+/*router.route('/users')
   .get(userController.getUsers);
-
-router.route('/users/new')
+*/
+router.route('/users/')
   .get(userController.getUserCreateForm)
   .post(userController.createUser);
 
@@ -30,7 +30,7 @@ router.get('/', (req, res, next) => {
 
   /* Query Promise */
   query.then((users) => {
-      res.render('backend_home', {
+      res.render('backend/index', {
         title: 'SmartMirror Backend Landingpage',
         users: users,
       });
@@ -44,11 +44,10 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET system config page. */
-router.route('/system')
+router.route('/settings')
   .get((req, res, next) => {
     systemController.get().then((system) => {
-      console.log(system.wifi);
-      res.render('backend_systemsettings', {
+      res.render('backend/settings', {
         title: 'SmartMirror Backend Sytem Config',
         system: system.wifi,
       });
@@ -56,7 +55,7 @@ router.route('/system')
   })
   .post((req, res, next) => {
     systemController.update(req.body).then((system) => {
-      res.render('backend_systemsettings', {
+      res.render('backend/settings', {
         system: system.wifi,
       });
     })
@@ -71,7 +70,7 @@ router.route('/system')
 router.route('/modules')
   .get((req, res, next) => {
     modulesController.getAll().then((modules) => {
-      res.render('backend_modules', {
+      res.render('backend/modules', {
         modules: modules,
       });
     });
@@ -83,7 +82,7 @@ router.route('/modules/details')
       owner: req.body.owner,
       repo: req.body.repo,})
     .then((data) => {
-      res.render('backend_modules_details.jade', {
+      res.render('backend/modules_details.jade', {
         owner: req.body.owner,
         repo: req.body.repo,
         details: data.json,
@@ -120,7 +119,7 @@ router.route('/widgets')
         };
       })
       .then((params) => {
-        res.render('backend_widgets', {
+        res.render('backend/widgets', {
           widgets: params.widgets,
           modules: params.modules,
         });

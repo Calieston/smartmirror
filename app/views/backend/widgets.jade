@@ -1,16 +1,16 @@
 extends layout
 
 block content
-  header
+  header.page-header
     h1 Widgetübersicht
 
-  aside
+  aside.col-sm-4
     h2 Installierte Module
 
     if modules.length == 0
       h2 No Modules
     else
-      table
+      table.table
         thead
           tr
             th Module
@@ -24,21 +24,23 @@ block content
                 p=module.description
               td
                 form(action="widgets/create/#{module._id}" method="POST")
-                  label(for="widget") Name
-                  input(type="text" id="name" name="name" placeholder="name")
+                  div.form-group
+                    label(for="widget") Name
+                    input(type="text" name="name" placeholder="name")#name.form-control
                   each input, inputKey in module.settings
-                    label(for="settings_#{inputKey}")=input.desc
-                    input(type=input.type id="settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc)
-                  br
-                  button(type="submit") Widget erstellen
+                    div.form-group
+                      label(for="settings_#{inputKey}")=input.desc
+                      input(type=input.type id="#settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc).form-control
 
-  section
+                  button(type="submit").btn.btn-primary Widget erstellen
+
+  section.col-sm-8
     h2 Widgets
 
     if widgets.length == 0
       h2 No widgets
     else
-      table
+      table.table
         thead
           tr
             th Widget

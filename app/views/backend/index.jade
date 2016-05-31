@@ -1,7 +1,9 @@
 extends layout
 
 block content
-  h1 Smart Mirror Backend
+
+  header.page-header
+    h1 Smart Mirror Backend
 
   section#users
     h1 Users
@@ -9,7 +11,7 @@ block content
     if users.length == 0
       h2 No Users
     else
-      table
+      table.table
         thead
           tr
             th Username
@@ -32,7 +34,7 @@ block content
                 a(href="users/#{user.id}/edit") Edit
 
     a(href="users/new")
-      button Add User
+      button.btn.btn-primary Add User
 
   section#modules
     h1 Modules

@@ -26,7 +26,7 @@ exports.createUser = function(req, res) {
 
 // Render view to create a new user
 exports.getUserCreateForm = function(req, res) {
-  res.render('backend_user', {
+  res.render('backend/user', {
     title: 'SmartMirror Backend Add User Profile',
   });
 
@@ -65,7 +65,7 @@ exports.getUserById = function(req, res) {
       });
     } else {
       if (user) {
-        res.render('backend_user_detail', {
+        res.render('backend/user_detail', {
           title: 'SmartMirror Backend Add User Profile',
           user: user,
         });
@@ -94,7 +94,7 @@ exports.updateUser = function(req, res) {
       res.json(err);
     } else {
       if (user) {
-        res.render('backend_user_detail', {
+        res.render('backend/user_detail', {
           title: 'SmartMirror Backend Add User Profile',
           user: user,
         });

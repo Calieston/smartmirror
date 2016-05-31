@@ -1,28 +1,36 @@
 extends layout
 
 block content
-  header
+
+  header.page-header
     h1 Moduleübersicht
 
-  section
+  section.col-sm-12
     h2 Github Module installieren
+
     form(action="modules/details" method="POST")
+
       label(for="owner") Owner
-      input(type="text" name="owner" id="owner" placeholder="Owner")
+      div.input-group
+        span#owern.input-group-addon Owner
+        input(type="text" name="owner" placeholder="Owner")#owner.form-control
 
       label(for="repo") Repo
-      input(type="text" name="repo" id="repo" placeholder="Repo")
+      div.input-group
+        span#owner.input-group-addon Repository
+        input(type="text" name="repo" placeholder="Repo")#repo.form-control
 
-      button(type="submit") Laden
+      br
 
-  section
+      button(type="submit").btn.btn-primary Laden
+
+  section.col-sm-12
     h2 Installierte Module
-
 
     if modules.length == 0
       h2 No Modules
     else
-      table
+      table.table
         thead
           tr
             th Module
