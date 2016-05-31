@@ -19,9 +19,9 @@ var reportError = function (error) {
   this.emit('end');
 }
 
-// Compile scss
-gulp.task('scss', function(){
-  return gulp.src('./scss/styles.scss')
+// Compile backend scss
+gulp.task('scss-backend', function(){
+  return gulp.src('./scss/backend.scss')
     .pipe(plumber({errorHandler: reportError}))
     .pipe(sass({sourceComments: true}))
     .pipe(autoprefixer({
@@ -31,23 +31,15 @@ gulp.task('scss', function(){
     .pipe(gulp.dest('./app/public/stylesheets/'));
 });
 
-// Compile and minify scss
-gulp.task('scss-min', function(){
-  return gulp.src('./scss/styles.scss')
+// Compile smartmirror scss
+gulp.task('scss-smartmirror', function(){
+  return gulp.src('./scss/smartmirror.scss')
     .pipe(plumber({errorHandler: reportError}))
-    .pipe(sass({
-      sourceComments: false,
-      outputStyle: 'compressed'
-    }))
+    .pipe(sass({sourceComments: true}))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
       cascade: false
     }))
-    .pipe(uncss({
-      html: ['app/index.html']
-    }))
-    .pipe(cssnano())
-    .pipe(rename('styles.min.css'))
     .pipe(gulp.dest('./app/public/stylesheets/'));
 });
 
@@ -64,7 +56,7 @@ gulp.task('uglify', function(){
 gulp.task('min', ['scss-min', 'uglify']);
 
 // Watch files for changes & reload
-gulp.task('watch', ['scss'], function () {
+gulp.task('watch', ['scss-backend', 'scss-smartmirror'], function () {
 
   browserSync.init({
     open: false,
@@ -73,8 +65,12 @@ gulp.task('watch', ['scss'], function () {
     port: 8080
   });
 
-  gulp.watch(['./app/**/*.*'], ['scss', reload]);
+  gulp.watch(['./app/views/**/*.jade', './scss/**/*.scss'], ['scss-backend', 'scss-smartmirror', reload]);
 });
 
 // Default task - run all the other tasks
-gulp.task('default', ['scss', 'watch']);
+gulp.task('default', ['scss-backend','scss-smartmirror', 'watch']);
+
+// Default task - run all the other tasks
+gulp.task('backend', ['scss-backend', 'watch']);
+gulp.task('smartmirror', ['scss-smartmirror', 'watch']);
