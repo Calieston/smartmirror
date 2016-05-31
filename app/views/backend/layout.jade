@@ -9,12 +9,12 @@ html
     nav.navbar.navbar-default.navbar-fixed-top
       div.container-fluid
         a(href='/').navbar-brand
-          img(src='images/logo.png' alt='SmartMirror').nav-logo
+          img(src='/images/logo.png' alt='SmartMirror').nav-logo
         ul.nav.navbar-nav.navbar-right
           li.nav-item.active
-            a(href='#').nav-link Home
+            a(href='/').nav-link Home
           li
-          each value, key in {modules: 'Modules', widgets: 'Widgets', sensors: 'Sensors',settings: 'Settings'}
+          each value, key in {modules: 'Modules', widgets: 'Widgets', users: 'Users', sensors: 'Sensors',settings: 'Settings'}
             li.nav-item
               a(href='/#{key}').nav-link=value
 

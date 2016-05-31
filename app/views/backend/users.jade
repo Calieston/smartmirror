@@ -1,0 +1,59 @@
+extends layout
+
+block content
+
+  header.page-header
+    h2 Users
+
+  section.col-md-8
+    if users.length == 0
+      h2 No Users
+    else
+      table.table
+        thead
+          tr
+            th Username
+            th Status
+            th LastLogin
+            th Actions
+
+        tbody
+          each user in users
+            tr
+              td
+                strong=user.username
+              td
+                p=user.active
+              td
+                time=user.lastLogin
+              td
+                a(href="users/#{user._id}/delete") Delete
+                =" "
+                a(href="users/#{user._id}") Edit
+
+
+  section.col-md-4
+
+    form(action="/users" method="post")
+
+      label(for="username") Name
+      div.input-group
+        span.input-group-addon Name
+        input(type="text" name="username")#name.form-control
+
+      label(for="bdate") Geburtstag
+      div.input-group
+        span.input-group-addon Geburtstag
+        input(type="text" name="bdate")#bdate.form-control
+
+      label(for="theme") Theme
+      select(name="theme").form-control
+        option(value="theme1") Theme1
+        option(value="theme2") Theme2
+
+      label(for="active") Aktiv
+        input(type="checkbox" name="active" value="true" checked)
+
+      br
+
+      button(type="submit").btn.btn-primary Speichern

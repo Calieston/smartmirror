@@ -1,26 +1,77 @@
 'use strict';
 
-var express = require('express');
-var router = express.Router();
+// Modules
+var express = require('express'),
+    router = express.Router();
+
+// Models
 var User = require('./../models/users');
-var userController = require('../controllers/user');
-var systemController = require('./../controllers/system');
-var modulesController = require('./../controllers/modules');
-var widgetsController = require('./../controllers/widgets');
 
-/*router.route('/users')
-  .get(userController.getUsers);
-*/
-router.route('/users/')
-  .get(userController.getUserCreateForm)
-  .post(userController.createUser);
+// Controllers
+var userCtrl = require('../controllers/user');
+var systemCtrl = require('./../controllers/system');
+var modulesCtrl = require('./../controllers/modules');
+var widgetsCtrl = require('./../controllers/widgets');
 
+// User overview, add user
+router.route('/users')
+  .get((req, res) => {
+    userCtrl.getUsers()
+    .then((users) => {
+      res.render('backend/users', {
+        users: users
+      });
+    })
+    .catch((err) => {
+      res.redirect('/?error');
+    });
+  })
+  .post((req, res) => {
+    userCtrl.addUser(req.body)
+    .then((user) => {
+      res.redirect('/users');
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/?error');
+    });
+  });
+
+// user Details, edit user
+router.route('/users/:user/')
+  .get((req, res) => {
+    userCtrl.getUserById({id: req.params.user})
+    .then((user) => {
+      res.render('backend/user_details', {
+        user: user
+      });
+    })
+    .catch((err) => {
+      res.redirect('/users?error');
+    });
+  })
+  .post((req, res) => {
+    userCtrl.updateUser(req.body)
+    .then((user) => {
+      res.redirect('/users');
+    })
+    .catch((err) => {
+      res.redirect('/users?error');
+    });
+  });
+
+// Delete user
 router.route('/users/:user/delete')
-  .get(userController.deleteUserById);
-
-router.route('/users/:id/edit')
-  .get(userController.getUserById)
-  .post(userController.updateUser);
+  .get((req, res) => {
+    userCtrl.deleteUserById({id: req.params.user})
+    .then((msg) => {
+      res.redirect('/users?msg=deleted');
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/users?error');
+    });
+  });
 
 /* GET backend landing page. */
 router.get('/', (req, res, next) => {
@@ -46,7 +97,7 @@ router.get('/', (req, res, next) => {
 /* GET system config page. */
 router.route('/settings')
   .get((req, res, next) => {
-    systemController.get().then((system) => {
+    systemCtrl.get().then((system) => {
       res.render('backend/settings', {
         title: 'SmartMirror Backend Sytem Config',
         system: system.wifi,
@@ -54,7 +105,7 @@ router.route('/settings')
     });
   })
   .post((req, res, next) => {
-    systemController.update(req.body).then((system) => {
+    systemCtrl.update(req.body).then((system) => {
       res.render('backend/settings', {
         system: system.wifi,
       });
@@ -69,7 +120,7 @@ router.route('/settings')
 /* Modules */
 router.route('/modules')
   .get((req, res, next) => {
-    modulesController.getAll().then((modules) => {
+    modulesCtrl.getAll().then((modules) => {
       res.render('backend/modules', {
         modules: modules,
       });
@@ -78,7 +129,7 @@ router.route('/modules')
 
 router.route('/modules/details')
   .post((req, res) => {
-    modulesController.loadModuleDetails({
+    modulesCtrl.loadModuleDetails({
       owner: req.body.owner,
       repo: req.body.repo,})
     .then((data) => {
@@ -94,7 +145,7 @@ router.route('/modules/details')
 
 router.route('/modules/install')
   .post((req, res) => {
-    modulesController.installModule({
+    modulesCtrl.installModule({
       url: req.body.url,
       name: req.body.name,
     });
@@ -109,9 +160,9 @@ router.route('/modules/remove')
 /* Widgets */
 router.route('/widgets')
   .get((req, res) => {
-    modulesController.getAll()
+    modulesCtrl.getAll()
     .then((modules) => {
-      widgetsController.getAll()
+      widgetsCtrl.getAll()
       .then((widgets) => {
         return {
           widgets: widgets,
@@ -133,7 +184,7 @@ router.route('/widgets')
 
 router.route('/widgets/create/:module')
   .post((req, res) => {
-    widgetsController.createWidget({
+    widgetsCtrl.createWidget({
       module: req.params.module,
       form: req.body,
     })
@@ -153,7 +204,7 @@ router.route('/widgets/edit/:widget')
 
 router.route('/widgets/remove/:widget')
   .get((req, res) => {
-    widgetsController.deleteWidgetById({widget: req.params.widget})
+    widgetsCtrl.deleteWidgetById({widget: req.params.widget})
     .then((widget) => {
       res.redirect('/widgets?status=widgetremoved');
     })

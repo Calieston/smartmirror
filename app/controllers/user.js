@@ -3,105 +3,60 @@
 var User = require('../models/users');
 
 // Create User
-exports.createUser = function(req, res) {
+exports.addUser = (params) => {
+
   // Create new user instance and insert data
   var newUser = User({
-    username: req.body.name,
-    bdate: req.body.bdate,
-    theme: req.body.theme,
-    active: (req.body.active == 'true' ? true : false),
+    username: params.name,
+    bdate: params.bdate,
+    theme: params.theme,
+    active: (params.active == 'true' ? true : false),
   });
-  /* Save new user */
-  let query = newUser.save();
+
   /* Query Promise */
-  query.then((user) => {
-      res.redirect('/');
-    })
-    /* Catch Error */
-    .catch((err) => {
-      console.error(err);
-      res.redirect('/?error=newUser');
-    });
+  return newUser.save();
 };
 
-// Render view to create a new user
-exports.getUserCreateForm = function(req, res) {
-  res.render('backend/user', {
-    title: 'SmartMirror Backend Add User Profile',
-  });
-
-};
 
 // Retrieve all users from database
-exports.getUsers = function(req, res) {
-  User.find({}, function(err, users) {
-    res.json(users);
-  });
+exports.getUsers = () => {
+  let query = User.find({})
+    .lean();
+
+  return query.exec();
 };
 
 // Delete a user by id
-exports.deleteUserById = function(req, res) {
+exports.deleteUserById = (params) => {
 
   /* Query for deleting a user by id */
-  let query = User.findByIdAndRemove(req.params.user).exec();
+  let query = User.findByIdAndRemove(params.id);
 
   /* Query Promise */
-  query.then(() => {
-      res.redirect('/?msg=userdeleted');
-    })
-    /* Catch Error */
-    .catch((err) => {
-      res.redirect('/?error=delete');
-    });
+  return query.exec();
+
 };
 
 // Return a user by id
-exports.getUserById = function(req, res) {
-  User.findById(req.params.id, function(err, user) {
+exports.getUserById = (params) => {
 
-    if (err) {
-      res.json({
-        error: err,
-      });
-    } else {
-      if (user) {
-        res.render('backend/user_detail', {
-          title: 'SmartMirror Backend Add User Profile',
-          user: user,
-        });
-      } else {
-        res.json({
-          error: 'Wrong ID',
-        });
-      }
-    }
+  let query = User.findById(params.id);
 
-  });
+  return query.exec();
+
 };
 
 // Update a user
-exports.updateUser = function(req, res) {
-  User.findByIdAndUpdate(req.params.id, {
-    username: req.body.username,
-    bdate: req.body.bdate,
-    theme: req.body.theme,
-    active: req.body.active,
+exports.updateUser = (params) => {
+
+  let query = User.findByIdAndUpdate(params.id, {
+    username: params.name,
+    bdate: params.bdate,
+    theme: params.theme,
+    active: params.active,
   }, {
     new: true,
-  }, function(err, user) {
-
-    if (err) {
-      res.json(err);
-    } else {
-      if (user) {
-        res.render('backend/user_detail', {
-          title: 'SmartMirror Backend Add User Profile',
-          user: user,
-        });
-      } else {
-        res.json({message: 'Wrong ID'});
-      }
-    }
-
   });
+
+  return query.exec();
 };

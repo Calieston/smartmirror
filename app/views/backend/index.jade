@@ -8,34 +8,6 @@ block content
   section#users
     h1 Users
 
-    if users.length == 0
-      h2 No Users
-    else
-      table.table
-        thead
-          tr
-            th Username
-            th Status
-            th LastLogin
-            th Actions
-
-        tbody
-          each user in users
-            tr
-              td
-                strong=user.username
-              td
-                p=user.active
-              td
-                time=user.lastLogin
-              td
-                a(href="users/#{user.id}/delete") Delete
-                =" "
-                a(href="users/#{user.id}/edit") Edit
-
-    a(href="users/new")
-      button.btn.btn-primary Add User
-
   section#modules
     h1 Modules
     a(href="modules") Module
