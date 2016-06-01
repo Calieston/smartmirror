@@ -4,6 +4,7 @@ var gulp          = require('gulp'),
 
 // Include gulp plugins
 var autoprefixer  = require('gulp-autoprefixer'),
+    nodemon       = require('gulp-nodemon'),
     plumber       = require('gulp-plumber'),
     rename        = require('gulp-rename'),
     sass          = require('gulp-sass'),
@@ -18,6 +19,13 @@ var reportError = function (error) {
   console.error('TASK:' + ' ' + error.plugin + '\nPROB:' + ' ' + error.message + '\n');
   this.emit('end');
 }
+
+// Nodemon
+gulp.task('server', function () {
+  nodemon({
+    script: 'index.js'
+  });
+});
 
 // Compile backend scss
 gulp.task('scss-backend', function(){
@@ -69,8 +77,8 @@ gulp.task('watch', ['scss-backend', 'scss-smartmirror'], function () {
 });
 
 // Default task - run all the other tasks
-gulp.task('default', ['scss-backend','scss-smartmirror', 'watch']);
+gulp.task('default', ['server', 'scss-backend', 'scss-smartmirror', 'watch']);
 
-// Default task - run all the other tasks
-gulp.task('backend', ['scss-backend', 'watch']);
-gulp.task('smartmirror', ['scss-smartmirror', 'watch']);
+// Backend/Smartmirror task - run all the other tasks
+gulp.task('backend', ['server', 'scss-backend', 'watch']);
+gulp.task('smartmirror', ['server', 'scss-smartmirror', 'watch']);
