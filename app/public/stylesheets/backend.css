@@ -5639,15 +5639,6 @@ body {
   margin-top: 70px;
   background-color: white; }
 
-/* line 10, C:/Users/Roman/Sites/smartmirror/scss/backend/global.scss */
-.navbar-brand {
-  padding: 5px; }
-
-/* line 14, C:/Users/Roman/Sites/smartmirror/scss/backend/global.scss */
-.nav-logo {
-  height: 100%;
-  widht: auto; }
-
 /* line 1, C:/Users/Roman/Sites/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
   padding: 5px; }
