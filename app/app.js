@@ -48,8 +48,12 @@ app.use('/smartmirror', smartmirror);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
+  let err = new Error(404);
+  res.status(404);
+  res.render('error.jade', {
+    title: '404: File Not Found',
+    descr: req.url
+  });
   next(err);
 });
 

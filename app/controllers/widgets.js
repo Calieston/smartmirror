@@ -51,7 +51,8 @@ exports.createWidget = function(params) {
 
 exports.deleteWidgetById = function(params) {
 
-  let query = Widget.findByIdAndRemove(params.widget);
+  let query = Widget.findByIdAndRemove(params.widget)
+    .lean();
 
   // Todo
   // Search for all users who have the widget, remove it

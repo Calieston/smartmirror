@@ -13,6 +13,27 @@ var systemCtrl = require('./../controllers/system');
 var modulesCtrl = require('./../controllers/modules');
 var widgetsCtrl = require('./../controllers/widgets');
 
+/* GET backend landing page. */
+router.get('/', (req, res, next) => {
+
+  /* Query for finding all users */
+  let query = User.find({}).exec();
+
+  /* Query Promise */
+  query.then((users) => {
+      res.render('backend/index', {
+        title: 'SmartMirror Backend Landingpage',
+        users: users,
+      });
+    })
+    /* Error Handling */
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
+    });
+
+});
+
 // User overview, add user
 router.route('/users')
   .get((req, res) => {
@@ -73,39 +94,21 @@ router.route('/users/:user/delete')
     });
   });
 
-/* GET backend landing page. */
-router.get('/', (req, res, next) => {
-
-  /* Query for finding all users */
-  let query = User.find({}).exec();
-
-  /* Query Promise */
-  query.then((users) => {
-      res.render('backend/index', {
-        title: 'SmartMirror Backend Landingpage',
-        users: users,
-      });
-    })
-    /* Error Handling */
-    .catch((err) => {
-      console.error(err);
-      res.send(404);
-    });
-
-});
 
 /* GET system config page. */
 router.route('/settings')
   .get((req, res, next) => {
     systemCtrl.get().then((system) => {
+      console.log('Tick');
+      console.log(system);
       res.render('backend/settings', {
-        title: 'SmartMirror Backend Sytem Config',
         system: system.wifi,
       });
     });
   })
   .post((req, res, next) => {
     systemCtrl.update(req.body).then((system) => {
+      console.log('Trick');
       res.render('backend/settings', {
         system: system.wifi,
       });

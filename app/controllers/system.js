@@ -5,8 +5,15 @@ var System = require('./../models/system');
 exports.get = function() {
   let query = System.findOne({})
     .lean();
+
   return query.exec();
 };
+
+exports.insert = function(params) {
+  let query = new System({params});
+
+  return query.save();
+}
 
 exports.update = function(params) {
   let query = System.findOneAndUpdate({},{

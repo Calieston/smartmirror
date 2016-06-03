@@ -21,7 +21,7 @@ exports.addUser = (params) => {
 // Retrieve all users from database
 exports.getUsers = () => {
   let query = User.find({})
-    .lean();
+  .lean();
 
   return query.exec();
 };
@@ -40,7 +40,8 @@ exports.deleteUserById = (params) => {
 // Return a user by id
 exports.getUserById = (params) => {
 
-  let query = User.findById(params.id);
+  let query = User.findById(params.id)
+  .lean();
 
   return query.exec();
 
@@ -56,7 +57,8 @@ exports.updateUser = (params) => {
     active: params.active,
   }, {
     new: true,
-  });
+  })
+  .lean();
 
   return query.exec();
 };
