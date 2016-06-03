@@ -30,8 +30,24 @@ var userSchema = new Schema({
     }
   },
   widgets: [{
-    type: Schema.ObjectId,
-    ref: 'Widget'
+    id: {
+      type: Schema.ObjectId,
+      ref: 'Widget'
+    },
+    position: {
+      x: {
+        type: Number,
+        default: 0
+      },
+      y: {
+        type: Number,
+        default: 0
+      }
+    },
+    active: {
+      type: Boolean,
+      default: false
+    }
   }],
   theme: {
     type: String

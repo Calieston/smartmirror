@@ -14,16 +14,6 @@ var widgetSchema = new Schema({
   name: {
     type: String
   },
-  position: {
-    x: {
-      type: Number,
-      default: 0
-    },
-    y: {
-      type: Number,
-      default: 0
-    }
-  },
   status: {
     type: String
   },
