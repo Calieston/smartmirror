@@ -34,13 +34,7 @@ exports.createWidget = function(params) {
       settings: settings,
     });
 
-    newWidget.save();
-
-/*    newWidget.then((widget) => {
-      //todo add widget to  userprofile
-    });*/
-
-    return newWidget;
+    return newWidget.save();
   })
   .catch((err) => {
     console.log(err);

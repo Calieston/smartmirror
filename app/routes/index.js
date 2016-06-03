@@ -163,25 +163,24 @@ router.route('/modules/remove')
 /* Widgets */
 router.route('/widgets')
   .get((req, res) => {
+    var params = {};
+
     modulesCtrl.getAll()
     .then((modules) => {
-      widgetsCtrl.getAll()
-      .then((widgets) => {
-        return {
-          widgets: widgets,
-          modules: modules,
-        };
-      })
-      .then((params) => {
-        res.render('backend/widgets', {
-          widgets: params.widgets,
-          modules: params.modules,
-        });
-      });
+      params.modules = modules;
+      return widgetsCtrl.getAll()
+    })
+    .then((widgets) => {
+      params.widgets = widgets;
+      return userCtrl.getUsers()
+    })
+    .then((users) => {
+      params.users = users;
+      res.render('backend/widgets', params);
     })
     .catch((err) => {
       console.log(err);
-      res.send(404);
+      res.sendStatus(404);
     });
   });
 
@@ -217,5 +216,32 @@ router.route('/widgets/remove/:widget')
     });
   });
 
+router.route('/interface')
+  .post((req, res) => {
+    res.redirect('/interface/' +  req.body.user);
+  })
+
+router.route('/interface/:user')
+  .get((req, res) => {
+    var params = {};
+    userCtrl.getUsers()
+    .then((users) => {
+      params.users = users;
+      return widgetsCtrl.getAll()
+    })
+    .then((widgets) => {
+      params.widgets = widgets;
+      res.render('backend/interface', params);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(404);
+    });
+  })
+  .post((req, res) => {
+    console.log('ToDo');
+    // Set position in user model
+    res.render('backend/interface');
+  });
 
 module.exports = router;

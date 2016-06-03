@@ -56,3 +56,17 @@ block content
                 a(href="widgets/edit/#{widget._id}") Bearbeiten
               td
                 a(href="widgets/remove/#{widget._id}") Löschen
+
+  section.col-sm-12
+      h2 Interface
+
+      form(action="/interface" method="POST")
+        div.form-group
+          label(for="user") User
+
+          select(name="user")#user.form-control
+            each user in users
+              option(value=user._id)= user.username
+
+        button(type="submit").btn.btn-primary Interface laden
+

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+
+  section.col-sm-4
+    h2 Widgets
+
+    if widgets.length == 0
+      h2 No widgets
+    else
+      ul-list-unstyled
+        each widget in widgets
+          strong=widget.name
+          img(src="http://www.placehold.it/150x150?text=" + widget.name, alt="widget.name")
+
+
