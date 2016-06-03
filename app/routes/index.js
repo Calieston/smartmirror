@@ -22,8 +22,7 @@ router.get('/', (req, res, next) => {
   /* Query Promise */
   query.then((users) => {
       res.render('backend/index', {
-        title: 'SmartMirror Backend Landingpage',
-        users: users,
+        users: users
       });
     })
     /* Error Handling */
@@ -99,8 +98,6 @@ router.route('/users/:user/delete')
 router.route('/settings')
   .get((req, res, next) => {
     systemCtrl.get().then((system) => {
-      console.log('Tick');
-      console.log(system);
       res.render('backend/settings', {
         system: system.wifi,
       });
@@ -108,7 +105,6 @@ router.route('/settings')
   })
   .post((req, res, next) => {
     systemCtrl.update(req.body).then((system) => {
-      console.log('Trick');
       res.render('backend/settings', {
         system: system.wifi,
       });
