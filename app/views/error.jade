@@ -8,13 +8,13 @@ html(lang="en")
     div.container
       div.col-lg-8.col-lg-offset-2
         header.text-center
-          h1= title
+          h1 Error
           //- OPPS, Error 404 !
         article
-          p The requested Site at #{descr} was not found!
+          p= message
           br
 
-          small.text-muted Theere is some error here, Please try later.
+          small.text-muted= err
           br
 
           a(href="/").btn.btn-primary Return Dashboard
