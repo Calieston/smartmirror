@@ -28,8 +28,8 @@ block content
     h2 Verfügbare Module
 
 
-    if modules.length == 0
-      h2 No Modules
+    if server.length == 0
+      aside.alert.alert-danger Es konnte keine Verbindung zum Server aufgebaut werden
     else
       table.table
         thead
@@ -40,7 +40,7 @@ block content
             th Link
 
         tbody
-          each module in modules
+          each module in server
             tr
               td
                 strong=module.name
@@ -56,7 +56,7 @@ block content
   section.col-sm-6
     h2 Installierte Module
 
-    if installedModules.length == 0
+    if modules.length == 0
       h2 No Modules
     else
       table.table
@@ -68,7 +68,7 @@ block content
             th Link
 
         tbody
-          each module in installedModules
+          each module in modules
             tr
               td
                 strong=module.name

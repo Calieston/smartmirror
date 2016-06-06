@@ -119,21 +119,28 @@ router.route('/settings')
 router.route('/modules')
   .get((req, res, next) => {
     var params = {};
-    modulesCtrl.loadModules()
+
+    modulesCtrl.getModules()
     .then((modules) => {
-      params.modules = JSON.parse(modules);
-      return modulesCtrl.getModules()
+      params.modules = modules;
+      return modulesCtrl.loadModules();
     })
-    .then((installedModules) => {
+    .then((server) => {
+      params.server = JSON.parse(server);
       res.render('backend/modules', {
         modules: params.modules,
-        installedModules: installedModules,
+        server: params.server,
         get: req.query || false,
       });
     })
     .catch((err) => {
       console.log(err);
-      res.sendStatus(500);
+      res.status(500);
+      res.render('backend/modules', {
+        modules: params.modules || [],
+        server: params.server || [],
+        get: req.query || false,
+      });
     });
   });
 
