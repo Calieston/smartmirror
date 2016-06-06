@@ -14,24 +14,24 @@ var modulesCtrl = require('./../controllers/modules');
 var widgetsCtrl = require('./../controllers/widgets');
 
 /* GET backend landing page. */
-router.get('/', (req, res, next) => {
+router.route('/')
+  .get((req, res, next) => {
+    /* Query for finding all users */
+    let query = User.find({}).exec();
 
-  /* Query for finding all users */
-  let query = User.find({}).exec();
-
-  /* Query Promise */
-  query.then((users) => {
-      res.render('backend/index', {
-        users: users
+    /* Query Promise */
+    query.then((users) => {
+        res.render('backend/index', {
+          users: users
+        });
+      })
+      /* Error Handling */
+      .catch((err) => {
+        console.error(err);
+        res.send(404);
       });
-    })
-    /* Error Handling */
-    .catch((err) => {
-      console.error(err);
-      res.send(404);
-    });
 
-});
+  });
 
 // User overview, add user
 router.route('/users')
@@ -89,7 +89,7 @@ router.route('/users/:user/delete')
     })
     .catch((err) => {
       console.error(err);
-      res.redirect('/users?error');
+      res.send(500);
     });
   });
 
@@ -109,24 +109,35 @@ router.route('/settings')
         system: system.wifi,
       });
     })
-    /* Error Handling */
     .catch((err) => {
       console.error(err);
-      res.send(404);
+      res.send(500);
     });
   });
 
 /* Modules */
 router.route('/modules')
   .get((req, res, next) => {
-    modulesCtrl.getAll().then((modules) => {
+    var params = {};
+    modulesCtrl.loadModules()
+    .then((modules) => {
+      params.modules = JSON.parse(modules);
+      return modulesCtrl.getModules()
+    })
+    .then((installedModules) => {
       res.render('backend/modules', {
-        modules: modules,
+        modules: params.modules,
+        installedModules: installedModules,
+        get: req.query || false,
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
     });
   });
 
-router.route('/modules/details')
+/*router.route('/modules/details')
   .post((req, res) => {
     modulesCtrl.loadModuleDetails({
       owner: req.body.owner,
@@ -139,21 +150,56 @@ router.route('/modules/details')
         package: JSON.stringify(data.json),
         url: data.url,
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
     });
-  });
+  });*/
 
 router.route('/modules/install')
   .post((req, res) => {
     modulesCtrl.installModule({
-      url: req.body.url,
-      name: req.body.name,
+      url: req.body.url
+    })
+    .then((module) => {
+      res.redirect('/modules?msg=install');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
     });
-    res.redirect('/modules?msg=moduleinstalling');
   });
 
-router.route('/modules/remove')
+router.route('/modules/remove/:id')
   .get((req, res) => {
-    res.send('ToDo');
+    modulesCtrl.checkModule({id: req.params.id})
+    .then((widgets) => {
+      return modulesCtrl.getModule({id: req.params.id});
+    })
+    .then((module) => {
+      console.log(module)
+      res.render('backend/modules_remove', {
+        module: module
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/modules?err=delete');
+    })
+  })
+  .post((req, res) => {
+    modulesCtrl.removeModule({
+      id: req.params.id,
+      name: req.body.name,
+    })
+    .then(() => {
+      res.redirect('/modules?msg=delete')
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
   });
 
 /* Widgets */

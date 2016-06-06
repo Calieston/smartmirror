@@ -1,0 +1,25 @@
+extends layout
+
+block vars
+  - var title='Home'
+
+block content
+
+  header.page-header
+    h1 Module löschen
+
+    div.col-sm-12
+
+      aside.alert.alert-danger
+        strong Modul Löschen
+        p Wollen sie wirklich das Modul #[strong #{module.name}] löschen?
+        p Wenn ja, klicken sie auf den roten Button #[strong Modul Löschen]
+        p Wenn nicht, klicken sie auf den blauen Button #[strong Zurück]
+
+    div.col-sm-6
+      a(href='/modules').btn.btn-primary Zurück
+
+    div.col-sm-6
+      form(action='/modules/remove/#{module._id}' method="post")
+        input(type="hidden" name='name' value=module.name)
+        button(type='submit').btn.btn-danger Modul Löschen

@@ -8,27 +8,25 @@ block content
   header.page-header
     h1 Moduleübersicht
 
-  section.col-sm-12
-    h2 Github Module installieren
+    if(get && get.msg === 'install')
+      aside.alert.alert-success.col-sm-12
+        strong Hinweis: Module wurde installiert
 
-    form(action="modules/details" method="POST")
+    if(get && get.err === 'install')
+      aside.alert.alert-danger.col-sm-12
+        strong Fehler: Beim installieren des Moduls ist ein Fehler aufgetreten. Versuchen sie es später erneut!
 
-      label(for="owner") Owner
-      div.input-group
-        span#owern.input-group-addon Owner
-        input(type="text" name="owner" placeholder="Owner")#owner.form-control
+    if(get && get.msg === 'delete')
+      aside.alert.alert-success.col-sm-12
+        strong Hinweis: Das Modul wurde gelöscht
 
-      label(for="repo") Repo
-      div.input-group
-        span#owner.input-group-addon Repository
-        input(type="text" name="repo" placeholder="Repo")#repo.form-control
+    if(get && get.err === 'delete')
+      aside.alert.alert-danger.col-sm-12
+        strong Fehler: Das Modul konnte nicht gelöscht werden das es noch von einer anderen Person verwendet wird
 
-      br
+  section.col-sm-6
+    h2 Verfügbare Module
 
-      button(type="submit").btn.btn-primary Laden
-
-  section.col-sm-12
-    h2 Installierte Module
 
     if modules.length == 0
       h2 No Modules
@@ -51,4 +49,32 @@ block content
               td
                 time=module.version
               td
-                a(href=module.url) Info
+                form(action="/modules/install" method="post")
+                  input(type="hidden" name="url" value=module.git)
+                  button(type="submit").btn.btn-primary Installieren
+
+  section.col-sm-6
+    h2 Installierte Module
+
+    if installedModules.length == 0
+      h2 No Modules
+    else
+      table.table
+        thead
+          tr
+            th Module
+            th Description
+            th Version
+            th Link
+
+        tbody
+          each module in installedModules
+            tr
+              td
+                strong=module.name
+              td
+                p=module.description
+              td
+                time=module.version
+              td
+                a(href="modules/remove/#{module._id}").btn.btn-danger Löschen

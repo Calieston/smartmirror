@@ -1,12 +1,18 @@
 'use strict';
 
-var Module = require('./../models/modules');
-var https = require('https');
+var Modules = require('./../models/modules');
+var Users = require('./../models/users');
+var Widgets = require('./../models/widgets');
+var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
 
-exports.getAll = function(params) {
-  let query = Module.find({})
+exports.loadModules = function (params) {
+  return Helpers.loadFileFromServer({url: 'http://localhost:3333/api/getModules'});
+}
+
+exports.getModules = function(params) {
+  let query = Modules.find({})
     .lean();
 
   return query.exec();
@@ -17,7 +23,7 @@ exports.loadModuleDetails = function(params) {
   const baseUrl = 'https://raw.githubusercontent.com/';
   let url = baseUrl + params.owner + '/' + params.repo + '/master/';
 
-  return loadFileFromServer({url: url + 'package.json'})
+  return Helpers.loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     return {
       json: JSON.parse(data),
@@ -28,33 +34,33 @@ exports.loadModuleDetails = function(params) {
 
 exports.installModule = function(params) {
 
-  let url = params.url;
+  const url = 'https://raw.githubusercontent.com/' + params.url.slice(19) + '/master/';
   var modulePackage;
 
-  loadFileFromServer({url: url + 'package.json'})
+  return Helpers.loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
   })
   .then(() => {
-    return loadFileFromServer({url: url + 'app/controller.js'});
+    return Helpers.loadFileFromServer({url: url + 'app/controller.js'});
   })
   .then((data) => {
-    return saveFile({
-      path: path.join(__dirname, './../controllers/modules/', params.name + '.js'),
+    return Helpers.saveFile({
+      path: path.join(__dirname, './../controllers/modules/', modulePackage.name + '.js'),
       data: data,
     });
   })
   .then(() => {
-    return loadFileFromServer({url: url + 'app/view.jade'});
+    return Helpers.loadFileFromServer({url: url + 'app/view.jade'});
   })
   .then((data) => {
-    return saveFile({
-      path: path.join(__dirname, './../views/modules/', params.name + '.jade'),
+    return Helpers.saveFile({
+      path: path.join(__dirname, './../views/modules/', modulePackage.name + '.jade'),
       data: data,
     });
   })
   .then(() => {
-    let newModule = Module({
+    let newModule = Modules({
       author: modulePackage.author,
       description: modulePackage.description,
       name: modulePackage.name,
@@ -64,80 +70,51 @@ exports.installModule = function(params) {
       settings: modulePackage.smartmirror || null,
     });
 
-    let query = newModule.save();
-
-    return query;
+    return newModule.save();
   })
   .catch((err) => {
     console.log(err);
+    return err;
   });
 };
 
-function loadFileFromServer(params) {
+exports.getModule = function(params) {
+  let query =  Modules.findById(params.id)
+    .lean();
 
-  return new Promise((resolve, reject) => {
-
-    // Fire the get request
-    const request = https.get(params.url, (response) => {
-
-      // Handle http errors
-      if (response.statusCode < 200 || response.statusCode > 299) {
-        console.log('Failed to load page, status code: ' + response.statusCode);
-        reject(new Error('Failed to load page: ' + response.statusCode));
-      }
-
-      // Temporary data holder
-      const body = [];
-
-      // On every content chunk, push it to the data array
-      response.on('data', (chunk) => {
-        body.push(chunk);
-      });
-
-      // We are done, resolve promise with those joined chunks
-      response.on('end', () => {
-        let data = body.join();
-        resolve(data);
-      });
-    });
-
-    // Handle connection errors of the request
-    request.on('error', (err) => {
-      console.log(err);
-      reject(err);
-    });
-  });
+  return query.exec()
 }
 
-function saveFile(params) {
-
-  console.log(params)
-
+exports.checkModule = function(params) {
   return new Promise((resolve, reject) => {
 
-    let file = fs.writeFile(params.path, params.data, (err) => {
+    let query = Widgets.find({module: params.id}).exec();
 
-      if (err) {
-        console.log(err);
+    query.then((widgets) => {
+      if(widgets.length > 0) {
+        console.log(widget)
+        let err = new Error('Module has Widgets');
         reject(err);
+      } else {
+        resolve();
       }
-
-      resolve(params.data);
     });
   });
 }
 
-function removeDir(params) {
+exports.removeModule = function(params) {
 
-  return new Promise((resolve, reject) => {
-
-    if (!fs.existsSync(params.path)) {
-      reject();
-    }
-
-    let files = fs.readdirSync(params.path);
-
-    resolve(files);
-
+  return Helpers.removeFile({
+    path: path.join(__dirname, './../controllers/modules/', params.name + '.js'),
+  })
+  .then(() => {
+    return Helpers.removeFile({
+      path: path.join(__dirname, './../views/modules/', params.name + '.jade'),
+    });
+  })
+  .then(() => {
+    return Modules.findByIdAndRemove(params.id).exec();
   });
+
 }
+
