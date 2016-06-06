@@ -1,9 +1,32 @@
 doctype html
 block vars
-html
+html(ng-app='gridModule')
   head
     title Smartmirror - #{title}
     link(rel='stylesheet', href='/stylesheets/backend.css')
+    <!-- angular and jquery -->
+    link(rel='stylesheet', href='stylesheets/angular-gridster.min.css')
+    script(src='http://code.jquery.com/jquery-1.11.3.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.js')
+    script(src='javascripts/jquery.resize.js')
+    script(src='javascripts/angular-gridster.min.js')
+    script(src='javascripts/grid.js')
+    style.
+      #moduleGrid {
+        background-color: #000000;
+      }
+      #mirrorGrid {
+        background-color: #C2BCBF;
+      }
+      .gridster .gridster-item  {
+      background-color: #EFEFEF;
+      color: #004756;
+      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+      -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      color: #004756;
+      padding: 10px;
+      }
   body
 
     nav.navbar.navbar-default.navbar-fixed-top
