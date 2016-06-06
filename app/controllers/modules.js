@@ -116,20 +116,15 @@ exports.checkModule = function(params) {
 
 exports.removeModule = function(params) {
 
+  const ctrl = path.join(__dirname, './../controllers/modules/');
+  const view = path.join(__dirname, './../views/modules/');
+
   return Helpers.removeFile({
-    path: path.join(
-      __dirname,
-      './../controllers/modules/',
-      params.name,
-      '.js'),
+    path: path.join(ctrl, params.name + '.js'),
   })
   .then(() => {
     return Helpers.removeFile({
-      path: path.join(
-        __dirname,
-        './../views/modules/',
-        params.name,
-        '.jade'),
+      path: path.join(view, params.name + '.jade'),
     });
   })
   .then(() => {

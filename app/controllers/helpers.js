@@ -73,11 +73,12 @@ exports.removeFile = function(params) {
       reject();
     }
 
-    console.log(params.path);
-
-    fs.unlinkSync(params.path);
-
-    resolve();
+    fs.unlink(params.path, (err) => {
+      if(err) {
+        reject();
+      }
+      resolve();
+    });
 
   });
 };
