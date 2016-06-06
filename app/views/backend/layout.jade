@@ -11,11 +11,11 @@ html
         a(href='/').navbar-brand
           img(src='/images/logo.png' alt='SmartMirror').nav-logo
         ul.nav.navbar-nav.navbar-right
-          li.nav-item.active
+          li.nav-item(class=title === 'Home' ? 'active' : '')
             a(href='/').nav-link Home
           li
           each value, key in {modules: 'Modules', widgets: 'Widgets', users: 'Users', sensors: 'Sensors',settings: 'Settings'}
-            li.nav-item
+            li.nav-item(class=title === value ? 'active' : '')
               a(href='/#{key}').nav-link=value
 
     div.container

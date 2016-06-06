@@ -5,15 +5,21 @@ block vars
 
 block content
 
+  header.page-header
+    h2 Interface Konfigurator
+
   section.col-sm-4
-    h2 Widgets
+    header
+      h2 Widgets
 
     if widgets.length == 0
       h2 No widgets
     else
-      ul-list-unstyled
-        each widget in widgets
-          strong=widget.name
-          img(src="http://www.placehold.it/150x150?text=" + widget.name, alt="widget.name")
+      each widget in widgets
+        div(draggable="true").row.alert.alert-info
+          img(src="http://www.placehold.it/150x150?text=" + widget.name, alt="widget.name").col-sm-4
+          strong.col-sm-8=widget.name
 
-
+  section.col-sm-8
+    header
+      h2 Interface
