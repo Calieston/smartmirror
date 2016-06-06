@@ -1,7 +1,7 @@
 extends layout
 
 block vars
-  - var title='Home'
+  - var title='Modules'
 
 block content
 
@@ -27,7 +27,6 @@ block content
   section.col-sm-6
     h2 Verfügbare Module
 
-
     if server.length == 0
       aside.alert.alert-danger Es konnte keine Verbindung zum Server aufgebaut werden
     else
@@ -49,9 +48,16 @@ block content
               td
                 time=module.version
               td
-                form(action="/modules/install" method="post")
-                  input(type="hidden" name="url" value=module.git)
-                  button(type="submit").btn.btn-primary Installieren
+                if module.status && module.status === "installed"
+                  button(disabled="disabled").btn.btn-danger Installiert
+                else if module.status && module.status === "update"
+                  form(action="/modules/install" method="post")
+                    input(type="hidden" name="url" value=module.git)
+                    button(type="submit").btn.btn-primary Update
+                else
+                  form(action="/modules/install" method="post")
+                    input(type="hidden" name="url" value=module.git)
+                    button(type="submit").btn.btn-primary Installieren
 
   section.col-sm-6
     h2 Installierte Module

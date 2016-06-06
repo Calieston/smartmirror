@@ -127,6 +127,10 @@ router.route('/modules')
     })
     .then((server) => {
       params.server = JSON.parse(server);
+      return modulesCtrl.compareModules(params);
+    })
+    .then((params) => {
+      params = params;
       res.render('backend/modules', {
         modules: params.modules,
         server: params.server,

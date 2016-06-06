@@ -7,9 +7,11 @@ var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
 
+const moduleServer = 'http://localhost:3333/api/getModules';
+
 exports.loadModules = function(params) {
   return Helpers.loadFileFromServer({
-    url: 'http://localhost:3333/api/getModules',
+    url: moduleServer,
   });
 };
 
@@ -20,42 +22,26 @@ exports.getModules = function(params) {
   return query.exec();
 };
 
-exports.loadModuleDetails = function(params) {
-
-  const baseUrl = 'https://raw.githubusercontent.com/';
-  let url = baseUrl + params.owner + '/' + params.repo + '/master/';
-
-  return Helpers.loadFileFromServer({url: url + 'package.json'})
-  .then((data) => {
-    return {
-      json: JSON.parse(data),
-      url: url,
-    };
-  });
-};
-
 exports.installModule = function(params) {
 
   const url = 'https://raw.githubusercontent.com/' +
     params.url.slice(19) +
     '/master/';
 
+  var dir = path.join(__dirname, './../#/modules/');
+
   var modulePackage;
 
   return Helpers.loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
-  })
-  .then(() => {
+    dir += modulePackage.name;
     return Helpers.loadFileFromServer({url: url + 'app/controller.js'});
   })
   .then((data) => {
+    console.log(dir);
     return Helpers.saveFile({
-      path: path.join(
-        __dirname,
-        './../controllers/modules/',
-        modulePackage.name,
-        '.js'),
+      path: dir.replace('#', 'controllers') + '.js',
       data: data,
     });
   })
@@ -64,11 +50,7 @@ exports.installModule = function(params) {
   })
   .then((data) => {
     return Helpers.saveFile({
-      path: path.join(
-        __dirname,
-        './../views/modules/',
-        modulePackage.name ,
-        '.jade'),
+      path: dir.replace('#', 'views') + '.jade',
       data: data,
     });
   })
@@ -116,23 +98,40 @@ exports.checkModule = function(params) {
 
 exports.removeModule = function(params) {
 
+  const dir = path.join(__dirname, './../#/modules', params.name);
+
   return Helpers.removeFile({
-    path: path.join(
-      __dirname,
-      './../controllers/modules/',
-      params.name,
-      '.js'),
+    path: dir.replace('#', 'controllers') + '.js',
   })
   .then(() => {
     return Helpers.removeFile({
-      path: path.join(
-        __dirname,
-        './../views/modules/',
-        params.name,
-        '.jade'),
+      path: dir.replace('#', 'views') + '.jade',
     });
   })
   .then(() => {
     return Modules.findByIdAndRemove(params.id).exec();
   });
 };
+
+exports.compareModules = function(params) {
+
+  var params = params;
+
+  return new Promise((resolve, reject) => {
+    for (var i = 0; i < params.modules.length; i++) {
+      for (var j = 0; j < params.server.length; j++) {
+        if(params.modules[i].name === params.server[j].name) {
+          if(params.modules[i].version != params.server[j].version) {
+            params.server[j].status = 'update';
+            break;
+          }
+          params.server[j].status = 'installed';
+          break;
+        }
+      }
+    }
+
+    resolve(params);
+
+  });
+}
