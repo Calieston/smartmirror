@@ -13,7 +13,7 @@ exports.insert = function(params) {
   let query = new System({params});
 
   return query.save();
-}
+};
 
 exports.update = function(params) {
   let query = System.findOneAndUpdate({},{

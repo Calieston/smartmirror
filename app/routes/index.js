@@ -1,8 +1,8 @@
 'use strict';
 
 // Modules
-var express = require('express'),
-    router = express.Router();
+var express = require('express');
+var router = express.Router();
 
 // Models
 var User = require('./../models/users');
@@ -22,7 +22,7 @@ router.route('/')
     /* Query Promise */
     query.then((users) => {
         res.render('backend/index', {
-          users: users
+          users: users,
         });
       })
       /* Error Handling */
@@ -39,7 +39,7 @@ router.route('/users')
     userCtrl.getUsers()
     .then((users) => {
       res.render('backend/users', {
-        users: users
+        users: users,
       });
     })
     .catch((err) => {
@@ -57,13 +57,13 @@ router.route('/users')
     });
   });
 
-// user Details, edit user
+// User Details, edit user
 router.route('/users/:user/')
   .get((req, res) => {
     userCtrl.getUserById({id: req.params.user})
     .then((user) => {
       res.render('backend/user_details', {
-        user: user
+        user: user,
       });
     })
     .catch((err) => {
@@ -144,30 +144,10 @@ router.route('/modules')
     });
   });
 
-/*router.route('/modules/details')
-  .post((req, res) => {
-    modulesCtrl.loadModuleDetails({
-      owner: req.body.owner,
-      repo: req.body.repo,})
-    .then((data) => {
-      res.render('backend/modules_details.jade', {
-        owner: req.body.owner,
-        repo: req.body.repo,
-        details: data.json,
-        package: JSON.stringify(data.json),
-        url: data.url,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-  });*/
-
 router.route('/modules/install')
   .post((req, res) => {
     modulesCtrl.installModule({
-      url: req.body.url
+      url: req.body.url,
     })
     .then((module) => {
       res.redirect('/modules?msg=install');
@@ -185,15 +165,14 @@ router.route('/modules/remove/:id')
       return modulesCtrl.getModule({id: req.params.id});
     })
     .then((module) => {
-      console.log(module)
       res.render('backend/modules_remove', {
-        module: module
+        module: module,
       });
     })
     .catch((err) => {
       console.log(err);
       res.redirect('/modules?err=delete');
-    })
+    });
   })
   .post((req, res) => {
     modulesCtrl.removeModule({
@@ -201,7 +180,7 @@ router.route('/modules/remove/:id')
       name: req.body.name,
     })
     .then(() => {
-      res.redirect('/modules?msg=delete')
+      res.redirect('/modules?msg=delete');
     })
     .catch((err) => {
       console.log(err);
@@ -213,16 +192,16 @@ router.route('/modules/remove/:id')
 router.route('/widgets')
   .get((req, res) => {
     var params = {};
-        params.get = req.query || false;
+    params.get = req.query || false;
 
     modulesCtrl.getModules()
     .then((modules) => {
       params.modules = modules;
-      return widgetsCtrl.getWidgets()
+      return widgetsCtrl.getWidgets();
     })
     .then((widgets) => {
       params.widgets = widgets;
-      return userCtrl.getUsers()
+      return userCtrl.getUsers();
     })
     .then((users) => {
       params.users = users;
@@ -251,12 +230,11 @@ router.route('/widgets/create/:module')
 
 router.route('/widgets/edit/:widget')
   .get((req, res) => {
-    console.log()
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
       res.render('backend/widgets_edit', {
         widget: widget,
-      })
+      });
     });
   })
   .post((req, res) => {
@@ -265,7 +243,7 @@ router.route('/widgets/edit/:widget')
       update: req.body,
     })
     .then((widget) => {
-      res.redirect('/widgets?msg=updated')
+      res.redirect('/widgets?msg=updated');
     })
     .catch((err) => {
       console.log(err);
@@ -288,7 +266,7 @@ router.route('/widgets/remove/:widget')
 router.route('/interface')
   .post((req, res) => {
     res.redirect('/interface/' +  req.body.user);
-  })
+  });
 
 router.route('/interface/:user')
   .get((req, res) => {
@@ -296,7 +274,7 @@ router.route('/interface/:user')
     userCtrl.getUsers()
     .then((users) => {
       params.users = users;
-      return widgetsCtrl.getWidgets()
+      return widgetsCtrl.getWidgets();
     })
     .then((widgets) => {
       params.widgets = widgets;

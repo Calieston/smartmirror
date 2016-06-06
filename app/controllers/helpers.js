@@ -6,10 +6,12 @@ exports.loadFileFromServer = function(params) {
 
   return new Promise((resolve, reject) => {
 
-    if(params.url.startsWith('https://')) {
-      var server = require('https');
-    } else if(params.url.startsWith('http://')){
-      var server = require('http');
+    var server;
+
+    if (params.url.startsWith('https://')) {
+      server = require('https');
+    } else if (params.url.startsWith('http://')) {
+      server = require('http');
     } else {
       let err = new Error('Unvalid URL');
       reject(err);
@@ -45,7 +47,7 @@ exports.loadFileFromServer = function(params) {
       reject(err);
     });
   });
-}
+};
 
 exports.saveFile = function(params) {
 
@@ -61,7 +63,7 @@ exports.saveFile = function(params) {
       resolve(params.data);
     });
   });
-}
+};
 
 exports.removeFile = function(params) {
 
@@ -78,4 +80,4 @@ exports.removeFile = function(params) {
     resolve();
 
   });
-}
+};

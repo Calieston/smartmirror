@@ -52,7 +52,7 @@ app.use(function(req, res, next) {
   res.status(404);
   res.render('error.jade', {
     message: '404: File Not Found',
-    err: req.url
+    err: req.url,
   });
 });
 

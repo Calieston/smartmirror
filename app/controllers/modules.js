@@ -7,9 +7,11 @@ var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
 
-exports.loadModules = function (params) {
-  return Helpers.loadFileFromServer({url: 'http://localhost:3333/api/getModules'});
-}
+exports.loadModules = function(params) {
+  return Helpers.loadFileFromServer({
+    url: 'http://localhost:3333/api/getModules',
+  });
+};
 
 exports.getModules = function(params) {
   let query = Modules.find({})
@@ -34,7 +36,10 @@ exports.loadModuleDetails = function(params) {
 
 exports.installModule = function(params) {
 
-  const url = 'https://raw.githubusercontent.com/' + params.url.slice(19) + '/master/';
+  const url = 'https://raw.githubusercontent.com/' +
+    params.url.slice(19) +
+    '/master/';
+
   var modulePackage;
 
   return Helpers.loadFileFromServer({url: url + 'package.json'})
@@ -46,7 +51,11 @@ exports.installModule = function(params) {
   })
   .then((data) => {
     return Helpers.saveFile({
-      path: path.join(__dirname, './../controllers/modules/', modulePackage.name + '.js'),
+      path: path.join(
+        __dirname,
+        './../controllers/modules/',
+        modulePackage.name,
+        '.js'),
       data: data,
     });
   })
@@ -55,7 +64,11 @@ exports.installModule = function(params) {
   })
   .then((data) => {
     return Helpers.saveFile({
-      path: path.join(__dirname, './../views/modules/', modulePackage.name + '.jade'),
+      path: path.join(
+        __dirname,
+        './../views/modules/',
+        modulePackage.name ,
+        '.jade'),
       data: data,
     });
   })
@@ -82,8 +95,8 @@ exports.getModule = function(params) {
   let query =  Modules.findById(params.id)
     .lean();
 
-  return query.exec()
-}
+  return query.exec();
+};
 
 exports.checkModule = function(params) {
   return new Promise((resolve, reject) => {
@@ -91,8 +104,7 @@ exports.checkModule = function(params) {
     let query = Widgets.find({module: params.id}).exec();
 
     query.then((widgets) => {
-      if(widgets.length > 0) {
-        console.log(widget)
+      if (widgets.length > 0) {
         let err = new Error('Module has Widgets');
         reject(err);
       } else {
@@ -100,21 +112,27 @@ exports.checkModule = function(params) {
       }
     });
   });
-}
+};
 
 exports.removeModule = function(params) {
 
   return Helpers.removeFile({
-    path: path.join(__dirname, './../controllers/modules/', params.name + '.js'),
+    path: path.join(
+      __dirname,
+      './../controllers/modules/',
+      params.name,
+      '.js'),
   })
   .then(() => {
     return Helpers.removeFile({
-      path: path.join(__dirname, './../views/modules/', params.name + '.jade'),
+      path: path.join(
+        __dirname,
+        './../views/modules/',
+        params.name,
+        '.jade'),
     });
   })
   .then(() => {
     return Modules.findByIdAndRemove(params.id).exec();
   });
-
-}
-
+};

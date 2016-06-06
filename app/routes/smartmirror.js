@@ -35,7 +35,7 @@ router.route('/module/:module')
       .then((data) => {
         let view = 'modules/' + widget.module.name + '.jade';
         res.render(view, {
-          feed: data
+          feed: data,
         });
       });
     });

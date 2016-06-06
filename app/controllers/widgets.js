@@ -15,14 +15,14 @@ exports.getWidget = function(params) {
   let query = Widgets.findById(params.id)
     .lean();
   return query.exec();
-}
+};
 
 exports.updateWidget = function(params) {
   let query = Widgets.findByIdAndUpdate(params.id, params.update, {new: true})
     .lean();
 
   return query.exec();
-}
+};
 
 exports.createWidget = function(params) {
   // Console.log(params);
