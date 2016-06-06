@@ -7,11 +7,36 @@ block content
   header.page-header
     h1 Widgetübersicht
 
-  aside.col-sm-4
-    h2 Installierte Module
+  if(get.msg && get.msg === 'install')
+    aside.alert.alert-success
+      strong Widget wurde erstellt
+
+  if(get.msg && get.msg === 'updated')
+    aside.alert.alert-success
+      strong Änderungen wurden gesichert
+
+  if(get.msg && get.msg === 'removed')
+    aside.alert.alert-warning
+      strong Widget wurde gelöscht
+
+  if(get.err && get.err === 'install')
+    aside.alert.alert-daner
+      strong Widget konnte nicht erstellt werden
+
+  if(get.err && get.err === 'updated')
+    aside.alert.alert-ganer
+      strong Änderungen konnten nicht gesichert werden
+
+  if(get.err && get.err === 'removed')
+    aside.alert.alert-daner
+      strong Widget konnte nicht gelöscht werden
+
+  aside.col-sm-6
+    h2 Verfügbare Module
 
     if modules.length == 0
-      h2 No Modules
+      aside.alert.alert.primary Keine Module verfügbar
+      a(href="/modules").btn.btn-primary Zu den Modulen
     else
       table.table
         thead
@@ -26,22 +51,23 @@ block content
                 strong=module.name
                 p=module.description
               td
-                form(action="widgets/create/#{module._id}" method="POST")
+                form(action="/widgets/create/#{module._id}" method="POST")
                   div.form-group
                     label(for="widget") Name
                     input(type="text" name="name" placeholder="name")#name.form-control
-                  each input, inputKey in module.settings
-                    div.form-group
-                      label(for="settings_#{inputKey}")=input.desc
-                      input(type=input.type id="#settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc).form-control
+                  if module.settings
+                    each input, inputKey in module.settings
+                      div.form-group
+                        label(for="settings_#{inputKey}")=input.desc
+                        input(type=input.type id="#settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc).form-control
 
                   button(type="submit").btn.btn-primary Widget erstellen
 
-  section.col-sm-8
+  section.col-sm-6
     h2 Widgets
 
     if widgets.length == 0
-      h2 No widgets
+      aside.alert.alert-primary Bisher wurden noch keine Widgets erstellt
     else
       table.table
         thead
@@ -56,9 +82,9 @@ block content
               td
                 strong=widget.name
               td
-                a(href="widgets/edit/#{widget._id}") Bearbeiten
+                a(href="/widgets/edit/#{widget._id}") Bearbeiten
               td
-                a(href="widgets/remove/#{widget._id}") Löschen
+                a(href="/widgets/remove/#{widget._id}") Löschen
 
   section.col-sm-12
       h2 Interface

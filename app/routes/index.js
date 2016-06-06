@@ -213,11 +213,12 @@ router.route('/modules/remove/:id')
 router.route('/widgets')
   .get((req, res) => {
     var params = {};
+        params.get = req.query || false;
 
-    modulesCtrl.getAll()
+    modulesCtrl.getModules()
     .then((modules) => {
       params.modules = modules;
-      return widgetsCtrl.getAll()
+      return widgetsCtrl.getWidgets()
     })
     .then((widgets) => {
       params.widgets = widgets;
@@ -240,28 +241,47 @@ router.route('/widgets/create/:module')
       form: req.body,
     })
     .then((data) => {
-      res.redirect('/widgets?status=moduleinstalled');
+      res.redirect('/widgets?msg=install');
     })
     .catch((err) => {
       console.log(err);
-      res.redirect('/widgets?status=error');
+      res.redirect('/widgets?err=install');
     });
   });
 
 router.route('/widgets/edit/:widget')
   .get((req, res) => {
-    res.send('Todo');
+    console.log()
+    widgetsCtrl.getWidget({id: req.params.widget})
+    .then((widget) => {
+      res.render('backend/widgets_edit', {
+        widget: widget,
+      })
+    });
+  })
+  .post((req, res) => {
+    widgetsCtrl.updateWidget({
+      id: req.params.widget,
+      update: req.body,
+    })
+    .then((widget) => {
+      res.redirect('/widgets?msg=updated')
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
   });
 
 router.route('/widgets/remove/:widget')
   .get((req, res) => {
     widgetsCtrl.deleteWidgetById({widget: req.params.widget})
     .then((widget) => {
-      res.redirect('/widgets?status=widgetremoved');
+      res.redirect('/widgets?msg=removed');
     })
     .catch((err) => {
       console.log(err);
-      res.redirect('/widgets?status=error');
+      res.redirect('/widgets?err=removed');
     });
   });
 
@@ -276,7 +296,7 @@ router.route('/interface/:user')
     userCtrl.getUsers()
     .then((users) => {
       params.users = users;
-      return widgetsCtrl.getAll()
+      return widgetsCtrl.getWidgets()
     })
     .then((widgets) => {
       params.widgets = widgets;

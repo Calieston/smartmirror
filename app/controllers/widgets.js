@@ -1,21 +1,32 @@
 'use strict';
 
-var Module = require('./../models/modules');
-var Widget = require('./../models/widgets');
+var Modules = require('./../models/modules');
+var Widgets = require('./../models/widgets');
 
 
-exports.getAll = function(params) {
-  let query = Widget.find({})
+exports.getWidgets = function(params) {
+  let query = Widgets.find({})
     .lean();
-
-    // ToDo: All widgets or all user widgets?
 
   return query.exec();
 };
 
+exports.getWidget = function(params) {
+  let query = Widgets.findById(params.id)
+    .lean();
+  return query.exec();
+}
+
+exports.updateWidget = function(params) {
+  let query = Widgets.findByIdAndUpdate(params.id, params.update, {new: true})
+    .lean();
+
+  return query.exec();
+}
+
 exports.createWidget = function(params) {
   // Console.log(params);
-  let query = Module.findById(params.module)
+  let query = Modules.findById(params.module)
     .lean()
     .exec();
 
@@ -28,7 +39,7 @@ exports.createWidget = function(params) {
       }
     });
 
-    let newWidget = Widget({
+    let newWidget = Widgets({
       module: module._id,
       name: params.form.name,
       settings: settings,
@@ -45,7 +56,7 @@ exports.createWidget = function(params) {
 
 exports.deleteWidgetById = function(params) {
 
-  let query = Widget.findByIdAndRemove(params.widget)
+  let query = Widgets.findByIdAndRemove(params.widget)
     .lean();
 
   // Todo
