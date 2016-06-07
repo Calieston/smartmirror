@@ -1,6 +1,6 @@
 extends layout
 
-block vars
+block head
   - var title='Widgets'
 
 block content
@@ -85,20 +85,6 @@ block content
                 a(href="/widgets/edit/#{widget._id}") Bearbeiten
               td
                 a(href="/widgets/remove/#{widget._id}") Löschen
-
-  section.col-sm-12
-    h2 Module
-    div(ng-controller='moduleCtrl')
-      div(id='moduleGrid' gridster='gridsterOpts')
-        ul
-          li(gridster-item='item', ng-repeat='item in moduleItems')
-
-  section.col-sm-12
-    h2 Spiegel Interface
-    div(ng-controller='mirrorCtrl')
-      div(id='mirrorGrid' gridster='gridsterOpts')
-        ul
-          li(gridster-item='item', ng-repeat='item in interfaceItems')
 
   section.col-sm-12
       h2 Interface

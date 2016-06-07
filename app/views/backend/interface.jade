@@ -1,7 +1,8 @@
 extends layout
 
-block vars
+block head
   - var title='Interface'
+  link(rel='stylesheet', href='/stylesheets/angular-gridster.min.css')
 
 block content
 
@@ -20,6 +21,23 @@ block content
           img(src="http://www.placehold.it/150x150?text=" + widget.name, alt="widget.name").col-sm-4
           strong.col-sm-8=widget.name
 
-  section.col-sm-8
-    header
-      h2 Interface
+  section.col-sm-12
+    h2 Module
+    div(ng-controller='moduleCtrl')
+      div(id='moduleGrid' gridster='gridsterOpts')
+        ul
+          li(gridster-item='item', ng-repeat='item in moduleItems')
+
+  section.col-sm-12
+    h2 Spiegel Interface
+    div(ng-controller='mirrorCtrl')
+      div(id='mirrorGrid' gridster='gridsterOpts')
+        ul
+          li(gridster-item='item', ng-repeat='item in interfaceItems')
+
+block footer
+  script(src='/javascripts/jquery.js')
+  script(src='/javascripts/angular.js')
+  script(src='/javascripts/jquery.resize.js')
+  script(src='/javascripts/angular-gridster.min.js')
+  script(src='/javascripts/grid.js')

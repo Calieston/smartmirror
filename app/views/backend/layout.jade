@@ -1,16 +1,11 @@
 doctype html
-block vars
+
 html(ng-app='gridModule')
   head
+    block head
     title Smartmirror - #{title}
     link(rel='stylesheet', href='/stylesheets/backend.css')
-    <!-- angular and jquery -->
-    link(rel='stylesheet', href='stylesheets/angular-gridster.min.css')
-    script(src='http://code.jquery.com/jquery-1.11.3.min.js')
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.js')
-    script(src='javascripts/jquery.resize.js')
-    script(src='javascripts/angular-gridster.min.js')
-    script(src='javascripts/grid.js')
+
     style.
       #moduleGrid {
         background-color: #000000;
@@ -43,3 +38,5 @@ html(ng-app='gridModule')
 
     div.container
       block content
+
+  block footer
