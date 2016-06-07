@@ -32,7 +32,7 @@ html(ng-app='gridModule')
           li.nav-item(class=title === 'Home' ? 'active' : '')
             a(href='/').nav-link Home
           li
-          each value, key in {modules: 'Modules', widgets: 'Widgets', users: 'Users', sensors: 'Sensors',settings: 'Settings'}
+          each value, key in {modules: 'Modules', widgets: 'Widgets', users: 'Users', sensors: 'Sensors',system: 'System'}
             li.nav-item(class=title === value ? 'active' : '')
               a(href='/#{key}').nav-link=value
 

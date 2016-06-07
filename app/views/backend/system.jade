@@ -1,0 +1,72 @@
+extends layout
+
+block head
+  - var title='System'
+
+
+block content
+  header.page-header
+    h1 Systemeinstellungen
+
+  section.col-sm-12
+    h2 System Informationen
+
+    div.row
+
+      div.col-sm-6
+        h3 Arbeitsspeicher: #{(os.memory.free/1024/1024/1024).toFixed(2)}GB / #{(os.memory.total/1024/1024/1024).toFixed(2)}GB
+        strong #{Math.round(100 - (os.memory.free / os.memory.total) * 100)}% Arbeitsspeicher belegt
+        div.progress
+          div(style="width:#{Math.round(100 - (os.memory.free / os.memory.total) * 100)}%").progress-bar
+
+      div.col-sm-6
+        h3 Speicherplatz: #{(disk.free/1024/1024/1024).toFixed(2)}Gb / #{(disk.total/1024/1024/1024).toFixed(2)}GB
+        strong #{Math.round(100 - (disk.free / disk.total) * 100)}% Speicherplatz verwendet
+        div.progress
+          div(style="width:#{Math.round(100 - (disk.free / disk.total) * 100)}%").progress-bar
+
+      div.col-sm-6
+        h3 Uptime
+        strong #{Math.round(os.uptime/60)} Minuten
+
+      div.col-sm-6
+        h3 Auslastung
+        strong In der letzten Minute: #{os.load[0]}
+        br
+        strong In den letzten 5 Minuten: #{os.load[1]}
+        br
+        strong In den letzten 15 Minuten: #{os.load[2]}
+
+
+  section.col-sm-12
+
+    h2 WLAN Einstellungen
+
+    form(action="/system" method="post")
+
+      label(for="ssid") SSID
+      div.input-group
+        span.input-group-addon SSID
+        input(type="text" name="ssid" value=system.ssid ? system.ssid : '')#ssid.form-control
+
+      label(for="mac") MAC
+      div.input-group
+        span.input-group-addon MAC
+        input(type="text" name="mac" value=system.mac ? system.mac : '')#mac.form-control
+
+      div.checkbox
+        label(for="security") AES
+          input(type="checkbox" name="security" value="aes" checked=system.security.indexOf('aes') > -1 ? true : false)
+
+      div.checkbox
+        label(for="security") RSA
+          input(type="checkbox" name="security" value="rsa" checked=system.security.indexOf('rsa') > -1 ? true : false)
+
+      label(for="password") password
+      div.input-group
+        span.input-group-addon Password
+        input(type="password" name="password" value=system.password ? system.password : '')#password.form-control
+
+      br
+
+      button(type="submit").btn.btn-primary Speichern

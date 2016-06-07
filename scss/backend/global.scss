@@ -2,7 +2,26 @@ body {
   background-color: $blue;
 }
 
+.navbar,
+.container,
+.btn {
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
 .container {
-  margin-top: 70px;
+  margin-top: 120px;
+  margin-bottom: 70px;
   background-color: white;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 4px;
+}
+
+.page-header {
+	text-align: center;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	left: 20px;
 }

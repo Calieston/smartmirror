@@ -1,6 +1,49 @@
 'use strict';
 
 var System = require('./../models/system');
+var os = require('os');
+var disk = require('diskusage');
+
+exports.os = function() {
+  return new Promise((resolve, reject) => {
+
+    try {
+      var params = {};
+      params.cpu = os.cpus();
+      params.load = os.loadavg();
+      params.memory = {
+        free: os.freemem(),
+        total: os.totalmem(),
+      }
+      params.uptime = os.uptime();
+
+      resolve(params);
+    }
+    catch (err) {
+      reject(err);
+    }
+  });
+};
+
+exports.disk = function() {
+  return new Promise((resolve, reject) => {
+
+    var dir = __dirname;
+
+    if(dir.startsWith('/')) {
+      var dir = '/';
+    } else {
+      var dir = dir.slice(0,2);
+    }
+
+    disk.check(dir, function(err, data) {
+      if(err) {
+        reject(err);
+      }
+      resolve(data);
+    });
+  });
+};
 
 exports.get = function() {
   let query = System.findOne({})

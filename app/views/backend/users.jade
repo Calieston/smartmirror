@@ -10,6 +10,7 @@ block content
     h2 Users
 
   section.col-md-8
+    h2 Users
     if users.length == 0
       h2 No Users
     else
@@ -37,6 +38,8 @@ block content
                 a(href="users/#{user._id}") Edit
 
   section.col-md-4
+
+    h2 Neuen User anlegen
 
     form(action="/users" method="post")
 

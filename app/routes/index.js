@@ -96,12 +96,29 @@ router.route('/users/:user/delete')
 
 
 /* GET system config page. */
-router.route('/settings')
+router.route('/system')
   .get((req, res, next) => {
-    systemCtrl.get().then((system) => {
-      res.render('backend/settings', {
-        system: system.wifi,
+    var params = {};
+    systemCtrl.get()
+    .then((system) => {
+      params.system = system;
+      return systemCtrl.os();
+    })
+    .then((os) => {
+      params.os = os;
+      return systemCtrl.disk();
+    })
+    .then((disk)=> {
+      console.log(disk)
+      res.render('backend/system', {
+        system: params.system.wifi,
+        os: params.os,
+        disk: disk,
       });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
     });
   })
   .post((req, res, next) => {
@@ -112,7 +129,7 @@ router.route('/settings')
     })
     .catch((err) => {
       console.error(err);
-      res.send(500);
+      res.status(500);
     });
   });
 
@@ -159,7 +176,7 @@ router.route('/modules/install')
     })
     .catch((err) => {
       console.log(err);
-      res.sendStatus(500);
+      res.status(500);
     });
   });
 
