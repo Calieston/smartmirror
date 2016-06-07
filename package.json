@@ -65,7 +65,8 @@
   "jscsConfig": {
     "preset": "node-style-guide",
     "excludeFiles": [
-      "app/models/*"
+      "app/models/*",
+      "app/public/*"
     ]
   }
 }
