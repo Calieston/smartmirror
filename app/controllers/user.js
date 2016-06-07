@@ -7,7 +7,7 @@ exports.addUser = (params) => {
 
   // Create new user instance and insert data
   var newUser = User({
-    username: params.name,
+    username: params.username,
     bdate: params.bdate,
     theme: params.theme,
     active: (params.active == 'true' ? true : false),

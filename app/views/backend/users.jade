@@ -29,12 +29,12 @@ block content
               td
                 p=user.active
               td
-                time=user.lastLogin
+                - var date = new Date(user.updatedAt)
+                time=date.toLocaleString()
               td
                 a(href="users/#{user._id}/delete") Delete
                 =" "
                 a(href="users/#{user._id}") Edit
-
 
   section.col-md-4
 
