@@ -117,8 +117,6 @@ exports.removeModule = function(params) {
 
 exports.compareModules = function(params) {
 
-  var params = params;
-
   return new Promise((resolve, reject) => {
     for (var i = 0; i < params.modules.length; i++) {
       for (var j = 0; j < params.server.length; j++) {

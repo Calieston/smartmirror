@@ -38,7 +38,6 @@ router.route('/users')
   .get((req, res) => {
     userCtrl.getUsers()
     .then((users) => {
-      console.log(users[0].updatedAt)
       res.render('backend/users', {
         users: users,
       });
@@ -109,7 +108,6 @@ router.route('/system')
       return systemCtrl.disk();
     })
     .then((disk)=> {
-      console.log(disk)
       res.render('backend/system', {
         system: params.system.wifi,
         os: params.os,

@@ -14,7 +14,7 @@ exports.os = function() {
       params.memory = {
         free: os.freemem(),
         total: os.totalmem(),
-      }
+      };
       params.uptime = os.uptime();
 
       resolve(params);
@@ -30,14 +30,14 @@ exports.disk = function() {
 
     var dir = __dirname;
 
-    if(dir.startsWith('/')) {
-      var dir = '/';
+    if (dir.startsWith('/')) {
+      dir = '/';
     } else {
-      var dir = dir.slice(0,2);
+      dir = dir.slice(0,2);
     }
 
     disk.check(dir, function(err, data) {
-      if(err) {
+      if (err) {
         reject(err);
       }
       resolve(data);
