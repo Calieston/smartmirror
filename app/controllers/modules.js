@@ -7,7 +7,7 @@ var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
 
-var config = require('./../config')
+var config = require('./../config');
 
 const moduleServer = config.moduleServer;
 
@@ -122,8 +122,8 @@ exports.compareModules = function(params) {
   return new Promise((resolve, reject) => {
     for (var i = 0; i < params.modules.length; i++) {
       for (var j = 0; j < params.server.length; j++) {
-        if(params.modules[i].name === params.server[j].name) {
-          if(params.modules[i].version != params.server[j].version) {
+        if (params.modules[i].name === params.server[j].name) {
+          if (params.modules[i].version != params.server[j].version) {
             params.server[j].status = 'update';
             break;
           }
@@ -136,4 +136,4 @@ exports.compareModules = function(params) {
     resolve(params);
 
   });
-}
+};

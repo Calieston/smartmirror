@@ -74,7 +74,7 @@ exports.removeFile = function(params) {
     }
 
     fs.unlink(params.path, (err) => {
-      if(err) {
+      if (err) {
         console.log(err);
         reject(err);
       }
