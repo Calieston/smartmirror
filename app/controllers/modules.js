@@ -7,11 +7,13 @@ var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
 
-const moduleServer = 'http://localhost:3333/api/getModules';
+var config = require('./../config')
+
+const moduleServer = config.moduleServer;
 
 exports.loadModules = function(params) {
   return Helpers.loadFileFromServer({
-    url: moduleServer,
+    url: moduleServer + '/api/getModules',
   });
 };
 
