@@ -13,12 +13,10 @@ block content
 
       label(for="name") Name
       div.input-group
-        span.input-group-addon Name
         input(type="text" name="name" value=user.username)#name.form-control
 
       label(for="bdate") Geburtstag
       div.input-group
-        span.input-group-addon Geburtstag
         input(type="text" name="bdate" value=user.bdate)#bdate.form-control
 
       label(for="theme") Theme
@@ -26,8 +24,8 @@ block content
         option(value="theme1") Theme1
         option(value="theme2") Theme2
 
-      label(for="active") Aktiv
-        input(type="checkbox" name="active" value="true" checked=user.active ? true : false)
+      label.user-active(for="active") Aktiv
+        input.user-active-check(type="checkbox" name="active" value="true" checked=user.active ? true : false)
 
       input(type="hidden" name="id" value=user._id)
       br

@@ -33,7 +33,7 @@ block content
                 - var date = new Date(user.updatedAt)
                 time=date.toLocaleString()
               td
-                a(href="users/#{user._id}/delete") Delete
+                a.user-delete(href="users/#{user._id}/delete") Delete
                 =" "
                 a(href="users/#{user._id}") Edit
 
@@ -45,22 +45,20 @@ block content
 
       label(for="username") Name
       div.input-group
-        span.input-group-addon Name
-        input(type="text" name="username")#name.form-control
+        input(type="text" name="username" placeholder="Name")#name.form-control
 
       label(for="bdate") Geburtstag
       div.input-group
-        span.input-group-addon Geburtstag
-        input(type="text" name="bdate")#bdate.form-control
+        input(type="text" name="bdate" placeholder="Geburtstag")#bdate.form-control
 
       label(for="theme") Theme
       select(name="theme").form-control
         option(value="theme1") Theme1
         option(value="theme2") Theme2
 
-      label(for="active") Aktiv
-        input(type="checkbox" name="active" value="true" checked)
+      label.user-active(for="active") Aktiv
+        input.user-active-check(type="checkbox" name="active" value="true" checked)
 
       br
 
-      button(type="submit").btn.btn-primary Speichern
+      button(type="submit").btn.btn-default Speichern

@@ -6,3 +6,23 @@
   height: 100%;
   widht: auto;
 }
+
+.navbar-brand {
+  padding: 5px 0 5px;
+}
+
+.nav-logo {
+  height: 100%;
+  widht: auto;
+}
+
+.heading {
+  display: inline-block;
+  color: $blue;
+  margin: 10px 0 0 20px;
+  font-weight: bold;
+}
+
+.nav > li:last-child > a {
+  padding-right: 0px;
+}

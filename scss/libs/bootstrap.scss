@@ -104,8 +104,8 @@ figure {
 }
 hr {
   -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
   height: 0;
 }
 pre {
@@ -156,8 +156,8 @@ input {
 input[type="checkbox"],
 input[type="radio"] {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
 }
 input[type="number"]::-webkit-inner-spin-button,
@@ -167,8 +167,8 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
 }
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
@@ -213,8 +213,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-family: Raleway-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 16px;
   line-height: 1.42857143;
   color: #333333;
   background-color: #ffffff;
@@ -316,7 +316,7 @@ h6,
   font-family: inherit;
   font-weight: 500;
   line-height: 1.1;
-  color: inherit;
+  color: $grey;
 }
 h1 small,
 h2 small,
@@ -539,7 +539,7 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 20px 0;
   border-bottom: 1px solid #eeeeee;
 }
 ul,
@@ -677,14 +677,14 @@ kbd {
   background-color: #333333;
   border-radius: 3px;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
-          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 kbd kbd {
   padding: 0;
   font-size: 100%;
   font-weight: bold;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 pre {
   display: block;
@@ -2138,12 +2138,12 @@ select[multiple].input-lg {
   text-align: center;
   vertical-align: middle;
   -ms-touch-action: manipulation;
-      touch-action: manipulation;
+  touch-action: manipulation;
   cursor: pointer;
   background-image: none;
   border: 1px solid transparent;
   white-space: nowrap;
-  padding: 6px 12px;
+  padding: 10px 20px;
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
@@ -2151,6 +2151,8 @@ select[multiple].input-lg {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 .btn:focus,
 .btn:active:focus,
@@ -2189,20 +2191,20 @@ fieldset[disabled] a.btn {
   pointer-events: none;
 }
 .btn-default {
-  color: #333333;
-  background-color: #ffffff;
-  border-color: #cccccc;
+  color: $white;
+  background-color: $blue;
+  border-color: none;
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #333333;
-  background-color: #e6e6e6;
-  border-color: #8c8c8c;
+  color: $black;
+  background-color: $blue;
+  border-color: none;
 }
 .btn-default:hover {
-  color: #333333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: $black;
+  background-color: $blue;
+  border-color: none;
 }
 .btn-default:active,
 .btn-default.active,
@@ -2246,9 +2248,9 @@ fieldset[disabled] .btn-default.focus {
   background-color: #333333;
 }
 .btn-primary {
-  color: #ffffff;
-  background-color: #337ab7;
-  border-color: #2e6da4;
+  color: $white;
+  background-color: $blue;
+  border-color: none;
 }
 .btn-primary:focus,
 .btn-primary.focus {
@@ -2771,6 +2773,8 @@ input[type="button"].btn-block {
   position: relative;
   display: table;
   border-collapse: separate;
+  width: 100%;
+  margin-bottom: 20px;
 }
 .input-group[class*="col-"] {
   float: none;
@@ -3139,7 +3143,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   padding-left: 15px;
   border-top: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch;
 }
 .navbar-collapse.in {
@@ -3150,7 +3154,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     width: auto;
     border-top: 0;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .navbar-collapse.collapse {
     display: block !important;
@@ -3291,7 +3295,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     background-color: transparent;
     border: 0;
     -webkit-box-shadow: none;
-            box-shadow: none;
+    box-shadow: none;
   }
   .navbar-nav .open .dropdown-menu > li > a,
   .navbar-nav .open .dropdown-menu .dropdown-header {
@@ -3447,7 +3451,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8;
+  background-color: #ffffff;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -3462,18 +3466,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777777;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #777777;
+  color: #909090;
+  font-weight: bold;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-  color: #333333;
+  color: #000000;
   background-color: transparent;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #555555;
-  background-color: #e7e7e7;
+  color: $blue;
+  //background-color: #e7e7e7;
 }
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
@@ -3845,7 +3850,7 @@ a.thumbnail.active {
   color: #333333;
 }
 .alert {
-  padding: 15px;
+  padding: 15px 0;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -3973,7 +3978,7 @@ a.thumbnail.active {
   background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   -webkit-background-size: 40px 40px;
-          background-size: 40px 40px;
+  background-size: 40px 40px;
 }
 .progress.active .progress-bar,
 .progress-bar.active {

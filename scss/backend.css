@@ -1,19 +1,15 @@
 @font-face {
   font-family: 'Raleway-Regular';
   src: url("fonts/Raleway-Regular.ttf") format("truetype"); }
-
 @font-face {
   font-family: 'Raleway-Bold';
   src: url("fonts/Raleway-Bold.ttf") format("truetype"); }
-
 @font-face {
   font-family: 'OpenSans-Light';
   src: url("fonts/OpenSans-Light") format("truetype"); }
-
 @font-face {
   font-family: 'OpenSans-Regular';
   src: url("fonts/OpenSans-Regular.ttf") format("truetype"); }
-
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -29,17 +25,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-/* line 17, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
-/* line 22, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 body {
   margin: 0; }
 
-/* line 25, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 article,
 aside,
 details,
@@ -55,7 +48,6 @@ section,
 summary {
   display: block; }
 
-/* line 40, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 audio,
 canvas,
 progress,
@@ -63,53 +55,42 @@ video {
   display: inline-block;
   vertical-align: baseline; }
 
-/* line 47, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 audio:not([controls]) {
   display: none;
   height: 0; }
 
-/* line 51, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 [hidden],
 template {
   display: none; }
 
-/* line 55, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a {
   background-color: transparent; }
 
-/* line 58, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a:active,
 a:hover {
   outline: 0; }
 
-/* line 62, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 abbr[title] {
   border-bottom: 1px dotted; }
 
-/* line 65, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 b,
 strong {
   font-weight: bold; }
 
-/* line 69, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 dfn {
   font-style: italic; }
 
-/* line 72, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1 {
   font-size: 2em;
   margin: 0.67em 0; }
 
-/* line 76, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 mark {
   background: #ff0;
   color: #000; }
 
-/* line 80, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 small {
   font-size: 80%; }
 
-/* line 83, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 sub,
 sup {
   font-size: 75%;
@@ -117,36 +98,30 @@ sup {
   position: relative;
   vertical-align: baseline; }
 
-/* line 90, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 sup {
   top: -0.5em; }
 
-/* line 93, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 sub {
   bottom: -0.25em; }
 
-/* line 96, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 img {
   border: 0; }
 
-/* line 99, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 svg:not(:root) {
   overflow: hidden; }
 
-/* line 102, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 figure {
   margin: 1em 40px; }
 
-/* line 105, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 hr {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0; }
 
-/* line 111, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 pre {
   overflow: auto; }
 
-/* line 114, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 code,
 kbd,
 pre,
@@ -154,7 +129,6 @@ samp {
   font-family: monospace, monospace;
   font-size: 1em; }
 
-/* line 121, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button,
 input,
 optgroup,
@@ -164,16 +138,13 @@ textarea {
   font: inherit;
   margin: 0; }
 
-/* line 130, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button {
   overflow: visible; }
 
-/* line 133, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button,
 select {
   text-transform: none; }
 
-/* line 137, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -181,86 +152,77 @@ input[type="submit"] {
   -webkit-appearance: button;
   cursor: pointer; }
 
-/* line 144, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button[disabled],
 html input[disabled] {
   cursor: default; }
 
-/* line 148, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
-/* line 153, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input {
   line-height: normal; }
 
-/* line 156, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0; }
 
-/* line 163, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
-/* line 167, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="search"] {
   -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
   box-sizing: content-box; }
 
-/* line 173, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
-/* line 177, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 fieldset {
   border: 1px solid #c0c0c0;
   margin: 0 2px;
   padding: 0.35em 0.625em 0.75em; }
 
-/* line 182, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 legend {
   border: 0;
   padding: 0; }
 
-/* line 186, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea {
   overflow: auto; }
 
-/* line 189, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 optgroup {
   font-weight: bold; }
 
-/* line 192, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/* line 196, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 td,
 th {
   padding: 0; }
 
-/* line 200, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 205, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 *:before,
 *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 211, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 html {
   font-size: 10px;
   -webkit-tap-highlight-color: transparent; }
 
-/* line 215, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 body {
   font-family: Raleway-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -268,7 +230,6 @@ body {
   color: #333333;
   background-color: #ffffff; }
 
-/* line 222, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input,
 button,
 select,
@@ -277,32 +238,26 @@ textarea {
   font-size: inherit;
   line-height: inherit; }
 
-/* line 230, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a {
   color: #337ab7;
   text-decoration: none; }
 
-/* line 234, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a:hover,
 a:focus {
   color: #23527c;
   text-decoration: underline; }
 
-/* line 239, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
-/* line 244, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 figure {
   margin: 0; }
 
-/* line 247, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 img {
   vertical-align: middle; }
 
-/* line 250, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .img-responsive,
 .thumbnail > img,
 .thumbnail a > img {
@@ -310,34 +265,31 @@ img {
   max-width: 100%;
   height: auto; }
 
-/* line 257, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .img-rounded {
   border-radius: 6px; }
 
-/* line 260, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .img-thumbnail {
   padding: 4px;
   line-height: 1.42857143;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   display: inline-block;
   max-width: 100%;
   height: auto; }
 
-/* line 273, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .img-circle {
   border-radius: 50%; }
 
-/* line 276, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid #eeeeee; }
 
-/* line 282, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -348,7 +300,6 @@ hr {
   clip: rect(0, 0, 0, 0);
   border: 0; }
 
-/* line 292, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .sr-only-focusable:active,
 .sr-only-focusable:focus {
   position: static;
@@ -358,11 +309,9 @@ hr {
   overflow: visible;
   clip: auto; }
 
-/* line 301, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 [role="button"] {
   cursor: pointer; }
 
-/* line 304, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1,
 h2,
 h3,
@@ -380,7 +329,6 @@ h6,
   line-height: 1.1;
   color: #909090; }
 
-/* line 321, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1 small,
 h2 small,
 h3 small,
@@ -409,7 +357,6 @@ h6 .small,
   line-height: 1;
   color: #777777; }
 
-/* line 349, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1,
 .h1,
 h2,
@@ -419,7 +366,6 @@ h3,
   margin-top: 20px;
   margin-bottom: 10px; }
 
-/* line 358, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1 small,
 .h1 small,
 h2 small,
@@ -434,7 +380,6 @@ h3 .small,
 .h3 .small {
   font-size: 65%; }
 
-/* line 372, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h4,
 .h4,
 h5,
@@ -444,7 +389,6 @@ h6,
   margin-top: 10px;
   margin-bottom: 10px; }
 
-/* line 381, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h4 small,
 .h4 small,
 h5 small,
@@ -459,41 +403,33 @@ h6 .small,
 .h6 .small {
   font-size: 75%; }
 
-/* line 395, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h1,
 .h1 {
   font-size: 36px; }
 
-/* line 399, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h2,
 .h2 {
   font-size: 30px; }
 
-/* line 403, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h3,
 .h3 {
   font-size: 24px; }
 
-/* line 407, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h4,
 .h4 {
   font-size: 18px; }
 
-/* line 411, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h5,
 .h5 {
   font-size: 14px; }
 
-/* line 415, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 h6,
 .h6 {
   font-size: 12px; }
 
-/* line 419, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 p {
   margin: 0 0 10px; }
 
-/* line 422, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .lead {
   margin-bottom: 20px;
   font-size: 16px;
@@ -501,204 +437,160 @@ p {
   line-height: 1.4; }
 
 @media (min-width: 768px) {
-  /* line 429, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .lead {
     font-size: 21px; } }
-
-/* line 433, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 small,
 .small {
   font-size: 85%; }
 
-/* line 437, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 mark,
 .mark {
   background-color: #fcf8e3;
   padding: .2em; }
 
-/* line 442, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-left {
   text-align: left; }
 
-/* line 445, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-right {
   text-align: right; }
 
-/* line 448, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-center {
   text-align: center; }
 
-/* line 451, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-justify {
   text-align: justify; }
 
-/* line 454, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-nowrap {
   white-space: nowrap; }
 
-/* line 457, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-lowercase {
   text-transform: lowercase; }
 
-/* line 460, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-uppercase {
   text-transform: uppercase; }
 
-/* line 463, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-capitalize {
   text-transform: capitalize; }
 
-/* line 466, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-muted {
   color: #777777; }
 
-/* line 469, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-primary {
   color: #337ab7; }
 
-/* line 472, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.text-primary:hover,
 a.text-primary:focus {
   color: #286090; }
 
-/* line 476, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-success {
   color: #3c763d; }
 
-/* line 479, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.text-success:hover,
 a.text-success:focus {
   color: #2b542c; }
 
-/* line 483, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-info {
   color: #31708f; }
 
-/* line 486, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.text-info:hover,
 a.text-info:focus {
   color: #245269; }
 
-/* line 490, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-warning {
   color: #8a6d3b; }
 
-/* line 493, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.text-warning:hover,
 a.text-warning:focus {
   color: #66512c; }
 
-/* line 497, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-danger {
   color: #a94442; }
 
-/* line 500, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.text-danger:hover,
 a.text-danger:focus {
   color: #843534; }
 
-/* line 504, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .bg-primary {
   color: #fff;
   background-color: #337ab7; }
 
-/* line 508, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.bg-primary:hover,
 a.bg-primary:focus {
   background-color: #286090; }
 
-/* line 512, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .bg-success {
   background-color: #dff0d8; }
 
-/* line 515, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.bg-success:hover,
 a.bg-success:focus {
   background-color: #c1e2b3; }
 
-/* line 519, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .bg-info {
   background-color: #d9edf7; }
 
-/* line 522, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.bg-info:hover,
 a.bg-info:focus {
   background-color: #afd9ee; }
 
-/* line 526, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .bg-warning {
   background-color: #fcf8e3; }
 
-/* line 529, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.bg-warning:hover,
 a.bg-warning:focus {
   background-color: #f7ecb5; }
 
-/* line 533, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .bg-danger {
   background-color: #f2dede; }
 
-/* line 536, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.bg-danger:hover,
 a.bg-danger:focus {
   background-color: #e4b9b9; }
 
-/* line 540, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .page-header {
   padding-bottom: 9px;
   margin: 20px 0;
   border-bottom: 1px solid #eeeeee; }
 
-/* line 545, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 ul,
 ol {
   margin-top: 0;
   margin-bottom: 10px; }
 
-/* line 550, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 ul ul,
 ol ul,
 ul ol,
 ol ol {
   margin-bottom: 0; }
 
-/* line 556, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-unstyled {
   padding-left: 0;
   list-style: none; }
 
-/* line 560, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-inline {
   padding-left: 0;
   list-style: none;
   margin-left: -5px; }
 
-/* line 565, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-inline > li {
   display: inline-block;
   padding-left: 5px;
   padding-right: 5px; }
 
-/* line 570, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 dl {
   margin-top: 0;
   margin-bottom: 20px; }
 
-/* line 574, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 dt,
 dd {
   line-height: 1.42857143; }
 
-/* line 578, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 dt {
   font-weight: bold; }
 
-/* line 581, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 dd {
   margin-left: 0; }
 
 @media (min-width: 768px) {
-  /* line 585, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .dl-horizontal dt {
     float: left;
     width: 160px;
@@ -707,35 +599,29 @@ dd {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; }
-  /* line 594, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .dl-horizontal dd {
     margin-left: 180px; } }
-
-/* line 598, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
   border-bottom: 1px dotted #777777; }
 
-/* line 603, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .initialism {
   font-size: 90%;
   text-transform: uppercase; }
 
-/* line 607, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 blockquote {
   padding: 10px 20px;
   margin: 0 0 20px;
   font-size: 17.5px;
   border-left: 5px solid #eeeeee; }
 
-/* line 613, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
   margin-bottom: 0; }
 
-/* line 618, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 blockquote footer,
 blockquote small,
 blockquote .small {
@@ -744,13 +630,11 @@ blockquote .small {
   line-height: 1.42857143;
   color: #777777; }
 
-/* line 626, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 blockquote footer:before,
 blockquote small:before,
 blockquote .small:before {
   content: '\2014 \00A0'; }
 
-/* line 631, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .blockquote-reverse,
 blockquote.pull-right {
   padding-right: 15px;
@@ -759,7 +643,6 @@ blockquote.pull-right {
   border-left: 0;
   text-align: right; }
 
-/* line 639, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .blockquote-reverse footer:before,
 blockquote.pull-right footer:before,
 .blockquote-reverse small:before,
@@ -768,7 +651,6 @@ blockquote.pull-right small:before,
 blockquote.pull-right .small:before {
   content: ''; }
 
-/* line 647, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .blockquote-reverse footer:after,
 blockquote.pull-right footer:after,
 .blockquote-reverse small:after,
@@ -777,20 +659,17 @@ blockquote.pull-right small:after,
 blockquote.pull-right .small:after {
   content: '\00A0 \2014'; }
 
-/* line 655, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 address {
   margin-bottom: 20px;
   font-style: normal;
   line-height: 1.42857143; }
 
-/* line 660, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 code,
 kbd,
 pre,
 samp {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace; }
 
-/* line 666, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 code {
   padding: 2px 4px;
   font-size: 90%;
@@ -798,23 +677,22 @@ code {
   background-color: #f9f2f4;
   border-radius: 4px; }
 
-/* line 673, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 kbd {
   padding: 2px 4px;
   font-size: 90%;
   color: #ffffff;
   background-color: #333333;
   border-radius: 3px;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25); }
 
-/* line 682, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 kbd kbd {
   padding: 0;
   font-size: 100%;
   font-weight: bold;
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
-/* line 689, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 pre {
   display: block;
   padding: 9.5px;
@@ -828,7 +706,6 @@ pre {
   border: 1px solid #cccccc;
   border-radius: 4px; }
 
-/* line 702, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 pre code {
   padding: 0;
   font-size: inherit;
@@ -837,12 +714,10 @@ pre code {
   background-color: transparent;
   border-radius: 0; }
 
-/* line 710, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll; }
 
-/* line 714, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -850,743 +725,671 @@ pre code {
   padding-right: 15px; }
 
 @media (min-width: 768px) {
-  /* line 721, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .container {
     width: 750px; } }
-
 @media (min-width: 992px) {
-  /* line 726, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .container {
     width: 970px; } }
-
 @media (min-width: 1200px) {
-  /* line 731, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .container {
     width: 1170px; } }
-
-/* line 735, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
 
-/* line 741, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .row {
   margin-left: -15px;
   margin-right: -15px; }
 
-/* line 745, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
   position: relative;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px; }
 
-/* line 751, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left; }
 
-/* line 754, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-12 {
   width: 100%; }
 
-/* line 757, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-11 {
   width: 91.66666667%; }
 
-/* line 760, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-10 {
   width: 83.33333333%; }
 
-/* line 763, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-9 {
   width: 75%; }
 
-/* line 766, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-8 {
   width: 66.66666667%; }
 
-/* line 769, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-7 {
   width: 58.33333333%; }
 
-/* line 772, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-6 {
   width: 50%; }
 
-/* line 775, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-5 {
   width: 41.66666667%; }
 
-/* line 778, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-4 {
   width: 33.33333333%; }
 
-/* line 781, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-3 {
   width: 25%; }
 
-/* line 784, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-2 {
   width: 16.66666667%; }
 
-/* line 787, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-1 {
   width: 8.33333333%; }
 
-/* line 790, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-12 {
   right: 100%; }
 
-/* line 793, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-11 {
   right: 91.66666667%; }
 
-/* line 796, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-10 {
   right: 83.33333333%; }
 
-/* line 799, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-9 {
   right: 75%; }
 
-/* line 802, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-8 {
   right: 66.66666667%; }
 
-/* line 805, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-7 {
   right: 58.33333333%; }
 
-/* line 808, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-6 {
   right: 50%; }
 
-/* line 811, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-5 {
   right: 41.66666667%; }
 
-/* line 814, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-4 {
   right: 33.33333333%; }
 
-/* line 817, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-3 {
   right: 25%; }
 
-/* line 820, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-2 {
   right: 16.66666667%; }
 
-/* line 823, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-1 {
   right: 8.33333333%; }
 
-/* line 826, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-pull-0 {
   right: auto; }
 
-/* line 829, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-12 {
   left: 100%; }
 
-/* line 832, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-11 {
   left: 91.66666667%; }
 
-/* line 835, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-10 {
   left: 83.33333333%; }
 
-/* line 838, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-9 {
   left: 75%; }
 
-/* line 841, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-8 {
   left: 66.66666667%; }
 
-/* line 844, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-7 {
   left: 58.33333333%; }
 
-/* line 847, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-6 {
   left: 50%; }
 
-/* line 850, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-5 {
   left: 41.66666667%; }
 
-/* line 853, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-4 {
   left: 33.33333333%; }
 
-/* line 856, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-3 {
   left: 25%; }
 
-/* line 859, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-2 {
   left: 16.66666667%; }
 
-/* line 862, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-1 {
   left: 8.33333333%; }
 
-/* line 865, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-push-0 {
   left: auto; }
 
-/* line 868, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-12 {
   margin-left: 100%; }
 
-/* line 871, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-11 {
   margin-left: 91.66666667%; }
 
-/* line 874, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-10 {
   margin-left: 83.33333333%; }
 
-/* line 877, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-9 {
   margin-left: 75%; }
 
-/* line 880, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-8 {
   margin-left: 66.66666667%; }
 
-/* line 883, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-7 {
   margin-left: 58.33333333%; }
 
-/* line 886, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-6 {
   margin-left: 50%; }
 
-/* line 889, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-5 {
   margin-left: 41.66666667%; }
 
-/* line 892, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-4 {
   margin-left: 33.33333333%; }
 
-/* line 895, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-3 {
   margin-left: 25%; }
 
-/* line 898, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-2 {
   margin-left: 16.66666667%; }
 
-/* line 901, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-1 {
   margin-left: 8.33333333%; }
 
-/* line 904, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .col-xs-offset-0 {
   margin-left: 0%; }
 
 @media (min-width: 768px) {
-  /* line 908, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left; }
-  /* line 911, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-12 {
     width: 100%; }
-  /* line 914, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-11 {
     width: 91.66666667%; }
-  /* line 917, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-10 {
     width: 83.33333333%; }
-  /* line 920, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-9 {
     width: 75%; }
-  /* line 923, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-8 {
     width: 66.66666667%; }
-  /* line 926, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-7 {
     width: 58.33333333%; }
-  /* line 929, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-6 {
     width: 50%; }
-  /* line 932, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-5 {
     width: 41.66666667%; }
-  /* line 935, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-4 {
     width: 33.33333333%; }
-  /* line 938, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-3 {
     width: 25%; }
-  /* line 941, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-2 {
     width: 16.66666667%; }
-  /* line 944, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-1 {
     width: 8.33333333%; }
-  /* line 947, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-12 {
     right: 100%; }
-  /* line 950, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-11 {
     right: 91.66666667%; }
-  /* line 953, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-10 {
     right: 83.33333333%; }
-  /* line 956, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-9 {
     right: 75%; }
-  /* line 959, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-8 {
     right: 66.66666667%; }
-  /* line 962, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-7 {
     right: 58.33333333%; }
-  /* line 965, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-6 {
     right: 50%; }
-  /* line 968, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-5 {
     right: 41.66666667%; }
-  /* line 971, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-4 {
     right: 33.33333333%; }
-  /* line 974, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-3 {
     right: 25%; }
-  /* line 977, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-2 {
     right: 16.66666667%; }
-  /* line 980, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-1 {
     right: 8.33333333%; }
-  /* line 983, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-pull-0 {
     right: auto; }
-  /* line 986, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-12 {
     left: 100%; }
-  /* line 989, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-11 {
     left: 91.66666667%; }
-  /* line 992, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-10 {
     left: 83.33333333%; }
-  /* line 995, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-9 {
     left: 75%; }
-  /* line 998, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-8 {
     left: 66.66666667%; }
-  /* line 1001, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-7 {
     left: 58.33333333%; }
-  /* line 1004, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-6 {
     left: 50%; }
-  /* line 1007, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-5 {
     left: 41.66666667%; }
-  /* line 1010, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-4 {
     left: 33.33333333%; }
-  /* line 1013, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-3 {
     left: 25%; }
-  /* line 1016, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-2 {
     left: 16.66666667%; }
-  /* line 1019, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-1 {
     left: 8.33333333%; }
-  /* line 1022, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-push-0 {
     left: auto; }
-  /* line 1025, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-12 {
     margin-left: 100%; }
-  /* line 1028, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-11 {
     margin-left: 91.66666667%; }
-  /* line 1031, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-10 {
     margin-left: 83.33333333%; }
-  /* line 1034, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-9 {
     margin-left: 75%; }
-  /* line 1037, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-8 {
     margin-left: 66.66666667%; }
-  /* line 1040, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-7 {
     margin-left: 58.33333333%; }
-  /* line 1043, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-6 {
     margin-left: 50%; }
-  /* line 1046, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-5 {
     margin-left: 41.66666667%; }
-  /* line 1049, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-4 {
     margin-left: 33.33333333%; }
-  /* line 1052, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-3 {
     margin-left: 25%; }
-  /* line 1055, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-2 {
     margin-left: 16.66666667%; }
-  /* line 1058, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-1 {
     margin-left: 8.33333333%; }
-  /* line 1061, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-sm-offset-0 {
     margin-left: 0%; } }
-
 @media (min-width: 992px) {
-  /* line 1066, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left; }
-  /* line 1069, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-12 {
     width: 100%; }
-  /* line 1072, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-11 {
     width: 91.66666667%; }
-  /* line 1075, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-10 {
     width: 83.33333333%; }
-  /* line 1078, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-9 {
     width: 75%; }
-  /* line 1081, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-8 {
     width: 66.66666667%; }
-  /* line 1084, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-7 {
     width: 58.33333333%; }
-  /* line 1087, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-6 {
     width: 50%; }
-  /* line 1090, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-5 {
     width: 41.66666667%; }
-  /* line 1093, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-4 {
     width: 33.33333333%; }
-  /* line 1096, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-3 {
     width: 25%; }
-  /* line 1099, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-2 {
     width: 16.66666667%; }
-  /* line 1102, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-1 {
     width: 8.33333333%; }
-  /* line 1105, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-12 {
     right: 100%; }
-  /* line 1108, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-11 {
     right: 91.66666667%; }
-  /* line 1111, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-10 {
     right: 83.33333333%; }
-  /* line 1114, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-9 {
     right: 75%; }
-  /* line 1117, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-8 {
     right: 66.66666667%; }
-  /* line 1120, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-7 {
     right: 58.33333333%; }
-  /* line 1123, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-6 {
     right: 50%; }
-  /* line 1126, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-5 {
     right: 41.66666667%; }
-  /* line 1129, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-4 {
     right: 33.33333333%; }
-  /* line 1132, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-3 {
     right: 25%; }
-  /* line 1135, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-2 {
     right: 16.66666667%; }
-  /* line 1138, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-1 {
     right: 8.33333333%; }
-  /* line 1141, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-pull-0 {
     right: auto; }
-  /* line 1144, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-12 {
     left: 100%; }
-  /* line 1147, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-11 {
     left: 91.66666667%; }
-  /* line 1150, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-10 {
     left: 83.33333333%; }
-  /* line 1153, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-9 {
     left: 75%; }
-  /* line 1156, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-8 {
     left: 66.66666667%; }
-  /* line 1159, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-7 {
     left: 58.33333333%; }
-  /* line 1162, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-6 {
     left: 50%; }
-  /* line 1165, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-5 {
     left: 41.66666667%; }
-  /* line 1168, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-4 {
     left: 33.33333333%; }
-  /* line 1171, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-3 {
     left: 25%; }
-  /* line 1174, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-2 {
     left: 16.66666667%; }
-  /* line 1177, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-1 {
     left: 8.33333333%; }
-  /* line 1180, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-push-0 {
     left: auto; }
-  /* line 1183, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-12 {
     margin-left: 100%; }
-  /* line 1186, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-11 {
     margin-left: 91.66666667%; }
-  /* line 1189, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-10 {
     margin-left: 83.33333333%; }
-  /* line 1192, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-9 {
     margin-left: 75%; }
-  /* line 1195, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-8 {
     margin-left: 66.66666667%; }
-  /* line 1198, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-7 {
     margin-left: 58.33333333%; }
-  /* line 1201, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-6 {
     margin-left: 50%; }
-  /* line 1204, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-5 {
     margin-left: 41.66666667%; }
-  /* line 1207, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-4 {
     margin-left: 33.33333333%; }
-  /* line 1210, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-3 {
     margin-left: 25%; }
-  /* line 1213, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-2 {
     margin-left: 16.66666667%; }
-  /* line 1216, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-1 {
     margin-left: 8.33333333%; }
-  /* line 1219, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-md-offset-0 {
     margin-left: 0%; } }
-
 @media (min-width: 1200px) {
-  /* line 1224, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left; }
-  /* line 1227, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-12 {
     width: 100%; }
-  /* line 1230, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-11 {
     width: 91.66666667%; }
-  /* line 1233, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-10 {
     width: 83.33333333%; }
-  /* line 1236, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-9 {
     width: 75%; }
-  /* line 1239, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-8 {
     width: 66.66666667%; }
-  /* line 1242, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-7 {
     width: 58.33333333%; }
-  /* line 1245, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-6 {
     width: 50%; }
-  /* line 1248, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-5 {
     width: 41.66666667%; }
-  /* line 1251, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-4 {
     width: 33.33333333%; }
-  /* line 1254, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-3 {
     width: 25%; }
-  /* line 1257, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-2 {
     width: 16.66666667%; }
-  /* line 1260, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-1 {
     width: 8.33333333%; }
-  /* line 1263, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-12 {
     right: 100%; }
-  /* line 1266, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-11 {
     right: 91.66666667%; }
-  /* line 1269, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-10 {
     right: 83.33333333%; }
-  /* line 1272, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-9 {
     right: 75%; }
-  /* line 1275, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-8 {
     right: 66.66666667%; }
-  /* line 1278, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-7 {
     right: 58.33333333%; }
-  /* line 1281, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-6 {
     right: 50%; }
-  /* line 1284, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-5 {
     right: 41.66666667%; }
-  /* line 1287, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-4 {
     right: 33.33333333%; }
-  /* line 1290, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-3 {
     right: 25%; }
-  /* line 1293, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-2 {
     right: 16.66666667%; }
-  /* line 1296, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-1 {
     right: 8.33333333%; }
-  /* line 1299, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-pull-0 {
     right: auto; }
-  /* line 1302, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-12 {
     left: 100%; }
-  /* line 1305, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-11 {
     left: 91.66666667%; }
-  /* line 1308, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-10 {
     left: 83.33333333%; }
-  /* line 1311, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-9 {
     left: 75%; }
-  /* line 1314, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-8 {
     left: 66.66666667%; }
-  /* line 1317, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-7 {
     left: 58.33333333%; }
-  /* line 1320, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-6 {
     left: 50%; }
-  /* line 1323, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-5 {
     left: 41.66666667%; }
-  /* line 1326, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-4 {
     left: 33.33333333%; }
-  /* line 1329, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-3 {
     left: 25%; }
-  /* line 1332, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-2 {
     left: 16.66666667%; }
-  /* line 1335, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-1 {
     left: 8.33333333%; }
-  /* line 1338, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-push-0 {
     left: auto; }
-  /* line 1341, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-12 {
     margin-left: 100%; }
-  /* line 1344, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-11 {
     margin-left: 91.66666667%; }
-  /* line 1347, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-10 {
     margin-left: 83.33333333%; }
-  /* line 1350, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-9 {
     margin-left: 75%; }
-  /* line 1353, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-8 {
     margin-left: 66.66666667%; }
-  /* line 1356, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-7 {
     margin-left: 58.33333333%; }
-  /* line 1359, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-6 {
     margin-left: 50%; }
-  /* line 1362, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-5 {
     margin-left: 41.66666667%; }
-  /* line 1365, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-4 {
     margin-left: 33.33333333%; }
-  /* line 1368, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-3 {
     margin-left: 25%; }
-  /* line 1371, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-2 {
     margin-left: 16.66666667%; }
-  /* line 1374, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-1 {
     margin-left: 8.33333333%; }
-  /* line 1377, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .col-lg-offset-0 {
     margin-left: 0%; } }
-
-/* line 1381, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 table {
   background-color: transparent; }
 
-/* line 1384, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 caption {
   padding-top: 8px;
   padding-bottom: 8px;
   color: #777777;
   text-align: left; }
 
-/* line 1390, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 th {
   text-align: left; }
 
-/* line 1393, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table {
   width: 100%;
   max-width: 100%;
   margin-bottom: 20px; }
 
-/* line 1398, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -1598,12 +1401,10 @@ th {
   vertical-align: top;
   border-top: 1px solid #dddddd; }
 
-/* line 1409, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd; }
 
-/* line 1413, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -1612,15 +1413,12 @@ th {
 .table > thead:first-child > tr:first-child > td {
   border-top: 0; }
 
-/* line 1421, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > tbody + tbody {
   border-top: 2px solid #dddddd; }
 
-/* line 1424, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table .table {
   background-color: #ffffff; }
 
-/* line 1427, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
 .table-condensed > tfoot > tr > th,
@@ -1629,11 +1427,9 @@ th {
 .table-condensed > tfoot > tr > td {
   padding: 5px; }
 
-/* line 1435, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-bordered {
   border: 1px solid #dddddd; }
 
-/* line 1438, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-bordered > thead > tr > th,
 .table-bordered > tbody > tr > th,
 .table-bordered > tfoot > tr > th,
@@ -1642,33 +1438,27 @@ th {
 .table-bordered > tfoot > tr > td {
   border: 1px solid #dddddd; }
 
-/* line 1446, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px; }
 
-/* line 1450, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9; }
 
-/* line 1453, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr:hover {
   background-color: #f5f5f5; }
 
-/* line 1456, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 table col[class*="col-"] {
   position: static;
   float: none;
   display: table-column; }
 
-/* line 1461, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 table td[class*="col-"],
 table th[class*="col-"] {
   position: static;
   float: none;
   display: table-cell; }
 
-/* line 1467, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > td.active,
 .table > tbody > tr > td.active,
 .table > tfoot > tr > td.active,
@@ -1683,7 +1473,6 @@ table th[class*="col-"] {
 .table > tfoot > tr.active > th {
   background-color: #f5f5f5; }
 
-/* line 1481, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
 .table-hover > tbody > tr.active:hover > td,
@@ -1691,7 +1480,6 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.active:hover > th {
   background-color: #e8e8e8; }
 
-/* line 1488, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > td.success,
 .table > tbody > tr > td.success,
 .table > tfoot > tr > td.success,
@@ -1706,7 +1494,6 @@ table th[class*="col-"] {
 .table > tfoot > tr.success > th {
   background-color: #dff0d8; }
 
-/* line 1502, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
@@ -1714,7 +1501,6 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.success:hover > th {
   background-color: #d0e9c6; }
 
-/* line 1509, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,
 .table > tfoot > tr > td.info,
@@ -1729,7 +1515,6 @@ table th[class*="col-"] {
 .table > tfoot > tr.info > th {
   background-color: #d9edf7; }
 
-/* line 1523, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
@@ -1737,7 +1522,6 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.info:hover > th {
   background-color: #c4e3f3; }
 
-/* line 1530, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
 .table > tfoot > tr > td.warning,
@@ -1752,7 +1536,6 @@ table th[class*="col-"] {
 .table > tfoot > tr.warning > th {
   background-color: #fcf8e3; }
 
-/* line 1544, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
@@ -1760,7 +1543,6 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.warning:hover > th {
   background-color: #faf2cc; }
 
-/* line 1551, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table > thead > tr > td.danger,
 .table > tbody > tr > td.danger,
 .table > tfoot > tr > td.danger,
@@ -1775,7 +1557,6 @@ table th[class*="col-"] {
 .table > tfoot > tr.danger > th {
   background-color: #f2dede; }
 
-/* line 1565, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
@@ -1783,23 +1564,21 @@ table th[class*="col-"] {
 .table-hover > tbody > tr.danger:hover > th {
   background-color: #ebcccc; }
 
-/* line 1572, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .table-responsive {
   overflow-x: auto;
   min-height: 0.01%; }
 
 @media screen and (max-width: 767px) {
-  /* line 1577, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
     overflow-y: hidden;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     border: 1px solid #dddddd; }
-  /* line 1584, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table {
     margin-bottom: 0; }
-  /* line 1587, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > tbody > tr > th,
   .table-responsive > .table > tfoot > tr > th,
@@ -1807,10 +1586,10 @@ table th[class*="col-"] {
   .table-responsive > .table > tbody > tr > td,
   .table-responsive > .table > tfoot > tr > td {
     white-space: nowrap; }
-  /* line 1595, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table-bordered {
     border: 0; }
-  /* line 1598, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
@@ -1818,7 +1597,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tbody > tr > td:first-child,
   .table-responsive > .table-bordered > tfoot > tr > td:first-child {
     border-left: 0; }
-  /* line 1606, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
@@ -1826,21 +1605,18 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tbody > tr > td:last-child,
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
     border-right: 0; }
-  /* line 1614, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
   .table-responsive > .table-bordered > tfoot > tr:last-child > td {
     border-bottom: 0; } }
-
-/* line 1621, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 fieldset {
   padding: 0;
   margin: 0;
   border: 0;
   min-width: 0; }
 
-/* line 1627, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 legend {
   display: block;
   width: 100%;
@@ -1852,39 +1628,34 @@ legend {
   border: 0;
   border-bottom: 1px solid #e5e5e5; }
 
-/* line 1638, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 label {
   display: inline-block;
   max-width: 100%;
   margin-bottom: 5px;
   font-weight: bold; }
 
-/* line 1644, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="search"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 1649, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="radio"],
 input[type="checkbox"] {
   margin: 4px 0 0;
   margin-top: 1px \9;
   line-height: normal; }
 
-/* line 1655, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="file"] {
   display: block; }
 
-/* line 1658, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="range"] {
   display: block;
   width: 100%; }
 
-/* line 1662, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 select[multiple],
 select[size] {
   height: auto; }
 
-/* line 1666, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
@@ -1892,7 +1663,6 @@ input[type="checkbox"]:focus {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
-/* line 1673, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 output {
   display: block;
   padding-top: 7px;
@@ -1900,7 +1670,6 @@ output {
   line-height: 1.42857143;
   color: #555555; }
 
-/* line 1680, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control {
   display: block;
   width: 100%;
@@ -1913,61 +1682,55 @@ output {
   background-image: none;
   border: 1px solid #cccccc;
   border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s; }
 
-/* line 1698, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6); }
 
-/* line 1704, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control::-moz-placeholder {
   color: #999999;
   opacity: 1; }
 
-/* line 1708, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control:-ms-input-placeholder {
   color: #999999; }
 
-/* line 1711, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control::-webkit-input-placeholder {
   color: #999999; }
 
-/* line 1714, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control::-ms-expand {
   border: 0;
   background-color: transparent; }
 
-/* line 1718, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
   background-color: #eeeeee;
   opacity: 1; }
 
-/* line 1724, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control[disabled],
 fieldset[disabled] .form-control {
   cursor: not-allowed; }
 
-/* line 1728, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea.form-control {
   height: auto; }
 
-/* line 1731, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="search"] {
   -webkit-appearance: none; }
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
-  /* line 1735, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   input[type="date"].form-control,
   input[type="time"].form-control,
   input[type="datetime-local"].form-control,
   input[type="month"].form-control {
     line-height: 34px; }
-  /* line 1741, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   input[type="date"].input-sm,
   input[type="time"].input-sm,
   input[type="datetime-local"].input-sm,
@@ -1977,7 +1740,7 @@ input[type="search"] {
   .input-group-sm input[type="datetime-local"],
   .input-group-sm input[type="month"] {
     line-height: 30px; }
-  /* line 1751, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   input[type="date"].input-lg,
   input[type="time"].input-lg,
   input[type="datetime-local"].input-lg,
@@ -1987,12 +1750,9 @@ input[type="search"] {
   .input-group-lg input[type="datetime-local"],
   .input-group-lg input[type="month"] {
     line-height: 46px; } }
-
-/* line 1762, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group {
   margin-bottom: 15px; }
 
-/* line 1765, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio,
 .checkbox {
   position: relative;
@@ -2000,7 +1760,6 @@ input[type="search"] {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-/* line 1772, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio label,
 .checkbox label {
   min-height: 20px;
@@ -2009,7 +1768,6 @@ input[type="search"] {
   font-weight: normal;
   cursor: pointer; }
 
-/* line 1780, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -2018,12 +1776,10 @@ input[type="search"] {
   margin-left: -20px;
   margin-top: 4px \9; }
 
-/* line 1788, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px; }
 
-/* line 1792, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio-inline,
 .checkbox-inline {
   position: relative;
@@ -2034,13 +1790,11 @@ input[type="search"] {
   font-weight: normal;
   cursor: pointer; }
 
-/* line 1802, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
   margin-left: 10px; }
 
-/* line 1807, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="radio"][disabled],
 input[type="checkbox"][disabled],
 input[type="radio"].disabled,
@@ -2049,34 +1803,29 @@ fieldset[disabled] input[type="radio"],
 fieldset[disabled] input[type="checkbox"] {
   cursor: not-allowed; }
 
-/* line 1815, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio-inline.disabled,
 .checkbox-inline.disabled,
 fieldset[disabled] .radio-inline,
 fieldset[disabled] .checkbox-inline {
   cursor: not-allowed; }
 
-/* line 1821, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .radio.disabled label,
 .checkbox.disabled label,
 fieldset[disabled] .radio label,
 fieldset[disabled] .checkbox label {
   cursor: not-allowed; }
 
-/* line 1827, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control-static {
   padding-top: 7px;
   padding-bottom: 7px;
   margin-bottom: 0;
   min-height: 34px; }
 
-/* line 1833, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control-static.input-lg,
 .form-control-static.input-sm {
   padding-left: 0;
   padding-right: 0; }
 
-/* line 1838, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-sm {
   height: 30px;
   padding: 5px 10px;
@@ -2084,17 +1833,14 @@ fieldset[disabled] .checkbox label {
   line-height: 1.5;
   border-radius: 3px; }
 
-/* line 1845, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 select.input-sm {
   height: 30px;
   line-height: 30px; }
 
-/* line 1849, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea.input-sm,
 select[multiple].input-sm {
   height: auto; }
 
-/* line 1853, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-sm .form-control {
   height: 30px;
   padding: 5px 10px;
@@ -2102,17 +1848,14 @@ select[multiple].input-sm {
   line-height: 1.5;
   border-radius: 3px; }
 
-/* line 1860, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-sm select.form-control {
   height: 30px;
   line-height: 30px; }
 
-/* line 1864, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-sm textarea.form-control,
 .form-group-sm select[multiple].form-control {
   height: auto; }
 
-/* line 1868, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-sm .form-control-static {
   height: 30px;
   min-height: 32px;
@@ -2120,7 +1863,6 @@ select[multiple].input-sm {
   font-size: 12px;
   line-height: 1.5; }
 
-/* line 1875, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-lg {
   height: 46px;
   padding: 10px 16px;
@@ -2128,17 +1870,14 @@ select[multiple].input-sm {
   line-height: 1.3333333;
   border-radius: 6px; }
 
-/* line 1882, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 select.input-lg {
   height: 46px;
   line-height: 46px; }
 
-/* line 1886, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea.input-lg,
 select[multiple].input-lg {
   height: auto; }
 
-/* line 1890, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-lg .form-control {
   height: 46px;
   padding: 10px 16px;
@@ -2146,17 +1885,14 @@ select[multiple].input-lg {
   line-height: 1.3333333;
   border-radius: 6px; }
 
-/* line 1897, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-lg select.form-control {
   height: 46px;
   line-height: 46px; }
 
-/* line 1901, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-lg textarea.form-control,
 .form-group-lg select[multiple].form-control {
   height: auto; }
 
-/* line 1905, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-group-lg .form-control-static {
   height: 46px;
   min-height: 38px;
@@ -2164,15 +1900,12 @@ select[multiple].input-lg {
   font-size: 18px;
   line-height: 1.3333333; }
 
-/* line 1912, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-feedback {
   position: relative; }
 
-/* line 1915, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-feedback .form-control {
   padding-right: 42.5px; }
 
-/* line 1918, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-control-feedback {
   position: absolute;
   top: 0;
@@ -2185,7 +1918,6 @@ select[multiple].input-lg {
   text-align: center;
   pointer-events: none; }
 
-/* line 1930, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-lg + .form-control-feedback,
 .input-group-lg + .form-control-feedback,
 .form-group-lg .form-control + .form-control-feedback {
@@ -2193,7 +1925,6 @@ select[multiple].input-lg {
   height: 46px;
   line-height: 46px; }
 
-/* line 1937, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-sm + .form-control-feedback,
 .input-group-sm + .form-control-feedback,
 .form-group-sm .form-control + .form-control-feedback {
@@ -2201,7 +1932,6 @@ select[multiple].input-lg {
   height: 30px;
   line-height: 30px; }
 
-/* line 1944, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-success .help-block,
 .has-success .control-label,
 .has-success .radio,
@@ -2214,27 +1944,24 @@ select[multiple].input-lg {
 .has-success.checkbox-inline label {
   color: #3c763d; }
 
-/* line 1956, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-success .form-control {
   border-color: #3c763d;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-/* line 1961, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-success .form-control:focus {
   border-color: #2b542c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168; }
 
-/* line 1966, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-success .input-group-addon {
   color: #3c763d;
   border-color: #3c763d;
   background-color: #dff0d8; }
 
-/* line 1971, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-success .form-control-feedback {
   color: #3c763d; }
 
-/* line 1974, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-warning .help-block,
 .has-warning .control-label,
 .has-warning .radio,
@@ -2247,27 +1974,24 @@ select[multiple].input-lg {
 .has-warning.checkbox-inline label {
   color: #8a6d3b; }
 
-/* line 1986, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-warning .form-control {
   border-color: #8a6d3b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-/* line 1991, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-warning .form-control:focus {
   border-color: #66512c;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b; }
 
-/* line 1996, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-warning .input-group-addon {
   color: #8a6d3b;
   border-color: #8a6d3b;
   background-color: #fcf8e3; }
 
-/* line 2001, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-warning .form-control-feedback {
   color: #8a6d3b; }
 
-/* line 2004, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-error .help-block,
 .has-error .control-label,
 .has-error .radio,
@@ -2280,35 +2004,30 @@ select[multiple].input-lg {
 .has-error.checkbox-inline label {
   color: #a94442; }
 
-/* line 2016, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-error .form-control {
   border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); }
 
-/* line 2021, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-error .form-control:focus {
   border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483; }
 
-/* line 2026, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-error .input-group-addon {
   color: #a94442;
   border-color: #a94442;
   background-color: #f2dede; }
 
-/* line 2031, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-error .form-control-feedback {
   color: #a94442; }
 
-/* line 2034, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-feedback label ~ .form-control-feedback {
   top: 25px; }
 
-/* line 2037, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .has-feedback label.sr-only ~ .form-control-feedback {
   top: 0; }
 
-/* line 2040, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .help-block {
   display: block;
   margin-top: 5px;
@@ -2316,56 +2035,53 @@ select[multiple].input-lg {
   color: #737373; }
 
 @media (min-width: 768px) {
-  /* line 2047, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .form-inline .form-group {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 2052, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle; }
-  /* line 2057, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .form-control-static {
     display: inline-block; }
-  /* line 2060, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .input-group {
     display: inline-table;
     vertical-align: middle; }
-  /* line 2064, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .input-group .input-group-addon,
   .form-inline .input-group .input-group-btn,
   .form-inline .input-group .form-control {
     width: auto; }
-  /* line 2069, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .input-group > .form-control {
     width: 100%; }
-  /* line 2072, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .control-label {
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 2076, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .radio,
   .form-inline .checkbox {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 2083, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .radio label,
   .form-inline .checkbox label {
     padding-left: 0; }
-  /* line 2087, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .radio input[type="radio"],
   .form-inline .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0; }
-  /* line 2092, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .form-inline .has-feedback .form-control-feedback {
     top: 0; } }
-
-/* line 2096, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-horizontal .radio,
 .form-horizontal .checkbox,
 .form-horizontal .radio-inline,
@@ -2374,40 +2090,30 @@ select[multiple].input-lg {
   margin-bottom: 0;
   padding-top: 7px; }
 
-/* line 2104, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-horizontal .radio,
 .form-horizontal .checkbox {
   min-height: 27px; }
 
-/* line 2108, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-horizontal .form-group {
   margin-left: -15px;
   margin-right: -15px; }
 
 @media (min-width: 768px) {
-  /* line 2113, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .form-horizontal .control-label {
     text-align: right;
     margin-bottom: 0;
     padding-top: 7px; } }
-
-/* line 2119, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .form-horizontal .has-feedback .form-control-feedback {
   right: 15px; }
 
 @media (min-width: 768px) {
-  /* line 2123, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .form-horizontal .form-group-lg .control-label {
     padding-top: 11px;
     font-size: 18px; } }
-
 @media (min-width: 768px) {
-  /* line 2129, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .form-horizontal .form-group-sm .control-label {
     padding-top: 6px;
     font-size: 12px; } }
-
-/* line 2134, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn {
   display: inline-block;
   margin-bottom: 0;
@@ -2431,7 +2137,6 @@ select[multiple].input-lg {
   text-transform: uppercase;
   font-weight: bold; }
 
-/* line 2157, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
@@ -2442,54 +2147,48 @@ select[multiple].input-lg {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px; }
 
-/* line 2167, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn:hover,
 .btn:focus,
 .btn.focus {
   color: #333333;
   text-decoration: none; }
 
-/* line 2173, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn:active,
 .btn.active {
   outline: 0;
   background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-/* line 2180, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn.disabled,
 .btn[disabled],
 fieldset[disabled] .btn {
   cursor: not-allowed;
   opacity: 0.65;
   filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
-/* line 2189, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.btn.disabled,
 fieldset[disabled] a.btn {
   pointer-events: none; }
 
-/* line 2193, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default {
   color: #ffffff;
   background-color: #6094d0;
   border-color: none; }
 
-/* line 2198, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default:focus,
 .btn-default.focus {
   color: #000000;
   background-color: #6094d0;
   border-color: none; }
 
-/* line 2204, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default:hover {
   color: #000000;
   background-color: #6094d0;
   border-color: none; }
 
-/* line 2209, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
@@ -2497,7 +2196,6 @@ fieldset[disabled] a.btn {
   background-color: #e6e6e6;
   border-color: #adadad; }
 
-/* line 2216, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default:active:hover,
 .btn-default.active:hover,
 .open > .dropdown-toggle.btn-default:hover,
@@ -2511,13 +2209,11 @@ fieldset[disabled] a.btn {
   background-color: #d4d4d4;
   border-color: #8c8c8c; }
 
-/* line 2229, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
   background-image: none; }
 
-/* line 2234, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default.disabled:hover,
 .btn-default[disabled]:hover,
 fieldset[disabled] .btn-default:hover,
@@ -2530,31 +2226,26 @@ fieldset[disabled] .btn-default.focus {
   background-color: #ffffff;
   border-color: #cccccc; }
 
-/* line 2246, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-default .badge {
   color: #ffffff;
   background-color: #333333; }
 
-/* line 2250, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary {
   color: #ffffff;
   background-color: #6094d0;
   border-color: none; }
 
-/* line 2255, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary:focus,
 .btn-primary.focus {
   color: #ffffff;
   background-color: #286090;
   border-color: #122b40; }
 
-/* line 2261, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary:hover {
   color: #ffffff;
   background-color: #286090;
   border-color: #204d74; }
 
-/* line 2266, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
@@ -2562,7 +2253,6 @@ fieldset[disabled] .btn-default.focus {
   background-color: #286090;
   border-color: #204d74; }
 
-/* line 2273, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary:active:hover,
 .btn-primary.active:hover,
 .open > .dropdown-toggle.btn-primary:hover,
@@ -2576,13 +2266,11 @@ fieldset[disabled] .btn-default.focus {
   background-color: #204d74;
   border-color: #122b40; }
 
-/* line 2286, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   background-image: none; }
 
-/* line 2291, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary.disabled:hover,
 .btn-primary[disabled]:hover,
 fieldset[disabled] .btn-primary:hover,
@@ -2595,31 +2283,26 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #337ab7;
   border-color: #2e6da4; }
 
-/* line 2303, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-primary .badge {
   color: #337ab7;
   background-color: #ffffff; }
 
-/* line 2307, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success {
   color: #ffffff;
   background-color: #5cb85c;
   border-color: #4cae4c; }
 
-/* line 2312, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success:focus,
 .btn-success.focus {
   color: #ffffff;
   background-color: #449d44;
   border-color: #255625; }
 
-/* line 2318, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success:hover {
   color: #ffffff;
   background-color: #449d44;
   border-color: #398439; }
 
-/* line 2323, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
@@ -2627,7 +2310,6 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #449d44;
   border-color: #398439; }
 
-/* line 2330, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success:active:hover,
 .btn-success.active:hover,
 .open > .dropdown-toggle.btn-success:hover,
@@ -2641,13 +2323,11 @@ fieldset[disabled] .btn-primary.focus {
   background-color: #398439;
   border-color: #255625; }
 
-/* line 2343, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success:active,
 .btn-success.active,
 .open > .dropdown-toggle.btn-success {
   background-image: none; }
 
-/* line 2348, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success.disabled:hover,
 .btn-success[disabled]:hover,
 fieldset[disabled] .btn-success:hover,
@@ -2660,31 +2340,26 @@ fieldset[disabled] .btn-success.focus {
   background-color: #5cb85c;
   border-color: #4cae4c; }
 
-/* line 2360, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-success .badge {
   color: #5cb85c;
   background-color: #ffffff; }
 
-/* line 2364, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info {
   color: #ffffff;
   background-color: #5bc0de;
   border-color: #46b8da; }
 
-/* line 2369, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info:focus,
 .btn-info.focus {
   color: #ffffff;
   background-color: #31b0d5;
   border-color: #1b6d85; }
 
-/* line 2375, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info:hover {
   color: #ffffff;
   background-color: #31b0d5;
   border-color: #269abc; }
 
-/* line 2380, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
@@ -2692,7 +2367,6 @@ fieldset[disabled] .btn-success.focus {
   background-color: #31b0d5;
   border-color: #269abc; }
 
-/* line 2387, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info:active:hover,
 .btn-info.active:hover,
 .open > .dropdown-toggle.btn-info:hover,
@@ -2706,13 +2380,11 @@ fieldset[disabled] .btn-success.focus {
   background-color: #269abc;
   border-color: #1b6d85; }
 
-/* line 2400, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info:active,
 .btn-info.active,
 .open > .dropdown-toggle.btn-info {
   background-image: none; }
 
-/* line 2405, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info.disabled:hover,
 .btn-info[disabled]:hover,
 fieldset[disabled] .btn-info:hover,
@@ -2725,31 +2397,26 @@ fieldset[disabled] .btn-info.focus {
   background-color: #5bc0de;
   border-color: #46b8da; }
 
-/* line 2417, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-info .badge {
   color: #5bc0de;
   background-color: #ffffff; }
 
-/* line 2421, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning {
   color: #ffffff;
   background-color: #f0ad4e;
   border-color: #eea236; }
 
-/* line 2426, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning:focus,
 .btn-warning.focus {
   color: #ffffff;
   background-color: #ec971f;
   border-color: #985f0d; }
 
-/* line 2432, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning:hover {
   color: #ffffff;
   background-color: #ec971f;
   border-color: #d58512; }
 
-/* line 2437, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning:active,
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
@@ -2757,7 +2424,6 @@ fieldset[disabled] .btn-info.focus {
   background-color: #ec971f;
   border-color: #d58512; }
 
-/* line 2444, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning:active:hover,
 .btn-warning.active:hover,
 .open > .dropdown-toggle.btn-warning:hover,
@@ -2771,13 +2437,11 @@ fieldset[disabled] .btn-info.focus {
   background-color: #d58512;
   border-color: #985f0d; }
 
-/* line 2457, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning:active,
 .btn-warning.active,
 .open > .dropdown-toggle.btn-warning {
   background-image: none; }
 
-/* line 2462, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning.disabled:hover,
 .btn-warning[disabled]:hover,
 fieldset[disabled] .btn-warning:hover,
@@ -2790,31 +2454,26 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #f0ad4e;
   border-color: #eea236; }
 
-/* line 2474, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-warning .badge {
   color: #f0ad4e;
   background-color: #ffffff; }
 
-/* line 2478, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger {
   color: #ffffff;
   background-color: #d9534f;
   border-color: #d43f3a; }
 
-/* line 2483, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger:focus,
 .btn-danger.focus {
   color: #ffffff;
   background-color: #c9302c;
   border-color: #761c19; }
 
-/* line 2489, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger:hover {
   color: #ffffff;
   background-color: #c9302c;
   border-color: #ac2925; }
 
-/* line 2494, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger:active,
 .btn-danger.active,
 .open > .dropdown-toggle.btn-danger {
@@ -2822,7 +2481,6 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #c9302c;
   border-color: #ac2925; }
 
-/* line 2501, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger:active:hover,
 .btn-danger.active:hover,
 .open > .dropdown-toggle.btn-danger:hover,
@@ -2836,13 +2494,11 @@ fieldset[disabled] .btn-warning.focus {
   background-color: #ac2925;
   border-color: #761c19; }
 
-/* line 2514, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger:active,
 .btn-danger.active,
 .open > .dropdown-toggle.btn-danger {
   background-image: none; }
 
-/* line 2519, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger.disabled:hover,
 .btn-danger[disabled]:hover,
 fieldset[disabled] .btn-danger:hover,
@@ -2855,41 +2511,36 @@ fieldset[disabled] .btn-danger.focus {
   background-color: #d9534f;
   border-color: #d43f3a; }
 
-/* line 2531, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-danger .badge {
   color: #d9534f;
   background-color: #ffffff; }
 
-/* line 2535, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-link {
   color: #337ab7;
   font-weight: normal;
   border-radius: 0; }
 
-/* line 2540, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-link,
 .btn-link:active,
 .btn-link.active,
 .btn-link[disabled],
 fieldset[disabled] .btn-link {
   background-color: transparent;
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
-/* line 2549, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-link,
 .btn-link:hover,
 .btn-link:focus,
 .btn-link:active {
   border-color: transparent; }
 
-/* line 2555, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-link:hover,
 .btn-link:focus {
   color: #23527c;
   text-decoration: underline;
   background-color: transparent; }
 
-/* line 2561, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-link[disabled]:hover,
 fieldset[disabled] .btn-link:hover,
 .btn-link[disabled]:focus,
@@ -2897,7 +2548,6 @@ fieldset[disabled] .btn-link:focus {
   color: #777777;
   text-decoration: none; }
 
-/* line 2568, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-lg,
 .btn-group-lg > .btn {
   padding: 10px 16px;
@@ -2905,7 +2555,6 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.3333333;
   border-radius: 6px; }
 
-/* line 2575, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-sm,
 .btn-group-sm > .btn {
   padding: 5px 10px;
@@ -2913,7 +2562,6 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.5;
   border-radius: 3px; }
 
-/* line 2582, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 1px 5px;
@@ -2921,35 +2569,29 @@ fieldset[disabled] .btn-link:focus {
   line-height: 1.5;
   border-radius: 3px; }
 
-/* line 2589, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-block {
   display: block;
   width: 100%; }
 
-/* line 2593, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-block + .btn-block {
   margin-top: 5px; }
 
-/* line 2596, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%; }
 
-/* line 2601, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group,
 .btn-group-vertical {
   position: relative;
   display: inline-block;
   vertical-align: middle; }
 
-/* line 2607, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn,
 .btn-group-vertical > .btn {
   position: relative;
   float: left; }
 
-/* line 2612, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn:hover,
 .btn-group-vertical > .btn:hover,
 .btn-group > .btn:focus,
@@ -2960,104 +2602,85 @@ input[type="button"].btn-block {
 .btn-group-vertical > .btn.active {
   z-index: 2; }
 
-/* line 2622, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
 .btn-group .btn-group + .btn-group {
   margin-left: -1px; }
 
-/* line 2628, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-toolbar {
   margin-left: -5px; }
 
-/* line 2631, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-toolbar .btn,
 .btn-toolbar .btn-group,
 .btn-toolbar .input-group {
   float: left; }
 
-/* line 2636, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-toolbar > .btn,
 .btn-toolbar > .btn-group,
 .btn-toolbar > .input-group {
   margin-left: 5px; }
 
-/* line 2641, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
   border-radius: 0; }
 
-/* line 2644, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn:first-child {
   margin-left: 0; }
 
-/* line 2647, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-/* line 2651, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 2656, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn-group {
   float: left; }
 
-/* line 2659, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0; }
 
-/* line 2662, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn-group:first-child:not(:last-child) > .btn:last-child,
 .btn-group > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-/* line 2667, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn-group:last-child:not(:first-child) > .btn:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 2671, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
   outline: 0; }
 
-/* line 2675, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn + .dropdown-toggle {
   padding-left: 8px;
   padding-right: 8px; }
 
-/* line 2679, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group > .btn-lg + .dropdown-toggle {
   padding-left: 12px;
   padding-right: 12px; }
 
-/* line 2683, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); }
 
-/* line 2687, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
   box-shadow: none; }
 
-/* line 2691, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn .caret {
   margin-left: 0; }
 
-/* line 2694, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-lg .caret {
   border-width: 5px 5px 0;
   border-bottom-width: 0; }
 
-/* line 2698, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .dropup .btn-lg .caret {
   border-width: 0 5px 5px; }
 
-/* line 2701, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn,
 .btn-group-vertical > .btn-group,
 .btn-group-vertical > .btn-group > .btn {
@@ -3066,11 +2689,9 @@ input[type="button"].btn-block {
   width: 100%;
   max-width: 100%; }
 
-/* line 2709, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn-group > .btn {
   float: none; }
 
-/* line 2712, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn + .btn,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
@@ -3078,62 +2699,51 @@ input[type="button"].btn-block {
   margin-top: -1px;
   margin-left: 0; }
 
-/* line 2719, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-/* line 2722, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn:first-child:not(:last-child) {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* line 2728, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn:last-child:not(:first-child) {
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-/* line 2734, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn-group:not(:first-child):not(:last-child) > .btn {
   border-radius: 0; }
 
-/* line 2737, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .btn:last-child,
 .btn-group-vertical > .btn-group:first-child:not(:last-child) > .dropdown-toggle {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* line 2742, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-vertical > .btn-group:last-child:not(:first-child) > .btn:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 2746, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-justified {
   display: table;
   width: 100%;
   table-layout: fixed;
   border-collapse: separate; }
 
-/* line 2752, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-justified > .btn,
 .btn-group-justified > .btn-group {
   float: none;
   display: table-cell;
   width: 1%; }
 
-/* line 2758, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-justified > .btn-group .btn {
   width: 100%; }
 
-/* line 2761, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-group-justified > .btn-group .dropdown-menu {
   left: auto; }
 
-/* line 2764, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 [data-toggle="buttons"] > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn-group > .btn input[type="radio"],
 [data-toggle="buttons"] > .btn input[type="checkbox"],
@@ -3142,7 +2752,6 @@ input[type="button"].btn-block {
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
 
-/* line 2772, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group {
   position: relative;
   display: table;
@@ -3150,13 +2759,11 @@ input[type="button"].btn-block {
   width: 100%;
   margin-bottom: 20px; }
 
-/* line 2779, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group[class*="col-"] {
   float: none;
   padding-left: 0;
   padding-right: 0; }
 
-/* line 2784, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group .form-control {
   position: relative;
   z-index: 2;
@@ -3164,11 +2771,9 @@ input[type="button"].btn-block {
   width: 100%;
   margin-bottom: 0; }
 
-/* line 2791, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group .form-control:focus {
   z-index: 3; }
 
-/* line 2794, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn {
@@ -3178,14 +2783,12 @@ input[type="button"].btn-block {
   line-height: 1.3333333;
   border-radius: 6px; }
 
-/* line 2803, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
 select.input-group-lg > .input-group-btn > .btn {
   height: 46px;
   line-height: 46px; }
 
-/* line 2809, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea.input-group-lg > .form-control,
 textarea.input-group-lg > .input-group-addon,
 textarea.input-group-lg > .input-group-btn > .btn,
@@ -3194,7 +2797,6 @@ select[multiple].input-group-lg > .input-group-addon,
 select[multiple].input-group-lg > .input-group-btn > .btn {
   height: auto; }
 
-/* line 2817, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
@@ -3204,14 +2806,12 @@ select[multiple].input-group-lg > .input-group-btn > .btn {
   line-height: 1.5;
   border-radius: 3px; }
 
-/* line 2826, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 select.input-group-sm > .form-control,
 select.input-group-sm > .input-group-addon,
 select.input-group-sm > .input-group-btn > .btn {
   height: 30px;
   line-height: 30px; }
 
-/* line 2832, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 textarea.input-group-sm > .form-control,
 textarea.input-group-sm > .input-group-addon,
 textarea.input-group-sm > .input-group-btn > .btn,
@@ -3220,26 +2820,22 @@ select[multiple].input-group-sm > .input-group-addon,
 select[multiple].input-group-sm > .input-group-btn > .btn {
   height: auto; }
 
-/* line 2840, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon,
 .input-group-btn,
 .input-group .form-control {
   display: table-cell; }
 
-/* line 2845, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon:not(:first-child):not(:last-child),
 .input-group-btn:not(:first-child):not(:last-child),
 .input-group .form-control:not(:first-child):not(:last-child) {
   border-radius: 0; }
 
-/* line 2850, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon,
 .input-group-btn {
   width: 1%;
   white-space: nowrap;
   vertical-align: middle; }
 
-/* line 2856, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon {
   padding: 6px 12px;
   font-size: 14px;
@@ -3251,24 +2847,20 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid #cccccc;
   border-radius: 4px; }
 
-/* line 2867, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon.input-sm {
   padding: 5px 10px;
   font-size: 12px;
   border-radius: 3px; }
 
-/* line 2872, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon.input-lg {
   padding: 10px 16px;
   font-size: 18px;
   border-radius: 6px; }
 
-/* line 2877, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
   margin-top: 0; }
 
-/* line 2881, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group .form-control:first-child,
 .input-group-addon:first-child,
 .input-group-btn:first-child > .btn,
@@ -3279,11 +2871,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0; }
 
-/* line 2891, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon:first-child {
   border-right: 0; }
 
-/* line 2894, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group .form-control:last-child,
 .input-group-addon:last-child,
 .input-group-btn:last-child > .btn,
@@ -3294,69 +2884,56 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 2904, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-addon:last-child {
   border-left: 0; }
 
-/* line 2907, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn {
   position: relative;
   font-size: 0;
   white-space: nowrap; }
 
-/* line 2912, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn > .btn {
   position: relative; }
 
-/* line 2915, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn > .btn + .btn {
   margin-left: -1px; }
 
-/* line 2918, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn > .btn:hover,
 .input-group-btn > .btn:focus,
 .input-group-btn > .btn:active {
   z-index: 2; }
 
-/* line 2923, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn:first-child > .btn,
 .input-group-btn:first-child > .btn-group {
   margin-right: -1px; }
 
-/* line 2927, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .input-group-btn:last-child > .btn,
 .input-group-btn:last-child > .btn-group {
   z-index: 2;
   margin-left: -1px; }
 
-/* line 2932, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav {
   margin-bottom: 0;
   padding-left: 0;
   list-style: none; }
 
-/* line 2937, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li {
   position: relative;
   display: block; }
 
-/* line 2941, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li > a {
   position: relative;
   display: block;
   padding: 10px 15px; }
 
-/* line 2946, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
   background-color: #eeeeee; }
 
-/* line 2951, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li.disabled > a {
   color: #777777; }
 
-/* line 2954, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
   color: #777777;
@@ -3364,45 +2941,37 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   background-color: transparent;
   cursor: not-allowed; }
 
-/* line 2961, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
   background-color: #eeeeee;
   border-color: #337ab7; }
 
-/* line 2967, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav .nav-divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
   background-color: #e5e5e5; }
 
-/* line 2973, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav > li > a > img {
   max-width: none; }
 
-/* line 2976, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs {
   border-bottom: 1px solid #dddddd; }
 
-/* line 2979, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs > li {
   float: left;
   margin-bottom: -1px; }
 
-/* line 2983, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs > li > a {
   margin-right: 2px;
   line-height: 1.42857143;
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0; }
 
-/* line 2989, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs > li > a:hover {
   border-color: #eeeeee #eeeeee #dddddd; }
 
-/* line 2992, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
@@ -3412,152 +2981,121 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-color: transparent;
   cursor: default; }
 
-/* line 3001, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified {
   width: 100%;
   border-bottom: 0; }
 
-/* line 3005, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified > li {
   float: none; }
 
-/* line 3008, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified > li > a {
   text-align: center;
   margin-bottom: 5px; }
 
-/* line 3012, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto; }
 
 @media (min-width: 768px) {
-  /* line 3017, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .nav-tabs.nav-justified > li {
     display: table-cell;
     width: 1%; }
-  /* line 3021, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .nav-tabs.nav-justified > li > a {
     margin-bottom: 0; } }
-
-/* line 3025, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified > li > a {
   margin-right: 0;
   border-radius: 4px; }
 
-/* line 3029, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs.nav-justified > .active > a,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:focus {
   border: 1px solid #dddddd; }
 
 @media (min-width: 768px) {
-  /* line 3035, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .nav-tabs.nav-justified > li > a {
     border-bottom: 1px solid #dddddd;
     border-radius: 4px 4px 0 0; }
-  /* line 3039, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .nav-tabs.nav-justified > .active > a,
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:focus {
     border-bottom-color: #ffffff; } }
-
-/* line 3045, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-pills > li {
   float: left; }
 
-/* line 3048, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-pills > li > a {
   border-radius: 4px; }
 
-/* line 3051, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-pills > li + li {
   margin-left: 2px; }
 
-/* line 3054, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
   background-color: #337ab7; }
 
-/* line 3060, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-stacked > li {
   float: none; }
 
-/* line 3063, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-stacked > li + li {
   margin-top: 2px;
   margin-left: 0; }
 
-/* line 3067, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-justified {
   width: 100%; }
 
-/* line 3070, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-justified > li {
   float: none; }
 
-/* line 3073, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-justified > li > a {
   text-align: center;
   margin-bottom: 5px; }
 
-/* line 3077, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-justified > .dropdown .dropdown-menu {
   top: auto;
   left: auto; }
 
 @media (min-width: 768px) {
-  /* line 3082, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .nav-justified > li {
     display: table-cell;
     width: 1%; }
-  /* line 3086, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .nav-justified > li > a {
     margin-bottom: 0; } }
-
-/* line 3090, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs-justified {
   border-bottom: 0; }
 
-/* line 3093, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs-justified > li > a {
   margin-right: 0;
   border-radius: 4px; }
 
-/* line 3097, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs-justified > .active > a,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs-justified > .active > a:focus {
   border: 1px solid #dddddd; }
 
 @media (min-width: 768px) {
-  /* line 3103, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .nav-tabs-justified > li > a {
     border-bottom: 1px solid #dddddd;
     border-radius: 4px 4px 0 0; }
-  /* line 3107, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .nav-tabs-justified > .active > a,
   .nav-tabs-justified > .active > a:hover,
   .nav-tabs-justified > .active > a:focus {
     border-bottom-color: #ffffff; } }
-
-/* line 3113, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .tab-content > .tab-pane {
   display: none; }
 
-/* line 3116, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .tab-content > .active {
   display: block; }
 
-/* line 3119, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-tabs .dropdown-menu {
   margin-top: -1px;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 3124, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar {
   position: relative;
   min-height: 50px;
@@ -3565,62 +3103,52 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent; }
 
 @media (min-width: 768px) {
-  /* line 3131, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar {
     border-radius: 4px; } }
-
 @media (min-width: 768px) {
-  /* line 3136, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-header {
     float: left; } }
-
-/* line 3140, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-collapse {
   overflow-x: visible;
   padding-right: 15px;
   padding-left: 15px;
   border-top: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
   -webkit-overflow-scrolling: touch; }
 
-/* line 3149, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-collapse.in {
   overflow-y: auto; }
 
 @media (min-width: 768px) {
-  /* line 3153, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-collapse {
     width: auto;
     border-top: 0;
+    -webkit-box-shadow: none;
     box-shadow: none; }
-  /* line 3159, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-collapse.collapse {
     display: block !important;
     height: auto !important;
     padding-bottom: 0;
     overflow: visible !important; }
-  /* line 3165, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-collapse.in {
     overflow-y: visible; }
-  /* line 3168, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-fixed-top .navbar-collapse,
   .navbar-static-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     padding-left: 0;
     padding-right: 0; } }
-
-/* line 3175, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-fixed-top .navbar-collapse,
 .navbar-fixed-bottom .navbar-collapse {
   max-height: 340px; }
 
 @media (max-device-width: 480px) and (orientation: landscape) {
-  /* line 3180, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-fixed-top .navbar-collapse,
   .navbar-fixed-bottom .navbar-collapse {
     max-height: 200px; } }
-
-/* line 3185, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .container > .navbar-header,
 .container-fluid > .navbar-header,
 .container > .navbar-collapse,
@@ -3629,25 +3157,19 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -15px; }
 
 @media (min-width: 768px) {
-  /* line 3193, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .container > .navbar-header,
   .container-fluid > .navbar-header,
   .container > .navbar-collapse,
   .container-fluid > .navbar-collapse {
     margin-right: 0;
     margin-left: 0; } }
-
-/* line 3201, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-static-top {
   z-index: 1000;
   border-width: 0 0 1px; }
 
 @media (min-width: 768px) {
-  /* line 3206, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-static-top {
     border-radius: 0; } }
-
-/* line 3210, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-fixed-top,
 .navbar-fixed-bottom {
   position: fixed;
@@ -3656,23 +3178,18 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   z-index: 1030; }
 
 @media (min-width: 768px) {
-  /* line 3218, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-fixed-top,
   .navbar-fixed-bottom {
     border-radius: 0; } }
-
-/* line 3223, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-fixed-top {
   top: 0;
   border-width: 0 0 1px; }
 
-/* line 3227, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-fixed-bottom {
   bottom: 0;
   margin-bottom: 0;
   border-width: 1px 0 0; }
 
-/* line 3232, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-brand {
   float: left;
   padding: 15px 15px;
@@ -3680,22 +3197,17 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   line-height: 20px;
   height: 50px; }
 
-/* line 3239, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-brand:hover,
 .navbar-brand:focus {
   text-decoration: none; }
 
-/* line 3243, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-brand > img {
   display: block; }
 
 @media (min-width: 768px) {
-  /* line 3247, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: -15px; } }
-
-/* line 3252, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-toggle {
   position: relative;
   float: right;
@@ -3708,38 +3220,30 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border: 1px solid transparent;
   border-radius: 4px; }
 
-/* line 3264, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-toggle:focus {
   outline: 0; }
 
-/* line 3267, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-toggle .icon-bar {
   display: block;
   width: 22px;
   height: 2px;
   border-radius: 1px; }
 
-/* line 3273, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-toggle .icon-bar + .icon-bar {
   margin-top: 4px; }
 
 @media (min-width: 768px) {
-  /* line 3277, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-toggle {
     display: none; } }
-
-/* line 3281, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-nav {
   margin: 7.5px -15px; }
 
-/* line 3284, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px; }
 
 @media (max-width: 767px) {
-  /* line 3290, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-nav .open .dropdown-menu {
     position: static;
     float: none;
@@ -3747,103 +3251,96 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-top: 0;
     background-color: transparent;
     border: 0;
+    -webkit-box-shadow: none;
     box-shadow: none; }
-  /* line 3300, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-nav .open .dropdown-menu > li > a,
   .navbar-nav .open .dropdown-menu .dropdown-header {
     padding: 5px 15px 5px 25px; }
-  /* line 3304, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-nav .open .dropdown-menu > li > a {
     line-height: 20px; }
-  /* line 3307, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
     background-image: none; } }
-
 @media (min-width: 768px) {
-  /* line 3313, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-nav {
     float: left;
     margin: 0; }
-  /* line 3317, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-nav > li {
     float: left; }
-  /* line 3320, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-nav > li > a {
     padding-top: 15px;
     padding-bottom: 15px; } }
-
-/* line 3325, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-form {
   margin-left: -15px;
   margin-right: -15px;
   padding: 10px 15px;
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   margin-top: 8px;
   margin-bottom: 8px; }
 
 @media (min-width: 768px) {
-  /* line 3337, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-form .form-group {
     display: inline-block;
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 3342, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle; }
-  /* line 3347, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .form-control-static {
     display: inline-block; }
-  /* line 3350, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .input-group {
     display: inline-table;
     vertical-align: middle; }
-  /* line 3354, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .input-group .input-group-addon,
   .navbar-form .input-group .input-group-btn,
   .navbar-form .input-group .form-control {
     width: auto; }
-  /* line 3359, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .input-group > .form-control {
     width: 100%; }
-  /* line 3362, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .control-label {
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 3366, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .radio,
   .navbar-form .checkbox {
     display: inline-block;
     margin-top: 0;
     margin-bottom: 0;
     vertical-align: middle; }
-  /* line 3373, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .radio label,
   .navbar-form .checkbox label {
     padding-left: 0; }
-  /* line 3377, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .radio input[type="radio"],
   .navbar-form .checkbox input[type="checkbox"] {
     position: relative;
     margin-left: 0; }
-  /* line 3382, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .has-feedback .form-control-feedback {
     top: 0; } }
-
 @media (max-width: 767px) {
-  /* line 3387, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-form .form-group {
     margin-bottom: 5px; }
-  /* line 3390, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-form .form-group:last-child {
     margin-bottom: 0; } }
-
 @media (min-width: 768px) {
-  /* line 3395, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-form {
     width: auto;
     border: 0;
@@ -3851,15 +3348,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     margin-right: 0;
     padding-top: 0;
     padding-bottom: 0;
+    -webkit-box-shadow: none;
     box-shadow: none; } }
-
-/* line 3406, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-nav > li > .dropdown-menu {
   margin-top: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 3411, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
   margin-bottom: 0;
   border-top-right-radius: 4px;
@@ -3867,107 +3362,86 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* line 3418, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-btn {
   margin-top: 8px;
   margin-bottom: 8px; }
 
-/* line 3422, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-btn.btn-sm {
   margin-top: 10px;
   margin-bottom: 10px; }
 
-/* line 3426, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-btn.btn-xs {
   margin-top: 14px;
   margin-bottom: 14px; }
 
-/* line 3430, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-text {
   margin-top: 15px;
   margin-bottom: 15px; }
 
 @media (min-width: 768px) {
-  /* line 3435, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-text {
     float: left;
     margin-left: 15px;
     margin-right: 15px; } }
-
 @media (min-width: 768px) {
-  /* line 3442, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-left {
     float: left !important; }
-  /* line 3445, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-right {
     float: right !important;
     margin-right: -15px; }
-  /* line 3449, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-right ~ .navbar-right {
     margin-right: 0; } }
-
-/* line 3453, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default {
   background-color: #ffffff;
   border-color: #e7e7e7; }
 
-/* line 3457, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-brand {
   color: #777777; }
 
-/* line 3460, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #5e5e5e;
   background-color: transparent; }
 
-/* line 3465, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-text {
   color: #777777; }
 
-/* line 3468, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-nav > li > a {
   color: #909090;
   font-weight: bold; }
 
-/* line 3472, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   color: #000000;
   background-color: transparent; }
 
-/* line 3477, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #6094d0; }
 
-/* line 3483, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-nav > .disabled > a,
 .navbar-default .navbar-nav > .disabled > a:hover,
 .navbar-default .navbar-nav > .disabled > a:focus {
   color: #cccccc;
   background-color: transparent; }
 
-/* line 3489, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-toggle {
   border-color: #dddddd; }
 
-/* line 3492, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
   background-color: #dddddd; }
 
-/* line 3496, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #888888; }
 
-/* line 3499, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
   border-color: #e7e7e7; }
 
-/* line 3503, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
@@ -3975,113 +3449,93 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #555555; }
 
 @media (max-width: 767px) {
-  /* line 3510, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #777777; }
-  /* line 3513, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #333333;
     background-color: transparent; }
-  /* line 3518, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #555555;
     background-color: #e7e7e7; }
-  /* line 3524, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #cccccc;
     background-color: transparent; } }
-
-/* line 3531, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-link {
   color: #777777; }
 
-/* line 3534, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .navbar-link:hover {
   color: #333333; }
 
-/* line 3537, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .btn-link {
   color: #777777; }
 
-/* line 3540, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .btn-link:hover,
 .navbar-default .btn-link:focus {
   color: #333333; }
 
-/* line 3544, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-default .btn-link[disabled]:hover,
 fieldset[disabled] .navbar-default .btn-link:hover,
 .navbar-default .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc; }
 
-/* line 3550, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse {
   background-color: #222222;
   border-color: #080808; }
 
-/* line 3554, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-brand {
   color: #9d9d9d; }
 
-/* line 3557, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
   color: #ffffff;
   background-color: transparent; }
 
-/* line 3562, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-text {
   color: #9d9d9d; }
 
-/* line 3565, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-nav > li > a {
   color: #9d9d9d; }
 
-/* line 3568, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
   color: #ffffff;
   background-color: transparent; }
 
-/* line 3573, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
   background-color: #080808; }
 
-/* line 3579, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-nav > .disabled > a,
 .navbar-inverse .navbar-nav > .disabled > a:hover,
 .navbar-inverse .navbar-nav > .disabled > a:focus {
   color: #444444;
   background-color: transparent; }
 
-/* line 3585, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-toggle {
   border-color: #333333; }
 
-/* line 3588, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-toggle:hover,
 .navbar-inverse .navbar-toggle:focus {
   background-color: #333333; }
 
-/* line 3592, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-toggle .icon-bar {
   background-color: #ffffff; }
 
-/* line 3595, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: #101010; }
 
-/* line 3599, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
@@ -4089,58 +3543,50 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ffffff; }
 
 @media (max-width: 767px) {
-  /* line 3606, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .navbar-inverse .navbar-nav .open .dropdown-menu > .dropdown-header {
     border-color: #080808; }
-  /* line 3609, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-inverse .navbar-nav .open .dropdown-menu .divider {
     background-color: #080808; }
-  /* line 3612, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
     color: #9d9d9d; }
-  /* line 3615, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
     color: #ffffff;
     background-color: transparent; }
-  /* line 3620, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
     background-color: #080808; }
-  /* line 3626, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #444444;
     background-color: transparent; } }
-
-/* line 3633, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-link {
   color: #9d9d9d; }
 
-/* line 3636, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .navbar-link:hover {
   color: #ffffff; }
 
-/* line 3639, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .btn-link {
   color: #9d9d9d; }
 
-/* line 3642, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link:focus {
   color: #ffffff; }
 
-/* line 3646, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .navbar-inverse .btn-link[disabled]:hover,
 fieldset[disabled] .navbar-inverse .btn-link:hover,
 .navbar-inverse .btn-link[disabled]:focus,
 fieldset[disabled] .navbar-inverse .btn-link:focus {
   color: #444444; }
 
-/* line 3652, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .breadcrumb {
   padding: 8px 15px;
   margin-bottom: 20px;
@@ -4148,21 +3594,17 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   background-color: #f5f5f5;
   border-radius: 4px; }
 
-/* line 3659, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .breadcrumb > li {
   display: inline-block; }
 
-/* line 3662, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .breadcrumb > li + li:before {
   content: "/\00a0";
   padding: 0 5px;
   color: #cccccc; }
 
-/* line 3667, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .breadcrumb > .active {
   color: #777777; }
 
-/* line 3670, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label {
   display: inline;
   padding: .2em .6em .3em;
@@ -4175,77 +3617,61 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   vertical-align: baseline;
   border-radius: .25em; }
 
-/* line 3682, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.label:hover,
 a.label:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer; }
 
-/* line 3688, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label:empty {
   display: none; }
 
-/* line 3691, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn .label {
   position: relative;
   top: -1px; }
 
-/* line 3695, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-default {
   background-color: #777777; }
 
-/* line 3698, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-default[href]:hover,
 .label-default[href]:focus {
   background-color: #5e5e5e; }
 
-/* line 3702, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-primary {
   background-color: #337ab7; }
 
-/* line 3705, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-primary[href]:hover,
 .label-primary[href]:focus {
   background-color: #286090; }
 
-/* line 3709, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-success {
   background-color: #5cb85c; }
 
-/* line 3712, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-success[href]:hover,
 .label-success[href]:focus {
   background-color: #449d44; }
 
-/* line 3716, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-info {
   background-color: #5bc0de; }
 
-/* line 3719, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-info[href]:hover,
 .label-info[href]:focus {
   background-color: #31b0d5; }
 
-/* line 3723, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-warning {
   background-color: #f0ad4e; }
 
-/* line 3726, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-warning[href]:hover,
 .label-warning[href]:focus {
   background-color: #ec971f; }
 
-/* line 3730, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-danger {
   background-color: #d9534f; }
 
-/* line 3733, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .label-danger[href]:hover,
 .label-danger[href]:focus {
   background-color: #c9302c; }
 
-/* line 3737, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .badge {
   display: inline-block;
   min-width: 10px;
@@ -4260,47 +3686,38 @@ a.label:focus {
   background-color: #777777;
   border-radius: 10px; }
 
-/* line 3751, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .badge:empty {
   display: none; }
 
-/* line 3754, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn .badge {
   position: relative;
   top: -1px; }
 
-/* line 3758, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .btn-xs .badge,
 .btn-group-xs > .btn .badge {
   top: 0;
   padding: 1px 5px; }
 
-/* line 3763, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.badge:hover,
 a.badge:focus {
   color: #ffffff;
   text-decoration: none;
   cursor: pointer; }
 
-/* line 3769, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.active > .badge,
 .nav-pills > .active > a > .badge {
   color: #337ab7;
   background-color: #ffffff; }
 
-/* line 3774, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item > .badge {
   float: right; }
 
-/* line 3777, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item > .badge + .badge {
   margin-right: 5px; }
 
-/* line 3780, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .nav-pills > li > a > .badge {
   margin-left: 3px; }
 
-/* line 3783, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -4308,48 +3725,40 @@ a.badge:focus {
   color: inherit;
   background-color: #eeeeee; }
 
-/* line 3790, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit; }
 
-/* line 3794, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .jumbotron p {
   margin-bottom: 15px;
   font-size: 21px;
   font-weight: 200; }
 
-/* line 3799, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .jumbotron > hr {
   border-top-color: #d5d5d5; }
 
-/* line 3802, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .container .jumbotron,
 .container-fluid .jumbotron {
   border-radius: 6px;
   padding-left: 15px;
   padding-right: 15px; }
 
-/* line 3808, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .jumbotron .container {
   max-width: 100%; }
 
 @media screen and (min-width: 768px) {
-  /* line 3812, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .jumbotron {
     padding-top: 48px;
     padding-bottom: 48px; }
-  /* line 3816, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .container .jumbotron,
   .container-fluid .jumbotron {
     padding-left: 60px;
     padding-right: 60px; }
-  /* line 3821, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 63px; } }
-
-/* line 3826, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .thumbnail {
   display: block;
   padding: 4px;
@@ -4358,56 +3767,48 @@ a.badge:focus {
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
+  -webkit-transition: border 0.2s ease-in-out;
+  -o-transition: border 0.2s ease-in-out;
   transition: border 0.2s ease-in-out; }
 
-/* line 3838, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .thumbnail > img,
 .thumbnail a > img {
   margin-left: auto;
   margin-right: auto; }
 
-/* line 3843, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.thumbnail:hover,
 a.thumbnail:focus,
 a.thumbnail.active {
   border-color: #337ab7; }
 
-/* line 3848, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .thumbnail .caption {
   padding: 9px;
   color: #333333; }
 
-/* line 3852, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert {
   padding: 15px 0;
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px; }
 
-/* line 3858, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert h4 {
   margin-top: 0;
   color: inherit; }
 
-/* line 3862, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert .alert-link {
   font-weight: bold; }
 
-/* line 3865, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert > p,
 .alert > ul {
   margin-bottom: 0; }
 
-/* line 3869, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert > p + p {
   margin-top: 5px; }
 
-/* line 3872, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-dismissable,
 .alert-dismissible {
   padding-right: 35px; }
 
-/* line 3876, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-dismissable .close,
 .alert-dismissible .close {
   position: relative;
@@ -4415,78 +3816,74 @@ a.thumbnail.active {
   right: -21px;
   color: inherit; }
 
-/* line 3883, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #3c763d; }
 
-/* line 3888, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-success hr {
   border-top-color: #c9e2b3; }
 
-/* line 3891, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-success .alert-link {
   color: #2b542c; }
 
-/* line 3894, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-info {
   background-color: #d9edf7;
   border-color: #bce8f1;
   color: #31708f; }
 
-/* line 3899, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-info hr {
   border-top-color: #a6e1ec; }
 
-/* line 3902, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-info .alert-link {
   color: #245269; }
 
-/* line 3905, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-warning {
   background-color: #fcf8e3;
   border-color: #faebcc;
   color: #8a6d3b; }
 
-/* line 3910, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-warning hr {
   border-top-color: #f7e1b5; }
 
-/* line 3913, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-warning .alert-link {
   color: #66512c; }
 
-/* line 3916, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-danger {
   background-color: #f2dede;
   border-color: #ebccd1;
   color: #a94442; }
 
-/* line 3921, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-danger hr {
   border-top-color: #e4b9c0; }
 
-/* line 3924, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .alert-danger .alert-link {
   color: #843534; }
 
+@-webkit-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
+@-o-keyframes progress-bar-stripes {
+  from {
+    background-position: 40px 0; }
+  to {
+    background-position: 0 0; } }
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0; }
   to {
     background-position: 0 0; } }
-
-/* line 3951, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress {
   overflow: hidden;
   height: 20px;
   margin-bottom: 20px;
   background-color: #f5f5f5;
   border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); }
 
-/* line 3960, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-bar {
   float: left;
   width: 0%;
@@ -4496,119 +3893,110 @@ a.thumbnail.active {
   color: #ffffff;
   text-align: center;
   background-color: #337ab7;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
   transition: width 0.6s ease; }
 
-/* line 3975, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-striped .progress-bar,
 .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  -webkit-background-size: 40px 40px;
   background-size: 40px 40px; }
 
-/* line 3983, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress.active .progress-bar,
 .progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
   animation: progress-bar-stripes 2s linear infinite; }
 
-/* line 3989, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-bar-success {
   background-color: #5cb85c; }
 
-/* line 3992, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
-/* line 3997, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-bar-info {
   background-color: #5bc0de; }
 
-/* line 4000, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
-/* line 4005, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-bar-warning {
   background-color: #f0ad4e; }
 
-/* line 4008, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
-/* line 4013, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-bar-danger {
   background-color: #d9534f; }
 
-/* line 4016, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent); }
 
-/* line 4021, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media {
   margin-top: 15px; }
 
-/* line 4024, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media:first-child {
   margin-top: 0; }
 
-/* line 4027, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media,
 .media-body {
   zoom: 1;
   overflow: hidden; }
 
-/* line 4032, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-body {
   width: 10000px; }
 
-/* line 4035, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-object {
   display: block; }
 
-/* line 4038, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-object.img-thumbnail {
   max-width: none; }
 
-/* line 4041, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-right,
 .media > .pull-right {
   padding-left: 10px; }
 
-/* line 4045, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-left,
 .media > .pull-left {
   padding-right: 10px; }
 
-/* line 4049, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-left,
 .media-right,
 .media-body {
   display: table-cell;
   vertical-align: top; }
 
-/* line 4055, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-middle {
   vertical-align: middle; }
 
-/* line 4058, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-bottom {
   vertical-align: bottom; }
 
-/* line 4061, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-heading {
   margin-top: 0;
   margin-bottom: 5px; }
 
-/* line 4065, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .media-list {
   padding-left: 0;
   list-style: none; }
 
-/* line 4069, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group {
   margin-bottom: 20px;
   padding-left: 0; }
 
-/* line 4073, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item {
   position: relative;
   display: block;
@@ -4617,28 +4005,23 @@ a.thumbnail.active {
   background-color: #ffffff;
   border: 1px solid #dddddd; }
 
-/* line 4081, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item:first-child {
   border-top-right-radius: 4px;
   border-top-left-radius: 4px; }
 
-/* line 4085, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item:last-child {
   margin-bottom: 0;
   border-bottom-right-radius: 4px;
   border-bottom-left-radius: 4px; }
 
-/* line 4090, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item,
 button.list-group-item {
   color: #555555; }
 
-/* line 4094, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item .list-group-item-heading,
 button.list-group-item .list-group-item-heading {
   color: #333333; }
 
-/* line 4098, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item:hover,
 button.list-group-item:hover,
 a.list-group-item:focus,
@@ -4647,12 +4030,10 @@ button.list-group-item:focus {
   color: #555555;
   background-color: #f5f5f5; }
 
-/* line 4106, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button.list-group-item {
   width: 100%;
   text-align: left; }
 
-/* line 4110, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.disabled,
 .list-group-item.disabled:hover,
 .list-group-item.disabled:focus {
@@ -4660,19 +4041,16 @@ button.list-group-item {
   color: #777777;
   cursor: not-allowed; }
 
-/* line 4117, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.disabled .list-group-item-heading,
 .list-group-item.disabled:hover .list-group-item-heading,
 .list-group-item.disabled:focus .list-group-item-heading {
   color: inherit; }
 
-/* line 4122, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.disabled .list-group-item-text,
 .list-group-item.disabled:hover .list-group-item-text,
 .list-group-item.disabled:focus .list-group-item-text {
   color: #777777; }
 
-/* line 4127, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.active,
 .list-group-item.active:hover,
 .list-group-item.active:focus {
@@ -4681,7 +4059,6 @@ button.list-group-item {
   background-color: #337ab7;
   border-color: #337ab7; }
 
-/* line 4135, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.active .list-group-item-heading,
 .list-group-item.active:hover .list-group-item-heading,
 .list-group-item.active:focus .list-group-item-heading,
@@ -4693,28 +4070,23 @@ button.list-group-item {
 .list-group-item.active:focus .list-group-item-heading > .small {
   color: inherit; }
 
-/* line 4146, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item.active .list-group-item-text,
 .list-group-item.active:hover .list-group-item-text,
 .list-group-item.active:focus .list-group-item-text {
   color: #c7ddef; }
 
-/* line 4151, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-success {
   color: #3c763d;
   background-color: #dff0d8; }
 
-/* line 4155, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-success,
 button.list-group-item-success {
   color: #3c763d; }
 
-/* line 4159, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-success .list-group-item-heading,
 button.list-group-item-success .list-group-item-heading {
   color: inherit; }
 
-/* line 4163, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-success:hover,
 button.list-group-item-success:hover,
 a.list-group-item-success:focus,
@@ -4722,7 +4094,6 @@ button.list-group-item-success:focus {
   color: #3c763d;
   background-color: #d0e9c6; }
 
-/* line 4170, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-success.active,
 button.list-group-item-success.active,
 a.list-group-item-success.active:hover,
@@ -4733,22 +4104,18 @@ button.list-group-item-success.active:focus {
   background-color: #3c763d;
   border-color: #3c763d; }
 
-/* line 4180, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-info {
   color: #31708f;
   background-color: #d9edf7; }
 
-/* line 4184, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-info,
 button.list-group-item-info {
   color: #31708f; }
 
-/* line 4188, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-info .list-group-item-heading,
 button.list-group-item-info .list-group-item-heading {
   color: inherit; }
 
-/* line 4192, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-info:hover,
 button.list-group-item-info:hover,
 a.list-group-item-info:focus,
@@ -4756,7 +4123,6 @@ button.list-group-item-info:focus {
   color: #31708f;
   background-color: #c4e3f3; }
 
-/* line 4199, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-info.active,
 button.list-group-item-info.active,
 a.list-group-item-info.active:hover,
@@ -4767,22 +4133,18 @@ button.list-group-item-info.active:focus {
   background-color: #31708f;
   border-color: #31708f; }
 
-/* line 4209, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-warning {
   color: #8a6d3b;
   background-color: #fcf8e3; }
 
-/* line 4213, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-warning,
 button.list-group-item-warning {
   color: #8a6d3b; }
 
-/* line 4217, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-warning .list-group-item-heading,
 button.list-group-item-warning .list-group-item-heading {
   color: inherit; }
 
-/* line 4221, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-warning:hover,
 button.list-group-item-warning:hover,
 a.list-group-item-warning:focus,
@@ -4790,7 +4152,6 @@ button.list-group-item-warning:focus {
   color: #8a6d3b;
   background-color: #faf2cc; }
 
-/* line 4228, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-warning.active,
 button.list-group-item-warning.active,
 a.list-group-item-warning.active:hover,
@@ -4801,22 +4162,18 @@ button.list-group-item-warning.active:focus {
   background-color: #8a6d3b;
   border-color: #8a6d3b; }
 
-/* line 4238, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-danger {
   color: #a94442;
   background-color: #f2dede; }
 
-/* line 4242, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-danger,
 button.list-group-item-danger {
   color: #a94442; }
 
-/* line 4246, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-danger .list-group-item-heading,
 button.list-group-item-danger .list-group-item-heading {
   color: inherit; }
 
-/* line 4250, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-danger:hover,
 button.list-group-item-danger:hover,
 a.list-group-item-danger:focus,
@@ -4824,7 +4181,6 @@ button.list-group-item-danger:focus {
   color: #a94442;
   background-color: #ebcccc; }
 
-/* line 4257, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 a.list-group-item-danger.active,
 button.list-group-item-danger.active,
 a.list-group-item-danger.active:hover,
@@ -4835,47 +4191,40 @@ button.list-group-item-danger.active:focus {
   background-color: #a94442;
   border-color: #a94442; }
 
-/* line 4267, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-heading {
   margin-top: 0;
   margin-bottom: 5px; }
 
-/* line 4271, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group-item-text {
   margin-bottom: 0;
   line-height: 1.3; }
 
-/* line 4275, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel {
   margin-bottom: 20px;
   background-color: #ffffff;
   border: 1px solid transparent;
   border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
-/* line 4283, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-body {
   padding: 15px; }
 
-/* line 4286, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
 
-/* line 4292, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-heading > .dropdown .dropdown-toggle {
   color: inherit; }
 
-/* line 4295, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
   font-size: 16px;
   color: inherit; }
 
-/* line 4301, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-title > a,
 .panel-title > small,
 .panel-title > .small,
@@ -4883,7 +4232,6 @@ button.list-group-item-danger.active:focus {
 .panel-title > .small > a {
   color: inherit; }
 
-/* line 4308, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-footer {
   padding: 10px 15px;
   background-color: #f5f5f5;
@@ -4891,64 +4239,53 @@ button.list-group-item-danger.active:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
 
-/* line 4315, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .list-group,
 .panel > .panel-collapse > .list-group {
   margin-bottom: 0; }
 
-/* line 4319, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .list-group .list-group-item,
 .panel > .panel-collapse > .list-group .list-group-item {
   border-width: 1px 0;
   border-radius: 0; }
 
-/* line 4324, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .list-group:first-child .list-group-item:first-child,
 .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
   border-top: 0;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
 
-/* line 4330, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .list-group:last-child .list-group-item:last-child,
 .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
   border-bottom: 0;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
 
-/* line 4336, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
   border-top-right-radius: 0;
   border-top-left-radius: 0; }
 
-/* line 4340, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-heading + .list-group .list-group-item:first-child {
   border-top-width: 0; }
 
-/* line 4343, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .list-group + .panel-footer {
   border-top-width: 0; }
 
-/* line 4346, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table,
 .panel > .table-responsive > .table,
 .panel > .panel-collapse > .table {
   margin-bottom: 0; }
 
-/* line 4351, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table caption,
 .panel > .table-responsive > .table caption,
 .panel > .panel-collapse > .table caption {
   padding-left: 15px;
   padding-right: 15px; }
 
-/* line 4357, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:first-child,
 .panel > .table-responsive:first-child > .table:first-child {
   border-top-right-radius: 3px;
   border-top-left-radius: 3px; }
 
-/* line 4362, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child,
@@ -4956,7 +4293,6 @@ button.list-group-item-danger.active:focus {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px; }
 
-/* line 4369, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
@@ -4967,7 +4303,6 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
   border-top-left-radius: 3px; }
 
-/* line 4379, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
 .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
 .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
@@ -4978,13 +4313,11 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
   border-top-right-radius: 3px; }
 
-/* line 4389, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:last-child,
 .panel > .table-responsive:last-child > .table:last-child {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px; }
 
-/* line 4394, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child,
@@ -4992,7 +4325,6 @@ button.list-group-item-danger.active:focus {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
 
-/* line 4401, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
@@ -5003,7 +4335,6 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
   border-bottom-left-radius: 3px; }
 
-/* line 4411, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
 .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
 .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
@@ -5014,24 +4345,20 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
   border-bottom-right-radius: 3px; }
 
-/* line 4421, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive,
 .panel > .table + .panel-body,
 .panel > .table-responsive + .panel-body {
   border-top: 1px solid #dddddd; }
 
-/* line 4427, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table > tbody:first-child > tr:first-child th,
 .panel > .table > tbody:first-child > tr:first-child td {
   border-top: 0; }
 
-/* line 4431, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-bordered,
 .panel > .table-responsive > .table-bordered {
   border: 0; }
 
-/* line 4435, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-bordered > thead > tr > th:first-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
 .panel > .table-bordered > tbody > tr > th:first-child,
@@ -5046,7 +4373,6 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
   border-left: 0; }
 
-/* line 4449, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-bordered > thead > tr > th:last-child,
 .panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
 .panel > .table-bordered > tbody > tr > th:last-child,
@@ -5061,7 +4387,6 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
   border-right: 0; }
 
-/* line 4463, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-bordered > thead > tr:first-child > td,
 .panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
 .panel > .table-bordered > tbody > tr:first-child > td,
@@ -5072,7 +4397,6 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive > .table-bordered > tbody > tr:first-child > th {
   border-bottom: 0; }
 
-/* line 4473, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-bordered > tbody > tr:last-child > td,
 .panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
 .panel > .table-bordered > tfoot > tr:last-child > td,
@@ -5083,180 +4407,141 @@ button.list-group-item-danger.active:focus {
 .panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
   border-bottom: 0; }
 
-/* line 4483, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel > .table-responsive {
   border: 0;
   margin-bottom: 0; }
 
-/* line 4487, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group {
   margin-bottom: 20px; }
 
-/* line 4490, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel {
   margin-bottom: 0;
   border-radius: 4px; }
 
-/* line 4494, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel + .panel {
   margin-top: 5px; }
 
-/* line 4497, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel-heading {
   border-bottom: 0; }
 
-/* line 4500, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel-heading + .panel-collapse > .panel-body,
 .panel-group .panel-heading + .panel-collapse > .list-group {
   border-top: 1px solid #dddddd; }
 
-/* line 4504, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel-footer {
   border-top: 0; }
 
-/* line 4507, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-group .panel-footer + .panel-collapse .panel-body {
   border-bottom: 1px solid #dddddd; }
 
-/* line 4510, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-default {
   border-color: #dddddd; }
 
-/* line 4513, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-default > .panel-heading {
   color: #333333;
   background-color: #f5f5f5;
   border-color: #dddddd; }
 
-/* line 4518, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #dddddd; }
 
-/* line 4521, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-default > .panel-heading .badge {
   color: #f5f5f5;
   background-color: #333333; }
 
-/* line 4525, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-default > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #dddddd; }
 
-/* line 4528, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-primary {
   border-color: #337ab7; }
 
-/* line 4531, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-primary > .panel-heading {
   color: #ffffff;
   background-color: #337ab7;
   border-color: #337ab7; }
 
-/* line 4536, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-primary > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #337ab7; }
 
-/* line 4539, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-primary > .panel-heading .badge {
   color: #337ab7;
   background-color: #ffffff; }
 
-/* line 4543, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-primary > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #337ab7; }
 
-/* line 4546, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-success {
   border-color: #d6e9c6; }
 
-/* line 4549, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-success > .panel-heading {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6; }
 
-/* line 4554, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-success > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #d6e9c6; }
 
-/* line 4557, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-success > .panel-heading .badge {
   color: #dff0d8;
   background-color: #3c763d; }
 
-/* line 4561, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-success > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #d6e9c6; }
 
-/* line 4564, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-info {
   border-color: #bce8f1; }
 
-/* line 4567, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-info > .panel-heading {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1; }
 
-/* line 4572, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #bce8f1; }
 
-/* line 4575, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-info > .panel-heading .badge {
   color: #d9edf7;
   background-color: #31708f; }
 
-/* line 4579, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-info > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #bce8f1; }
 
-/* line 4582, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-warning {
   border-color: #faebcc; }
 
-/* line 4585, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-warning > .panel-heading {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc; }
 
-/* line 4590, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-warning > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #faebcc; }
 
-/* line 4593, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-warning > .panel-heading .badge {
   color: #fcf8e3;
   background-color: #8a6d3b; }
 
-/* line 4597, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-warning > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #faebcc; }
 
-/* line 4600, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-danger {
   border-color: #ebccd1; }
 
-/* line 4603, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-danger > .panel-heading {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1; }
 
-/* line 4608, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-danger > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ebccd1; }
 
-/* line 4611, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-danger > .panel-heading .badge {
   color: #f2dede;
   background-color: #a94442; }
 
-/* line 4615, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1; }
 
-/* line 4618, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .embed-responsive {
   position: relative;
   display: block;
@@ -5264,7 +4549,6 @@ button.list-group-item-danger.active:focus {
   padding: 0;
   overflow: hidden; }
 
-/* line 4625, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .embed-responsive .embed-responsive-item,
 .embed-responsive iframe,
 .embed-responsive embed,
@@ -5278,15 +4562,12 @@ button.list-group-item-danger.active:focus {
   width: 100%;
   border: 0; }
 
-/* line 4638, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .embed-responsive-16by9 {
   padding-bottom: 56.25%; }
 
-/* line 4641, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .embed-responsive-4by3 {
   padding-bottom: 75%; }
 
-/* line 4644, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .well {
   min-height: 20px;
   padding: 19px;
@@ -5294,24 +4575,21 @@ button.list-group-item-danger.active:focus {
   background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05); }
 
-/* line 4654, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .well blockquote {
   border-color: #ddd;
   border-color: rgba(0, 0, 0, 0.15); }
 
-/* line 4658, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .well-lg {
   padding: 24px;
   border-radius: 6px; }
 
-/* line 4662, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .well-sm {
   padding: 9px;
   border-radius: 3px; }
 
-/* line 4666, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .close {
   float: right;
   font-size: 21px;
@@ -5322,7 +4600,6 @@ button.list-group-item-danger.active:focus {
   opacity: 0.2;
   filter: alpha(opacity=20); }
 
-/* line 4676, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .close:hover,
 .close:focus {
   color: #000000;
@@ -5331,7 +4608,6 @@ button.list-group-item-danger.active:focus {
   opacity: 0.5;
   filter: alpha(opacity=50); }
 
-/* line 4684, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 button.close {
   padding: 0;
   cursor: pointer;
@@ -5339,7 +4615,6 @@ button.close {
   border: 0;
   -webkit-appearance: none; }
 
-/* line 4691, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .clearfix:before,
 .clearfix:after,
 .dl-horizontal dd:before,
@@ -5369,7 +4644,6 @@ button.close {
   content: " ";
   display: table; }
 
-/* line 4720, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .clearfix:after,
 .dl-horizontal dd:after,
 .container:after,
@@ -5385,33 +4659,26 @@ button.close {
 .panel-body:after {
   clear: both; }
 
-/* line 4735, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .center-block {
   display: block;
   margin-left: auto;
   margin-right: auto; }
 
-/* line 4740, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .pull-right {
   float: right !important; }
 
-/* line 4743, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .pull-left {
   float: left !important; }
 
-/* line 4746, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .hide {
   display: none !important; }
 
-/* line 4749, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .show {
   display: block !important; }
 
-/* line 4752, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .invisible {
   visibility: hidden; }
 
-/* line 4755, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .text-hide {
   font: 0/0 a;
   color: transparent;
@@ -5419,25 +4686,20 @@ button.close {
   background-color: transparent;
   border: 0; }
 
-/* line 4762, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .hidden {
   display: none !important; }
 
-/* line 4765, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .affix {
   position: fixed; }
 
 @-ms-viewport {
   width: device-width; }
-
-/* line 4771, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-xs,
 .visible-sm,
 .visible-md,
 .visible-lg {
   display: none !important; }
 
-/* line 4777, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-xs-block,
 .visible-xs-inline,
 .visible-xs-inline-block,
@@ -5453,201 +4715,145 @@ button.close {
   display: none !important; }
 
 @media (max-width: 767px) {
-  /* line 4792, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-xs {
     display: block !important; }
-  /* line 4795, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   table.visible-xs {
     display: table !important; }
-  /* line 4798, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   tr.visible-xs {
     display: table-row !important; }
-  /* line 4801, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   th.visible-xs,
   td.visible-xs {
     display: table-cell !important; } }
-
 @media (max-width: 767px) {
-  /* line 4807, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-xs-block {
     display: block !important; } }
-
 @media (max-width: 767px) {
-  /* line 4812, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-xs-inline {
     display: inline !important; } }
-
 @media (max-width: 767px) {
-  /* line 4817, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-xs-inline-block {
     display: inline-block !important; } }
-
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 4822, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-sm {
     display: block !important; }
-  /* line 4825, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   table.visible-sm {
     display: table !important; }
-  /* line 4828, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   tr.visible-sm {
     display: table-row !important; }
-  /* line 4831, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   th.visible-sm,
   td.visible-sm {
     display: table-cell !important; } }
-
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 4837, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-sm-block {
     display: block !important; } }
-
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 4842, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-sm-inline {
     display: inline !important; } }
-
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 4847, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-sm-inline-block {
     display: inline-block !important; } }
-
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 4852, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-md {
     display: block !important; }
-  /* line 4855, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   table.visible-md {
     display: table !important; }
-  /* line 4858, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   tr.visible-md {
     display: table-row !important; }
-  /* line 4861, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   th.visible-md,
   td.visible-md {
     display: table-cell !important; } }
-
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 4867, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-md-block {
     display: block !important; } }
-
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 4872, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-md-inline {
     display: inline !important; } }
-
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 4877, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-md-inline-block {
     display: inline-block !important; } }
-
 @media (min-width: 1200px) {
-  /* line 4882, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-lg {
     display: block !important; }
-  /* line 4885, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   table.visible-lg {
     display: table !important; }
-  /* line 4888, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   tr.visible-lg {
     display: table-row !important; }
-  /* line 4891, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   th.visible-lg,
   td.visible-lg {
     display: table-cell !important; } }
-
 @media (min-width: 1200px) {
-  /* line 4897, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-lg-block {
     display: block !important; } }
-
 @media (min-width: 1200px) {
-  /* line 4902, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-lg-inline {
     display: inline !important; } }
-
 @media (min-width: 1200px) {
-  /* line 4907, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-lg-inline-block {
     display: inline-block !important; } }
-
 @media (max-width: 767px) {
-  /* line 4912, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .hidden-xs {
     display: none !important; } }
-
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 4917, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .hidden-sm {
     display: none !important; } }
-
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 4922, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .hidden-md {
     display: none !important; } }
-
 @media (min-width: 1200px) {
-  /* line 4927, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .hidden-lg {
     display: none !important; } }
-
-/* line 4931, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-print {
   display: none !important; }
 
 @media print {
-  /* line 4935, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-print {
     display: block !important; }
-  /* line 4938, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   table.visible-print {
     display: table !important; }
-  /* line 4941, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   tr.visible-print {
     display: table-row !important; }
-  /* line 4944, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
+
   th.visible-print,
   td.visible-print {
     display: table-cell !important; } }
-
-/* line 4949, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-print-block {
   display: none !important; }
 
 @media print {
-  /* line 4953, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-print-block {
     display: block !important; } }
-
-/* line 4957, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-print-inline {
   display: none !important; }
 
 @media print {
-  /* line 4961, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-print-inline {
     display: inline !important; } }
-
-/* line 4965, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
 .visible-print-inline-block {
   display: none !important; }
 
 @media print {
-  /* line 4969, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .visible-print-inline-block {
     display: inline-block !important; } }
-
 @media print {
-  /* line 4974, C:/Users/Chef/smartmirror/scss/libs/bootstrap.scss */
   .hidden-print {
     display: none !important; } }
-
-/* line 1, C:/Users/Chef/smartmirror/scss/backend/global.scss */
 body {
   background-color: #6094d0; }
 
-/* line 5, C:/Users/Chef/smartmirror/scss/backend/global.scss */
 .content-container {
   margin-top: 120px;
   margin-bottom: 70px;
@@ -5656,56 +4862,46 @@ body {
   padding-bottom: 15px;
   border-radius: 4px; }
 
-/* line 14, C:/Users/Chef/smartmirror/scss/backend/global.scss */
 .page-header {
   text-align: center; }
 
-/* line 18, C:/Users/Chef/smartmirror/scss/backend/global.scss */
 input[type="radio"],
 input[type="checkbox"] {
   left: 20px; }
 
-/* line 23, C:/Users/Chef/smartmirror/scss/backend/global.scss */
 body {
   background-color: #6094d0; }
 
-/* line 1, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
   padding: 5px; }
 
-/* line 5, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .nav-logo {
   height: 100%;
   widht: auto; }
 
-/* line 10, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
   padding: 5px 0 5px; }
 
-/* line 14, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .nav-logo {
   height: 100%;
   widht: auto; }
 
-/* line 19, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .heading {
   display: inline-block;
   color: #6094d0;
   margin: 10px 0 0 20px;
   font-weight: bold; }
 
-/* line 26, C:/Users/Chef/smartmirror/scss/backend/navbar.scss */
 .nav > li:last-child > a {
   padding-right: 0px; }
 
-/* line 1, C:/Users/Chef/smartmirror/scss/backend/users.scss */
 .user-active {
   margin: 20px 0; }
 
-/* line 5, C:/Users/Chef/smartmirror/scss/backend/users.scss */
 .user-delete {
   padding-right: 20px; }
 
-/* line 9, C:/Users/Chef/smartmirror/scss/backend/users.scss */
 .user-active-check {
   margin-left: 20px !important; }
+
+/*# sourceMappingURL=backend.css.map */

@@ -1,7 +1,22 @@
+// Fonts
+@font-face { font-family: 'Raleway-Regular';
+  src: url('fonts/Raleway-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Raleway-Bold';
+  src: url('fonts/Raleway-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'OpenSans-Light';
+  src: url('fonts/OpenSans-Light') format('truetype'); }
+@font-face { font-family: 'OpenSans-Regular';
+  src: url('fonts/OpenSans-Regular.ttf') format('truetype'); }
+
+// Variables
+@import 'backend/variables.scss';
+
 // Libs
 @import 'libs/bootstrap.scss';
 
 // Backend specific styles
-@import 'backend/variables.scss';
 @import 'backend/global.scss';
 @import 'backend/navbar.scss';
+@import 'backend/users.scss';
+
+
