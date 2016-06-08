@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2793e0ec-c394-430c-b912-f775374f15d6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/stylesheets/fonts/OpenSans-Light.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/stylesheets/fonts/OpenSans-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/stylesheets/fonts/Raleway-Bold.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/public/stylesheets/fonts/Raleway-Regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/backend.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/backend.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/backend/users.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/backend/users.css.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scss/backend/users.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/public/stylesheets/backend.css" afterPath="$PROJECT_DIR$/app/public/stylesheets/backend.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/index.jade" afterPath="$PROJECT_DIR$/app/views/backend/index.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/layout.jade" afterPath="$PROJECT_DIR$/app/views/backend/layout.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/user_details.jade" afterPath="$PROJECT_DIR$/app/views/backend/user_details.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/backend/users.jade" afterPath="$PROJECT_DIR$/app/views/backend/users.jade" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/backend.scss" afterPath="$PROJECT_DIR$/scss/backend.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/backend/global.scss" afterPath="$PROJECT_DIR$/scss/backend/global.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/backend/navbar.scss" afterPath="$PROJECT_DIR$/scss/backend/navbar.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/backend/variables.scss" afterPath="$PROJECT_DIR$/scss/backend/variables.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scss/libs/bootstrap.scss" afterPath="$PROJECT_DIR$/scss/libs/bootstrap.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="smartmirror.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,7 +46,7 @@
       <file leaf-file-name="index.jade" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/backend/index.jade">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68">
+            <state vertical-scroll-proportion="0.68108976">
               <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
               <folding />
             </state>
@@ -469,14 +450,14 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986793" sideWeight="0.20520231" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986793" sideWeight="0.79479766" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986793" sideWeight="0.20549928" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24986793" sideWeight="0.7945007" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32807216" sideWeight="0.503962" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986793" sideWeight="0.18813314" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919955" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22072072" sideWeight="0.49603805" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22096956" sideWeight="0.49603805" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986793" sideWeight="0.147651" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -862,7 +843,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/backend/index.jade">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68">
+        <state vertical-scroll-proportion="0.68108976">
           <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
           <folding />
         </state>
