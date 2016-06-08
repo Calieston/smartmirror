@@ -2,7 +2,7 @@
 
 var System = require('./../models/system');
 var os = require('os');
-var disk = require('diskusage');
+var disk = require('diskspace');
 
 exports.os = function() {
   return new Promise((resolve, reject) => {
@@ -36,11 +36,14 @@ exports.disk = function() {
       dir = dir.slice(0,2);
     }
 
-    disk.check(dir, function(err, data) {
+    disk.check(dir, (err, total, free, status) => {
       if (err) {
         reject(err);
       }
-      resolve(data);
+      resolve({
+        total: total,
+        free: free,
+      });
     });
   });
 };
