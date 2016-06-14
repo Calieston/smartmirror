@@ -48,16 +48,19 @@ block content
               td
                 time=module.version
               td
-                if module.status && module.status === "installed"
+                //- if module.status && module.status === "installed"
                   button(disabled="disabled").btn.btn-danger Installiert
-                else if module.status && module.status === "update"
+                //- else if module.status && module.status === "update"
                   form(action="/modules/install" method="post")
                     input(type="hidden" name="url" value=module.git)
                     button(type="submit").btn.btn-primary Update
-                else
+                //- else
                   form(action="/modules/install" method="post")
                     input(type="hidden" name="url" value=module.git)
                     button(type="submit").btn.btn-primary Installieren
+                form(action="/modules/install" method="post")
+                    input(type="hidden" name="url" value=module.git)
+                    button(type="submit").btn.btn-primary Installieren/Updaten
 
   section.col-sm-6
     h2 Installierte Module
