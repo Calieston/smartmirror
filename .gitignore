@@ -36,4 +36,5 @@ node_modules
 # Smartmirror Modules
 **/app/**/modules/*.jade
 **/app/**/modules/*.js
-app/config.js
+**/app/config.js
+**/app/public/**/*.css
