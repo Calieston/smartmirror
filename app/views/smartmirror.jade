@@ -2,17 +2,17 @@ doctype html
 html
   head
     title Smartmirror
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/smartmirror.css')
   body
     header
-      p Hallo, #{user.username}
-      time=new Date().toLocaleString()
+      p Hallo, #{user.username} //  #{user._id}
     h1= userid
 
     //- Create Widget Container
-    each widget in user.widgets
-      section(id=widget._id class=[widget.name, 'widget'], data-x=widget.position.x, data-y=widget.position.y data-module=widget.module)
+    main.grid
+      each widget in user.widgets
+        section(data-widget="#{widget.id}", data-x=widget.position.x, data-y=widget.position.y).widget
 
     //- Load all core scripts
     //- script(src='/javascripts/angular.js')
-    script(src='/javascripts/main.js')
+    script(src='/javascripts/smartmirror.js')

@@ -6,7 +6,7 @@ var path = require('path');
 var fs = require('fs');
 // Var weatherController = require('../controllers/weather');
 
-var smartmirrorController = require('./../controllers/smartmirror');
+var smartmirrorCtrl = require('./../controllers/smartmirror');
 
 /* GET smartmirror interface page. */
 router.get('/', (req, res, next) => {
@@ -15,30 +15,36 @@ router.get('/', (req, res, next) => {
 
 router.route('/:userId')
   .get((req, res) => {
-    smartmirrorController.getUser(req.params.userId).then((user) => {
+    smartmirrorCtrl.getUser({id: req.params.userId}).then((user) => {
       res.render('smartmirror', {
         user: user,
       });
     });
   });
 
-router.route('/module/:module')
+router.route('/widget/:id')
   .get((req, res) => {
 
-    smartmirrorController.getWidget(req.params.module)
+    let params = {};
+
+    smartmirrorCtrl.getWidget({id: req.params.id})
     .then((widget) => {
 
-      let ctrl = './../controllers/modules/' + widget.module.name;
+      params.widget = widget;
+
+      let ctrl = './../controllers/modules/' + params.widget.module.name;
       let Modul = require(ctrl);
 
-      Modul.get(widget.settings)
-      .then((data) => {
-        let view = 'modules/' + widget.module.name + '.jade';
-        res.render(view, {
-          feed: data,
-        });
+      return Modul.get(params.widget.settings);
+    })
+    .then((data) => {
+      let view = 'modules/' + params.widget.module.name + '.jade';
+      res.render(view, {
+        data: data,
+        widget: params.widget,
       });
     });
+
   });
 
 module.exports = router;
