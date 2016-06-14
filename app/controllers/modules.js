@@ -41,7 +41,6 @@ exports.installModule = function(params) {
     return Helpers.loadFileFromServer({url: url + 'app/controller.js'});
   })
   .then((data) => {
-    console.log(dir);
     return Helpers.saveFile({
       path: dir.replace('#', 'controllers') + '.js',
       data: data,
