@@ -17,16 +17,6 @@ var widgetSchema = new Schema({
   status: {
     type: String
   },
-  size: {
-    x: {
-      type: Number,
-      default: 1
-    },
-    y: {
-      type: Number,
-      default: 1
-    }
-  },
   settings: {}
 }, {
   timestamps: true

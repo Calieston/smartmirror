@@ -44,9 +44,9 @@ var userSchema = new Schema({
         default: 0
       }
     },
-    active: {
-      type: Boolean,
-      default: false
+    size: {
+      type: String,
+      enum: ['2x2', '4x2', '4x4']
     }
   }],
   theme: {

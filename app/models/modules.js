@@ -25,6 +25,12 @@ var moduleSchema = new Schema({
   version: {
     type: String
   },
+  size: [
+    {
+      type: String,
+      enum: ['2x2', '4x2', '4x4']
+    }
+  ],
   settings: {}
 }, {
   timestamps: true
