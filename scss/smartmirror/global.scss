@@ -1,8 +1,37 @@
 body {
 	background: $background-color;
 	color: $color;
+	padding: 0;
+	margin: 0;
 }
 
 a {
 	color: inherit;
+}
+
+main {
+	width: 100vw;
+	height: calc(100vh - 20px);
+}
+
+> header {
+	height: 20px;
+	p {
+		line-height: 20px;
+		margin: 0;
+	}
+}
+
+.widget {
+
+  box-sizing: border-box;
+  border: 1px solid white;
+  padding: 10px;
+  margin: 10px;
+  background-color: black;
+  overflow: scroll;
+
+	@include widgetSize(2,2);
+	@include widgetSize(4,2);
+	@include widgetSize(4,4);
 }

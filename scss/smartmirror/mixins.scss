@@ -1,0 +1,6 @@
+@mixin widgetSize ($x, $y) {
+	&.size-#{$x}x#{$y} {
+		width: calc(100% / 16 * #{$x});
+		height: calc(100% / 9 * #{$y});
+	}
+}
