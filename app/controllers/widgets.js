@@ -43,6 +43,7 @@ exports.createWidget = function(params) {
       module: module._id,
       name: params.form.name,
       settings: settings,
+      size: module.size[0],
     });
 
     return newWidget.save();

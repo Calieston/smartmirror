@@ -63,7 +63,8 @@ exports.installModule = function(params) {
       status: 'installed',
       homepage: modulePackage.homepage || '',
       version: modulePackage.version,
-      settings: modulePackage.smartmirror || null,
+      settings: modulePackage.smartmirror.settings || null,
+      size: modulePackage.smartmirror.size,
     });
 
     return newModule.save();
