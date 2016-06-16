@@ -18,15 +18,17 @@ function getContent(el) {
       var div = document.createElement('div');
       div.innerHTML = this.response;
 
-      var script = div.querySelector('script');
+      el.appendChild(div);
+
+      var script = el.querySelector('script');
+
       if(script) {
         script.parentNode.removeChild(script);
         newScript = document.createElement('script');
+        newScript.dataset.widget = el.dataset.widget;
+        document.body.appendChild(newScript);
         newScript.innerHTML = script.innerText;
-        el.appendChild(newScript);
       }
-
-      el.appendChild(div);
 
     } else {
       // We reached our target server, but it returned an error
