@@ -19,6 +19,10 @@ router.route('/:userId')
       res.render('smartmirror', {
         user: user,
       });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
     });
   });
 
@@ -43,6 +47,10 @@ router.route('/widget/:id')
         data: data,
         widget: params.widget,
       });
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
     });
 
   });
