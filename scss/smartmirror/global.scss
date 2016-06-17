@@ -27,9 +27,8 @@ main {
   box-sizing: border-box;
   border: 1px solid white;
   padding: 10px;
-  margin: 10px;
   background-color: black;
-  overflow: scroll;
+  overflow: hidden;
 
 	@include widgetSize(2,2);
 	@include widgetSize(4,2);

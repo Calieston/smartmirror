@@ -1,44 +1,43 @@
-/* line 1, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 1, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 body {
   background: black;
   color: white;
   padding: 0;
   margin: 0; }
 
-/* line 8, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 8, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 a {
   color: inherit; }
 
-/* line 12, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 12, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 main {
   width: 100vw;
   height: calc(100vh - 20px); }
 
-/* line 17, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 17, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 > header {
   height: 20px; }
-  /* line 19, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+  /* line 19, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
   > header p {
     line-height: 20px;
     margin: 0; }
 
-/* line 25, F:/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 25, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 .widget {
   box-sizing: border-box;
   border: 1px solid white;
   padding: 10px;
-  margin: 10px;
   background-color: black;
-  overflow: scroll; }
-  /* line 2, F:/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  overflow: hidden; }
+  /* line 2, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
   .widget.size-2x2 {
     width: calc(100% / 16 * 2);
     height: calc(100% / 9 * 2); }
-  /* line 2, F:/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  /* line 2, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
   .widget.size-4x2 {
     width: calc(100% / 16 * 4);
     height: calc(100% / 9 * 2); }
-  /* line 2, F:/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  /* line 2, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
   .widget.size-4x4 {
     width: calc(100% / 16 * 4);
     height: calc(100% / 9 * 4); }
