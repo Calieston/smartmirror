@@ -6,6 +6,7 @@ var Widgets = require('./../models/widgets');
 var Helpers = require('./helpers');
 var fs = require('fs');
 var path = require('path');
+var npm = require('npm');
 
 var config = require('./../config');
 
@@ -37,6 +38,41 @@ exports.installModule = function(params) {
   return Helpers.loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
+
+    if (modulePackage.dependencies) {
+      return new Promise((resolve, reject) => {
+        let modules = [];
+
+        for (var dependency in modulePackage.dependencies) {
+          modules.push(dependency + '@' + modulePackage.dependencies[dependency]);
+        }
+
+        npm.load({
+            global: true,
+            prefix: path.join(__dirname, 'modules'),
+          }, (err) => {
+
+          if (err) {
+            console.log(err);
+            reject(err);
+          }
+
+          npm.commands.install(modules, function(er, data) {
+            console.log(err);
+            reject(err);
+          });
+
+          npm.on('log', function(message) {
+            console.log(message);
+          });
+
+        });
+
+        resolve();
+      });
+    }
+  })
+  .then(() => {
     dir += modulePackage.name;
     return Helpers.loadFileFromServer({url: url + 'app/controller.js'});
   })

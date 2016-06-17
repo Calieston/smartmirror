@@ -57,6 +57,7 @@
     "jade": "~1.11.0",
     "mongoose": "^4.4.14",
     "morgan": "~1.6.1",
+    "npm": "^3.9.6",
     "serve-favicon": "~2.3.0"
   },
   "jshintConfig": {
