@@ -29,6 +29,7 @@ main {
   padding: 10px;
   background-color: black;
   overflow: hidden;
+  position: relative;
 
 	@include widgetSize(2,2);
 	@include widgetSize(4,2);
