@@ -92,7 +92,11 @@ exports.installModule = function(params) {
     });
   })
   .then(() => {
-    let newModule = Modules({
+    console.log(modulePackage.smartmirror.settings);
+
+    let query = Modules.findOneAndUpdate({
+      name: modulePackage.name
+    }, {
       author: modulePackage.author,
       description: modulePackage.description,
       name: modulePackage.name,
@@ -101,9 +105,14 @@ exports.installModule = function(params) {
       version: modulePackage.version,
       settings: modulePackage.smartmirror.settings || null,
       size: modulePackage.smartmirror.size,
-    });
+    }, {
+      upsert: true,
+      setDefaultsOnInsert: true,
+      new: true
+    })
+    .lean();
 
-    return newModule.save();
+    return query.exec();
   })
   .catch((err) => {
     console.log(err);
