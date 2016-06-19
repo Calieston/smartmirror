@@ -120,7 +120,7 @@ exports.installModule = function(params) {
   });
 };
 
-exports.getModule = function(params) {
+exports.getModuleById = function(params) {
   let query =  Modules.findById(params.id)
     .lean();
 

@@ -25,23 +25,24 @@ exports.updateWidget = function(params) {
 };
 
 exports.createWidget = function(params) {
-  // Console.log(params);
   let query = Modules.findById(params.module)
     .lean()
     .exec();
 
+  let widget = params.widget;
+
   query.then((module) => {
 
     let settings = {};
-    Object.keys(params.form).forEach((key) => {
+    Object.keys(widget).forEach((key) => {
       if (key.indexOf('settings_') > -1) {
-        settings[key.replace('settings_', '')] = params.form[key];
+        settings[key.replace('settings_', '')] = widget[key];
       }
     });
 
     let newWidget = Widgets({
       module: module._id,
-      name: params.form.name,
+      name: widget.name,
       settings: settings,
       size: module.size[0],
     });
@@ -53,7 +54,6 @@ exports.createWidget = function(params) {
   });
   return query;
 };
-
 
 exports.deleteWidgetById = function(params) {
 

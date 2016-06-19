@@ -55,6 +55,13 @@ block content
                   div.form-group
                     label(for="widget") Name
                     input(type="text" name="name" placeholder="name")#name.form-control
+
+                  div.form-group
+                    label(for="size") Größe
+                    select(name="size")#size.form-control
+                      each size in module.size
+                        option(value=size)=size
+
                   if module.settings
                     each input, inputKey in module.settings
                       div.form-group

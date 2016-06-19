@@ -16,6 +16,14 @@ block content
       div.form-group
         label(for="name") Name
         input(type="text" name="name" placeholder=widget.name value=widget.name).form-control
+
+      div.form-group
+        label(for="size") Größe
+
+        select(name="size")#size.form-control
+          each size in module.size
+            option(value=size)=size
+
       if widget.settings
         each value, key in widget.settings
           div.form-group

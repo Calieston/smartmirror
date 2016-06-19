@@ -93,7 +93,6 @@ router.route('/users/:user/delete')
     });
   });
 
-
 /* GET system config page. */
 router.route('/system')
   .get((req, res, next) => {
@@ -182,7 +181,7 @@ router.route('/modules/remove/:id')
   .get((req, res) => {
     modulesCtrl.checkModule({id: req.params.id})
     .then((widgets) => {
-      return modulesCtrl.getModule({id: req.params.id});
+      return modulesCtrl.getModuleById({id: req.params.id});
     })
     .then((module) => {
       res.render('backend/modules_remove', {
@@ -237,7 +236,7 @@ router.route('/widgets/create/:module')
   .post((req, res) => {
     widgetsCtrl.createWidget({
       module: req.params.module,
-      form: req.body,
+      widget: req.body,
     })
     .then((data) => {
       res.redirect('/widgets?msg=install');
@@ -250,11 +249,21 @@ router.route('/widgets/create/:module')
 
 router.route('/widgets/edit/:widget')
   .get((req, res) => {
+    let params = {};
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
+      params.widget = widget;
+      return modulesCtrl.getModuleById({id: widget.module})
+    })
+    .then((module) => {
       res.render('backend/widgets_edit', {
-        widget: widget,
+        widget: params.widget,
+        module: module
       });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/widgets?err=install');
     });
   })
   .post((req, res) => {
