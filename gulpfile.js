@@ -73,7 +73,7 @@ gulp.task('watch', ['scss-backend', 'scss-smartmirror'], function () {
     port: 8080
   });
 
-  gulp.watch(['./app/views/**/*.jade', './scss/**/*.scss'], ['scss-backend', 'scss-smartmirror', reload]);
+  gulp.watch(['./app/views/**/*.jade', './scss/**/*.scss', './app/public/javascripts/*.js'], ['scss-backend', 'scss-smartmirror', reload]);
 });
 
 // Default task - run all the other tasks
