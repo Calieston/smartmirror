@@ -1,6 +1,7 @@
 'use strict';
 
 var User = require('../models/users');
+var ObjectID = require('mongodb').ObjectID;
 
 // Create User
 exports.addUser = (params) => {
@@ -62,3 +63,15 @@ exports.updateUser = (params) => {
 
   return query.exec();
 };
+
+exports.updateWidgets = (params) => {
+
+  let query = User.findByIdAndUpdate(params.id, {
+    widgets: params.widgets
+  }, {
+    new: true
+  })
+  .lean();
+
+  return query.exec();
+}

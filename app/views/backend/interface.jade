@@ -25,5 +25,9 @@ block content
         each widget in user.widgets
           div(id=widget.id draggable="true" data-size=widget.size data-y=widget.position.y data-x=widget.position.x).widget=widget.name
 
+    form(action="/interface/#{user._id}" method="POST")
+      input(type="hidden" name="widgets")
+      button(type="submit").btn.btn-primary Speichern
+
 block footer
   script(src='/javascripts/interface.js')

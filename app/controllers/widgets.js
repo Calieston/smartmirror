@@ -75,13 +75,12 @@ exports.userWidgets = function(params) {
         // console.log(widget)
         if(widget._id.equals(uwidget.id)) {
           uwidget.name = widget.name;
+          uwidget.size = widget.size;
           params.widgets.splice(j, 1);
           return true;
         }
       });
     });
-
-    console.log(params.user.widgets)
 
     resolve(params);
   });

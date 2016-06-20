@@ -2,6 +2,8 @@ var widgetsEl = document.querySelector('.widgets'),
     widgetEls = document.querySelectorAll('.widget'),
     interfaceEl = document.querySelector('.interface');
 
+var formEl = document.querySelector('form');
+
 var clickPos = {};
 
 interfaceEl.style.height = interfaceEl.offsetWidth / (16/9) + 'px';
@@ -91,7 +93,10 @@ function dropHandler(evt) {
       evt.target.appendChild(el);
     }
     if(evt.target.classList.contains('interface')) {
-       el.style.transform = snap({x: evt.offsetX, y: evt.offsetY});
+      var pos = snap({x: evt.offsetX, y: evt.offsetY});
+      el.dataset.x = pos.x;
+      el.dataset.y = pos.y;
+      el.style.transform = 'translate(' + (pos.x*grid+5) + 'px,' + (pos.y*grid+5) + 'px)';
     } else {
       el.style.transform = 'none';
     }
@@ -113,8 +118,32 @@ widgetsEl.addEventListener('dragleave', dragLeaveHandler, false);
 widgetsEl.addEventListener('drop', dropHandler, false);
 
 function snap(params) {
-  var x = Math.round((params.x - clickPos.x) / grid) * grid + 5;
-  var y = Math.round((params.y - clickPos.y) / grid) * grid + 5;
-  var transform = 'translate(' + x + 'px,' + y + 'px)';
-  return transform;
+  var x = Math.round((params.x - clickPos.x) / grid);
+  var y = Math.round((params.y - clickPos.y) / grid);
+  return {x: x, y: y};
 }
+
+// function snap(params) {
+//   var x = Math.round((params.x - clickPos.x) / grid) * grid + 5;
+//   var y = Math.round((params.y - clickPos.y) / grid) * grid + 5;
+//   return {x: x, y: y};
+// }
+
+formEl.addEventListener('submit', function(evt) {
+  var data = [];
+  [].forEach.call(interfaceEl.querySelectorAll('.widget'), function(widget) {
+    console.log(widget)
+    data.push({
+      id: widget.id,
+      position: {
+        x: widget.dataset.x,
+        y: widget.dataset.y
+      }
+    })
+  });
+
+  console.log(data)
+
+
+  formEl.querySelector('input').value = JSON.stringify(data);
+});

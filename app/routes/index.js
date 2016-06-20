@@ -43,6 +43,7 @@ router.route('/users')
       });
     })
     .catch((err) => {
+      console.log(err)
       res.redirect('/?error');
     });
   })
@@ -314,13 +315,23 @@ router.route('/interface/:user')
     })
     .catch((err) => {
       console.log(err);
-      res.sendStatus(404);
+      res.sendStatus(500);
     });
   })
   .post((req, res) => {
-    console.log('ToDo');
-    // Set position in user model
-    res.render('backend/interface');
+    console.log(req.body);
+    let widgets = JSON.parse(req.body.widgets);
+    userCtrl.updateWidgets({
+      id: req.params.user,
+      widgets: widgets
+    })
+    .then(() => {
+      res.redirect('/interface/' + req.params.user);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
   });
 
 module.exports = router;
