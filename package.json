@@ -68,7 +68,8 @@
     "preset": "node-style-guide",
     "excludeFiles": [
       "app/models/*",
-      "app/public/*"
+      "app/public/*",
+      "app/controllers/modules/*"
     ]
   }
 }
