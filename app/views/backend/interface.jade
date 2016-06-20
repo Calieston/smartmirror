@@ -13,20 +13,17 @@ block content
     header
       h2 Widgets
 
-
-    if widgets.length == 0
-      h2 No widgets
-    else
-      div.widgets.droparea
-        each widget in widgets
-          div(id=widget._id draggable="true" data-size=widget.size).widget=widget.name
-        div(draggable="true" data-size="4x4")#asdfasdf.widget big one
+    div.widgets.droparea
+      each widget in widgets
+        div(id=widget._id draggable="true" data-size=widget.size).widget=widget.name
+      div(draggable="true" data-size="4x4")#asdfasdf.widget big one
 
     section
       header
         h2 Interface
       div.interface.droparea
-
+        each widget in user.widgets
+          div(id=widget.id draggable="true" data-size=widget.size data-y=widget.position.y data-x=widget.position.x).widget=widget.name
 
 block footer
   script(src='/javascripts/interface.js')

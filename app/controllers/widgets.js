@@ -65,3 +65,24 @@ exports.deleteWidgetById = function(params) {
 
   return query.exec();
 };
+
+exports.userWidgets = function(params) {
+  return new Promise((resolve, reject) => {
+
+    params.user.widgets.forEach((uwidget, i) => {
+      // console.log(uwidget)
+      params.widgets.some((widget, j) => {
+        // console.log(widget)
+        if(widget._id.equals(uwidget.id)) {
+          uwidget.name = widget.name;
+          params.widgets.splice(j, 1);
+          return true;
+        }
+      });
+    });
+
+    console.log(params.user.widgets)
+
+    resolve(params);
+  });
+}

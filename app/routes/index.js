@@ -300,14 +300,17 @@ router.route('/interface')
 router.route('/interface/:user')
   .get((req, res) => {
     var params = {};
-    userCtrl.getUsers()
-    .then((users) => {
-      params.users = users;
+    userCtrl.getUserById({id: req.params.user})
+    .then((user) => {
+      params.user = user;
       return widgetsCtrl.getWidgets();
     })
     .then((widgets) => {
       params.widgets = widgets;
-      res.render('backend/interface', params);
+      return widgetsCtrl.userWidgets(params);
+    })
+    .then((data) => {
+      res.render('backend/interface', data);
     })
     .catch((err) => {
       console.log(err);
