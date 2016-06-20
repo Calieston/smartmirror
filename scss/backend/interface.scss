@@ -1,0 +1,40 @@
+.widgets {
+  list-style-type: none;
+  white-space: nowrap;
+  width: 100%;
+  background-color: rgba(0,0,0,0.2);
+  overflow-x: scroll;
+  .widget {
+    margin: 10px;
+  }
+}
+
+.widget {
+  display: inline-block;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+
+  &.dragged {
+    opacity: 0.7;
+  }
+
+
+}
+
+.interface {
+  width: 100%;
+  position: relative;
+  background-color: rgba(0,0,0,0.1);
+  background-image: url('./../images/grid.png');
+  background-size: cover;
+  transition: background 500ms;
+  &.dragover {
+    background-color: rgba(0,0,0,0.2)
+  }
+  .widget {
+    position: absolute;
+  }
+}
+

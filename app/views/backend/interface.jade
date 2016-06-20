@@ -9,35 +9,24 @@ block content
   header.page-header
     h2 Interface Konfigurator
 
-  section.col-sm-4
+  section.col-sm-12
     header
       h2 Widgets
+
 
     if widgets.length == 0
       h2 No widgets
     else
-      each widget in widgets
-        div(draggable="true").row.alert.alert-info
-          img(src="http://www.placehold.it/150x150?text=" + widget.name, alt="widget.name").col-sm-4
-          strong.col-sm-8=widget.name
+      div.widgets.droparea
+        each widget in widgets
+          div(id=widget._id draggable="true" data-size=widget.size).widget=widget.name
+        div(draggable="true" data-size="4x4")#asdfasdf.widget big one
 
-  section.col-sm-12
-    h2 Module
-    div(ng-controller='moduleCtrl')
-      div(id='moduleGrid' gridster='gridsterOpts')
-        ul
-          li(gridster-item='item', ng-repeat='item in moduleItems')
+    section
+      header
+        h2 Interface
+      div.interface.droparea
 
-  section.col-sm-12
-    h2 Spiegel Interface
-    div(ng-controller='mirrorCtrl')
-      div(id='mirrorGrid' gridster='gridsterOpts')
-        ul
-          li(gridster-item='item', ng-repeat='item in interfaceItems')
 
 block footer
-  script(src='/javascripts/jquery.js')
-  script(src='/javascripts/angular.js')
-  script(src='/javascripts/jquery.resize.js')
-  script(src='/javascripts/angular-gridster.min.js')
-  script(src='/javascripts/grid.js')
+  script(src='/javascripts/interface.js')
