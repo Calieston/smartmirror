@@ -70,10 +70,8 @@ exports.userWidgets = function(params) {
   return new Promise((resolve, reject) => {
 
     params.user.widgets.forEach((uwidget, i) => {
-      // console.log(uwidget)
       params.widgets.some((widget, j) => {
-        // console.log(widget)
-        if(widget._id.equals(uwidget.id)) {
+        if (widget._id.equals(uwidget.id)) {
           uwidget.name = widget.name;
           uwidget.size = widget.size;
           params.widgets.splice(j, 1);
@@ -84,4 +82,4 @@ exports.userWidgets = function(params) {
 
     resolve(params);
   });
-}
+};

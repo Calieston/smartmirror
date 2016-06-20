@@ -67,11 +67,11 @@ exports.updateUser = (params) => {
 exports.updateWidgets = (params) => {
 
   let query = User.findByIdAndUpdate(params.id, {
-    widgets: params.widgets
+    widgets: params.widgets,
   }, {
-    new: true
+    new: true,
   })
   .lean();
 
   return query.exec();
-}
+};

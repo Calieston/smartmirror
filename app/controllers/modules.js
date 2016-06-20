@@ -95,7 +95,7 @@ exports.installModule = function(params) {
     console.log(modulePackage.smartmirror.settings);
 
     let query = Modules.findOneAndUpdate({
-      name: modulePackage.name
+      name: modulePackage.name,
     }, {
       author: modulePackage.author,
       description: modulePackage.description,
@@ -108,7 +108,7 @@ exports.installModule = function(params) {
     }, {
       upsert: true,
       setDefaultsOnInsert: true,
-      new: true
+      new: true,
     })
     .lean();
 

@@ -43,7 +43,7 @@ router.route('/users')
       });
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       res.redirect('/?error');
     });
   })
@@ -254,12 +254,12 @@ router.route('/widgets/edit/:widget')
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
       params.widget = widget;
-      return modulesCtrl.getModuleById({id: widget.module})
+      return modulesCtrl.getModuleById({id: widget.module});
     })
     .then((module) => {
       res.render('backend/widgets_edit', {
         widget: params.widget,
-        module: module
+        module: module,
       });
     })
     .catch((err) => {
@@ -323,7 +323,7 @@ router.route('/interface/:user')
     let widgets = JSON.parse(req.body.widgets);
     userCtrl.updateWidgets({
       id: req.params.user,
-      widgets: widgets
+      widgets: widgets,
     })
     .then(() => {
       res.redirect('/interface/' + req.params.user);
