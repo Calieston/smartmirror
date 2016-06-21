@@ -10,7 +10,7 @@ function getContent(el) {
 
   var request = new XMLHttpRequest();
 
-  request.open('GET', '/smartmirror/widget/' + el.dataset.widget , true);
+  request.open('GET', '/smartmirror/widget/' + el.id , true);
 
   request.onload = function() {
     if (this.status >= 200 && this.status < 400) {
@@ -25,14 +25,14 @@ function getContent(el) {
       if(script) {
         script.parentNode.removeChild(script);
         newScript = document.createElement('script');
-        newScript.dataset.widget = el.dataset.widget;
+        newScript.dataset.widget = el.id;
         document.body.appendChild(newScript);
         newScript.innerHTML = script.innerText;
       }
 
     } else {
       // We reached our target server, but it returned an error
-      console.error('Fehler');
+      console.log('Fehler');
     }
   };
 

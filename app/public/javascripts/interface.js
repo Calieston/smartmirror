@@ -132,18 +132,15 @@ function snap(params) {
 formEl.addEventListener('submit', function(evt) {
   var data = [];
   [].forEach.call(interfaceEl.querySelectorAll('.widget'), function(widget) {
-    console.log(widget)
     data.push({
       id: widget.id,
       position: {
         x: widget.dataset.x,
         y: widget.dataset.y
-      }
+      },
+      size: widget.dataset.size
     })
   });
-
-  console.log(data)
-
 
   formEl.querySelector('input').value = JSON.stringify(data);
 });

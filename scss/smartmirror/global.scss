@@ -10,8 +10,9 @@ a {
 }
 
 main {
-	width: 100vw;
-	height: calc(100vh - 20px);
+	width: 1920px;
+	height: 1080px;
+  position: relative;
 }
 
 > header {
@@ -25,13 +26,15 @@ main {
 .widget {
 
   box-sizing: border-box;
-  border: 1px solid white;
+  // border: 1px solid white;
   padding: 10px;
   background-color: black;
   overflow: hidden;
-  position: relative;
+  position: absolute;
 
 	@include widgetSize(2,2);
 	@include widgetSize(4,2);
 	@include widgetSize(4,4);
+
+  @include widgetPosition(16, 9);
 }

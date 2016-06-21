@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
 router.route('/:userId')
   .get((req, res) => {
     smartmirrorCtrl.getUser({id: req.params.userId}).then((user) => {
+      console.log(user.widgets)
       res.render('smartmirror', {
         user: user,
       });

@@ -11,24 +11,25 @@ a {
 
 /* line 12, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 main {
-  width: 100vw;
-  height: calc(100vh - 20px); }
+  width: 1920px;
+  height: 1080px;
+  position: relative; }
 
-/* line 17, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 18, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 > header {
   height: 20px; }
-  /* line 19, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+  /* line 20, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
   > header p {
     line-height: 20px;
     margin: 0; }
 
-/* line 25, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 26, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 .widget {
   box-sizing: border-box;
-  border: 1px solid white;
   padding: 10px;
   background-color: black;
-  overflow: hidden; }
+  overflow: hidden;
+  position: absolute; }
   /* line 2, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
   .widget.size-2x2 {
     width: calc(100% / 16 * 2);
@@ -41,3 +42,579 @@ main {
   .widget.size-4x4 {
     width: calc(100% / 16 * 4);
     height: calc(100% / 9 * 4); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-1 {
+    -webkit-transform: translate(120px, 120px);
+    transform: translate(120px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-2 {
+    -webkit-transform: translate(120px, 240px);
+    transform: translate(120px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-3 {
+    -webkit-transform: translate(120px, 360px);
+    transform: translate(120px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-4 {
+    -webkit-transform: translate(120px, 480px);
+    transform: translate(120px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-5 {
+    -webkit-transform: translate(120px, 600px);
+    transform: translate(120px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-6 {
+    -webkit-transform: translate(120px, 720px);
+    transform: translate(120px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-7 {
+    -webkit-transform: translate(120px, 840px);
+    transform: translate(120px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-8 {
+    -webkit-transform: translate(120px, 960px);
+    transform: translate(120px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-1-9 {
+    -webkit-transform: translate(120px, 1080px);
+    transform: translate(120px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-1 {
+    -webkit-transform: translate(240px, 120px);
+    transform: translate(240px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-2 {
+    -webkit-transform: translate(240px, 240px);
+    transform: translate(240px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-3 {
+    -webkit-transform: translate(240px, 360px);
+    transform: translate(240px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-4 {
+    -webkit-transform: translate(240px, 480px);
+    transform: translate(240px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-5 {
+    -webkit-transform: translate(240px, 600px);
+    transform: translate(240px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-6 {
+    -webkit-transform: translate(240px, 720px);
+    transform: translate(240px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-7 {
+    -webkit-transform: translate(240px, 840px);
+    transform: translate(240px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-8 {
+    -webkit-transform: translate(240px, 960px);
+    transform: translate(240px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-2-9 {
+    -webkit-transform: translate(240px, 1080px);
+    transform: translate(240px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-1 {
+    -webkit-transform: translate(360px, 120px);
+    transform: translate(360px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-2 {
+    -webkit-transform: translate(360px, 240px);
+    transform: translate(360px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-3 {
+    -webkit-transform: translate(360px, 360px);
+    transform: translate(360px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-4 {
+    -webkit-transform: translate(360px, 480px);
+    transform: translate(360px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-5 {
+    -webkit-transform: translate(360px, 600px);
+    transform: translate(360px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-6 {
+    -webkit-transform: translate(360px, 720px);
+    transform: translate(360px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-7 {
+    -webkit-transform: translate(360px, 840px);
+    transform: translate(360px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-8 {
+    -webkit-transform: translate(360px, 960px);
+    transform: translate(360px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-3-9 {
+    -webkit-transform: translate(360px, 1080px);
+    transform: translate(360px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-1 {
+    -webkit-transform: translate(480px, 120px);
+    transform: translate(480px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-2 {
+    -webkit-transform: translate(480px, 240px);
+    transform: translate(480px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-3 {
+    -webkit-transform: translate(480px, 360px);
+    transform: translate(480px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-4 {
+    -webkit-transform: translate(480px, 480px);
+    transform: translate(480px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-5 {
+    -webkit-transform: translate(480px, 600px);
+    transform: translate(480px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-6 {
+    -webkit-transform: translate(480px, 720px);
+    transform: translate(480px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-7 {
+    -webkit-transform: translate(480px, 840px);
+    transform: translate(480px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-8 {
+    -webkit-transform: translate(480px, 960px);
+    transform: translate(480px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-4-9 {
+    -webkit-transform: translate(480px, 1080px);
+    transform: translate(480px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-1 {
+    -webkit-transform: translate(600px, 120px);
+    transform: translate(600px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-2 {
+    -webkit-transform: translate(600px, 240px);
+    transform: translate(600px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-3 {
+    -webkit-transform: translate(600px, 360px);
+    transform: translate(600px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-4 {
+    -webkit-transform: translate(600px, 480px);
+    transform: translate(600px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-5 {
+    -webkit-transform: translate(600px, 600px);
+    transform: translate(600px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-6 {
+    -webkit-transform: translate(600px, 720px);
+    transform: translate(600px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-7 {
+    -webkit-transform: translate(600px, 840px);
+    transform: translate(600px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-8 {
+    -webkit-transform: translate(600px, 960px);
+    transform: translate(600px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-5-9 {
+    -webkit-transform: translate(600px, 1080px);
+    transform: translate(600px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-1 {
+    -webkit-transform: translate(720px, 120px);
+    transform: translate(720px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-2 {
+    -webkit-transform: translate(720px, 240px);
+    transform: translate(720px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-3 {
+    -webkit-transform: translate(720px, 360px);
+    transform: translate(720px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-4 {
+    -webkit-transform: translate(720px, 480px);
+    transform: translate(720px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-5 {
+    -webkit-transform: translate(720px, 600px);
+    transform: translate(720px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-6 {
+    -webkit-transform: translate(720px, 720px);
+    transform: translate(720px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-7 {
+    -webkit-transform: translate(720px, 840px);
+    transform: translate(720px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-8 {
+    -webkit-transform: translate(720px, 960px);
+    transform: translate(720px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-6-9 {
+    -webkit-transform: translate(720px, 1080px);
+    transform: translate(720px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-1 {
+    -webkit-transform: translate(840px, 120px);
+    transform: translate(840px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-2 {
+    -webkit-transform: translate(840px, 240px);
+    transform: translate(840px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-3 {
+    -webkit-transform: translate(840px, 360px);
+    transform: translate(840px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-4 {
+    -webkit-transform: translate(840px, 480px);
+    transform: translate(840px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-5 {
+    -webkit-transform: translate(840px, 600px);
+    transform: translate(840px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-6 {
+    -webkit-transform: translate(840px, 720px);
+    transform: translate(840px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-7 {
+    -webkit-transform: translate(840px, 840px);
+    transform: translate(840px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-8 {
+    -webkit-transform: translate(840px, 960px);
+    transform: translate(840px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-7-9 {
+    -webkit-transform: translate(840px, 1080px);
+    transform: translate(840px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-1 {
+    -webkit-transform: translate(960px, 120px);
+    transform: translate(960px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-2 {
+    -webkit-transform: translate(960px, 240px);
+    transform: translate(960px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-3 {
+    -webkit-transform: translate(960px, 360px);
+    transform: translate(960px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-4 {
+    -webkit-transform: translate(960px, 480px);
+    transform: translate(960px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-5 {
+    -webkit-transform: translate(960px, 600px);
+    transform: translate(960px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-6 {
+    -webkit-transform: translate(960px, 720px);
+    transform: translate(960px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-7 {
+    -webkit-transform: translate(960px, 840px);
+    transform: translate(960px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-8 {
+    -webkit-transform: translate(960px, 960px);
+    transform: translate(960px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-8-9 {
+    -webkit-transform: translate(960px, 1080px);
+    transform: translate(960px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-1 {
+    -webkit-transform: translate(1080px, 120px);
+    transform: translate(1080px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-2 {
+    -webkit-transform: translate(1080px, 240px);
+    transform: translate(1080px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-3 {
+    -webkit-transform: translate(1080px, 360px);
+    transform: translate(1080px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-4 {
+    -webkit-transform: translate(1080px, 480px);
+    transform: translate(1080px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-5 {
+    -webkit-transform: translate(1080px, 600px);
+    transform: translate(1080px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-6 {
+    -webkit-transform: translate(1080px, 720px);
+    transform: translate(1080px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-7 {
+    -webkit-transform: translate(1080px, 840px);
+    transform: translate(1080px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-8 {
+    -webkit-transform: translate(1080px, 960px);
+    transform: translate(1080px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-9-9 {
+    -webkit-transform: translate(1080px, 1080px);
+    transform: translate(1080px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-1 {
+    -webkit-transform: translate(1200px, 120px);
+    transform: translate(1200px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-2 {
+    -webkit-transform: translate(1200px, 240px);
+    transform: translate(1200px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-3 {
+    -webkit-transform: translate(1200px, 360px);
+    transform: translate(1200px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-4 {
+    -webkit-transform: translate(1200px, 480px);
+    transform: translate(1200px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-5 {
+    -webkit-transform: translate(1200px, 600px);
+    transform: translate(1200px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-6 {
+    -webkit-transform: translate(1200px, 720px);
+    transform: translate(1200px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-7 {
+    -webkit-transform: translate(1200px, 840px);
+    transform: translate(1200px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-8 {
+    -webkit-transform: translate(1200px, 960px);
+    transform: translate(1200px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-10-9 {
+    -webkit-transform: translate(1200px, 1080px);
+    transform: translate(1200px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-1 {
+    -webkit-transform: translate(1320px, 120px);
+    transform: translate(1320px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-2 {
+    -webkit-transform: translate(1320px, 240px);
+    transform: translate(1320px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-3 {
+    -webkit-transform: translate(1320px, 360px);
+    transform: translate(1320px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-4 {
+    -webkit-transform: translate(1320px, 480px);
+    transform: translate(1320px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-5 {
+    -webkit-transform: translate(1320px, 600px);
+    transform: translate(1320px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-6 {
+    -webkit-transform: translate(1320px, 720px);
+    transform: translate(1320px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-7 {
+    -webkit-transform: translate(1320px, 840px);
+    transform: translate(1320px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-8 {
+    -webkit-transform: translate(1320px, 960px);
+    transform: translate(1320px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-11-9 {
+    -webkit-transform: translate(1320px, 1080px);
+    transform: translate(1320px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-1 {
+    -webkit-transform: translate(1440px, 120px);
+    transform: translate(1440px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-2 {
+    -webkit-transform: translate(1440px, 240px);
+    transform: translate(1440px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-3 {
+    -webkit-transform: translate(1440px, 360px);
+    transform: translate(1440px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-4 {
+    -webkit-transform: translate(1440px, 480px);
+    transform: translate(1440px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-5 {
+    -webkit-transform: translate(1440px, 600px);
+    transform: translate(1440px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-6 {
+    -webkit-transform: translate(1440px, 720px);
+    transform: translate(1440px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-7 {
+    -webkit-transform: translate(1440px, 840px);
+    transform: translate(1440px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-8 {
+    -webkit-transform: translate(1440px, 960px);
+    transform: translate(1440px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-12-9 {
+    -webkit-transform: translate(1440px, 1080px);
+    transform: translate(1440px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-1 {
+    -webkit-transform: translate(1560px, 120px);
+    transform: translate(1560px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-2 {
+    -webkit-transform: translate(1560px, 240px);
+    transform: translate(1560px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-3 {
+    -webkit-transform: translate(1560px, 360px);
+    transform: translate(1560px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-4 {
+    -webkit-transform: translate(1560px, 480px);
+    transform: translate(1560px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-5 {
+    -webkit-transform: translate(1560px, 600px);
+    transform: translate(1560px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-6 {
+    -webkit-transform: translate(1560px, 720px);
+    transform: translate(1560px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-7 {
+    -webkit-transform: translate(1560px, 840px);
+    transform: translate(1560px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-8 {
+    -webkit-transform: translate(1560px, 960px);
+    transform: translate(1560px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-13-9 {
+    -webkit-transform: translate(1560px, 1080px);
+    transform: translate(1560px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-1 {
+    -webkit-transform: translate(1680px, 120px);
+    transform: translate(1680px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-2 {
+    -webkit-transform: translate(1680px, 240px);
+    transform: translate(1680px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-3 {
+    -webkit-transform: translate(1680px, 360px);
+    transform: translate(1680px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-4 {
+    -webkit-transform: translate(1680px, 480px);
+    transform: translate(1680px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-5 {
+    -webkit-transform: translate(1680px, 600px);
+    transform: translate(1680px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-6 {
+    -webkit-transform: translate(1680px, 720px);
+    transform: translate(1680px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-7 {
+    -webkit-transform: translate(1680px, 840px);
+    transform: translate(1680px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-8 {
+    -webkit-transform: translate(1680px, 960px);
+    transform: translate(1680px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-14-9 {
+    -webkit-transform: translate(1680px, 1080px);
+    transform: translate(1680px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-1 {
+    -webkit-transform: translate(1800px, 120px);
+    transform: translate(1800px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-2 {
+    -webkit-transform: translate(1800px, 240px);
+    transform: translate(1800px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-3 {
+    -webkit-transform: translate(1800px, 360px);
+    transform: translate(1800px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-4 {
+    -webkit-transform: translate(1800px, 480px);
+    transform: translate(1800px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-5 {
+    -webkit-transform: translate(1800px, 600px);
+    transform: translate(1800px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-6 {
+    -webkit-transform: translate(1800px, 720px);
+    transform: translate(1800px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-7 {
+    -webkit-transform: translate(1800px, 840px);
+    transform: translate(1800px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-8 {
+    -webkit-transform: translate(1800px, 960px);
+    transform: translate(1800px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-15-9 {
+    -webkit-transform: translate(1800px, 1080px);
+    transform: translate(1800px, 1080px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-1 {
+    -webkit-transform: translate(1920px, 120px);
+    transform: translate(1920px, 120px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-2 {
+    -webkit-transform: translate(1920px, 240px);
+    transform: translate(1920px, 240px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-3 {
+    -webkit-transform: translate(1920px, 360px);
+    transform: translate(1920px, 360px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-4 {
+    -webkit-transform: translate(1920px, 480px);
+    transform: translate(1920px, 480px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-5 {
+    -webkit-transform: translate(1920px, 600px);
+    transform: translate(1920px, 600px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-6 {
+    -webkit-transform: translate(1920px, 720px);
+    transform: translate(1920px, 720px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-7 {
+    -webkit-transform: translate(1920px, 840px);
+    transform: translate(1920px, 840px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-8 {
+    -webkit-transform: translate(1920px, 960px);
+    transform: translate(1920px, 960px); }
+  /* line 11, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/mixins.scss */
+  .widget.position-16-9 {
+    -webkit-transform: translate(1920px, 1080px);
+    transform: translate(1920px, 1080px); }

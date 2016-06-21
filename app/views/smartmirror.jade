@@ -10,7 +10,7 @@ html
     //- Create Widget Container
     main.grid
       each widget in user.widgets
-        section(id="widget-#{widget.id}" class='size-#{widget.size}' data-widget="#{widget.id}" data-x=widget.position.x data-y=widget.position.y).widget.
+        section(id=widget.id class='size-#{widget.size} position-#{widget.position.x}-#{widget.position.y}').widget
 
     //- Load all core scripts
     //- script(src='/javascripts/angular.js')
