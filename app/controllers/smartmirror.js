@@ -3,6 +3,7 @@
 var User = require('./../models/users');
 var Widget = require('./../models/widgets');
 var Module = require('./../models/modules');
+var System = require('./../models/users');
 var os = require('os');
 
 exports.getConfig = () => {
@@ -22,6 +23,13 @@ exports.getUser = (params) => {
 
   return query.exec();
 };
+
+exports.getDefaultUser = () => {
+  let query = System.findOne()
+    .lean();
+
+  return query.exec();
+}
 
 exports.getWidget = (params) => {
   let query = Widget.findById(params.id)

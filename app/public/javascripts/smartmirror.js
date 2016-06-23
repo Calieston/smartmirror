@@ -10,7 +10,7 @@ function getContent(el) {
 
   var request = new XMLHttpRequest();
 
-  request.open('GET', '/smartmirror/widget/' + el.id , true);
+  request.open('GET', '/smartmirror/widget/' + el.dataset.widget , true);
 
   request.onload = function() {
     if (this.status >= 200 && this.status < 400) {

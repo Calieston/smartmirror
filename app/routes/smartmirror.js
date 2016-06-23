@@ -24,10 +24,22 @@ router.get('/', (req, res, next) => {
 
 });
 
+router.route('/default')
+  .get((req, res) => {
+    smartmirrorCtrl.getDefaultUser()
+    .then((user) => {
+      console.log(user);
+      res.redirect(user._id);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send(404);
+    })
+  })
+
 router.route('/:userId')
   .get((req, res) => {
     smartmirrorCtrl.getUser({id: req.params.userId}).then((user) => {
-      console.log(user.widgets)
       res.render('smartmirror', {
         user: user,
       });
@@ -37,6 +49,8 @@ router.route('/:userId')
       res.send(404);
     });
   });
+
+
 
 router.route('/widget/:id')
   .get((req, res) => {
