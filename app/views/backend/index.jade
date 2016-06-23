@@ -8,26 +8,37 @@ block content
   header.page-header
     h1 Smart Mirror Backend
 
-  main.row
+  main
 
-    section.col-sm-4
-      h1 Users
-      a(href="users").btn.btn-lg.btn-primary User-Einstellungen
+    section.row
 
-    section.col-sm-4
-      h1 Modules
-      a(href="modules").btn.btn-lg.btn-primary Modul-Einstellungen
+      div.col-sm-offset-3.col-sm-3
+        h1 Users
+        p Anlegen, Bearbeiten und Löschen von Usern und deren Einstellungen
+        a(href="users").btn.btn-primary User-Einstellungen
 
-    section.col-sm-4
-      h1 Widgets
-      a(href="widgets").btn.btn-lg.btn-primary Widget-Einstellungen
+      div.col-sm-3
+        h1 Modules
+        p Herunterladen, Updaten und Löschen von Modulen
+        a(href="modules").btn.btn-primary Modul-Einstellungen
 
-    section.col-sm-4
-      h1 Sensors
-      a(href="#").btn.btn-lg.btn-primary Sensor-Einstellungen
+    section.row
 
-    section.col-sm-4
-      h1 Systemsettings
-      a(href="system").btn.btn-lg.btn-primary System-Einstellungen
+      div.col-sm-offset-3.col-sm-3
+        h1 Widgets
+        p Erstellen, Bearbeiten und Löschen von Widgets
+        a(href="widgets").btn.btn-primary Widget-Einstellungen
+
+      div.col-sm-3
+        h1 Sensoren
+        p Anzeige der für Albert verfügbaren Sensoren
+        a(href="#").btn.btn-primary Sensor-Einstellungen
+
+    section.row
+
+      div.col-sm-offset-3.col-sm-3
+        h1 Systemsettings
+        p Allgemeine System- und WLAN Einstellungen
+        a(href="system").btn.btn-primary System-Einstellungen
 
 
