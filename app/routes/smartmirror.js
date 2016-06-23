@@ -10,7 +10,18 @@ var smartmirrorCtrl = require('./../controllers/smartmirror');
 
 /* GET smartmirror interface page. */
 router.get('/', (req, res, next) => {
-  res.render('index', { title: 'SmartMirror Interface' });
+
+  smartmirrorCtrl.getConfig()
+  .then((network) => {
+    res.render('welcome', {
+      network: network
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+    res.send(404);
+  });
+
 });
 
 router.route('/:userId')

@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Guide
+    style.
+      body {
+        background: rgba(120,120,120,1);
+        color: white;
+        margin: 0;
+        overflow: hidden;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+  body
+    main
+      each connections, connectionskey in network
+        section
+          header=connectionskey
+            h2
+          each connection in connections
+            ul
+              li
+                strong=connection.address
