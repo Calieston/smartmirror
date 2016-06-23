@@ -10,6 +10,7 @@ block content
 
   section.col-sm-12
     h2 System Informationen
+    p Systeminformationen zum Systemauslastung und Speicherbelegung
 
     div.row
 
@@ -37,12 +38,27 @@ block content
         br
         strong In den letzten 15 Minuten: #{os.load[2]}
 
+  section.col-sm-12
+
+    h2 Default User
+    p User, dessen Interface beim Starten von Albert geladen wird
+
+    form(action="/system/user" method="post")
+
+      div.form-group
+        label(for="user") User
+        select(name="user")#user.form-control
+          each user in users
+            option(value=user._id)=user.username
+
+      button(type="submit").btn.btn-primary Default User speichern
 
   section.col-sm-12
 
     h2 WLAN Einstellungen
+    p Einstellung für das Funknetzwerk
 
-    form(action="/system" method="post")
+    form(action="/system/wlan" method="post")
 
       label(for="ssid") SSID
       div.input-group
@@ -54,19 +70,16 @@ block content
         span.input-group-addon MAC
         input(type="text" name="mac" value=system.mac ? system.mac : '')#mac.form-control
 
-      div.checkbox
-        label(for="security") AES
-          input(type="checkbox" name="security" value="aes" checked=system.security.indexOf('aes') > -1 ? true : false)
-
-      div.checkbox
-        label(for="security") RSA
-          input(type="checkbox" name="security" value="rsa" checked=system.security.indexOf('rsa') > -1 ? true : false)
+      if system.security
+        each sec, key in system.security
+          div.checkbox
+            label(for="security") key
+              input(type="checkbox" name="security" value=key)
+              //- checked=system.security.indexOf('aes') > -1 ? true : false)
 
       label(for="password") password
       div.input-group
         span.input-group-addon Password
         input(type="password" name="password" value=system.password ? system.password : '')#password.form-control
 
-      br
-
-      button(type="submit").btn.btn-primary Speichern
+      button(type="submit").btn.btn-primary Wlan Einstellungen speichern

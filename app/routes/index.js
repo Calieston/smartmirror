@@ -107,23 +107,41 @@ router.route('/system')
       params.os = os;
       return systemCtrl.disk();
     })
-    .then((disk)=> {
+    .then((disk) => {
+      params.disk = disk;
+      return userCtrl.getUsers();
+    })
+    .then((users)=> {
       res.render('backend/system', {
         system: params.system.wifi,
         os: params.os,
-        disk: disk,
+        disk: params.disk,
+        users: users
       });
     })
     .catch((err) => {
       console.error(err);
       res.status(500);
     });
-  })
+  });
+
+router.route('/system/wlan')
   .post((req, res, next) => {
-    systemCtrl.update(req.body).then((system) => {
-      res.render('backend/settings', {
-        system: system.wifi,
-      });
+    systemCtrl.update(req.body)
+    .then((system) => {
+      res.redirect('/system');
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+    });
+  });
+
+router.route('/system/user')
+  .post((req, res, next) => {
+    systemCtrl.updateUser(req.body)
+    .then((system) => {
+      res.redirect('/system');
     })
     .catch((err) => {
       console.error(err);

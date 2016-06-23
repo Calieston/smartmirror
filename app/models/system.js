@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Sensor = require('./sensors');
+var User = require('./users');
 
 var systemSchema = new Schema({
   wifi: {
@@ -26,7 +27,11 @@ var systemSchema = new Schema({
       type: Schema.ObjectId,
       ref: 'Sensor'
     }
-  ]
+  ],
+  defaultUser: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  }
 }, {
   timestamps: true
 });

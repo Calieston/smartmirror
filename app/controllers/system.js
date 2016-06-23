@@ -89,3 +89,15 @@ exports.update = function(params) {
     return system;
   });
 };
+
+exports.updateUser = function(params) {
+  console.log(params);
+
+  let query = System.findOneAndUpdate({},{
+    defaultUser: params.user
+  }, {
+    new: true,
+  });
+
+  return query.exec();
+}
