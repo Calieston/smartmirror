@@ -3,6 +3,7 @@
 var System = require('./../models/system');
 var os = require('os');
 var disk = require('diskspace');
+var exec = require('child_process').exec;
 
 exports.os = function() {
   return new Promise((resolve, reject) => {
@@ -44,6 +45,22 @@ exports.disk = function() {
         total: total,
         free: free,
       });
+    });
+  });
+};
+
+exports.temp = () => {
+  return new Promise((resolve, reject) => {
+
+    let child = exec("cat /sys/class/thermal/thermal_zone0/temp", function (err, stdout, stderr) {
+
+      if (err !== null) {
+        console.log(err);
+        resolve({temp: false});
+        // reject(err);
+      } else {
+        resolve({temp: parseFloat(stdout)/1000});
+      }
     });
   });
 };

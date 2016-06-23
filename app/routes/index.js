@@ -109,6 +109,11 @@ router.route('/system')
     })
     .then((disk) => {
       params.disk = disk;
+      return systemCtrl.temp();
+    })
+    .then((temp) => {
+      params.temp = temp;
+      console.log(temp)
       return userCtrl.getUsers();
     })
     .then((users)=> {
@@ -116,7 +121,8 @@ router.route('/system')
         system: params.system.wifi,
         os: params.os,
         disk: params.disk,
-        users: users
+        temp: params.temp,
+        users: users,
       });
     })
     .catch((err) => {
