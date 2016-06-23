@@ -30,7 +30,7 @@ var userSchema = new Schema({
     }
   },
   widgets: [{
-    id: {
+    _id: {
       type: Schema.ObjectId,
       ref: 'Widget'
     },

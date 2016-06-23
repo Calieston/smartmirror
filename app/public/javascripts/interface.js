@@ -133,7 +133,7 @@ formEl.addEventListener('submit', function(evt) {
   var data = [];
   [].forEach.call(interfaceEl.querySelectorAll('.widget'), function(widget) {
     data.push({
-      id: widget.id,
+      _id: widget.id,
       position: {
         x: widget.dataset.x,
         y: widget.dataset.y

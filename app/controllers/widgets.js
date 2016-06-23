@@ -71,7 +71,7 @@ exports.userWidgets = function(params) {
 
     params.user.widgets.forEach((uwidget, i) => {
       params.widgets.some((widget, j) => {
-        if (widget._id.equals(uwidget.id)) {
+        if (widget._id.equals(uwidget._id)) {
           uwidget.name = widget.name;
           uwidget.size = widget.size;
           params.widgets.splice(j, 1);
