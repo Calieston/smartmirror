@@ -15,33 +15,30 @@ block content
     div.row
 
       div.col-sm-6
-        h3 Arbeitsspeicher: #{(os.memory.free/1024/1024/1024).toFixed(2)}GB / #{(os.memory.total/1024/1024/1024).toFixed(2)}GB
-        strong #{Math.round(100 - (os.memory.free / os.memory.total) * 100)}% Arbeitsspeicher belegt
+        h3 Arbeitsspeicher: #{os.memory.free}GB / #{os.memory.total}GB
         div.progress
-          div(style="width:#{Math.round(100 - (os.memory.free / os.memory.total) * 100)}%").progress-bar
+          div(style="width:#{os.percentage.used}%").progress-bar.progress-bar-warning #{os.percentage.used}% belegt
+          div(style="width:#{os.percentage.free}%").progress-bar.progress-bar-primary #{os.percentage.free}% frei
 
       div.col-sm-6
-        h3 Speicherplatz: #{(disk.free/1024/1024/1024).toFixed(2)}Gb / #{(disk.total/1024/1024/1024).toFixed(2)}GB
-        strong #{Math.round(100 - (disk.free / disk.total) * 100)}% Speicherplatz verwendet
+        h3 Speicherplatz: #{disk.num.free}Gb / #{disk.num.total}GB
         div.progress
-          div(style="width:#{Math.round(100 - (disk.free / disk.total) * 100)}%").progress-bar
+          div(style="width:#{disk.percentage.used}%").progress-bar.progress-bar-warning #{disk.percentage.used}% belegt
+          div(style="width:#{disk.percentage.free}%").progress-bar.progress-bar-primary #{disk.percentage.free}% frei
+
 
       div.col-sm-6
-        h3 Uptime
+        h3 Betriebszeit
         strong #{Math.round(os.uptime/60)} Minuten
 
       div.col-sm-6
-        h3 Auslastung
-        strong In der letzten Minute: #{os.load[0]}
-        br
+        h3 CPU Auslastung
         strong In den letzten 5 Minuten: #{os.load[1]}
-        br
-        strong In den letzten 15 Minuten: #{os.load[2]}
 
   section.col-sm-12
 
     h2 Default User
-    p User, dessen Interface beim Starten von Albert geladen wird
+    p User, dessen Interface beim Starten des Smart Mirror geladen werden soll
 
     form(action="/system/user" method="post")
 
@@ -53,7 +50,7 @@ block content
 
       button(type="submit").btn.btn-primary Default User speichern
 
-  section.col-sm-12
+  section.col-sm-12.disabled
 
     h2 WLAN Einstellungen
     p Einstellung für das Funknetzwerk

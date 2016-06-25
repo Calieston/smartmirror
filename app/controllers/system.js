@@ -13,9 +13,13 @@ exports.os = function() {
       params.cpu = os.cpus();
       params.load = os.loadavg();
       params.memory = {
-        free: os.freemem(),
-        total: os.totalmem(),
+        free: (os.freemem() / 1024 / 1024 / 1024).toFixed(2),
+        total: (os.totalmem() / 1024 / 1024 / 1024).toFixed(2),
       };
+      params.percentage = {
+        used: 100 - (params.memory.free / params.memory.total).toFixed(2) * 100,
+        free: (params.memory.free / params.memory.total).toFixed(2) * 100
+      }
       params.uptime = os.uptime();
 
       resolve(params);
@@ -41,10 +45,18 @@ exports.disk = function() {
       if (err) {
         reject(err);
       }
-      resolve({
-        total: total,
-        free: free,
-      });
+
+      let params = {}
+      params.num = {
+        total: (total / 1024 / 1024 / 1024).toFixed(2),
+        free: (free / 1024 / 1024 / 1024).toFixed(2),
+      };
+      params.percentage = {
+        used: 100 - (params.num.free / params.num.total).toFixed(2) * 100,
+        free: (params.num.free / params.num.total).toFixed(2) * 100,
+      };
+
+      resolve(params);
     });
   });
 };

@@ -28,3 +28,12 @@ body {
   padding: 15px;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  * {
+    cursor: inherit;
+  }
+}
+

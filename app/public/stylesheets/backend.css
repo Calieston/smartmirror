@@ -5680,6 +5680,15 @@ body {
 .alert {
   padding: 15px; }
 
+/* line 31, F:/Sites/smartmirror/scss/backend/global.scss */
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.5; }
+  /* line 35, F:/Sites/smartmirror/scss/backend/global.scss */
+  .disabled * {
+    cursor: inherit; }
+
 /* line 1, F:/Sites/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
   padding: 5px; }
