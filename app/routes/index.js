@@ -318,6 +318,18 @@ router.route('/widgets/remove/:widget')
   });
 
 router.route('/interface')
+  .get((req, res) => {
+    userCtrl.getUsers()
+    .then((users) => {
+      res.render('backend/interface', {
+        users: users
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+  })
   .post((req, res) => {
     res.redirect('/interface/' +  req.body.user);
   });
@@ -335,7 +347,7 @@ router.route('/interface/:user')
       return widgetsCtrl.userWidgets(params);
     })
     .then((data) => {
-      res.render('backend/interface', data);
+      res.render('backend/interface_details', data);
     })
     .catch((err) => {
       console.log(err);
@@ -343,8 +355,8 @@ router.route('/interface/:user')
     });
   })
   .post((req, res) => {
-    console.log(req.body);
     let widgets = JSON.parse(req.body.widgets);
+    console.log(widgets);
     userCtrl.updateWidgets({
       id: req.params.user,
       widgets: widgets,

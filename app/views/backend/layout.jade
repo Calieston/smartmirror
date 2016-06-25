@@ -1,27 +1,11 @@
 doctype html
 
-html(ng-app='gridModule')
+html
   head
     block head
-    title Smartmirror - #{title}
+    title Smart Mirror - #{title}
     link(rel='stylesheet', href='/stylesheets/backend.css')
 
-    style.
-      #moduleGrid {
-        background-color: #000000;
-      }
-      #mirrorGrid {
-        background-color: #C2BCBF;
-      }
-      .gridster .gridster-item  {
-      background-color: #EFEFEF;
-      color: #004756;
-      -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-      -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-      color: #004756;
-      padding: 10px;
-      }
   body
 
     nav.navbar.navbar-default
@@ -33,7 +17,16 @@ html(ng-app='gridModule')
           li.nav-item(class=title === 'Home' ? 'active' : '')
             a(href='/').nav-link Home
           li
-          each value, key in {modules: 'Modules', widgets: 'Widgets', users: 'Users', sensors: 'Sensors',system: 'System'}
+          -
+            nav = {
+              modules: 'Modules',
+              widgets: 'Widgets',
+              interface: 'Interface',
+              users: 'Users',
+              sensors: 'Sensors',
+              system: 'System'
+            }
+          each value, key in nav
             li.nav-item(class=title === value ? 'active' : '')
               a(href='/#{key}').nav-link=value
 

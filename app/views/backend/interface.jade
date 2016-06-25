@@ -10,23 +10,17 @@ block content
     h2 Interface Konfigurator
 
   section.col-sm-12
-    header
-      h2 Widgets
+    p Wählen sie den User aus, dessen Interface sie konfigurieren möchten
 
-    div.widgets.droparea
-      each widget in widgets
-        div(id=widget._id draggable="true" data-size=widget.size).widget=widget.name
+    form(action="/interface" method="POST")
+      div.form-group
+        label(for="user") User
 
-    section
-      header
-        h2 Interface
-      div.interface.droparea
-        each widget in user.widgets
-          div(id=widget.id draggable="true" data-size=widget.size data-y=widget.position.y data-x=widget.position.x).widget=widget.name
+        select(name="user")#user.form-control
+          each user in users
+            option(value=user._id)= user.username
 
-    form(action="/interface/#{user._id}" method="POST")
-      input(type="hidden" name="widgets")
-      button(type="submit").btn.btn-primary Speichern
+      button(type="submit").btn.btn-primary Interface laden
 
 block footer
   script(src='/javascripts/interface.js')

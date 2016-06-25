@@ -1,0 +1,34 @@
+extends layout
+
+block head
+  - var title='Interface'
+  link(rel='stylesheet', href='/stylesheets/angular-gridster.min.css')
+
+block content
+
+  header.page-header
+    h2 Interface Konfigurator
+
+  section.col-sm-12
+    p.alert.alert-info  Wähle ein Widget aus und ziehe es auf das Interface um es dort zu positionieren. Um ein Widget vom Interface zu löschen, ziehe es einfach wieder in in den Widgetbreich zurück.
+
+    header
+      h2 Widgets
+
+    div.widgets.droparea
+      each widget in widgets
+        div(id=widget._id draggable="true" data-size=widget.size).widget=widget.name
+
+    header
+      h2 Interface
+
+    div.interface.droparea
+      each widget in user.widgets
+        div(id=widget._id draggable="true"  data-size=widget.size data-y=widget.position.y data-x=widget.position.x).widget=widget.name
+
+    form(action="/interface/#{user._id}" method="POST")
+      input(type="hidden" name="widgets")
+      button(type="submit").btn.btn-primary Speichern
+
+block footer
+  script(src='/javascripts/interface.js')
