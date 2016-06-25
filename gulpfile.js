@@ -68,7 +68,7 @@ gulp.task('watch', ['scss-backend', 'scss-smartmirror'], function () {
 
   browserSync.init({
     open: false,
-    notify: true,
+    notify: false,
     proxy: 'localhost:3000/',
     port: 8080
   });
