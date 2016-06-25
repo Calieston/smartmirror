@@ -9,33 +9,6 @@ block content
     h1 Systemeinstellungen
 
   section.col-sm-12
-    h2 System Informationen
-    p Systeminformationen zum Systemauslastung und Speicherbelegung
-
-    div.row
-
-      div.col-sm-6
-        h3 Arbeitsspeicher: #{os.memory.free}GB / #{os.memory.total}GB
-        div.progress
-          div(style="width:#{os.percentage.used}%").progress-bar.progress-bar-warning #{os.percentage.used}% belegt
-          div(style="width:#{os.percentage.free}%").progress-bar.progress-bar-primary #{os.percentage.free}% frei
-
-      div.col-sm-6
-        h3 Speicherplatz: #{disk.num.free}Gb / #{disk.num.total}GB
-        div.progress
-          div(style="width:#{disk.percentage.used}%").progress-bar.progress-bar-warning #{disk.percentage.used}% belegt
-          div(style="width:#{disk.percentage.free}%").progress-bar.progress-bar-primary #{disk.percentage.free}% frei
-
-
-      div.col-sm-6
-        h3 Betriebszeit
-        strong #{Math.round(os.uptime/60)} Minuten
-
-      div.col-sm-6
-        h3 CPU Auslastung
-        strong In den letzten 5 Minuten: #{os.load[1]}
-
-  section.col-sm-12
 
     h2 Default User
     p User, dessen Interface beim Starten des Smart Mirror geladen werden soll
@@ -60,23 +33,23 @@ block content
       label(for="ssid") SSID
       div.input-group
         span.input-group-addon SSID
-        input(type="text" name="ssid" value=system.ssid ? system.ssid : '')#ssid.form-control
+        input(type="text" name="ssid" value=system.wifi.ssid ? system.wifi.ssid : '')#ssid.form-control
 
       label(for="mac") MAC
       div.input-group
         span.input-group-addon MAC
-        input(type="text" name="mac" value=system.mac ? system.mac : '')#mac.form-control
+        input(type="text" name="mac" value=system.wifi.mac ? system.wifi.mac : '')#mac.form-control
 
-      if system.security
-        each sec, key in system.security
+      if system.wifi.security != null
+        each sec, key in system.wifi.security
           div.checkbox
-            label(for="security") key
+            label(for="security")=sec
               input(type="checkbox" name="security" value=key)
-              //- checked=system.security.indexOf('aes') > -1 ? true : false)
+              //- checked=system.wifi.security.indexOf('aes') > -1 ? true : false)
 
-      label(for="password") password
+      label(for="password") Password
       div.input-group
         span.input-group-addon Password
-        input(type="password" name="password" value=system.password ? system.password : '')#password.form-control
+        input(type="password" name="password" value=system.wifi.password ? system.wifi.password : '')#password.form-control
 
       button(type="submit").btn.btn-primary Wlan Einstellungen speichern

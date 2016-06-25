@@ -13,12 +13,12 @@ exports.os = function() {
       params.cpu = os.cpus();
       params.load = os.loadavg();
       params.memory = {
-        free: (os.freemem() / 1024 / 1024 / 1024).toFixed(2),
+        used: ((os.totalmem() - os.freemem()) / 1024 / 1024 / 1024).toFixed(2),
         total: (os.totalmem() / 1024 / 1024 / 1024).toFixed(2),
       };
       params.percentage = {
-        used: 100 - (params.memory.free / params.memory.total).toFixed(2) * 100,
-        free: (params.memory.free / params.memory.total).toFixed(2) * 100
+        used: (params.memory.used / params.memory.total).toFixed(2) * 100,
+        free: 100 - (params.memory.used / params.memory.total).toFixed(2) * 100
       }
       params.uptime = os.uptime();
 
@@ -49,11 +49,11 @@ exports.disk = function() {
       let params = {}
       params.num = {
         total: (total / 1024 / 1024 / 1024).toFixed(2),
-        free: (free / 1024 / 1024 / 1024).toFixed(2),
+        used: ((total - free) / 1024 / 1024 / 1024).toFixed(2),
       };
       params.percentage = {
-        used: 100 - (params.num.free / params.num.total).toFixed(2) * 100,
-        free: (params.num.free / params.num.total).toFixed(2) * 100,
+        used: (params.num.used / params.num.total).toFixed(2) * 100,
+        free: 100 - (params.num.used / params.num.total).toFixed(2) * 100,
       };
 
       resolve(params);

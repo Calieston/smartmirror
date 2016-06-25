@@ -8,42 +8,62 @@ block content
   header.page-header
     h1 Smart Mirror Backend
 
-  main
+  main.row
 
-    section.row
+    section.col-sm-6
+      div.row
+        div.col-sm-6
+          h2 Users
+          p Anlegen, Bearbeiten und Löschen von Usern und deren Einstellungen
+          a(href="users").btn.btn-primary User-Einstellungen
 
-      div.col-sm-offset-3.col-sm-3
-        h1 Users
-        p Anlegen, Bearbeiten und Löschen von Usern und deren Einstellungen
-        a(href="users").btn.btn-primary User-Einstellungen
+        div.col-sm-6
+          h2 Modules
+          p Herunterladen, Updaten und Löschen von Modulen
+          a(href="modules").btn.btn-primary Modul-Einstellungen
 
-      div.col-sm-3
-        h1 Modules
-        p Herunterladen, Updaten und Löschen von Modulen
-        a(href="modules").btn.btn-primary Modul-Einstellungen
+        div.col-sm-6
+          h2 Widgets
+          p Erstellen, Bearbeiten und Löschen von Widgets
+          a(href="widgets").btn.btn-primary Widget-Einstellungen
 
-    section.row
+        div.col-sm-6
+          h2 Interface
+          p Konfiguration des Spiegel Interfaces
+          a(href="interface").btn.btn-primary Interface-Einstellungen
 
-      div.col-sm-offset-3.col-sm-3
-        h1 Widgets
-        p Erstellen, Bearbeiten und Löschen von Widgets
-        a(href="widgets").btn.btn-primary Widget-Einstellungen
+        div.col-sm-6
+          h2 Sensoren
+          p Anzeige der für Albert verfügbaren Sensoren
+          a(href="#").btn.btn-primary Sensor-Einstellungen
 
-      div.col-sm-3
-        h1 Interface
-        p Konfiguration des Spiegel Interfaces
-        a(href="interface").btn.btn-primary Interface-Einstellungen
+        div.col-sm-6
+          h2 Systemsettings
+          p Allgemeine System- und WLAN Einstellungen
+          a(href="system").btn.btn-primary System-Einstellungen
 
-    section.row
+    section.col-sm-6
+      h2 System Informationen
+      p Systeminformationen zum Systemauslastung und Speicherbelegung
 
-      div.col-sm-offset-3.col-sm-3
-        h1 Sensoren
-        p Anzeige der für Albert verfügbaren Sensoren
-        a(href="#").btn.btn-primary Sensor-Einstellungen
+      h3 Arbeitsspeicher: #{os.memory.used}GB / #{os.memory.total}GB
+      p Auslastung des Abreitsspeichers
+      div.progress
+        div(style="width:#{os.percentage.used}%").progress-bar.progress-bar-warning #{os.percentage.used}% belegt
+        div(style="width:#{os.percentage.free}%").progress-bar.progress-bar-primary #{os.percentage.free}% frei
 
-      div.col-sm-3
-        h1 Systemsettings
-        p Allgemeine System- und WLAN Einstellungen
-        a(href="system").btn.btn-primary System-Einstellungen
+      h3 Speicherplatz: #{disk.num.used}Gb / #{disk.num.total}GB
+      p Zu Verfügung stehender Speicherplatz
+      div.progress
+        div(style="width:#{disk.percentage.used}%").progress-bar.progress-bar-warning #{disk.percentage.used}% belegt
+        div(style="width:#{disk.percentage.free}%").progress-bar.progress-bar-primary #{disk.percentage.free}% frei
+
+      h3 Betriebszeit
+      p Zeit seit dem letzten Systemstart
+      strong #{Math.round(os.uptime/60)} Minuten
+
+      h3 CPU Auslastung
+      p Durchschnittliche Auslastung der CPU in den letzten 5 Minuten
+      strong #{os.load[1]}%
 
 

@@ -16,20 +16,26 @@ var widgetsCtrl = require('./../controllers/widgets');
 /* GET backend landing page. */
 router.route('/')
   .get((req, res, next) => {
-    /* Query for finding all users */
-    let query = User.find({}).exec();
 
-    /* Query Promise */
-    query.then((users) => {
-        res.render('backend/index', {
-          users: users,
-        });
-      })
-      /* Error Handling */
-      .catch((err) => {
-        console.error(err);
-        res.send(404);
-      });
+    let params = {};
+
+    systemCtrl.os()
+    .then((os) => {
+      params.os = os;
+      return systemCtrl.disk();
+    })
+    .then((disk) => {
+      params.disk = disk;
+      return systemCtrl.temp();
+    })
+    .then((temp) => {
+      params.temp = temp;
+      res.render('backend/index', params);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.send(500);
+    });
 
   });
 
@@ -97,33 +103,16 @@ router.route('/users/:user/delete')
 /* GET system config page. */
 router.route('/system')
   .get((req, res, next) => {
-    var params = {};
-    systemCtrl.get()
+    let params = {};
+    userCtrl.getUsers()
+    .then((users) => {
+      params.users = users;
+      return systemCtrl.get();
+    })
     .then((system) => {
       params.system = system;
-      return systemCtrl.os();
-    })
-    .then((os) => {
-      params.os = os;
-      return systemCtrl.disk();
-    })
-    .then((disk) => {
-      params.disk = disk;
-      return systemCtrl.temp();
-    })
-    .then((temp) => {
-      params.temp = temp;
-      console.log(temp)
-      return userCtrl.getUsers();
-    })
-    .then((users)=> {
-      res.render('backend/system', {
-        system: params.system.wifi,
-        os: params.os,
-        disk: params.disk,
-        temp: params.temp,
-        users: users,
-      });
+      console.log(params)
+      res.render('backend/system', params);
     })
     .catch((err) => {
       console.error(err);
