@@ -37,3 +37,6 @@ node_modules
 **/app/**/modules/*
 **/app/config.js
 **/app/public/**/*.css
+
+
+.idea/
