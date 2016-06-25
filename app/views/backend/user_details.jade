@@ -1,11 +1,11 @@
 extends layout
 
 block head
-  - var title='User Details'
+  - var title='User Daten'
 
 block content
   header.page-header
-    h2 User anlegen
+    h2 User Daten ändern
 
   section.col-sm-12
 
@@ -15,17 +15,17 @@ block content
       div.input-group
         input(type="text" name="name" value=user.username)#name.form-control
 
-      label(for="bdate") Geburtstag
-      div.input-group
-        input(type="text" name="bdate" value=user.bdate)#bdate.form-control
+      //- label(for="bdate") Geburtstag
+      //- div.input-group
+      //-   input(type="text" name="bdate" value=user.bdate)#bdate.form-control
 
-      label(for="theme") Theme
-      select(name="theme").form-control
-        option(value="theme1") Theme1
-        option(value="theme2") Theme2
+      //- label(for="theme") Theme
+      //- select(name="theme").form-control
+      //-   option(value="theme1") Theme1
+      //-   option(value="theme2") Theme2
 
-      label.user-active(for="active") Aktiv
-        input.user-active-check(type="checkbox" name="active" value="true" checked=user.active ? true : false)
+      //- label.user-active(for="active") Aktiv
+      //-   input.user-active-check(type="checkbox" name="active" value="true" checked=user.active ? true : false)
 
       input(type="hidden" name="id" value=user._id)
       br
