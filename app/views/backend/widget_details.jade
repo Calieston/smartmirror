@@ -1,7 +1,7 @@
 extends layout
 
 block head
-  - var title='Widgets'
+  - var title='Widget bearbeiten'
 
 block content
   header.page-header
@@ -9,13 +9,14 @@ block content
 
     a(href="..").btn.btn-primary Zurück
 
-  aside.col-sm-6
-    h2=widget.name
+  section.col-sm-6
+    h2 Widget Einstellungen
 
     form(action="/widgets/edit/#{widget._id}" method="POST")
+
       div.form-group
         label(for="name") Name
-        input(type="text" name="name" placeholder=widget.name value=widget.name).form-control
+        input(type="text" name="name" placeholder=module.name value=widget.name).form-control
 
       div.form-group
         label(for="size") Größe
@@ -31,3 +32,18 @@ block content
             input(type=typeof value name=key placeholder=value value=value).form-control
 
       button(type="submit").btn.btn-primary Widget speichern
+
+  aside.col-sm-6
+    h2 Daten zum Widget
+
+    h3 Modul Name:
+    strong=module.name
+
+    h3 Modul Beschreibung:
+    strong=module.description
+
+    h3 Modul Ersteller:
+    strong=module.author
+
+    h3 Modul Homepage:
+    a(href=module.homepage target="_blank")=Link

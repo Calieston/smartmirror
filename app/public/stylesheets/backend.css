@@ -5689,6 +5689,10 @@ body {
   .disabled * {
     cursor: inherit; }
 
+/* line 40, F:/Sites/smartmirror/scss/backend/global.scss */
+.btn {
+  margin-right: 15px; }
+
 /* line 1, F:/Sites/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
   padding: 5px; }

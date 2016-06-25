@@ -42,7 +42,7 @@ block content
         thead
           tr
             th Module
-            th Neues Widget erstellen
+            th Widget erstellen
 
         tbody
           each module in modules
@@ -51,24 +51,26 @@ block content
                 strong=module.name
                 p=module.description
               td
-                form(action="/widgets/create/#{module._id}" method="POST")
-                  div.form-group
-                    label(for="widget") Name
-                    input(type="text" name="name" placeholder="name")#name.form-control
+                a(href="/widgets/create/#{module._id}").btn.btn-primary Widget erstellen
 
-                  div.form-group
-                    label(for="size") Größe
-                    select(name="size")#size.form-control
-                      each size in module.size
-                        option(value=size)=size
+                //- form(action="/widgets/create/#{module._id}" method="POST")
+                //-   div.form-group
+                //-     label(for="widget") Name
+                //-     input(type="text" name="name" placeholder="name")#name.form-control
 
-                  if module.settings
-                    each input, inputKey in module.settings
-                      div.form-group
-                        label(for="settings_#{inputKey}")=input.desc
-                        input(type=input.type id="#settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc).form-control
+                //-   div.form-group
+                //-     label(for="size") Größe
+                //-     select(name="size")#size.form-control
+                //-       each size in module.size
+                //-         option(value=size)=size
 
-                  button(type="submit").btn.btn-primary Widget erstellen
+                //-   if module.settings
+                //-     each input, inputKey in module.settings
+                //-       div.form-group
+                //-         label(for="settings_#{inputKey}")=input.desc
+                //-         input(type=input.type id="#settings_#{inputKey}" name="settings_#{inputKey}" placeholder=input.desc).form-control
+
+                //-   button(type="submit").btn.btn-primary Widget erstellen
 
   section.col-sm-6
     h2 Widgets
@@ -80,8 +82,7 @@ block content
         thead
           tr
             th Widget
-            th Edit
-            th Delete
+            th Aktionen
 
         tbody
           each widget in widgets
@@ -90,6 +91,5 @@ block content
                 strong=widget.name
               td
                 a(href="/widgets/edit/#{widget._id}").btn.btn-primary Bearbeiten
-              td
                 a(href="/widgets/remove/#{widget._id}").btn.btn-danger Löschen
 

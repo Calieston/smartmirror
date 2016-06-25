@@ -247,6 +247,18 @@ router.route('/widgets')
   });
 
 router.route('/widgets/create/:module')
+  .get((req, res) => {
+    modulesCtrl.getModuleById({id: req.params.module})
+    .then((module) => {
+      res.render('backend/widget_create', {
+        module: module,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.send(404);
+    });
+  })
   .post((req, res) => {
     widgetsCtrl.createWidget({
       module: req.params.module,
@@ -270,10 +282,9 @@ router.route('/widgets/edit/:widget')
       return modulesCtrl.getModuleById({id: widget.module});
     })
     .then((module) => {
-      res.render('backend/widgets_edit', {
-        widget: params.widget,
-        module: module,
-      });
+      params.module = module;
+      console.log(params)
+      res.render('backend/widget_details', params);
     })
     .catch((err) => {
       console.log(err);
