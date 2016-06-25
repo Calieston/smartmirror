@@ -48,8 +48,14 @@ block content
           each module in modules
             tr
               td
-                strong=module.name
-                p=module.description
+                h4=module.name
+                strong=module.description
+                if(module.version)
+                  p Version: #{module.version}
+                if(module.author)
+                  p Author: #{module.author}
+                if(module.homepage)
+                  a(href=module.homepage target="_blank") Homepage
               td
                 a(href="/widgets/create/#{module._id}").btn.btn-primary Widget erstellen
 
@@ -88,7 +94,8 @@ block content
           each widget in widgets
             tr
               td
-                strong=widget.name
+                h4=widget.name
+                strong Modul: #{widget.module.name}
               td
                 a(href="/widgets/edit/#{widget._id}").btn.btn-primary Bearbeiten
                 a(href="/widgets/remove/#{widget._id}").btn.btn-danger Löschen

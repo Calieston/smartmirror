@@ -6,6 +6,7 @@ var Widgets = require('./../models/widgets');
 
 exports.getWidgets = function(params) {
   let query = Widgets.find({})
+    .populate('module')
     .lean();
 
   return query.exec();

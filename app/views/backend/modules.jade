@@ -34,28 +34,27 @@ block content
         thead
           tr
             th Module
-            th Description
             th Version
-            th Link
 
         tbody
           each module in server
             tr
               td
-                strong=module.name
+                h4=module.name
+                strong=module.description
+                if(module.version)
+                  p Version: #{module.version}
+                if(module.author)
+                  p Author: #{module.author}
+                if(module.homepage)
+                  a(href=module.homepage target="_blank") Homepage
               td
-                p=module.description
-              td
-                time=module.version
-              td
-                if module.status && module.status === "installed"
                   form(action="/modules/install" method="post")
                     input(type="hidden" name="url" value=module.git)
-                    button(type="submit").btn.btn-warning Updaten
-                else
-                  form(action="/modules/install" method="post")
-                    input(type="hidden" name="url" value=module.git)
-                    button(type="submit").btn.btn-primary Installieren
+                    if module.status && module.status === "installed"
+                      button(type="submit").btn.btn-warning Updaten
+                    else
+                      button(type="submit").btn.btn-primary Installieren
 
   section.col-sm-6
     h2 Installierte Module
@@ -67,18 +66,20 @@ block content
         thead
           tr
             th Module
-            th Description
-            th Version
-            th Link
+            th Aktionen
 
         tbody
           each module in modules
             tr
               td
-                strong=module.name
+                h4=module.name
+                strong=module.description
+                if(module.version)
+                  p Version: #{module.version}
+                if(module.author)
+                  p Author: #{module.author}
+                if(module.homepage)
+                  a(href=module.homepage target="_blank") Homepage
               td
-                p=module.description
-              td
-                time=module.version
-              td
+                a(href="/widgets/create/#{module._id}").btn.btn-primary Widget erstellen
                 a(href="modules/remove/#{module._id}").btn.btn-danger Löschen

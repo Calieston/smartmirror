@@ -5691,7 +5691,12 @@ body {
 
 /* line 40, F:/Sites/smartmirror/scss/backend/global.scss */
 .btn {
-  margin-right: 15px; }
+  margin-right: 15px;
+  margin-bottom: 15px; }
+
+/* line 47, F:/Sites/smartmirror/scss/backend/global.scss */
+table p {
+  margin: 0; }
 
 /* line 1, F:/Sites/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {
