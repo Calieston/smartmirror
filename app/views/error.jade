@@ -5,16 +5,36 @@ html(lang="en")
     title Error - Site not Found
   body
 
-    div.container
+    nav.navbar.navbar-default
+      div.container
+        a(href='/').navbar-brand
+          img(src='/images/logo.png' alt='SmartMirror').nav-logo
+        h2.heading Smart Mirror
+        ul.nav.navbar-nav.navbar-right
+          li.nav-item(class=title === 'Home' ? 'active' : '')
+            a(href='/').nav-link Home
+          li
+          -
+            nav = {
+              modules: 'Modules',
+              widgets: 'Widgets',
+              interface: 'Interface',
+              users: 'Users',
+              sensors: 'Sensors',
+              system: 'System'
+            }
+          each value, key in nav
+            li.nav-item(class=title === value ? 'active' : '')
+              a(href='/#{key}').nav-link=value
+
+    div.container.content-container
       div.col-lg-8.col-lg-offset-2
         header.text-center
-          h1 Error
+          h1 Fehler
           //- OPPS, Error 404 !
         article
           p= message
-          br
-
           small.text-muted= err
           br
 
-          a(href="/").btn.btn-primary Return Dashboard
+          a(href="/").btn.btn-primary.mt-2 Zurück zur Startseite
