@@ -5795,8 +5795,9 @@ table p {
   padding: 10px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.8);
-  color: white; }
-  /* line 20, F:/Sites/smartmirror/scss/backend/interface.scss */
+  color: white;
+  cursor: all-scroll; }
+  /* line 21, F:/Sites/smartmirror/scss/backend/interface.scss */
   .widget.dragged {
     opacity: 0.7; }
 
