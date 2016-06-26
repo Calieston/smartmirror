@@ -5661,42 +5661,80 @@ body {
   background-color: white;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-radius: 4px; }
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
 
-/* line 14, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 15, F:/Sites/smartmirror/scss/backend/global.scss */
 .page-header {
   text-align: center; }
 
-/* line 18, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 19, F:/Sites/smartmirror/scss/backend/global.scss */
 input[type="radio"],
 input[type="checkbox"] {
   left: 20px; }
 
-/* line 23, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 24, F:/Sites/smartmirror/scss/backend/global.scss */
 body {
   background-color: #6094d0; }
 
-/* line 27, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 28, F:/Sites/smartmirror/scss/backend/global.scss */
 .alert {
   padding: 15px; }
 
-/* line 31, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 32, F:/Sites/smartmirror/scss/backend/global.scss */
 .disabled {
   pointer-events: none;
   cursor: not-allowed;
   opacity: 0.5; }
-  /* line 35, F:/Sites/smartmirror/scss/backend/global.scss */
+  /* line 36, F:/Sites/smartmirror/scss/backend/global.scss */
   .disabled * {
     cursor: inherit; }
 
-/* line 40, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 41, F:/Sites/smartmirror/scss/backend/global.scss */
 .btn {
   margin-right: 15px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  transition: all 500ms ease-in-out;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12); }
+  /* line 47, F:/Sites/smartmirror/scss/backend/global.scss */
+  .btn:hover {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
-/* line 47, F:/Sites/smartmirror/scss/backend/global.scss */
+/* line 53, F:/Sites/smartmirror/scss/backend/global.scss */
 table p {
   margin: 0; }
+
+/* line 4, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mt-1 {
+  margin-top: 15px; }
+
+/* line 8, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mb {
+  margin-bottom: 15px; }
+
+/* line 4, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mt-2 {
+  margin-top: 30px; }
+
+/* line 8, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mb {
+  margin-bottom: 30px; }
+
+/* line 4, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mt-3 {
+  margin-top: 45px; }
+
+/* line 8, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mb {
+  margin-bottom: 45px; }
+
+/* line 4, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mt-4 {
+  margin-top: 60px; }
+
+/* line 8, F:/Sites/smartmirror/scss/backend/mixins.scss */
+.mb {
+  margin-bottom: 60px; }
 
 /* line 1, F:/Sites/smartmirror/scss/backend/navbar.scss */
 .navbar-brand {

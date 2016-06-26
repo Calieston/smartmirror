@@ -1,0 +1,13 @@
+@mixin margins ($count, $size) {
+
+	@for $i from 1 through $count {
+		.mt-#{$i} {
+			margin-top: ($i * $size);
+		}
+
+		.mb {
+			margin-bottom: ($i * $size);
+		}
+	}
+
+}
