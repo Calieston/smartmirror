@@ -307,13 +307,28 @@ router.route('/widgets/edit/:widget')
 
 router.route('/widgets/remove/:widget')
   .get((req, res) => {
-    widgetsCtrl.deleteWidgetById({widget: req.params.widget})
-    .then((widget) => {
-      res.redirect('/widgets?msg=removed');
+
+    userCtrl.getUsers()
+    .then((users) => {
+      return widgetsCtrl.checkUserForWidget({
+        widget: req.params.widget,
+        users: users,
+      })
     })
     .catch((err) => {
       console.log(err);
       res.redirect('/widgets?err=removed');
+    })
+    .then(() => {
+      return widgetsCtrl.deleteWidgetById({widget: req.params.widget});
+    })
+    .then((con) => {
+      console.log(con)
+      res.redirect('/widgets?msg=removed');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
     });
   });
 

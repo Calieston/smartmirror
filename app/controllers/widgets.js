@@ -2,7 +2,7 @@
 
 var Modules = require('./../models/modules');
 var Widgets = require('./../models/widgets');
-
+var Users = require('./../models/users');
 
 exports.getWidgets = function(params) {
   let query = Widgets.find({})
@@ -56,13 +56,29 @@ exports.createWidget = function(params) {
   return query;
 };
 
-exports.deleteWidgetById = function(params) {
+exports.checkUserForWidget = function(params) {
 
+  return new Promise((resolve, reject) => {
+    console.log(params.widget)
+    params.users.forEach((user) => {
+      user.widgets.forEach((widget) => {
+        if(widget._id == params.widget) {
+          var err = new Error('Widget in Use')
+          reject({
+            err: err,
+            user: user
+          });
+        }
+      });
+    });
+    resolve();
+  });
+
+}
+
+exports.deleteWidgetById = function(params) {
   let query = Widgets.findByIdAndRemove(params.widget)
     .lean();
-
-  // Todo
-  // Search for all users who have the widget, remove it
 
   return query.exec();
 };
