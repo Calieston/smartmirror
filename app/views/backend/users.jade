@@ -43,8 +43,8 @@ block content
           tr
             th Username
             //- th Status
-            th LastLogin
-            th Actions
+            th Letzter Login
+            th Aktionen
 
         tbody
           each user in users
@@ -57,7 +57,7 @@ block content
                 - var date = new Date(user.updatedAt)
                 time=date.toLocaleString()
               td
-                a.user-delete(href="users/#{user._id}/delete").btn.btn-danger Delete
+                a.user-delete(href="users/#{user._id}/delete").btn.btn-danger Löschen
                 =" "
-                a(href="users/#{user._id}").btn.btn-primary Edit
+                a(href="users/#{user._id}").btn.btn-primary Bearbeiten
 
