@@ -88,12 +88,18 @@ function dropHandler(evt) {
   // and only if is not its parent
   if(evt.target.classList.contains('droparea')) {
 
+
     if(el.parentNode != this) {
       // var _el = el.cloneNode(true);
       evt.target.appendChild(el);
     }
     if(evt.target.classList.contains('interface')) {
-      var pos = snap({x: evt.offsetX, y: evt.offsetY});
+      var pos = snap({
+        x: evt.offsetX,
+        y: evt.offsetY,
+        sizeX: parseInt(el.dataset.size.substr(0,1)),
+        sizeY: parseInt(el.dataset.size.substr(-1,1)),
+      });
       el.dataset.x = pos.x;
       el.dataset.y = pos.y;
       el.style.transform = 'translate(' + (pos.x*grid+5) + 'px,' + (pos.y*grid+5) + 'px)';
@@ -120,6 +126,24 @@ widgetsEl.addEventListener('drop', dropHandler, false);
 function snap(params) {
   var x = Math.round((params.x - clickPos.x) / grid);
   var y = Math.round((params.y - clickPos.y) / grid);
+
+  // Overlap Check
+  if (x > 0) {
+    if(x > 16-params.sizeX) {
+      x = 16-params.sizeX;
+    }
+  } else {
+    x = 0;
+  }
+
+  if (y > 0) {
+    if(y > 16-params.sizeY) {
+      y = 16-params.sizeY;
+    }
+  } else {
+    y = 0;
+  }
+
   return {x: x, y: y};
 }
 
