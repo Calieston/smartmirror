@@ -5,21 +5,9 @@ var widgetsEl = document.querySelector('.widgets'),
 var formEl = document.querySelector('form');
 
 var clickPos = {};
+var grid;
 
-interfaceEl.style.height = interfaceEl.offsetWidth / (16/9) + 'px';
-
-var grid = interfaceEl.offsetWidth / 16;
-
-for (var i = 0; i < widgetEls.length; i++) {
-  widgetEls[i].style.width = interfaceEl.offsetWidth / 16 * parseInt(widgetEls[i].dataset.size.substr(0,1)) - 10 + 'px';
-  widgetEls[i].style.height = interfaceEl.offsetHeight / 9 *parseInt(widgetEls[i].dataset.size.substr(-1)) - 10 + 'px';
-  // Set position in interface
-  if(widgetEls[i].parentNode.classList.contains('interface')) {
-    var x = Number(widgetEls[i].dataset.x) * grid + 5;
-    var y = Number(widgetEls[i].dataset.y) * grid + 5;
-    widgetEls[i].style.transform = 'translate(' + x + 'px,' + y + 'px)';
-  }
-}
+resizeInterface();
 
 // Widgets
 // Start Draging
@@ -147,12 +135,6 @@ function snap(params) {
   return {x: x, y: y};
 }
 
-// function snap(params) {
-//   var x = Math.round((params.x - clickPos.x) / grid) * grid + 5;
-//   var y = Math.round((params.y - clickPos.y) / grid) * grid + 5;
-//   return {x: x, y: y};
-// }
-
 formEl.addEventListener('submit', function(evt) {
   var data = [];
   [].forEach.call(interfaceEl.querySelectorAll('.widget'), function(widget) {
@@ -167,4 +149,24 @@ formEl.addEventListener('submit', function(evt) {
   });
 
   formEl.querySelector('input').value = JSON.stringify(data);
+});
+
+function resizeInterface(){
+  interfaceEl.style.height = interfaceEl.offsetWidth / (16/9) + 'px';
+  grid = interfaceEl.offsetWidth / 16;
+
+  for (var i = 0; i < widgetEls.length; i++) {
+  widgetEls[i].style.width = interfaceEl.offsetWidth / 16 * parseInt(widgetEls[i].dataset.size.substr(0,1)) - 10 + 'px';
+  widgetEls[i].style.height = interfaceEl.offsetHeight / 9 *parseInt(widgetEls[i].dataset.size.substr(-1)) - 10 + 'px';
+  // Set position in interface
+  if(widgetEls[i].parentNode.classList.contains('interface')) {
+    var x = Number(widgetEls[i].dataset.x) * grid + 5;
+    var y = Number(widgetEls[i].dataset.y) * grid + 5;
+    widgetEls[i].style.transform = 'translate(' + x + 'px,' + y + 'px)';
+  }
+}
+}
+
+window.addEventListener('resize', function(){
+  resizeInterface();
 });
