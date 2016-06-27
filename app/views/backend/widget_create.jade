@@ -25,11 +25,11 @@ block content
           each size in module.size
             option(value=size)=size
 
-      if module.settings
-        each setting, key in module.settings
-          div.form-group
-            label(for=key)=key
-            input(type=typeof value name=key placeholder=setting.desc ).form-control
+        if module.settings
+          each setting, settingKey in module.settings
+            div.form-group
+              label(for="settings_#{settingKey}")=setting.desc
+              input(type=setting.type id="settings_#{settingKey}" name="settings_#{settingKey}" placeholder=setting.desc).form-control
 
       button(type="submit").btn.btn-primary Widget erstellen
 

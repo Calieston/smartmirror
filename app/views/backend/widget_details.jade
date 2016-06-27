@@ -26,10 +26,10 @@ block content
             option(value=size)=size
 
       if widget.settings
-        each value, key in widget.settings
+        each setting, key in widget.settings
           div.form-group
             label(for=key)=key
-            input(type=typeof value name=key placeholder=value value=value).form-control
+            input(type=(typeof setting) name=key placeholder=setting value=setting).form-control
 
       button(type="submit").btn.btn-primary Widget speichern
 
