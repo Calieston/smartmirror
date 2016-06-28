@@ -6,8 +6,8 @@
 }
 
 @mixin widgetPosition ($x, $y) {
-  @for $xi from 1 through $x {
-    @for $yi from 1 through $y {
+  @for $xi from 0 through $x {
+    @for $yi from 0 through $y {
       &.position-#{$xi}-#{$yi} {
         transform: translate($xi * 120px, $yi * 120px);
       }
