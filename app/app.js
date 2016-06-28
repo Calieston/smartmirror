@@ -7,6 +7,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var leapjs = require('leapjs');
 
 var app = express();
 
@@ -30,7 +31,9 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // App.use(express.static(path.join(__dirname, 'bower_components')));
@@ -51,6 +54,27 @@ app.use('/guide', guide);
 app.use('/smartmirror', smartmirror);
 
 app.io = require('./controllers/socket').io;
+
+// gesture detection
+controller.on('deviceFrame', function(frame) {
+  // loop through available gestures
+  for (var i = 0; i < frame.gestures.length; i++) {
+    var gesture = frame.gestures[i];
+    var type = gesture.type;
+
+    switch (type) {
+
+      case "swipe":
+        if (gesture.state == "stop") {
+          console.log('start recording');
+        }
+        break;
+
+    }
+  }
+});
+
+controller.connect();
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
