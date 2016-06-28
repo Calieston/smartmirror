@@ -56,13 +56,15 @@ app.use('/smartmirror', smartmirror);
 app.io = require('./controllers/socket').io;
 
 // gesture detection
+var controller  = new leapjs.Controller({enableGestures: true});
+controller.on('connect', function() {
+  console.log("leap motion successfully connected.");
+});
 controller.on('deviceFrame', function(frame) {
   // loop through available gestures
   for (var i = 0; i < frame.gestures.length; i++) {
     var gesture = frame.gestures[i];
-    var type = gesture.type;
-
-    switch (type) {
+    switch (gesture.type) {
 
       case "swipe":
         if (gesture.state == "stop") {
