@@ -50,6 +50,8 @@ app.use('/guide', guide);
 // Mirror Interface
 app.use('/smartmirror', smartmirror);
 
+app.io = require('./controllers/socket').io;
+
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   let err = new Error(404);
