@@ -1,5 +1,7 @@
-console.log('Hello World');
-
+/**
+ * Smartmirror Interface
+ * Loading Widgets
+ */
 var widgetsEls = document.getElementsByClassName('widget');
 
 for (var i = 0; i < widgetsEls.length; i++) {
@@ -44,3 +46,18 @@ function getContent(el) {
   request.send();
 
 }
+
+/**
+ * Sockets
+ */
+
+var socket = io.connect('http://localhost:3000');
+
+socket.on('reload', function(data) {
+  location.reload();
+})
+
+socket.on('test', function (data) {
+  console.log(data);
+  socket.emit('clientTest', {msg: 'Message from Client' });
+});

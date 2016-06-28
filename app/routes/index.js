@@ -12,6 +12,7 @@ var userCtrl = require('../controllers/user');
 var systemCtrl = require('./../controllers/system');
 var modulesCtrl = require('./../controllers/modules');
 var widgetsCtrl = require('./../controllers/widgets');
+var socketCtrl = require('./../controllers/socket');
 
 /* GET backend landing page. */
 router.route('/')
@@ -322,8 +323,7 @@ router.route('/widgets/remove/:widget')
     .then(() => {
       return widgetsCtrl.deleteWidgetById({widget: req.params.widget});
     })
-    .then((con) => {
-      console.log(con)
+    .then(() => {
       res.redirect('/widgets?msg=removed');
     })
     .catch((err) => {
@@ -371,12 +371,12 @@ router.route('/interface/:user')
   })
   .post((req, res) => {
     let widgets = JSON.parse(req.body.widgets);
-    console.log(widgets);
     userCtrl.updateWidgets({
       id: req.params.user,
       widgets: widgets,
     })
     .then(() => {
+      socketCtrl.reload();
       res.redirect('/interface/' + req.params.user);
     })
     .catch((err) => {
