@@ -19,7 +19,9 @@ block content
         label(for="user") User
         select(name="user")#user.form-control
           each user in users
-            option(value=user._id)=user.username
+            if(!system.defaultUser)
+              option(value="none" selected=true) Wählen sie einen User aus
+            option(value=user._id selected=user._id == system.defaultUser)=user.username
 
       button(type="submit").btn.btn-primary Default User speichern
 
@@ -33,12 +35,12 @@ block content
       label(for="ssid") SSID
       div.input-group
         span.input-group-addon SSID
-        input(type="text" name="ssid" value=system.wifi.ssid ? system.wifi.ssid : '')#ssid.form-control
+        input(type="text" name="ssid" value=system.wifi.ssid ? system.wifi.ssid : '' placeholder='Wlan SSID')#ssid.form-control
 
       label(for="mac") MAC
       div.input-group
         span.input-group-addon MAC
-        input(type="text" name="mac" value=system.wifi.mac ? system.wifi.mac : '')#mac.form-control
+        input(type="text" name="mac" value=system.wifi.mac ? system.wifi.mac : '' placeholder='MAC')#mac.form-control
 
       if system.wifi.security != null
         each sec, key in system.wifi.security
@@ -47,9 +49,9 @@ block content
               input(type="checkbox" name="security" value=key)
               //- checked=system.wifi.security.indexOf('aes') > -1 ? true : false)
 
-      label(for="password") Password
+      label(for="password") Passwort
       div.input-group
-        span.input-group-addon Password
-        input(type="password" name="password" value=system.wifi.password ? system.wifi.password : '')#password.form-control
+        span.input-group-addon Passwort
+        input(type="password" name="password" value=system.wifi.password ? system.wifi.password : '' placeholder='Passwort')#password.form-control
 
       button(type="submit").btn.btn-primary Wlan Einstellungen speichern

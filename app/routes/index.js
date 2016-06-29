@@ -112,7 +112,17 @@ router.route('/system')
     })
     .then((system) => {
       params.system = system;
-      console.log(params)
+      if(params.system == null) {
+        params.system =  {
+          wifi: {
+            ssid: '',
+            mac: '',
+            security: [],
+            password: ''
+          }
+        }
+      }
+      console.log(system)
       res.render('backend/system', params);
     })
     .catch((err) => {
