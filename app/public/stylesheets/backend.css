@@ -5765,6 +5765,12 @@ table p {
 .nav > li:last-child > a {
   padding-right: 0px; }
 
+@media (max-width: 1200px) {
+  /* line 32, C:/Users/Roman/Sites/smartmirror/scss/backend/navbar.scss */
+  .collapsed {
+    height: 0px;
+    overflow: hidden; } }
+
 /* line 1, C:/Users/Roman/Sites/smartmirror/scss/backend/users.scss */
 .user-active {
   margin: 20px 0; }

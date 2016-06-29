@@ -26,3 +26,11 @@
 .nav > li:last-child > a {
   padding-right: 0px;
 }
+
+
+@media (max-width: 1200px) {
+  .collapsed {
+    height: 0px;
+    overflow: hidden;
+  }
+}
