@@ -1,12 +1,15 @@
 var leapjs = require('leapjs');
 var recorder = require('./record.js').recorder;
-
 var config = require('./../config');
+var google_speech = require('google-speech');
+var fs = require('fs');
 
 const audioFileName = config.fileName;
 const recordGesture= config.recordGesture;
 const language = config.language;
+const key = config.googleSpeechApiKey;
 
+var filePath =  audioFileName || 'audio.wav';
 var leap  = new leapjs.Controller({enableGestures: true});
 leap.on('connect', function() {
   console.log('leap motion successfully connected.');
@@ -26,17 +29,21 @@ leap.on('deviceFrame', function(frame) {
           // TODO: Erst nachdem Recording abgeschlossen ist, parsen!
 
           // parse recorded wav file
-          var google_speech = require('google-speech');
+
 
           google_speech.ASR({
-              developer_key: 'AIzaSyDlEDsLuMljAMnvo-2INfm9Ru7bbICBWo4',
-              file: audioFileName,
-              lang: language
+              developer_key: key || 'undefined',
+              file: audioFileName || 'audio.wav',
+              lang: language || 'de-DE'
             }, function(err, httpResponse, json){
               if(err){
                   console.log(err);
                 }else{
                   console.log(httpResponse.statusCode, json)
+
+                  // delete audio file after speech to text process
+                  fs.unlinkSync(filePath);
+
                 }
               }
           );

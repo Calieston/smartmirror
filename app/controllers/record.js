@@ -11,7 +11,8 @@ var recorder = mic({
 });
 var micInputStream = recorder.getAudioStream();
 
-var outputFileStream = fs.WriteStream(audioFileName);
+var fileName = audioFileName || 'audio.wav';
+var outputFileStream = fs.WriteStream(fileName);
 
 micInputStream.pipe(outputFileStream);
 
