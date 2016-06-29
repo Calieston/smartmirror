@@ -29,7 +29,7 @@ function getContent(el) {
         newScript = document.createElement('script');
         newScript.dataset.widget = el.id;
         document.body.appendChild(newScript);
-        newScript.innerHTML = script.innerText;
+        newScript.textContent = script.textContent;
       }
 
     } else {
