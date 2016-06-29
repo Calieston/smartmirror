@@ -21,10 +21,6 @@ input[type="checkbox"] {
 	left: 20px;
 }
 
-body {
-  background-color: $blue;
-}
-
 .alert {
   padding: 15px;
 }
@@ -39,6 +35,7 @@ body {
 }
 
 .btn {
+  width: 100%;
   margin-right: 15px;
   margin-bottom: 15px;
   white-space: normal;
