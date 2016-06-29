@@ -7,8 +7,6 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var leapjs = require('leapjs');
-
 var app = express();
 
 // MongoDB setup
@@ -56,27 +54,9 @@ app.use('/smartmirror', smartmirror);
 app.io = require('./controllers/socket').io;
 
 // gesture detection
-var controller  = new leapjs.Controller({enableGestures: true});
-controller.on('connect', function() {
-  console.log("leap motion successfully connected.");
-});
-controller.on('deviceFrame', function(frame) {
-  // loop through available gestures
-  for (var i = 0; i < frame.gestures.length; i++) {
-    var gesture = frame.gestures[i];
-    switch (gesture.type) {
+var leap = require('./controllers/leap').leap;
+leap.connect();
 
-      case "swipe":
-        if (gesture.state == "stop") {
-          console.log('start recording');
-        }
-        break;
-
-    }
-  }
-});
-
-controller.connect();
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
