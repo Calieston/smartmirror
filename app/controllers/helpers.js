@@ -28,16 +28,13 @@ exports.loadFileFromServer = function(params) {
 
       var file = '';
 
-
       // On every content chunk, push it to the data array
       response.on('data', data => {
         file += data;
-        // body.push(chunk);
       });
 
       // We are done, resolve promise with those joined chunks
       response.on('end', () => {
-        // let data = body.join();
         resolve(file);
       });
     })

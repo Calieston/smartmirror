@@ -59,22 +59,20 @@ exports.createWidget = function(params) {
 exports.checkUserForWidget = function(params) {
 
   return new Promise((resolve, reject) => {
-    console.log(params.widget)
     params.users.forEach((user) => {
       user.widgets.forEach((widget) => {
-        if(widget._id == params.widget) {
-          var err = new Error('Widget in Use')
+        if (widget._id == params.widget) {
+          var err = new Error('Widget in Use');
           reject({
             err: err,
-            user: user
+            user: user,
           });
         }
       });
     });
     resolve();
   });
-
-}
+};
 
 exports.deleteWidgetById = function(params) {
   let query = Widgets.findByIdAndRemove(params.widget)

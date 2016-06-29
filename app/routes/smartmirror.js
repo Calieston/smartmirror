@@ -14,7 +14,7 @@ router.get('/', (req, res, next) => {
   smartmirrorCtrl.getConfig()
   .then((network) => {
     res.render('welcome', {
-      network: network
+      network: network,
     });
   })
   .catch((err) => {
@@ -28,14 +28,13 @@ router.route('/default')
   .get((req, res) => {
     smartmirrorCtrl.getDefaultUser()
     .then((user) => {
-      console.log(user);
       res.redirect(user._id);
     })
     .catch((err) => {
       console.error(err);
       res.send(404);
-    })
-  })
+    });
+  });
 
 router.route('/:userId')
   .get((req, res) => {

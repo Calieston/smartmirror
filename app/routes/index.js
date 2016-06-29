@@ -112,17 +112,16 @@ router.route('/system')
     })
     .then((system) => {
       params.system = system;
-      if(params.system == null) {
+      if (params.system === null) {
         params.system =  {
           wifi: {
             ssid: '',
             mac: '',
             security: [],
-            password: ''
-          }
-        }
+            password: '',
+          },
+        };
       }
-      console.log(system)
       res.render('backend/system', params);
     })
     .catch((err) => {
@@ -294,7 +293,6 @@ router.route('/widgets/edit/:widget')
     })
     .then((module) => {
       params.module = module;
-      console.log(params)
       res.render('backend/widget_details', params);
     })
     .catch((err) => {
@@ -324,7 +322,7 @@ router.route('/widgets/remove/:widget')
       return widgetsCtrl.checkUserForWidget({
         widget: req.params.widget,
         users: users,
-      })
+      });
     })
     .catch((err) => {
       console.log(err);
@@ -347,7 +345,7 @@ router.route('/interface')
     userCtrl.getUsers()
     .then((users) => {
       res.render('backend/interface', {
-        users: users
+        users: users,
       });
     })
     .catch((err) => {

@@ -53,7 +53,7 @@ exports.updateUser = (params) => {
 
   let query = User.findByIdAndUpdate(params.id, {
     username: params.name,
-    // bdate: params.bdate,
+    // Bdate: params.bdate,
     // theme: params.theme,
     // active: params.active,
   }, {

@@ -9,13 +9,13 @@ var os = require('os');
 exports.getConfig = () => {
   return new Promise((resolve, reject) => {
     let data = os.networkInterfaces();
-    if(data != null) {
+    if (data !== null) {
       resolve(data);
     } else {
       reject(new Error());
     }
   });
-}
+};
 
 exports.getUser = (params) => {
   let query = User.findById(params.id)
@@ -29,7 +29,7 @@ exports.getDefaultUser = () => {
     .lean();
 
   return query.exec();
-}
+};
 
 exports.getWidget = (params) => {
   let query = Widget.findById(params.id)

@@ -18,8 +18,8 @@ exports.os = function() {
       };
       params.percentage = {
         used: (params.memory.used / params.memory.total).toFixed(2) * 100,
-        free: 100 - (params.memory.used / params.memory.total).toFixed(2) * 100
-      }
+        free: 100 - (params.memory.used / params.memory.total).toFixed(2) * 100,
+      };
       params.uptime = os.uptime();
 
       resolve(params);
@@ -46,7 +46,7 @@ exports.disk = function() {
         reject(err);
       }
 
-      let params = {}
+      let params = {};
       params.num = {
         total: (total / 1024 / 1024 / 1024).toFixed(2),
         used: ((total - free) / 1024 / 1024 / 1024).toFixed(2),
@@ -64,14 +64,14 @@ exports.disk = function() {
 exports.temp = () => {
   return new Promise((resolve, reject) => {
 
-    let child = exec("cat /sys/class/thermal/thermal_zone0/temp", function (err, stdout, stderr) {
+    let child = exec('cat /sys/class/thermal/thermal_zone0/temp', function(err, stdout, stderr) {
 
       if (err !== null) {
         console.log(err);
         resolve({temp: false});
-        // reject(err);
+        // Reject(err);
       } else {
-        resolve({temp: parseFloat(stdout)/1000});
+        resolve({temp: parseFloat(stdout) / 1000});
       }
     });
   });
@@ -123,10 +123,10 @@ exports.updateUser = function(params) {
   console.log(params);
 
   let query = System.findOneAndUpdate({},{
-    defaultUser: params.user
+    defaultUser: params.user,
   }, {
     new: true,
   });
 
   return query.exec();
-}
+};
