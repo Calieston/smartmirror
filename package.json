@@ -54,6 +54,7 @@
     "debug": "~2.2.0",
     "diskspace": "^1.0.3",
     "express": "~4.13.1",
+    "google-speech": "0.0.5",
     "jade": "~1.11.0",
     "leapjs": "^0.6.4",
     "mongoose": "^4.4.14",
