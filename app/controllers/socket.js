@@ -14,4 +14,9 @@ exports.reload = () => {
   io.emit('reload');
 };
 
+exports.loadUser = (params) => {
+
+  io.emit('loadUser', {user: params.user});
+}
+
 exports.io = io;

@@ -370,6 +370,7 @@ router.route('/interface/:user')
       return widgetsCtrl.userWidgets(params);
     })
     .then((data) => {
+      socketCtrl.loadUser({user: params.user._id});
       res.render('backend/interface_details', data);
     })
     .catch((err) => {

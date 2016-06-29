@@ -54,7 +54,11 @@ function getContent(el) {
 var socket = io.connect('http://localhost:3000');
 
 socket.on('reload', function(data) {
-  location.reload();
+  window.location.reload();
+});
+
+socket.on('loadUser', function(data) {
+  window.location.href = 'http://localhost:3000/smartmirror/' + data.user;
 })
 
 socket.on('test', function (data) {
