@@ -58,11 +58,11 @@ block content
         div(style="width:#{disk.percentage.used}%").progress-bar.progress-bar-warning #{disk.percentage.used}% belegt
         div(style="width:#{disk.percentage.free}%").progress-bar.progress-bar-primary #{disk.percentage.free}% frei
 
-      h3 Betriebszeit
+      h3 Laufzeit
       p Zeit seit dem letzten Systemstart
       strong #{Math.round(os.uptime/60)} Minuten
 
-      h3 CPU Auslastung
+      h3 System Auslastung
       p Durchschnittliche Auslastung der CPU in den letzten 5 Minuten
       strong #{os.load[1].toFixed(2)}
 
