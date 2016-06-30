@@ -49,7 +49,7 @@ leap.on('deviceFrame', function(frame) {
 
               }
             });
-          })
+          }, 5000)
         }
         break;
 
