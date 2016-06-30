@@ -57,7 +57,6 @@ app.io = require('./controllers/socket').io;
 var leap = require('./controllers/leap').leap;
 leap.connect();
 
-
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
   let err = new Error(404);
