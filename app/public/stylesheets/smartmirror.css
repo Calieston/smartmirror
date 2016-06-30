@@ -739,3 +739,11 @@ main {
   .widget.position-16-9 {
     -webkit-transform: translate(1920px, 1080px);
     transform: translate(1920px, 1080px); }
+
+/* line 53, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+.list-unstyled {
+  padding-left: 0;
+  list-style: none; }
+  /* line 56, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+  .list-unstyled li {
+    list-style: none; }
