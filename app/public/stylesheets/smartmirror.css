@@ -1,29 +1,46 @@
-/* line 1, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+@font-face {
+  font-family: 'Raleway-Regular';
+  src: url("fonts/Raleway-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Raleway-Bold';
+  src: url("fonts/Raleway-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url("fonts/OpenSans-Light") format("truetype"); }
+
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: url("fonts/OpenSans-Regular.ttf") format("truetype"); }
+
+/* line 10, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 body {
   background: black;
+  font-family: Raleway-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
   padding: 0;
   margin: 0; }
 
-/* line 8, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 18, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 a {
   color: inherit; }
 
-/* line 12, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 22, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 main {
   width: 1920px;
   height: 1080px;
   position: relative; }
 
-/* line 18, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 28, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 > header {
   height: 20px; }
-  /* line 20, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+  /* line 30, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
   > header p {
     line-height: 20px;
     margin: 0; }
 
-/* line 26, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
+/* line 36, C:/Users/Roman/Sites/smartmirror/scss/smartmirror/global.scss */
 .widget {
   box-sizing: border-box;
   padding: 10px;

@@ -1,5 +1,15 @@
+@font-face { font-family: 'Raleway-Regular';
+  src: url('fonts/Raleway-Regular.ttf') format('truetype'); }
+@font-face { font-family: 'Raleway-Bold';
+  src: url('fonts/Raleway-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'OpenSans-Light';
+  src: url('fonts/OpenSans-Light') format('truetype'); }
+@font-face { font-family: 'OpenSans-Regular';
+  src: url('fonts/OpenSans-Regular.ttf') format('truetype'); }
+
 body {
 	background: $background-color;
+  font-family: Raleway-Regular, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	color: $color;
 	padding: 0;
 	margin: 0;
@@ -37,4 +47,13 @@ main {
 	@include widgetSize(4,4);
 
   @include widgetPosition(16, 9);
+}
+
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+  li {
+    list-style: none;
+  }
 }
