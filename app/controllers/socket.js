@@ -22,34 +22,46 @@ io.on('connection', function(socket) {
     console.log(data);
   });
   socket.on('smartmirror', function(data) {
-    if (data == 'record') {
-      console.log('start recording');
-      recorder.start()
-        // send audio file to google speech api
-      setTimeout(function() {
-        // parse recorded wav file
-        google_speech.ASR({
-          developer_key: key || 'undefined',
-          file: audioFileName || 'audio.wav',
-          lang: language || 'de-DE'
-        }, function(err, httpResponse, json) {
-          if (err) {
-            console.log(err);
-            fs.unlinkSync(filePath);
-          } else {
-            console.log(json);
-            var username = json.result['0'].alternative['0'].transcript
-            console.log(username);
-            //socketCtrl.loadUser({user: username});
+    switch (data) {
+      case 'record':
+        console.log('start recording');
+        recorder.start()
+          // send audio file to google speech api
+        setTimeout(function() {
+          // parse recorded wav file
+          google_speech.ASR({
+            developer_key: key || 'undefined',
+            file: audioFileName || 'audio.wav',
+            lang: language || 'de-DE'
+          }, function(err, httpResponse, json) {
+            if (err) {
+              console.log(err);
+              fs.unlinkSync(filePath);
+            } else {
+              console.log(json);
+              var username = json.result['0'].alternative['0'].transcript
+              console.log(username);
+              io.emit('loadUser', {
+                user: params.user
+              });
 
-            // delete audio file after parsing process
-            fs.unlinkSync(filePath);
-
-          }
-        });
-      }, 5000)
+              // delete audio file after parsing process
+              fs.unlinkSync(filePath);
+            }
+          });
+        }, 5000)
+        break;
+      case 'tagesschau':
+        console.log('get tagesschau gesture');
+        io.emit('tagesschau');
+        break;
+      case 'display off':
+        // TODO
+        break;
+      case 'display on':
+        // TODO
+        break;
     }
-
   });
 });
 
