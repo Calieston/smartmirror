@@ -14,6 +14,7 @@ var filePath = audioFileName || 'audio.wav';
 var io = socketIO();
 
 io.on('connection', function(socket) {
+  console.log('connection');
   socket.emit('test', {
     msg: 'Message from Server'
   });
@@ -21,8 +22,8 @@ io.on('connection', function(socket) {
     console.log(data);
   });
   socket.on('smartmirror', function(data) {
-    console.log('Get message from leap client');
-    if (data == 'swipe') {
+    if (data == 'record') {
+      console.log('start recording');
       recorder.start()
         // send audio file to google speech api
       setTimeout(function() {
@@ -34,7 +35,9 @@ io.on('connection', function(socket) {
         }, function(err, httpResponse, json) {
           if (err) {
             console.log(err);
+            fs.unlinkSync(filePath);
           } else {
+            console.log(json);
             var username = json.result['0'].alternative['0'].transcript
             console.log(username);
             //socketCtrl.loadUser({user: username});
@@ -56,7 +59,6 @@ exports.reload = () => {
 };
 
 exports.loadUser = (params) => {
-  console.log('call user load method');
   io.emit('loadUser', {
     user: params.user
   });
