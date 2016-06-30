@@ -39,10 +39,13 @@ io.on('connection', function(socket) {
               fs.unlinkSync(filePath);
             } else {
               console.log(json);
-              var username = json.result['0'].alternative['0'].transcript
+              var username = 'Judith';
+              if (typeof(json.result['0'].alternative['0'].transcript) != "undefined") {
+                username = json.result['0'].alternative['0'].transcript;
+              }
               console.log(username);
               io.emit('loadUser', {
-                user: params.user
+                user: username
               });
 
               // delete audio file after parsing process
