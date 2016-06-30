@@ -2,6 +2,7 @@ var leapjs = require('leapjs');
 var config = require('./../config');
 var google_speech = require('google-speech');
 var fs = require('fs');
+var socketCtrl = require('./socket');
 
 const audioFileName = config.fileName;
 const recordGesture = config.recordGesture;
@@ -39,7 +40,9 @@ leap.on('deviceFrame', function(frame) {
               if (err) {
                 console.log(err);
               } else {
-                console.log(json)
+                var username = json.result['0'].alternative['0'].transcript
+                console.log(username);
+                //socketCtrl.loadUser({user: username});
 
                 // delete audio file after parsing process
                 fs.unlinkSync(filePath);
