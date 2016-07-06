@@ -61,7 +61,12 @@ socket.on('loadUser', function(data) {
   window.location.href = 'http://localhost:3000/smartmirror/' + data.user;
 })
 
+socket.on('tagesschau', function(data) {
+  playPause();
+})
+
 socket.on('test', function (data) {
   console.log(data);
   socket.emit('clientTest', {msg: 'Message from Client' });
+  //socket.emit('smartmirror', {msg: 'record' });
 });

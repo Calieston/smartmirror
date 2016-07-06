@@ -2,15 +2,9 @@
 
 var socketIO = require('socket.io');
 var recorder = require('./record').recorder;
+var speech = require('./speech');
 var config = require('./../config');
-var google_speech = require('google-speech');
-var fs = require('fs');
-
-const audioFileName = config.fileName;
 const recordGesture = config.recordGesture;
-const language = config.language;
-const key = config.googleSpeechApiKey;
-var filePath = audioFileName || 'audio.wav';
 var io = socketIO();
 
 io.on('connection', function(socket) {
@@ -22,40 +16,13 @@ io.on('connection', function(socket) {
     console.log(data);
   });
   socket.on('smartmirror', function(data) {
-    switch (data) {
+    switch (data.msg) {
       case 'record':
         console.log('start recording');
-        recorder.start()
-          // send audio file to google speech api
-        setTimeout(function() {
-          // parse recorded wav file
-          google_speech.ASR({
-            developer_key: key || 'undefined',
-            file: audioFileName || 'audio.wav',
-            lang: language || 'de-DE'
-          }, function(err, httpResponse, json) {
-            if (err) {
-              console.log(err);
-              fs.unlinkSync(filePath);
-            } else {
-              console.log(json);
-              var username = 'Judith';
-              if (typeof(json.result['0'].alternative['0'].transcript) != "undefined") {
-                username = json.result['0'].alternative['0'].transcript;
-              }
-              console.log(username);
-              io.emit('loadUser', {
-                user: username
-              });
-
-              // delete audio file after parsing process
-              fs.unlinkSync(filePath);
-            }
-          });
-        }, 5000)
+        // recorder.start();
+        speech.speechToText();
         break;
       case 'tagesschau':
-        console.log('get tagesschau gesture');
         io.emit('tagesschau');
         break;
       case 'display off':
