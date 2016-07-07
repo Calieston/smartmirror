@@ -9,7 +9,8 @@ const file = config.fileName;
 const lang = config.language;
 var url_start = 'https://www.google.com/speech-api/v2/recognize?key=' + key;
 var url_end = '&lang=' + lang + '&output=json';
-var filePath = path.join(__dirname, file);
+var filePath = path.join(__dirname, './../../samples/' + file);
+
 
 // parse audio file
 exports.speechToText = function() {
@@ -50,7 +51,7 @@ exports.speechToText = function() {
           });
         });
       } catch (e) {
-        console.log('requested file '+ file + ' not found');
+        console.log('requested file ' + file + ' not found');
         resolve('empty');
       }
     }, 5000);

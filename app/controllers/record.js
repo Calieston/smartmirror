@@ -1,7 +1,8 @@
 var mic = require('mic');
 var fs = require('fs');
 var config = require('./../config');
-const audioFileName = config.fileName;
+var path = require('path');
+const audioFileName= path.join(__dirname, './../../samples/'+config.fileName);
 
 var recorder = mic({
     'rate': '16000',

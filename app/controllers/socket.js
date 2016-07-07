@@ -1,7 +1,6 @@
 'use strict';
 
 var socketIO = require('socket.io');
-var recorder = require('./record').recorder;
 var speech = require('./speech');
 var userCtrl = require('./user');
 var config = require('./../config');
@@ -20,6 +19,7 @@ io.on('connection', function(socket) {
     switch (data.msg) {
       case 'record':
         console.log('start recording');
+        // var recorder = require('./record').recorder;
         // recorder.start();
         speech.speechToText().then((response) => {
           if (response != 'empty') {
