@@ -12,7 +12,7 @@ function getContent(el) {
 
   var request = new XMLHttpRequest();
 
-  request.open('GET', '/smartmirror/widget/' + el.dataset.widget , true);
+  request.open('GET', '/smartmirror/widget/' + el.dataset.widget, true);
 
   request.onload = function() {
     if (this.status >= 200 && this.status < 400) {
@@ -24,7 +24,7 @@ function getContent(el) {
 
       var script = el.querySelector('script');
 
-      if(script) {
+      if (script) {
         script.parentNode.removeChild(script);
         newScript = document.createElement('script');
         newScript.dataset.widget = el.id;
@@ -65,8 +65,20 @@ socket.on('tagesschau', function(data) {
   playPause();
 })
 
-socket.on('test', function (data) {
+socket.on('recording', function(data) {
+  if (data.status == 'enabled') {
+    document.getElementById("Record").style.display = "block";
+  } else {
+    if (data.status = 'disabled') {
+      document.getElementById("Record").style.display = "none";
+    }
+  }
+})
+
+socket.on('test', function(data) {
   console.log(data);
-  socket.emit('clientTest', {msg: 'Message from Client' });
+  socket.emit('clientTest', {
+    msg: 'Message from Client'
+  });
   //socket.emit('smartmirror', {msg: 'record' });
 });

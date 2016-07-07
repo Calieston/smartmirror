@@ -1,3 +1,14 @@
+#Record {
+  display: none;
+}
+.Record {
+  animation: blinker 1.0s cubic-bezier(.5, 0, 1, 1) infinite alternate;
+}
+@keyframes blinker {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
 @font-face {
   font-family: 'Raleway-Regular';
   src: url("fonts/Raleway-Regular.ttf") format("truetype"); }

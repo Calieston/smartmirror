@@ -3,12 +3,15 @@ html
   head
     title Smartmirror
     link(rel='stylesheet', href='/stylesheets/smartmirror.css')
+    link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+
   body
     //- header
     //-   p Hallo, #{user.username} //  #{user._id}
 
     //- Create Widget Container
     main.grid
+      i(class="fa fa-circle Record" id="Record")=" Record"
       each widget in user.widgets
         section(id='widget-#{widget._id}' class='size-#{widget.size} position-#{widget.position.x}-#{widget.position.y}' data-widget='#{widget._id}').widget
 

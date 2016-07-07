@@ -19,28 +19,33 @@ io.on('connection', function(socket) {
     switch (data.msg) {
       case 'record':
         console.log('start recording');
+        io.emit('recording', {
+          status: 'enabled'
+        });
         // var recorder = require('./record').recorder;
         // recorder.start();
         speech.speechToText().then((response) => {
-          if (response != 'empty') {
-            userCtrl.getUserByName({
-                username: response
-              })
-              .then((user) => {
-                // load user profile if user was found
-                if (user['0']) {
-                  console.log('load user profile of '+ user['0'].username);
-                  io.emit('loadUser', {
-                    user: user['0']._id
-                  });
-                } else {
-                  console.log('user \"'+ response + '\" was not found in database');
-                }
-              })
-          } else {
-            console.log('speech to text: no result')
-          }
-
+          io.emit('recording', {
+            status: 'disabled'
+          });
+        if (response != 'empty') {
+          userCtrl.getUserByName({
+              username: response
+            })
+            .then((user) => {
+              // load user profile if user was found
+              if (user['0']) {
+                console.log('load user profile of ' + user['0'].username);
+                io.emit('loadUser', {
+                  user: user['0']._id
+                });
+              } else {
+                console.log('user \"' + response + '\" was not found in database');
+              }
+            })
+        } else {
+          console.log('speech to text: no result')
+        }
         });
         break;
       case 'tagesschau':
