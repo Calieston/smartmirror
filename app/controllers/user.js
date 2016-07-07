@@ -48,6 +48,16 @@ exports.getUserById = (params) => {
 
 };
 
+// Return a user by username
+exports.getUserByName = (params) => {
+
+  let query = User.find({username: params.username})
+  .lean();
+
+  return query.exec();
+
+};
+
 // Update a user
 exports.updateUser = (params) => {
 

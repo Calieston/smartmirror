@@ -3,6 +3,7 @@
 var socketIO = require('socket.io');
 var recorder = require('./record').recorder;
 var speech = require('./speech');
+var userCtrl = require('./user');
 var config = require('./../config');
 const recordGesture = config.recordGesture;
 var io = socketIO();
@@ -20,7 +21,27 @@ io.on('connection', function(socket) {
       case 'record':
         console.log('start recording');
         // recorder.start();
-        speech.speechToText();
+        speech.speechToText().then((response) => {
+          if (response != 'empty') {
+            userCtrl.getUserByName({
+                username: response
+              })
+              .then((user) => {
+                // load user profile if user was found
+                if (user['0']) {
+                  console.log('load user profile of '+ user['0'].username);
+                  io.emit('loadUser', {
+                    user: user['0']._id
+                  });
+                } else {
+                  console.log('user \"'+ response + '\" was not found in database');
+                }
+              })
+          } else {
+            console.log('speech to text: no result')
+          }
+
+        });
         break;
       case 'tagesschau':
         io.emit('tagesschau');
