@@ -1,0 +1,52 @@
+extends layout
+
+block head
+  - var title='Gesten Zuordnung'
+
+
+block content
+
+  header.page-header
+    h2 Gesten-Widget Zuordnung
+
+  section.col-md-4
+    h2 Neue Zuordnung
+    form(action="/gestures/#{user._id}" method="post")
+      label(for="gesture") Geste
+      div.input-group
+        input(type="text" name="gesture" placeholder="Geste")#gesture.form-control
+        //each gesture in gestures
+          //select(name="gesture")#gesture.form-control
+            //each gesture in gesture.gesture
+              //option(value=gesture)=gesture
+
+      label(for="widget") Widget
+        select(name="widget")#widget.form-control
+          each widget in userWidgets
+            option(value=widget._id)= widget.name
+
+      button(type="submit").btn.btn-default Speichern
+
+  section.col-md-8
+    h2 Vorhandene Zuordnungen bearbeiten
+    if gestures != 'undefined'
+      h2 Keine Zuordnungen vorhanden
+    else
+      table.table
+        thead
+          tr
+            th Geste
+            th Widget
+            th Aktionen
+
+        tbody
+          each gesture in gestures
+            tr
+              td
+                strong=gesture.gesture
+              td
+                strong=gesture.widget
+              td
+                a.gesture-delete(href="gestures/#{gesture._id}/delete").btn.btn-danger Löschen
+                =" "
+                a(href="gestures/#{gesture._id}").btn.btn-primary Bearbeiten

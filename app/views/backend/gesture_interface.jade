@@ -1,0 +1,25 @@
+extends layout
+
+block head
+  - var title='Interface'
+
+block content
+
+  header.page-header
+    h2 Widget-Gesten Konfigurator
+
+  section.col-sm-12
+    p Wählen sie den User aus, dessen Widget-Gesten Zuordnung sie konfigurieren möchten
+
+    form(action="/gesture_interface" method="POST")
+      div.form-group
+        label(for="user") User
+
+        select(name="user")#user.form-control
+          each user in users
+            option(value=user._id)= user.username
+
+      button(type="submit").btn.btn-primary Widget-Gesten Zuordnung laden
+
+block footer
+  script(src='/javascripts/interface.js')

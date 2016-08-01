@@ -6,9 +6,11 @@ var router = express.Router();
 
 // Models
 var User = require('./../models/users');
+var Gesture = require('./../models/gesture');
 
 // Controllers
 var userCtrl = require('../controllers/user');
+var gestureCtrl = require('../controllers/gesture');
 var systemCtrl = require('./../controllers/system');
 var modulesCtrl = require('./../controllers/modules');
 var widgetsCtrl = require('./../controllers/widgets');
@@ -98,6 +100,68 @@ router.route('/users/:user/delete')
     .catch((err) => {
       console.error(err);
       res.send(500);
+    });
+  });
+
+/* GET list users to load gesture-widget configuration for a a certain user */
+router.route('/gesture_interface')
+  .get((req, res) => {
+    console.log('list all users');
+    userCtrl.getUsers()
+    .then((users) => {
+      console.log(users);
+      res.render('backend/gesture_interface', {
+        users: users,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+  })
+  .post((req, res) => {
+    res.redirect('/gestures/' +  req.body.user);
+  });
+
+/* GET widget-gesture mapping of a user */
+router.route('/gestures/:user')
+  .get((req, res) => {
+    var params = {};
+    var userWidgets = {};
+    // load user by id
+    userCtrl.getUserById({id: req.params.user})
+    .then((user) => {
+      params.user = user;
+      // load all widgets
+      return widgetsCtrl.getWidgets();
+    })
+    .then((widgets) => {
+      params.widgets = widgets;
+      // load user widgets
+      return widgetsCtrl.userWidgets(params);
+    })
+    .then((data) => {
+      userWidgets = data.user.widgets;
+      // load available gestures
+      gestureCtrl.getGestures();
+    })
+    .then((gestures) => {
+      res.render('backend/gesture', {
+          user: params.user,
+          userWidgets: userWidgets,
+          gestures: gestures,
+        });
+      });
+  })
+  // add a new widget-gesture mapping
+  .post((req, res) => {
+    gestureCtrl.addGesture(req.body)
+    .then((gesture) => {
+      res.redirect('/gestures/'+  req.params.user);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.redirect('/?error');
     });
   });
 
