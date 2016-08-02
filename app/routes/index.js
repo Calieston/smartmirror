@@ -103,10 +103,26 @@ router.route('/users/:user/delete')
     });
   });
 
+/* GET sensors overview */
+router.route('/sensors')
+  .get((req, res) => {
+    // load sensors initial page
+    res.render('backend/sensors')
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+  })
+  .post((req, res) => {
+    res.redirect('/gestures/' +  req.body.user);
+  });
+
+
 /* GET list users to load gesture-widget configuration for a a certain user */
 router.route('/gesture_interface')
   .get((req, res) => {
-    console.log('list all users');
+    // save initial gestures
+    gestureCtrl.initialize();
     userCtrl.getUsers()
     .then((users) => {
       console.log(users);
@@ -141,14 +157,14 @@ router.route('/gestures/:user')
       return widgetsCtrl.userWidgets(params);
     })
     .then((data) => {
-      userWidgets = data.user.widgets;
+      params.userWidgets = data.widgets;
       // load available gestures
-      gestureCtrl.getGestures();
+      return gestureCtrl.getGestures();
     })
     .then((gestures) => {
       res.render('backend/gesture', {
           user: params.user,
-          userWidgets: userWidgets,
+          userWidgets: params.userWidgets,
           gestures: gestures,
         });
       });
@@ -322,12 +338,18 @@ router.route('/widgets')
 
 router.route('/widgets/create/:module')
   .get((req, res) => {
+//    var modules;
+    let params = {};
     modulesCtrl.getModuleById({id: req.params.module})
     .then((module) => {
-      res.render('backend/widget_create', {
-        module: module,
-      });
+      params.module = module;
+      return gestureCtrl.getGestures();
     })
+    .then((gestures) => {
+      params.gestures = gestures;
+      res.render('backend/widget_create', params);
+    })
+
     .catch((err) => {
       console.log(err);
       res.send(404);
@@ -357,6 +379,10 @@ router.route('/widgets/edit/:widget')
     })
     .then((module) => {
       params.module = module;
+      return gestureCtrl.getGestures();
+    })
+    .then((gestures) => {
+      params.gestures = gestures;
       res.render('backend/widget_details', params);
     })
     .catch((err) => {

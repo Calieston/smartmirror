@@ -5,6 +5,7 @@ var path = require('path');
 var Schema = mongoose.Schema;
 
 var Module = require('./modules');
+var Gesture = require('./gesture');
 
 var widgetSchema = new Schema({
   module: {
@@ -17,10 +18,18 @@ var widgetSchema = new Schema({
   status: {
     type: String
   },
+  gesture: {
+    type: Schema.ObjectId,
+    ref: 'Gesture'
+  },
   settings: {},
   size: {
     type: String
-  }
+  },
+  gestureSupport: {
+    type: Boolean,
+    default: false
+  },
 }, {
   timestamps: true
 });

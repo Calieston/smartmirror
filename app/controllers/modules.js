@@ -30,7 +30,6 @@ exports.installModule = function(params) {
   const url = 'https://raw.githubusercontent.com/' +
     params.url.slice(19) +
     '/master/';
-
   var dir = path.join(__dirname, './../#/modules/');
 
   var modulePackage;
@@ -38,7 +37,6 @@ exports.installModule = function(params) {
   return Helpers.loadFileFromServer({url: url + 'package.json'})
   .then((data) => {
     modulePackage = JSON.parse(data);
-
     if (modulePackage.dependencies) {
       return new Promise((resolve, reject) => {
         let modules = [];
@@ -93,7 +91,6 @@ exports.installModule = function(params) {
   })
   .then(() => {
     console.log(modulePackage.smartmirror.settings);
-
     let query = Modules.findOneAndUpdate({
       name: modulePackage.name,
     }, {
@@ -105,6 +102,7 @@ exports.installModule = function(params) {
       version: modulePackage.version,
       settings: modulePackage.smartmirror.settings || null,
       size: modulePackage.smartmirror.size,
+      gestureSupport: modulePackage.smartmirror.gestureSupport,
     }, {
       upsert: true,
       setDefaultsOnInsert: true,

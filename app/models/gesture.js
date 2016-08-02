@@ -4,15 +4,15 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var gestureSchema = new Schema({
-  gesture: {
+  gestureType: {
     type: String
   },
   widget: {
     type: String
   },
-  available: {
+  assigned: {
     type: Boolean,
-    default: true
+    default: false
   }
 }, {
   timestamps: true

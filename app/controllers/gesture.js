@@ -3,16 +3,33 @@
 var Gesture = require('../models/gesture');
 var ObjectID = require('mongodb').ObjectID;
 
-// TODO: route to initialize system with possible gestures
+var gestureTypes = ['swipe left', 'swipe right', 'swipe up', 'swipe down'];
+
+// Initialize all available gestures
+exports.initialize = () => {
+  Gesture.find({}, function(err, results){
+    if(err){
+      console.log('Error: '+ err);
+    }
+    // save initial gestures if collection is empty
+    if(!results.length){
+      gestureTypes.forEach(function(gestureType){
+        var newGesture = Gesture({
+          gestureType: gestureType
+        });
+        newGesture.save();
+      });
+    }
+  })
+}
 
 // Create Gesture
 exports.addGesture = (params) => {
   // Create new gesture instance and insert data
   var newGesture = Gesture({
-    gesture: params.gesture,
+    gestureType: params.gestureType,
     widget: params.widget,
   });
-  console.log(newGesture);
 
   /* Query Promise */
   return newGesture.save();
@@ -21,7 +38,7 @@ exports.addGesture = (params) => {
 
 // Retrieve all gestures from database
 exports.getGestures = () => {
-  let query = Gesture.find({})
+  let query = Gesture.find({assigned: false})
   .lean();
   return query.exec();
 };
@@ -39,7 +56,6 @@ exports.deleteGestureById = (params) => {
 
 // Return a gesture by id
 exports.getGestureById = (params) => {
-  console.log('call gesturebyid'+params.id);
   let query = Gesture.findById(params.id)
   .lean();
   console.log(query.exec());
@@ -59,10 +75,8 @@ exports.getGestureByName = (params) => {
 
 // Update existing gesture
 exports.updateGesture = (params) => {
-  console.log('call update method');
  let query = Gesture.findByIdAndUpdate(params.id, {
-    gesture: params.gesture,
-    widget: params.widget
+    assigned: params.status
   }, {
     new: true,
   })

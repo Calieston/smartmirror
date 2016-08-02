@@ -31,6 +31,14 @@ block content
             label(for=key)=key
             input(type=(typeof setting) name=key placeholder=setting value=setting).form-control
 
+      if module.gestureSupport
+        div.form-group
+          label(for="gesture") Geste
+
+          select(name="gesture")#gesture.form-control
+            each gesture in gestures
+              option(selected=widget.gesture == gesture._id value=gesture._id)=gesture.gestureType
+
       button(type="submit").btn.btn-primary Widget speichern
 
   aside.col-sm-6

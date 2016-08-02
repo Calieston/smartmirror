@@ -3,6 +3,7 @@
 var Modules = require('./../models/modules');
 var Widgets = require('./../models/widgets');
 var Users = require('./../models/users');
+var gestureCtrl = require('./gesture');
 
 exports.getWidgets = function(params) {
   let query = Widgets.find({})
@@ -45,8 +46,16 @@ exports.createWidget = function(params) {
       module: module._id,
       name: widget.name,
       settings: settings,
+      gesture: widget.gesture,
+      gestureSupport: module.gestureSupport,
       size: module.size[0],
     });
+
+    // update assignee status for gesture
+    params = {};
+    params.id = widget.gesture;
+    params.status = true;
+    gestureCtrl.updateGesture(params);
 
     return newWidget.save();
   })
@@ -75,10 +84,24 @@ exports.checkUserForWidget = function(params) {
 };
 
 exports.deleteWidgetById = function(params) {
-  let query = Widgets.findByIdAndRemove(params.widget)
-    .lean();
+  var widgetId = params.widget;
+  let wQuery = Widgets.findById(params.widget)
+    .lean()
+    .exec();
 
-  return query.exec();
+  // update assignee status for gesture
+  wQuery.then((widget) => {
+    params = {};
+    params.id = widget.gesture;
+    params.status = false;
+    return gestureCtrl.updateGesture(params);
+    })
+    .then((data) => {
+      // remove widget
+      let query = Widgets.findByIdAndRemove(widgetId)
+      .lean();
+      return query.exec();
+    });
 };
 
 exports.userWidgets = function(params) {

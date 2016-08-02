@@ -25,11 +25,19 @@ block content
           each size in module.size
             option(value=size)=size
 
-        if module.settings
-          each setting, settingKey in module.settings
-            div.form-group
+      if module.settings
+         each setting, settingKey in module.settings
+           div.form-group
               label(for="settings_#{settingKey}")=setting.desc
               input(type=setting.type id="settings_#{settingKey}" name="settings_#{settingKey}" placeholder=setting.desc).form-control
+
+      if module.gestureSupport
+        div.form-group
+          label(for="gesture") Geste
+
+          select(name="gesture")#gesture.form-control
+            each gesture in gestures
+              option(value=gesture._id)=gesture.gestureType
 
       button(type="submit").btn.btn-primary Widget erstellen
 

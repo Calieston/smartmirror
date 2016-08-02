@@ -12,24 +12,23 @@ block content
   section.col-md-4
     h2 Neue Zuordnung
     form(action="/gestures/#{user._id}" method="post")
-      label(for="gesture") Geste
-      div.input-group
-        input(type="text" name="gesture" placeholder="Geste")#gesture.form-control
-        //each gesture in gestures
-          //select(name="gesture")#gesture.form-control
-            //each gesture in gesture.gesture
-              //option(value=gesture)=gesture
+      div.form-group
+        label(for="gesture") Geste
+          select(name="gesture")#gesture.form-control
+            each gesture in gestures
+              option(value=gesture._id)= gesture.gestureType
 
-      label(for="widget") Widget
-        select(name="widget")#widget.form-control
-          each widget in userWidgets
-            option(value=widget._id)= widget.name
+      div.form-group
+        label(for="widget") Widget
+          select(name="widget")#widget.form-control
+            each widget in userWidgets
+              option(value=widget._id)= widget.name
 
       button(type="submit").btn.btn-default Speichern
 
   section.col-md-8
     h2 Vorhandene Zuordnungen bearbeiten
-    if gestures != 'undefined'
+    if userWidgets == 'undefined'
       h2 Keine Zuordnungen vorhanden
     else
       table.table
@@ -40,13 +39,14 @@ block content
             th Aktionen
 
         tbody
-          each gesture in gestures
-            tr
-              td
-                strong=gesture.gesture
-              td
-                strong=gesture.widget
-              td
-                a.gesture-delete(href="gestures/#{gesture._id}/delete").btn.btn-danger Löschen
-                =" "
-                a(href="gestures/#{gesture._id}").btn.btn-primary Bearbeiten
+          each widget in userWidgets
+            if widget.gestureSupport
+              tr
+                td
+                  strong=widget.gesture
+                td
+                  strong=widget.name
+                td
+                  a.gesture-delete(href="/gestures/#{widget._id}/delete").btn.btn-danger Löschen
+                  =" "
+                  a(href="/gestures/#{widget._id}").btn.btn-primary Bearbeiten

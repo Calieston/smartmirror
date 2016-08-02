@@ -31,6 +31,9 @@ var moduleSchema = new Schema({
       enum: ['2x2', '4x2', '4x4']
     }
   ],
+  gestureSupport: {
+    type: Boolean
+  },
   settings: {}
 }, {
   timestamps: true
