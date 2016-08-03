@@ -58,3 +58,12 @@ exports.speechToText = function() {
 
   });
 }
+
+exports.createVoiceMemo = function() {
+  }
+exports.playVoiceMemo = function() {
+  }
+exports.deleteVoiceMemo = function() {
+  let voiceMemoFilePath;
+  fs.unlinkSync(voiceMemoFilePath);
+  }

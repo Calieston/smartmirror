@@ -22,30 +22,41 @@ io.on('connection', function(socket) {
         io.emit('recording', {
           status: 'enabled'
         });
-        // var recorder = require('./record').recorder;
-        // recorder.start();
         speech.speechToText().then((response) => {
           io.emit('recording', {
             status: 'disabled'
           });
-        if (response != 'empty') {
-          userCtrl.getUserByName({
-              username: response
-            })
-            .then((user) => {
-              // load user profile if user was found
-              if (user['0']) {
-                console.log('load user profile of ' + user['0'].username);
-                io.emit('loadUser', {
-                  user: user['0']._id
+          if (response != 'empty') {
+            if (response.indexOf('Profil') > -1) {
+              loadUserProfile(response);
+            } else
+            if (response.indexOf('Notiz') > -1) {
+              speech.createVoiceMemo(response)
+              .then((response) => {
+                io.emit('voiceMemo', {
+                  status: 'create'
                 });
-              } else {
-                console.log('user \"' + response + '\" was not found in database');
               }
-            })
-        } else {
-          console.log('speech to text: no result')
-        }
+            } else
+            if (response.indexOf('Nachrichten') > -1) {
+              speech.playVoiceMemo(response)
+              .then((response) => {
+                io.emit('voiceMemo', {
+                  status: 'play'
+                });
+              }
+            } else
+            if (response.indexOf('Löschen') > -1) {
+              speech.deleteVoiceMemo(response)
+              .then((response) => {
+                io.emit('voiceMemo', {
+                  status: 'deleted'
+                });
+              }
+            }
+          } else {
+            console.log('speech to text: no result')
+          }
         });
         break;
       case 'tagesschau':
@@ -61,7 +72,22 @@ io.on('connection', function(socket) {
   });
 });
 
-
+function loadUserProfile(response) {
+  userCtrl.getUserByName({
+      username: response
+    })
+    .then((user) => {
+      // load user profile if user was found
+      if (user['0']) {
+        console.log('load user profile of ' + user['0'].username);
+        io.emit('loadUser', {
+          user: user['0']._id
+        });
+      } else {
+        console.log('user \"' + response + '\" was not found in database');
+      }
+    })
+}
 exports.reload = () => {
   io.emit('reload');
 };
