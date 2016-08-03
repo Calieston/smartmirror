@@ -8,6 +8,7 @@ var gestureCtrl = require('./gesture');
 exports.getWidgets = function(params) {
   let query = Widgets.find({})
     .populate('module')
+    .populate('gesture')
     .lean();
 
   return query.exec();
@@ -16,6 +17,7 @@ exports.getWidgets = function(params) {
 exports.getGestureSupportWidgets = function(params) {
   let query = Widgets.find({gestureSupport: true})
     .populate('module')
+    .populate('gesture')
     .lean();
 
   return query.exec();

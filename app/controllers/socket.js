@@ -36,7 +36,7 @@ io.on('connection', function(socket) {
                 io.emit('voiceMemo', {
                   status: 'create'
                 });
-              }
+              });
             } else
             if (response.indexOf('Nachrichten') > -1) {
               speech.playVoiceMemo(response)
@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
                 io.emit('voiceMemo', {
                   status: 'play'
                 });
-              }
+              });
             } else
             if (response.indexOf('Löschen') > -1) {
               speech.deleteVoiceMemo(response)
@@ -52,7 +52,7 @@ io.on('connection', function(socket) {
                 io.emit('voiceMemo', {
                   status: 'deleted'
                 });
-              }
+              });
             }
           } else {
             console.log('speech to text: no result')
