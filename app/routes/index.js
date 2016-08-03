@@ -125,7 +125,6 @@ router.route('/gesture_interface')
     gestureCtrl.initialize();
     userCtrl.getUsers()
     .then((users) => {
-      console.log(users);
       res.render('backend/gesture_interface', {
         users: users,
       });
@@ -139,29 +138,29 @@ router.route('/gesture_interface')
     res.redirect('/gestures/' +  req.body.user);
   });
 
-/* GET widget-gesture mapping of a user */
+/* GET get and create a widget-gesture mapping */
 router.route('/gestures/:user')
   .get((req, res) => {
     var params = {};
-    var userWidgets = {};
     // load user by id
     userCtrl.getUserById({id: req.params.user})
     .then((user) => {
       params.user = user;
       // load all widgets
-      return widgetsCtrl.getWidgets();
+      return widgetsCtrl.getGestureSupportWidgets();
     })
     .then((widgets) => {
       params.widgets = widgets;
-      // load user widgets
+      // load user widgets without assigned gesture
       return widgetsCtrl.userWidgets(params);
     })
     .then((data) => {
       params.userWidgets = data.widgets;
-      // load available gestures
+      // load all available gestures
       return gestureCtrl.getGestures();
     })
     .then((gestures) => {
+      params.gestures = gestures;
       res.render('backend/gesture', {
           user: params.user,
           userWidgets: params.userWidgets,
@@ -171,7 +170,14 @@ router.route('/gestures/:user')
   })
   // add a new widget-gesture mapping
   .post((req, res) => {
-    gestureCtrl.addGesture(req.body)
+    let params = {};
+    params.widgetId = req.body.widget;
+    params.gestureId = req.body.gesture
+    params.status = true;
+    widgetsCtrl.addGestureToWidget(params)
+    .then((widget) => {
+      return gestureCtrl.updateGesture(params);
+    })
     .then((gesture) => {
       res.redirect('/gestures/'+  req.params.user);
     })
@@ -179,6 +185,25 @@ router.route('/gestures/:user')
       console.error(err);
       res.redirect('/?error');
     });
+  });
+
+/* GET delete a widget-gesture mapping */
+router.route('/gestures/:widget/delete')
+  .get((req, res) => {
+    console.log(req.body);
+    let params = {};
+    params.widget = req.params.widget;
+    widgetsCtrl.deleteWidgetById(params)
+    .then(() => {
+      let backURL=req.header('Referer') || '/';
+      res.redirect(backURL);
+    })
+  })
+
+/* GET edit a widget-gesture mapping */
+router.route('/gestures/:widget/edit')
+  .get((req, res) => {
+    res.redirect('/widgets/edit/'+ req.params.widget);
   });
 
 /* GET system config page. */

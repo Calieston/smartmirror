@@ -14,23 +14,33 @@ block content
     form(action="/gestures/#{user._id}" method="post")
       div.form-group
         label(for="gesture") Geste
-          select(name="gesture")#gesture.form-control
-            each gesture in gestures
-              option(value=gesture._id)= gesture.gestureType
+          if gestures.length > 0
+            select(name="gesture")#gesture.form-control
+              each gesture in gestures
+                option(value=gesture._id)= gesture.gestureType
+          else
+            aside.alert.alert-success.col-sm-12
+                strong Hinweis: Keine freien Gesten verfügbar
+            a(href="#").btn.btn-primary Neue Geste erstellen
 
       div.form-group
         label(for="widget") Widget
-          select(name="widget")#widget.form-control
-            each widget in userWidgets
-              option(value=widget._id)= widget.name
+            if userWidgets.length > 0
+              select(name="widget")#widget.form-control
+                each widget in userWidgets
+                    if widget.gestureSupport
+                      option(value=widget._id)= widget.name
+            else
+              aside.alert.alert-success.col-sm-12
+                strong Hinweis: Keine Widgets verfügbar
 
       button(type="submit").btn.btn-default Speichern
 
   section.col-md-8
-    h2 Vorhandene Zuordnungen bearbeiten
-    if userWidgets == 'undefined'
+    if userWidgets.length == 0
       h2 Keine Zuordnungen vorhanden
     else
+      h2 Vorhandene Zuordnungen bearbeiten
       table.table
         thead
           tr
@@ -47,6 +57,7 @@ block content
                 td
                   strong=widget.name
                 td
-                  a.gesture-delete(href="/gestures/#{widget._id}/delete").btn.btn-danger Löschen
-                  =" "
-                  a(href="/gestures/#{widget._id}").btn.btn-primary Bearbeiten
+                   a.gesture-delete(href="/gestures/#{widget._id}/delete").btn.btn-danger Löschen
+                   input(type="hidden" name="id" value=user._id)
+                   =" "
+                   a(href="/gestures/#{widget._id}/edit").btn.btn-primary Bearbeiten

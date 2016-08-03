@@ -13,6 +13,25 @@ exports.getWidgets = function(params) {
   return query.exec();
 };
 
+exports.getGestureSupportWidgets = function(params) {
+  let query = Widgets.find({gestureSupport: true})
+    .populate('module')
+    .lean();
+
+  return query.exec();
+};
+
+/**
+exports.getGestureSupportAssignedWidgets = function(params) {
+  let query = Widgets.find({
+      gestureSupport: true,
+    }).where("gesture").ne(null)
+    .populate('module')
+    .lean();
+
+  return query.exec();
+};*/
+
 exports.getWidget = function(params) {
   let query = Widgets.findById(params.id)
     .lean();
@@ -53,7 +72,7 @@ exports.createWidget = function(params) {
 
     // update assignee status for gesture
     params = {};
-    params.id = widget.gesture;
+    params.gestureId = widget.gesture;
     params.status = true;
     gestureCtrl.updateGesture(params);
 
@@ -63,6 +82,17 @@ exports.createWidget = function(params) {
     console.log(err);
   });
   return query;
+};
+
+exports.addGestureToWidget = function(params) {
+  let query = Widgets.findByIdAndUpdate(params.widgetId, {
+    gesture: params.gestureId,
+  }, {
+    new: true,
+  })
+  .lean();
+
+  return query.exec();
 };
 
 exports.checkUserForWidget = function(params) {
@@ -92,7 +122,7 @@ exports.deleteWidgetById = function(params) {
   // update assignee status for gesture
   wQuery.then((widget) => {
     params = {};
-    params.id = widget.gesture;
+    params.gestureId = widget.gesture;
     params.status = false;
     return gestureCtrl.updateGesture(params);
     })

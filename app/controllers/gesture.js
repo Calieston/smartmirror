@@ -28,7 +28,6 @@ exports.addGesture = (params) => {
   // Create new gesture instance and insert data
   var newGesture = Gesture({
     gestureType: params.gestureType,
-    widget: params.widget,
   });
 
   /* Query Promise */
@@ -75,7 +74,7 @@ exports.getGestureByName = (params) => {
 
 // Update existing gesture
 exports.updateGesture = (params) => {
- let query = Gesture.findByIdAndUpdate(params.id, {
+ let query = Gesture.findByIdAndUpdate(params.gestureId, {
     assigned: params.status
   }, {
     new: true,
