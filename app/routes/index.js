@@ -193,8 +193,8 @@ router.route('/gestures/:widget/delete')
     console.log(req.body);
     let params = {};
     params.widget = req.params.widget;
-    widgetsCtrl.deleteWidgetById(params)
-    .then(() => {
+    widgetsCtrl.deleteGestureOfWidget(params)
+    .then((data) => {
       let backURL=req.header('Referer') || '/';
       res.redirect(backURL);
     })
@@ -416,11 +416,28 @@ router.route('/widgets/edit/:widget')
     });
   })
   .post((req, res) => {
-    widgetsCtrl.updateWidget({
-      id: req.params.widget,
-      update: req.body,
-    })
+    widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
+      // unassign old gesture
+      let params = {};
+      params.gestureId = widget.gesture._id;
+      params.status = false;
+      return gestureCtrl.updateGesture(params);
+    })
+    .then((gesture) => {
+      return widgetsCtrl.updateWidget({
+        id: req.params.widget,
+        update: req.body,
+      })
+      })
+    .then((widget) => {
+      // assign new gesture
+      let params = {};
+      params.gestureId = widget.gesture._id;
+      params.status = true;
+      return gestureCtrl.updateGesture(params);
+    })
+    .then((gesture) => {
       res.redirect('/widgets?msg=updated');
     })
     .catch((err) => {

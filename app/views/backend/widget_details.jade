@@ -33,7 +33,7 @@ block content
 
       if module.gestureSupport
         div.form-group
-          label(for="gesture") Geste
+          label(for="gesture") Geste (aktuell: #{widget.gesture.gestureType})
 
           select(name="gesture")#gesture.form-control
             each gesture in gestures

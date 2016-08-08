@@ -57,7 +57,6 @@ exports.deleteGestureById = (params) => {
 exports.getGestureById = (params) => {
   let query = Gesture.findById(params.id)
   .lean();
-  console.log(query.exec());
   return query.exec();
 
 };

@@ -36,13 +36,15 @@ exports.getGestureSupportAssignedWidgets = function(params) {
 
 exports.getWidget = function(params) {
   let query = Widgets.findById(params.id)
+    .populate('gesture')
     .lean();
   return query.exec();
 };
 
 exports.updateWidget = function(params) {
-  let query = Widgets.findByIdAndUpdate(params.id, params.update, {new: true})
-    .lean();
+  var query = Widgets.findByIdAndUpdate(params.id, params.update, {new: true})
+  .populate('gesture')
+  .lean();
 
   return query.exec();
 };
@@ -113,6 +115,27 @@ exports.checkUserForWidget = function(params) {
     });
     resolve();
   });
+};
+
+// Delete a gesture widget assignment
+exports.deleteGestureOfWidget = function(params) {
+  var widgetId = params.widget;
+  let query = Widgets.findById(params.widget)
+    .lean()
+    .exec();
+
+  // update assignee status for gesture
+  query.then((widget) => {
+    // delete gesture of widget
+    // TODO
+
+    params = {};
+    params.gestureId = widget.gesture;
+    params.status = false;
+    return gestureCtrl.updateGesture(params);
+    });
+    return query;
+
 };
 
 exports.deleteWidgetById = function(params) {
