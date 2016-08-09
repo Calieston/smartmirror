@@ -6,6 +6,7 @@ var userCtrl = require('./user');
 var config = require('./../config');
 const recordGesture = config.recordGesture;
 var io = socketIO();
+var natural = require('natural');
 
 io.on('connection', function(socket) {
   console.log('connection');
@@ -27,10 +28,11 @@ io.on('connection', function(socket) {
             status: 'disabled'
           });
           if (response != 'empty') {
-            if (response.indexOf('Profil') > -1) {
+            let probabilityRate = 0.8;
+            if (natural.JaroWinklerDistance(response, 'Profil') > probabilityRate) {
               loadUserProfile(response);
             } else
-            if (response.indexOf('Notiz') > -1) {
+            if (natural.JaroWinklerDistance(response, 'Notiz') > probabilityRate) {
               speech.createVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
@@ -38,7 +40,7 @@ io.on('connection', function(socket) {
                 });
               });
             } else
-            if (response.indexOf('Nachrichten') > -1) {
+            if (natural.JaroWinklerDistance(response, 'Nachrichten') > probabilityRate) {
               speech.playVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
@@ -46,7 +48,7 @@ io.on('connection', function(socket) {
                 });
               });
             } else
-            if (response.indexOf('Löschen') > -1) {
+            if (natural.JaroWinklerDistance(response, 'Löschen') > probabilityRate) {
               speech.deleteVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
