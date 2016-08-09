@@ -15,23 +15,24 @@ block content
       h2 Keine Zuordnungen vorhanden
     else
       h2 Vorhandene Zuordnungen bearbeiten
-      table.table
-        thead
-          tr
-            th Geste
-            th Widget
-            th Aktionen
-
-        tbody
-          each widget in userWidgets
-            if widget.gestureSupport
+      each widget in userWidgets
+        if widget.gestureSupport && widget.gesture != null
+          table.table
+            thead
               tr
-                td
-                  strong=widget.gesture.gestureType
-                td
-                  strong=widget.name
-                td
-                   a.gesture-delete(href="/gestures/#{widget._id}/delete").btn.btn-danger Löschen
-                   input(type="hidden" name="id" value=user._id)
-                   =" "
-                   a(href="/gestures/#{widget._id}/edit").btn.btn-primary Bearbeiten
+                th Geste
+                th Widget
+                th Aktionen
+
+            tbody
+
+                  tr
+                    td
+                      strong=widget.gesture.gestureType
+                    td
+                      strong=widget.name
+                    td
+                       a.gesture-delete(href="/gestures/#{widget._id}/delete").btn.btn-danger Löschen
+                       input(type="hidden" name="id" value=user._id)
+                       =" "
+                       a(href="/gestures/#{widget._id}/edit").btn.btn-primary Bearbeiten

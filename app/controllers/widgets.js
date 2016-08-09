@@ -120,22 +120,28 @@ exports.checkUserForWidget = function(params) {
 // Delete a gesture widget assignment
 exports.deleteGestureOfWidget = function(params) {
   var widgetId = params.widget;
-  let query = Widgets.findById(params.widget)
+  let wQuery = Widgets.findById(params.widget)
     .lean()
     .exec();
 
-  // update assignee status for gesture
-  query.then((widget) => {
-    // delete gesture of widget
-    // TODO
-
+  wQuery.then((widget) => {
+    // update assignee status for gesture
     params = {};
     params.gestureId = widget.gesture;
     params.status = false;
     return gestureCtrl.updateGesture(params);
+    })
+    .then((gesture) => {
+      // delete gesture field in widget
+      let query = Widgets.findByIdAndUpdate(widgetId, {
+        gesture: undefined,
+      }, {
+        new: true
+      })
+        .lean();
+      return query.exec();
     });
-    return query;
-
+    return wQuery;
 };
 
 exports.deleteWidgetById = function(params) {

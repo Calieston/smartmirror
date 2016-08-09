@@ -418,22 +418,28 @@ router.route('/widgets/edit/:widget')
   .post((req, res) => {
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
-      // unassign old gesture
+      if(widget.gesture != null){
+        console.log('go into if');
+      // unassign existing gesture
       let params = {};
       params.gestureId = widget.gesture._id;
       params.status = false;
       return gestureCtrl.updateGesture(params);
+      } else {
+        // no existing gesture available
+        return "";
+      }
     })
     .then((gesture) => {
       return widgetsCtrl.updateWidget({
         id: req.params.widget,
         update: req.body,
-      })
+      });
       })
     .then((widget) => {
       // assign new gesture
       let params = {};
-      params.gestureId = widget.gesture._id;
+      params.gestureId = req.body.gesture;
       params.status = true;
       return gestureCtrl.updateGesture(params);
     })

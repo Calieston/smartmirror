@@ -33,11 +33,17 @@ block content
 
       if module.gestureSupport
         div.form-group
-          label(for="gesture") Geste (aktuell: #{widget.gesture.gestureType})
+          label(for="gesture") Geste
+              if widget.gesture != null
+                  p (aktuell: #{widget.gesture.gestureType})
 
           select(name="gesture")#gesture.form-control
             each gesture in gestures
-              option(selected=widget.gesture == gesture._id value=gesture._id)=gesture.gestureType
+                if gesture != null
+                  option(selected=widget.gesture == gesture._id value=gesture._id)=gesture.gestureType
+                else
+                  option(value=gesture._id)=gesture.gestureType
+
 
       button(type="submit").btn.btn-primary Widget speichern
 
