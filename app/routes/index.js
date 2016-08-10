@@ -152,10 +152,10 @@ router.route('/gestures/:user')
     .then((widgets) => {
       params.widgets = widgets;
       // load user widgets without assigned gesture
-      return widgetsCtrl.userWidgets(params);
+      return widgetsCtrl.userGestureWidgets(params);
     })
     .then((data) => {
-      params.userWidgets = data.widgets;
+      params.userWidgets = data.user.widgets;
       // load all available gestures
       return gestureCtrl.getGestures();
     })
@@ -178,8 +178,8 @@ router.route('/gestures/:user')
     .then((widget) => {
       return gestureCtrl.updateGesture(params);
     })
-    .then((gesture) => {
-      res.redirect('/gestures/'+  req.params.user);
+    .then((msg) => {
+      res.redirect('/gestures/'+  req.params.user+ '?msg=created');
     })
     .catch((err) => {
       console.error(err);
@@ -190,12 +190,14 @@ router.route('/gestures/:user')
 /* GET delete a widget-gesture mapping */
 router.route('/gestures/:widget/delete')
   .get((req, res) => {
-    console.log(req.body);
     let params = {};
     params.widget = req.params.widget;
     widgetsCtrl.deleteGestureOfWidget(params)
     .then((data) => {
       let backURL=req.header('Referer') || '/';
+      if(backURL.indexOf('msg') === -1){
+        backURL+='?msg=removed';
+      }
       res.redirect(backURL);
     })
   })

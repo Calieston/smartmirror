@@ -182,3 +182,15 @@ exports.userWidgets = function(params) {
     resolve(params);
   });
 };
+
+exports.userGestureWidgets = function(params) {
+  return new Promise((resolve, reject) => {
+    params.user.widgets.forEach((uwidget, i) => {
+      if(uwidget.gesture == null){
+        params.user.widgets.splice(i, 1);
+        return true;
+      }
+    });
+    resolve(params);
+  });
+};

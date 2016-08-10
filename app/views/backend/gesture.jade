@@ -9,10 +9,13 @@ block content
   header.page-header
     h2 Gesten-Widget Zuordnung
 
+  if(get && get.msg === 'removed')
+    aside.alert.alert-warning.col-sm-12
+      strong Hinweis: Zuordnung wurde gelöscht
 
   section.col-sm-12
     if userWidgets.length == 0
-      h2 Keine Zuordnungen vorhanden
+      h2 Keine Zuordnungen vorhanden.
     else
       h2 Vorhandene Zuordnungen bearbeiten
       each widget in userWidgets

@@ -3,7 +3,7 @@
 var Gesture = require('../models/gesture');
 var ObjectID = require('mongodb').ObjectID;
 
-var gestureTypes = ['swipe left', 'swipe right', 'swipe up', 'swipe down'];
+var gestureTypes = ['none', 'swipe left', 'swipe right', 'swipe up', 'swipe down', 'circle clock', 'circle unclock'];
 
 // Initialize all available gestures
 exports.initialize = () => {
