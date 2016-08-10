@@ -106,7 +106,7 @@ router.route('/users/:user/delete')
 /* GET sensors overview */
 router.route('/sensors')
   .get((req, res) => {
-    // load sensors initial page
+    // Load sensors initial page
     res.render('backend/sensors')
     .catch((err) => {
       console.log(err);
@@ -121,7 +121,7 @@ router.route('/sensors')
 /* GET list users to load gesture-widget configuration for a a certain user */
 router.route('/gesture_interface')
   .get((req, res) => {
-    // save initial gestures
+    // Save initial gestures
     gestureCtrl.initialize();
     userCtrl.getUsers()
     .then((users) => {
@@ -142,33 +142,33 @@ router.route('/gesture_interface')
 router.route('/gestures/:user')
   .get((req, res) => {
     var params = {};
-    // load user by id
+    // Load user by id
     userCtrl.getUserById({id: req.params.user})
     .then((user) => {
       params.user = user;
-      // load all widgets
+      // Load all widgets
       return widgetsCtrl.getGestureSupportWidgets();
     })
     .then((widgets) => {
       params.widgets = widgets;
-      // load user widgets without assigned gesture
+      // Load user widgets without assigned gesture
       return widgetsCtrl.userGestureWidgets(params);
     })
     .then((data) => {
       params.userWidgets = data.user.widgets;
-      // load all available gestures
+      // Load all available gestures
       return gestureCtrl.getGestures();
     })
     .then((gestures) => {
-      params.gestures = gestures;
-      res.render('backend/gesture', {
-          user: params.user,
-          userWidgets: params.userWidgets,
-          gestures: gestures,
-        });
+        params.gestures = gestures;
+        res.render('backend/gesture', {
+            user: params.user,
+            userWidgets: params.userWidgets,
+            gestures: gestures,
+          });
       });
   })
-  // add a new widget-gesture mapping
+  // Add a new widget-gesture mapping
   .post((req, res) => {
     let params = {};
     params.widgetId = req.body.widget;
@@ -179,7 +179,7 @@ router.route('/gestures/:user')
       return gestureCtrl.updateGesture(params);
     })
     .then((msg) => {
-      res.redirect('/gestures/'+  req.params.user+ '?msg=created');
+      res.redirect('/gestures/' +  req.params.user + '?msg=created');
     })
     .catch((err) => {
       console.error(err);
@@ -194,9 +194,9 @@ router.route('/gestures/:widget/delete')
     params.widget = req.params.widget;
     widgetsCtrl.deleteGestureOfWidget(params)
     .then((data) => {
-      let backURL=req.header('Referer') || '/';
-      if(backURL.indexOf('msg') === -1){
-        backURL+='?msg=removed';
+      let backURL = req.header('Referer') || '/';
+      if (backURL.indexOf('msg') === -1) {
+        backURL += '?msg=removed';
       }
       res.redirect(backURL);
     })
@@ -205,7 +205,7 @@ router.route('/gestures/:widget/delete')
 /* GET edit a widget-gesture mapping */
 router.route('/gestures/:widget/edit')
   .get((req, res) => {
-    res.redirect('/widgets/edit/'+ req.params.widget);
+    res.redirect('/widgets/edit/' + req.params.widget);
   });
 
 /* GET system config page. */
@@ -365,7 +365,7 @@ router.route('/widgets')
 
 router.route('/widgets/create/:module')
   .get((req, res) => {
-//    var modules;
+    //    Var modules;
     let params = {};
     modulesCtrl.getModuleById({id: req.params.module})
     .then((module) => {
@@ -420,26 +420,26 @@ router.route('/widgets/edit/:widget')
   .post((req, res) => {
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
-      if(widget.gesture != null){
+      if (widget.gesture !== null) {
         console.log('go into if');
-      // unassign existing gesture
-      let params = {};
-      params.gestureId = widget.gesture._id;
-      params.status = false;
-      return gestureCtrl.updateGesture(params);
+        // Unassign existing gesture
+        let params = {};
+        params.gestureId = widget.gesture._id;
+        params.status = false;
+        return gestureCtrl.updateGesture(params);
       } else {
-        // no existing gesture available
-        return "";
+        // No existing gesture available
+        return '';
       }
     })
     .then((gesture) => {
-      return widgetsCtrl.updateWidget({
-        id: req.params.widget,
-        update: req.body,
-      });
+        return widgetsCtrl.updateWidget({
+          id: req.params.widget,
+          update: req.body,
+        });
       })
     .then((widget) => {
-      // assign new gesture
+      // Assign new gesture
       let params = {};
       params.gestureId = req.body.gesture;
       params.status = true;

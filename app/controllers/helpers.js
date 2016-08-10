@@ -19,7 +19,7 @@ exports.loadFileFromServer = function(params) {
 
     // Fire the get request
     http.get(params.url, response => {
-      console.log('URL: '+ params.url);
+      console.log('URL: ' + params.url);
       // Handle http errors
       if (response.statusCode < 200 || response.statusCode > 299) {
         console.log('Failed to load page, status code: ' + response.statusCode);

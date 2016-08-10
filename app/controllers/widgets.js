@@ -24,7 +24,7 @@ exports.getGestureSupportWidgets = function(params) {
 };
 
 /**
-exports.getGestureSupportAssignedWidgets = function(params) {
+Exports.getGestureSupportAssignedWidgets = function(params) {
   let query = Widgets.find({
       gestureSupport: true,
     }).where("gesture").ne(null)
@@ -74,7 +74,7 @@ exports.createWidget = function(params) {
       size: module.size[0],
     });
 
-    // update assignee status for gesture
+    // Update assignee status for gesture
     params = {};
     params.gestureId = widget.gesture;
     params.status = true;
@@ -125,23 +125,23 @@ exports.deleteGestureOfWidget = function(params) {
     .exec();
 
   wQuery.then((widget) => {
-    // update assignee status for gesture
-    params = {};
-    params.gestureId = widget.gesture;
-    params.status = false;
-    return gestureCtrl.updateGesture(params);
+      // Update assignee status for gesture
+      params = {};
+      params.gestureId = widget.gesture;
+      params.status = false;
+      return gestureCtrl.updateGesture(params);
     })
     .then((gesture) => {
-      // delete gesture field in widget
+      // Delete gesture field in widget
       let query = Widgets.findByIdAndUpdate(widgetId, {
         gesture: undefined,
       }, {
-        new: true
+        new: true,
       })
         .lean();
       return query.exec();
     });
-    return wQuery;
+  return wQuery;
 };
 
 exports.deleteWidgetById = function(params) {
@@ -150,15 +150,15 @@ exports.deleteWidgetById = function(params) {
     .lean()
     .exec();
 
-  // update assignee status for gesture
+  // Update assignee status for gesture
   wQuery.then((widget) => {
-    params = {};
-    params.gestureId = widget.gesture;
-    params.status = false;
-    return gestureCtrl.updateGesture(params);
+      params = {};
+      params.gestureId = widget.gesture;
+      params.status = false;
+      return gestureCtrl.updateGesture(params);
     })
     .then((data) => {
-      // remove widget
+      // Remove widget
       let query = Widgets.findByIdAndRemove(widgetId)
       .lean();
       return query.exec();
@@ -186,7 +186,7 @@ exports.userWidgets = function(params) {
 exports.userGestureWidgets = function(params) {
   return new Promise((resolve, reject) => {
     params.user.widgets.forEach((uwidget, i) => {
-      if(uwidget.gesture == null){
+      if (uwidget.gesture == null) {
         params.user.widgets.splice(i, 1);
         return true;
       }

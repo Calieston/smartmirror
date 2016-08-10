@@ -11,21 +11,21 @@ var natural = require('natural');
 io.on('connection', function(socket) {
   console.log('connection');
   socket.emit('test', {
-    msg: 'Message from Server'
+    msg: 'Message from Server',
   });
   socket.on('clientTest', function(data) {
     console.log(data);
   });
   socket.on('smartmirror', function(data) {
     switch (data.msg) {
-      case 'record':
+      case 'record': {
         console.log('start recording');
         io.emit('recording', {
-          status: 'enabled'
+          status: 'enabled',
         });
         speech.speechToText().then((response) => {
           io.emit('recording', {
-            status: 'disabled'
+            status: 'disabled',
           });
           if (response != 'empty') {
             let probabilityRate = 0.8;
@@ -36,7 +36,7 @@ io.on('connection', function(socket) {
               speech.createVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
-                  status: 'create'
+                  status: 'create',
                 });
               });
             } else
@@ -44,7 +44,7 @@ io.on('connection', function(socket) {
               speech.playVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
-                  status: 'play'
+                  status: 'play',
                 });
               });
             } else
@@ -52,7 +52,7 @@ io.on('connection', function(socket) {
               speech.deleteVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
-                  status: 'deleted'
+                  status: 'deleted',
                 });
               });
             }
@@ -61,29 +61,33 @@ io.on('connection', function(socket) {
           }
         });
         break;
-      case 'tagesschau':
+      }
+      case 'tagesschau': {
         io.emit('tagesschau');
         break;
-      case 'display off':
+      }
+      case 'display off': {
         // TODO
         break;
-      case 'display on':
+      }
+      case 'display on': {
         // TODO
         break;
+      }
     }
   });
 });
 
 function loadUserProfile(response) {
   userCtrl.getUserByName({
-      username: response
+      username: response,
     })
     .then((user) => {
-      // load user profile if user was found
+      // Load user profile if user was found
       if (user['0']) {
         console.log('load user profile of ' + user['0'].username);
         io.emit('loadUser', {
-          user: user['0']._id
+          user: user['0']._id,
         });
       } else {
         console.log('user \"' + response + '\" was not found in database');
@@ -96,7 +100,7 @@ exports.reload = () => {
 
 exports.loadUser = (params) => {
   io.emit('loadUser', {
-    user: params.user
+    user: params.user,
   });
 }
 

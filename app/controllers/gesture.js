@@ -7,15 +7,15 @@ var gestureTypes = ['none', 'swipe left', 'swipe right', 'swipe up', 'swipe down
 
 // Initialize all available gestures
 exports.initialize = () => {
-  Gesture.find({}, function(err, results){
-    if(err){
-      console.log('Error: '+ err);
+  Gesture.find({}, function(err, results) {
+    if (err) {
+      console.log('Error: ' + err);
     }
-    // save initial gestures if collection is empty
-    if(!results.length){
-      gestureTypes.forEach(function(gestureType){
+    // Save initial gestures if collection is empty
+    if (!results.length) {
+      gestureTypes.forEach(function(gestureType) {
         var newGesture = Gesture({
-          gestureType: gestureType
+          gestureType: gestureType,
         });
         newGesture.save();
       });
@@ -73,12 +73,12 @@ exports.getGestureByName = (params) => {
 
 // Update existing gesture
 exports.updateGesture = (params) => {
- let query = Gesture.findByIdAndUpdate(params.gestureId, {
-    assigned: params.status
+  let query = Gesture.findByIdAndUpdate(params.gestureId, {
+    assigned: params.status,
   }, {
     new: true,
   })
-  .lean();
+   .lean();
 
   return query.exec();
 };
