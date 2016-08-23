@@ -155,7 +155,8 @@ router.route('/gestures/:user')
       return widgetsCtrl.userGestureWidgets(params);
     })
     .then((data) => {
-      params.userWidgets = data.user.widgets;
+      console.log('USER WIDGETS: '+ JSON.stringify(data.user.widgets));
+      params.userWidgets = data.widgets;
       // Load all available gestures
       return gestureCtrl.getGestures();
     })
