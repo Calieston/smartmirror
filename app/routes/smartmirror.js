@@ -7,6 +7,8 @@ var fs = require('fs');
 // Var weatherController = require('../controllers/weather');
 
 var smartmirrorCtrl = require('./../controllers/smartmirror');
+var socketCtrl = require('./../controllers/socket');
+var widgetsCtrl = require('./../controllers/widgets');
 
 /* GET smartmirror interface page. */
 router.get('/', (req, res, next) => {
@@ -38,9 +40,26 @@ router.route('/default')
 
 router.route('/:userId')
   .get((req, res) => {
-    smartmirrorCtrl.getUser({id: req.params.userId}).then((user) => {
+    let params = {};
+    var userprofile;
+    smartmirrorCtrl.getUser({id: req.params.userId})
+    .then((user) => {
+      userprofile = user;
+      params.user = user;
+      return widgetsCtrl.getGestureSupportWidgets();
+    })
+    .then((widgets) => {
+      if (widgets.length > 0) {
+        params.userGestureWidgets = widgets;
+      }else {
+        params.userGestureWidgets = null;
+      }
+      // Send widgets with gesture support to leap client
+      return socketCtrl.transportGestures(params);
+    })
+    .then((data) => {
       res.render('smartmirror', {
-        user: user,
+        user: params.user,
       });
     })
     .catch((err) => {

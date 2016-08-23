@@ -150,13 +150,7 @@ router.route('/gestures/:user')
       return widgetsCtrl.getGestureSupportWidgets();
     })
     .then((widgets) => {
-      params.widgets = widgets;
-      // Load user widgets without assigned gesture
-      return widgetsCtrl.userGestureWidgets(params);
-    })
-    .then((data) => {
-      console.log('USER WIDGETS: '+ JSON.stringify(data.user.widgets));
-      params.userWidgets = data.widgets;
+      params.userWidgets = widgets;
       // Load all available gestures
       return gestureCtrl.getGestures();
     })
@@ -421,8 +415,7 @@ router.route('/widgets/edit/:widget')
   .post((req, res) => {
     widgetsCtrl.getWidget({id: req.params.widget})
     .then((widget) => {
-      if (widget.gesture !== null) {
-        console.log('go into if');
+      if (widget.gesture !== null & widget.gestureSupport === true) {
         // Unassign existing gesture
         let params = {};
         params.gestureId = widget.gesture._id;

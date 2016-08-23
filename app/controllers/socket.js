@@ -16,15 +16,15 @@ io.on('connection', function(socket) {
   socket.on('clientTest', function(data) {
     console.log(data);
   });
-  socket.on('smartmirror', function(data) {
-    switch (data.msg) {
+  socket.on('leap client', function(data) {
+    switch (data.action) {
       case 'record': {
         console.log('start recording');
-        io.emit('recording', {
+        socket.emit('recording', {
           status: 'enabled',
         });
         speech.speechToText().then((response) => {
-          io.emit('recording', {
+          socket.emit('recording', {
             status: 'disabled',
           });
           if (response != 'empty') {
@@ -62,22 +62,15 @@ io.on('connection', function(socket) {
         });
         break;
       }
-      case 'tagesschau': {
-        io.emit('tagesschau');
-        break;
-      }
-      case 'display off': {
-        // TODO
-        break;
-      }
-      case 'display on': {
-        // TODO
+      case 'gesture': {
+        io.emit('smartmirror-weather');
         break;
       }
     }
   });
 });
 
+// Load a user profile with a voice command
 function loadUserProfile(response) {
   userCtrl.getUserByName({
       username: response,
@@ -102,6 +95,14 @@ exports.loadUser = (params) => {
   io.emit('loadUser', {
     user: params.user,
   });
+}
+
+exports.transportGestures = (params) => {
+  // Send user gesture widgets to leap client
+  io.emit('gestures', {
+    userGestureWidgets: params.userGestureWidgets,
+  });
+  return params;
 }
 
 exports.io = io;
