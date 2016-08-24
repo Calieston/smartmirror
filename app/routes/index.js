@@ -15,6 +15,7 @@ var systemCtrl = require('./../controllers/system');
 var modulesCtrl = require('./../controllers/modules');
 var widgetsCtrl = require('./../controllers/widgets');
 var socketCtrl = require('./../controllers/socket');
+var sensorsCtrl = require('./../controllers/sensors');
 
 /* GET backend landing page. */
 router.route('/')
@@ -527,5 +528,20 @@ router.route('/interface/:user')
       res.sendStatus(500);
     });
   });
+
+
+// Sensors
+// temp humidity sensor
+router.route('/sensors/sht31')
+  .get((req, res) => {
+    sensorsCtrl.sht31()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+  })
 
 module.exports = router;
