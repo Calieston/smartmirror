@@ -2,6 +2,7 @@
 
 var socketIO = require('socket.io');
 var speech = require('./speech');
+var recorder = require('./record').recorder;
 var userCtrl = require('./user');
 var config = require('./../config');
 const recordGesture = config.recordGesture;
@@ -16,13 +17,16 @@ io.on('connection', function(socket) {
   socket.on('clientTest', function(data) {
     console.log(data);
   });
-  socket.on('leap client', function(data) {
+  socket.on('smartmirror', function(data) {
+    console.log('DATA: '+ JSON.stringify(data));
+/*    io.emit('tagesschau');*/
     switch (data.action) {
       case 'record': {
         console.log('start recording');
         socket.emit('recording', {
           status: 'enabled',
         });
+        recorder.start()
         speech.speechToText().then((response) => {
           socket.emit('recording', {
             status: 'disabled',
@@ -63,6 +67,7 @@ io.on('connection', function(socket) {
         break;
       }
       case 'gesture': {
+        console.log('go into case');
         io.emit('smartmirror-weather');
         break;
       }
@@ -72,8 +77,9 @@ io.on('connection', function(socket) {
 
 // Load a user profile with a voice command
 function loadUserProfile(response) {
+  var username = response.split('Profil ')[1];
   userCtrl.getUserByName({
-      username: response,
+      username: username,
     })
     .then((user) => {
       // Load user profile if user was found
@@ -83,7 +89,7 @@ function loadUserProfile(response) {
           user: user['0']._id,
         });
       } else {
-        console.log('user \"' + response + '\" was not found in database');
+        console.log('user \"' + username + '\" was not found in database');
       }
     })
 }

@@ -4,8 +4,8 @@ var request = require('request');
 var fs = require('fs');
 var config = require('./../config');
 var path = require('path');
-var socketCtrl = require('./socket');
-
+/*var memoCtrl = require('./memo');
+*/
 const key = config.googleSpeechApiKey;
 const file = config.fileName;
 const lang = config.language;
@@ -47,7 +47,7 @@ exports.speechToText = function() {
                 var jObj = JSON.parse(body);
                 response = jObj.result['0'].alternative['0'].transcript;
               }
-              // Fs.unlinkSync(filePath);
+              fs.unlinkSync(filePath);
               resolve(response);
             }
           });
@@ -61,8 +61,17 @@ exports.speechToText = function() {
   });
 }
 
-exports.createVoiceMemo = function() {
-  }
+/*exports.createVoiceMemo = function(params) {
+  let methodParams = {};
+  methodParams.name = 'memo';
+  methodParams.path = filePath;
+  methodParams.author = 'test todo';
+  methodParams.lifetime = Date.now();
+  memoCtrl.addMemo(methodParams)
+  .then((memo) => {
+    console.log('Created new memo: '+ JSON.stringify(memo));
+  });
+  }*/
 exports.playVoiceMemo = function() {
   }
 exports.deleteVoiceMemo = function() {

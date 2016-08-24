@@ -61,11 +61,16 @@ socket.on('loadUser', function(data) {
   window.location.href = 'http://localhost:3000/smartmirror/' + data.user;
 })
 
+/*socket.on('tagesschau', function(data) {
+  console.log('tagesschau');
+})*/
+
 socket.on('smartmirror-video-tagesschau100sek', function(data) {
   playPause();
 })
 socket.on('smartmirror-weather', function(data) {
-  console.log(data);
+  console.log('call smartmirror socket');
+/*  console.log('FUNCTION: '+ JSON.stringify(data));*/
   playPause();
 })
 socket.on('recording', function(data) {

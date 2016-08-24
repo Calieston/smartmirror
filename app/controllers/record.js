@@ -17,6 +17,7 @@ var outputFileStream = fs.WriteStream(fileName);
 micInputStream.pipe(outputFileStream);
 
 micInputStream.on('startComplete', function() {
+  console.log('recording started');
     setTimeout(function() {
         recorder.stop();
         console.log('recording stop');
