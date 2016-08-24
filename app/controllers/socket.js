@@ -22,55 +22,56 @@ io.on('connection', function(socket) {
     /*    Io.emit('tagesschau');*/
     switch (data.action) {
       case 'record': {
-        console.log('start recording');
         socket.emit('recording', {
           status: 'enabled',
         });
         recorder.record()
         .then((response) => {
-          console.log('response record call: ' + response);
           return speech.speechToText();
         })
         .then((response) => {
           console.log('Response speech to text: ' + JSON.stringify(response));
+          socket.emit('recording', {
+            status: 'disabled',
+          });
+
+        if (response != 'empty') {
+          let probabilityRate = 0.8;
+          if (natural.JaroWinklerDistance(response, 'profil') > probabilityRate) {
+            console.log('call load user profil function');
+            loadUserProfile(response);
+          } else
+          if (natural.JaroWinklerDistance(response, 'notiz') > probabilityRate) {
+            console.log('call load sprach notiz function');
+            speech.createVoiceMemo(response)
+            .then((response) => {
+/*              io.emit('voiceMemo', {
+                status: 'create',
+              });*/
+            });
+          } else
+          if (natural.JaroWinklerDistance(response, 'nachrichten') > probabilityRate) {
+            console.log('call load nachrichten function');
+            speech.playVoiceMemo();
+            .then((response) => {
+/*              io.emit('voiceMemo', {
+                status: 'play',
+              });*/
+            });
+          } else
+          if (natural.JaroWinklerDistance(response, 'nachrichten löschen') > probabilityRate) {
+            console.log('call load nachrichten löschen function');
+            speech.deleteVoiceMemo(response)
+            .then((response) => {
+/*              io.emit('voiceMemo', {
+                status: 'deleted',
+              });*/
+            });
+          }
+        } else {
+          console.log('speech to text: no result')
+        }
         });
-        /*        Speech.speechToText().then((response) => {
-                  socket.emit('recording', {
-                    status: 'disabled',
-                  });
-                  if (response != 'empty') {
-                    let probabilityRate = 0.8;
-                    if (natural.JaroWinklerDistance(response, 'Profil') > probabilityRate) {
-                      loadUserProfile(response);
-                    } else
-                    if (natural.JaroWinklerDistance(response, 'Notiz') > probabilityRate) {
-                      speech.createVoiceMemo(response)
-                      .then((response) => {
-                        io.emit('voiceMemo', {
-                          status: 'create',
-                        });
-                      });
-                    } else
-                    if (natural.JaroWinklerDistance(response, 'Nachrichten') > probabilityRate) {
-                      speech.playVoiceMemo(response)
-                      .then((response) => {
-                        io.emit('voiceMemo', {
-                          status: 'play',
-                        });
-                      });
-                    } else
-                    if (natural.JaroWinklerDistance(response, 'Löschen') > probabilityRate) {
-                      speech.deleteVoiceMemo(response)
-                      .then((response) => {
-                        io.emit('voiceMemo', {
-                          status: 'deleted',
-                        });
-                      });
-                    }
-                  } else {
-                    console.log('speech to text: no result')
-                  }
-                });*/
         break;
       }
       case 'gesture': {
@@ -84,7 +85,7 @@ io.on('connection', function(socket) {
 
 // Load a user profile with a voice command
 function loadUserProfile(response) {
-  var username = response.split('Profil ')[1];
+  var username = response.split('profil ')[1];
   userCtrl.getUserByName({
       username: username,
     })

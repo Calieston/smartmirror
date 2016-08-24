@@ -26,3 +26,23 @@ exports.getMemoByName = (params) => {
   return query.exec();
 
 };
+
+// Get a random voice memo
+exports.getRandomVoiceMemo = () => {
+  let query = Memo.findOne()
+    .lean();
+
+  return query.exec();
+};
+
+// Delete a memo by id
+exports.deleteMemoById = (params) => {
+
+  /* Query for deleting a user by id */
+  let query = Memo.findByIdAndRemove(params.id);
+
+  /* Query Promise */
+  return query.exec();
+
+};
+

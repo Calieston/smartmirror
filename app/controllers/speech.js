@@ -4,8 +4,9 @@ var request = require('request');
 var fs = require('fs');
 var config = require('./../config');
 var path = require('path');
-/*Var memoCtrl = require('./memo');
-*/
+var memoCtrl = require('./memo');
+var Helpers = require('./helpers');
+
 const key = config.googleSpeechApiKey;
 const file = config.fileName;
 const lang = config.language;
@@ -46,7 +47,7 @@ exports.speechToText = function() {
               if (body.indexOf('result') > -1) {
                 // Parse to JSON
                 var jObj = JSON.parse(body);
-                response = jObj.result['0'].alternative['0'].transcript;
+                response = jObj.result['0'].alternative['0'].transcript.toLowerCase();
               }
               fs.unlink(filePath);
 
@@ -63,20 +64,57 @@ exports.speechToText = function() {
   });
 }
 
-/*Exports.createVoiceMemo = function(params) {
-  let methodParams = {};
-  methodParams.name = 'memo';
-  methodParams.path = filePath;
-  methodParams.author = 'test todo';
-  methodParams.lifetime = Date.now();
-  memoCtrl.addMemo(methodParams)
-  .then((memo) => {
-    console.log('Created new memo: '+ JSON.stringify(memo));
-  });
-  }*/
+exports.createVoiceMemo = function() {
+    // Return new Promise
+    return new Promise((resolve, reject) => {
+        // TODO: create a copy of file in filepath and delete filepath's file
+        let params = {};
+        params.name = 'memo';
+        params.path = filePath;
+        params.author = 'Albert';
+        params.lifetime = Date.now();
+        memoCtrl.addMemo(params)
+        .then((memo) => {
+          console.log('Created new memo: ' + JSON.stringify(memo));
+          return Helpers.removeFile({path: filePath,})
+        });
+      });
+  }
+// TODO: add job which clear old files
 exports.playVoiceMemo = function() {
-  }
+  // Return new Promise
+  return new Promise((resolve, reject) => {
+      memoCtrl.getRandomVoiceMemo()
+     .then((memo) => {
+        // Play voice memo on smart mirror
+        var exec = require('child_process').exec;
+        exec('aplay ' + memo.path, function(error, stdout, stderr) {
+              if (error !== null) {
+                console.log('exec error: ' + error);
+              }else {
+                console.log('successful');
+                resolve(stdout);
+              }
+            });
+      });
+
+    });
+}
 exports.deleteVoiceMemo = function() {
-    let voiceMemoFilePath;
-    fs.unlinkSync(voiceMemoFilePath);
-  }
+    // Return new Promise
+    return new Promise((resolve, reject) => {
+          memoCtrl.getRandomVoiceMemo()
+          .then((memo) => {
+            // Delete voice memo file
+            return Helpers.removeFile({path: memo.path,})
+          })
+          .then((msg) => {
+            // Delete voice memo entry
+            return memoCtrl.deleteMemoById(memo._id);
+          })
+          .then((msg) => {
+              resolve(msg);
+            });
+        });
+  };
+
