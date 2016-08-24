@@ -4,7 +4,7 @@ var request = require('request');
 var fs = require('fs');
 var config = require('./../config');
 var path = require('path');
-/*var memoCtrl = require('./memo');
+/*Var memoCtrl = require('./memo');
 */
 const key = config.googleSpeechApiKey;
 const file = config.fileName;
@@ -25,6 +25,7 @@ exports.speechToText = function() {
         fs.accessSync(filePath, fs.F_OK);
         fs.readFile(filePath, function(err, data) {
           if (err) {
+            console.log('ERROR in speech.js: ' + err);
             reject(err);
           }
           var r = request.post({
@@ -47,7 +48,8 @@ exports.speechToText = function() {
                 var jObj = JSON.parse(body);
                 response = jObj.result['0'].alternative['0'].transcript;
               }
-              fs.unlinkSync(filePath);
+              fs.unlink(filePath);
+
               resolve(response);
             }
           });
@@ -61,7 +63,7 @@ exports.speechToText = function() {
   });
 }
 
-/*exports.createVoiceMemo = function(params) {
+/*Exports.createVoiceMemo = function(params) {
   let methodParams = {};
   methodParams.name = 'memo';
   methodParams.path = filePath;

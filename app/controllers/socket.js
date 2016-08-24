@@ -2,7 +2,7 @@
 
 var socketIO = require('socket.io');
 var speech = require('./speech');
-var recorder = require('./record').recorder;
+var recorder = require('./record');
 var userCtrl = require('./user');
 var config = require('./../config');
 const recordGesture = config.recordGesture;
@@ -18,52 +18,59 @@ io.on('connection', function(socket) {
     console.log(data);
   });
   socket.on('smartmirror', function(data) {
-    console.log('DATA: '+ JSON.stringify(data));
-/*    io.emit('tagesschau');*/
+    console.log('DATA: ' + JSON.stringify(data));
+    /*    Io.emit('tagesschau');*/
     switch (data.action) {
       case 'record': {
         console.log('start recording');
         socket.emit('recording', {
           status: 'enabled',
         });
-        recorder.start()
-        speech.speechToText().then((response) => {
-          socket.emit('recording', {
-            status: 'disabled',
-          });
-          if (response != 'empty') {
-            let probabilityRate = 0.8;
-            if (natural.JaroWinklerDistance(response, 'Profil') > probabilityRate) {
-              loadUserProfile(response);
-            } else
-            if (natural.JaroWinklerDistance(response, 'Notiz') > probabilityRate) {
-              speech.createVoiceMemo(response)
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'create',
-                });
-              });
-            } else
-            if (natural.JaroWinklerDistance(response, 'Nachrichten') > probabilityRate) {
-              speech.playVoiceMemo(response)
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'play',
-                });
-              });
-            } else
-            if (natural.JaroWinklerDistance(response, 'Löschen') > probabilityRate) {
-              speech.deleteVoiceMemo(response)
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'deleted',
-                });
-              });
-            }
-          } else {
-            console.log('speech to text: no result')
-          }
+        recorder.record()
+        .then((response) => {
+          console.log('response record call: ' + response);
+          return speech.speechToText();
+        })
+        .then((response) => {
+          console.log('Response speech to text: ' + JSON.stringify(response));
         });
+        /*        Speech.speechToText().then((response) => {
+                  socket.emit('recording', {
+                    status: 'disabled',
+                  });
+                  if (response != 'empty') {
+                    let probabilityRate = 0.8;
+                    if (natural.JaroWinklerDistance(response, 'Profil') > probabilityRate) {
+                      loadUserProfile(response);
+                    } else
+                    if (natural.JaroWinklerDistance(response, 'Notiz') > probabilityRate) {
+                      speech.createVoiceMemo(response)
+                      .then((response) => {
+                        io.emit('voiceMemo', {
+                          status: 'create',
+                        });
+                      });
+                    } else
+                    if (natural.JaroWinklerDistance(response, 'Nachrichten') > probabilityRate) {
+                      speech.playVoiceMemo(response)
+                      .then((response) => {
+                        io.emit('voiceMemo', {
+                          status: 'play',
+                        });
+                      });
+                    } else
+                    if (natural.JaroWinklerDistance(response, 'Löschen') > probabilityRate) {
+                      speech.deleteVoiceMemo(response)
+                      .then((response) => {
+                        io.emit('voiceMemo', {
+                          status: 'deleted',
+                        });
+                      });
+                    }
+                  } else {
+                    console.log('speech to text: no result')
+                  }
+                });*/
         break;
       }
       case 'gesture': {

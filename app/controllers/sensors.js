@@ -8,10 +8,9 @@ exports.sht31 = function(params) {
   // Return new Promise
   return new Promise((resolve, reject) => {
     exec(sht31Script, (err, stdout, stderr) => {
-      if(err !== null){
+      if (err !== null) {
         reject(new Error('Nope'));
-      }
-      else {
+      } else {
         resolve(JSON.parse(stdout));
       }
     });
