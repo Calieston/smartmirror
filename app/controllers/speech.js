@@ -100,7 +100,7 @@ exports.createVoiceMemo = function() {
         });
       });
   }
-// TODO: add job which clear old voice memo audio files
+
 // play a voice memo
 exports.playVoiceMemo = function() {
   // Return new Promise
