@@ -12,6 +12,7 @@ const file = config.fileName;
 const lang = config.language;
 var urlStart = 'https://www.google.com/speech-api/v2/recognize?key=' + key;
 var urlEnd = '&lang=' + lang + '&output=json';
+var fPath = path.join(__dirname, './../../samples/');
 var filePath = path.join(__dirname, './../../samples/' + file);
 
 
@@ -45,12 +46,10 @@ exports.speechToText = function() {
               // Check if response exists
               var response = 'empty';
               if (body.indexOf('result') > -1) {
-                // Parse to JSON
+                // Parse google speech api response to JSON
                 var jObj = JSON.parse(body);
                 response = jObj.result['0'].alternative['0'].transcript.toLowerCase();
               }
-              fs.unlink(filePath);
-
               resolve(response);
             }
           });
@@ -64,23 +63,45 @@ exports.speechToText = function() {
   });
 }
 
+// Create a new voice memo file and entry in database
 exports.createVoiceMemo = function() {
     // Return new Promise
     return new Promise((resolve, reject) => {
-        // TODO: create a copy of file in filepath and delete filepath's file
+        // Create path for voice memo file
+        var memoFilePath = fPath + 'memo_' + Date.now() + '.wav';
+
+        // Calculate lifetime for voice memo
+        var deletionDate = new Date();
+        deletionDate.setDate(deletionDate.getDate() + 1);
+
+        // Preparate params for voice memo entry
         let params = {};
-        params.name = 'memo';
-        params.path = filePath;
-        params.author = 'Albert';
-        params.lifetime = Date.now();
-        memoCtrl.addMemo(params)
+        params.name = 'voice_memo';
+        params.path = memoFilePath;
+        // TODO: get current user profil
+        params.author = '';
+        params.lifetime = deletionDate;
+        console.log('copy file: ' + filePath + ' to new path: ' + memoFilePath);
+        Helpers.copyFile({
+          oldPath: filePath,
+          newPath: memoFilePath,
+        })
+        .then((msg) => {
+          console.log('created voice memo file');
+          return memoCtrl.addMemo(params)
+        })
         .then((memo) => {
-          console.log('Created new memo: ' + JSON.stringify(memo));
+          console.log('saved voice memo entry in db: ' + JSON.stringify(memo));
           return Helpers.removeFile({path: filePath,})
+        })
+        .then((msg) => {
+          console.log('removed audio file');
+          resolve();
         });
       });
   }
-// TODO: add job which clear old files
+// TODO: add job which clear old voice memo audio files
+// play a voice memo
 exports.playVoiceMemo = function() {
   // Return new Promise
   return new Promise((resolve, reject) => {
@@ -100,6 +121,8 @@ exports.playVoiceMemo = function() {
 
     });
 }
+
+// Delete a voice memo
 exports.deleteVoiceMemo = function() {
     // Return new Promise
     return new Promise((resolve, reject) => {

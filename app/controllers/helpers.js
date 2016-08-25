@@ -1,6 +1,7 @@
 'use strict';
 
 var fs = require('fs');
+var fse = require('fs-extra');
 
 exports.loadFileFromServer = function(params) {
 
@@ -61,6 +62,25 @@ exports.saveFile = function(params) {
   });
 };
 
+exports.copyFile = function(params) {
+
+  return new Promise((resolve, reject) => {
+
+    if (!fs.existsSync(params.path)) {
+      reject();
+    }
+
+    fse.copy(params.oldPath, params.newPath, function(err) {
+      if (err) {
+        console.log(err);
+        reject(err);
+      }
+      resolve();
+    })
+
+  });
+
+}
 exports.removeFile = function(params) {
 
   return new Promise((resolve, reject) => {

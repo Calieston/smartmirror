@@ -51,7 +51,7 @@ exports.getUserById = (params) => {
 // Return a user by username
 exports.getUserByName = (params) => {
 
-  let query = User.find({username: params.username})
+  let query = User.find({username: new RegExp('^' + params.username + '$', 'i')})
   .lean();
 
   return query.exec();

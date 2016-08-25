@@ -61,18 +61,25 @@ socket.on('loadUser', function(data) {
   window.location.href = 'http://localhost:3000/smartmirror/' + data.user;
 })
 
-/*socket.on('tagesschau', function(data) {
-  console.log('tagesschau');
-})*/
-
 socket.on('smartmirror-video-tagesschau100sek', function(data) {
   playPause();
 })
-socket.on('smartmirror-weather', function(data) {
-  console.log('call smartmirror socket');
-/*  console.log('FUNCTION: '+ JSON.stringify(data));*/
+
+socket.on('voiceMemo', function(data) {
+  switch(data) {
+    case 'created':
+    // TODO
+    break;
+    case 'play':
+    // TODO
+    break;
+    case 'deleted':
+    // TODO
+    break;
+  }
   playPause();
 })
+
 socket.on('recording', function(data) {
   if (data.status == 'enabled') {
     document.getElementById("Record").style.display = "block";

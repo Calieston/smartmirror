@@ -1,7 +1,7 @@
 extends layout
 
 block head
-  - var title='Gesten Zuordnung'
+  - var title='Gesten'
 
 
 block content
@@ -10,10 +10,10 @@ block content
     h2 Gesten-Widget Zuordnung
 
   if(get && get.msg === 'removed')
-    aside.alert.alert-warning.col-sm-12
+    aside.alert.alert-warning
       strong Hinweis: Zuordnung wurde gelöscht
 
-  section.col-sm-12
+  section.col-md-8
     if userWidgets.length == 0
       h2 Keine Zuordnungen vorhanden.
     else
