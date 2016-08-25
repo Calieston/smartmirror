@@ -46,3 +46,50 @@ exports.deleteMemoById = (params) => {
 
 };
 
+// Delete a memo by id
+exports.deleteMemoById = (params) => {
+
+  /* Query for deleting a user by id */
+  let query = Memo.findByIdAndRemove(params.id);
+
+  /* Query Promise */
+  return query.exec();
+
+};
+
+// Delete old voice memos
+exports.deleteOldMemos = (params) => {
+  var now = new Date();
+  var del;
+  let query = Memo.find({})
+    .lean();
+
+  query.then((memos) => {
+    memos.forEach((memo) => {
+      del = calculateDateDiff(now, memo.lifetime);
+      if (del) {
+        let deleteQuery = Memo.findByIdAndRemove(memo._id);
+        return deleteQuery.exec();
+      }
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  return query;
+};
+
+// Calculate date diff between two dates
+function calculateDateDiff(date1, date2) {
+  var del = false;
+  // Convert both dates to milliseconds
+  var date1Ms = date1.getTime()
+  var date2Ms = date2.getTime()
+
+  // Calculate the difference in seconds
+  var diffInSeconds = date2Ms - date1Ms
+  if (diffInSeconds >= 0) {
+    del = true;
+  }
+  return del;
+}

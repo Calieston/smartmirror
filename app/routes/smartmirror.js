@@ -9,6 +9,7 @@ var fs = require('fs');
 var smartmirrorCtrl = require('./../controllers/smartmirror');
 var socketCtrl = require('./../controllers/socket');
 var widgetsCtrl = require('./../controllers/widgets');
+var memoCtrl = require('./../controllers/memo');
 
 /* GET smartmirror interface page. */
 router.get('/', (req, res, next) => {
@@ -41,10 +42,8 @@ router.route('/default')
 router.route('/:userId')
   .get((req, res) => {
     let params = {};
-    var userprofile;
     smartmirrorCtrl.getUser({id: req.params.userId})
     .then((user) => {
-      userprofile = user;
       params.user = user;
       return widgetsCtrl.getGestureSupportWidgets();
     })
@@ -57,6 +56,9 @@ router.route('/:userId')
       // Send widgets with gesture support to leap client
       return socketCtrl.transportGestures(params);
     })
+    .then((data) => {
+        return memoCtrl.deleteOldMemos()
+      })
     .then((data) => {
       res.render('smartmirror', {
         user: params.user,

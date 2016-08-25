@@ -23,17 +23,6 @@ exports.getGestureSupportWidgets = function(params) {
   return query.exec();
 };
 
-/**
-Exports.getGestureSupportAssignedWidgets = function(params) {
-  let query = Widgets.find({
-      gestureSupport: true,
-    }).where("gesture").ne(null)
-    .populate('module')
-    .lean();
-
-  return query.exec();
-};*/
-
 exports.getWidget = function(params) {
   let query = Widgets.findById(params.id)
     .populate('gesture')
