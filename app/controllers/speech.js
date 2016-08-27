@@ -142,7 +142,10 @@ exports.playVoiceMemo = function() {
 exports.playVoiceMemoFeedback = function() {
   // Return new Promise
   return new Promise((resolve, reject) => {
-      memoCtrl.getMemoByName()
+      Helpers.removeFile({path: filePath,})
+      .then(() => {
+        return memoCtrl.getMemoByName()
+      })
      .then((memo) => {
         // Play voice memo on smart mirror
         var exec = require('child_process').exec;

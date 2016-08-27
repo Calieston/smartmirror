@@ -56,7 +56,6 @@ io.on('connection', function(socket) {
               console.log('call sprach notiz function');
               speechCtrl.createVoiceMemo(response)
               .then((response) => {
-                console.log('created voice memo: ' + response);
                 io.emit('voiceMemo', {
                   status: 'created',
                 });
@@ -71,7 +70,7 @@ io.on('connection', function(socket) {
                 });
               });
             } else
-            if (natural.JaroWinklerDistance(response, 'nachrichten löschen') > probabilityRate) {
+            if (natural.JaroWinklerDistance(response, 'löschen') > probabilityRate) {
               console.log('call nachrichten löschen function');
               speechCtrl.deleteVoiceMemo(response)
               .then((response) => {
@@ -93,8 +92,8 @@ io.on('connection', function(socket) {
             if (natural.JaroWinklerDistance(response, 'timer') > probabilityRate) {
               console.log('call timer function');
               var timervalue = response.split('timer ')[1];
-              var duration = response.split(' minuten')[0];
-              // attention: currently only duration in minutes are possible!
+              var duration = timervalue.split(' minuten')[0];
+              // Attention: currently only duration in minutes are possible!
               io.emit('timer', {
                 duration: duration,
               });
