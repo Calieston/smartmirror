@@ -72,16 +72,7 @@ io.on('connection', function(socket) {
             } else
             if (natural.JaroWinklerDistance(response, 'löschen') > probabilityRate) {
               console.log('call nachrichten löschen function');
-              speechCtrl.deleteVoiceMemo(response)
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'deleted',
-                });
-              });
-            } else
-            if (natural.JaroWinklerDistance(response, 'alle sprachnachrichten löschen') > probabilityRate) {
-              console.log('call alle sprach nachrichten löschen function');
-              memoCtrl.deleteAllMemos(response)
+              speechCtrl.deleteAllMemos(response)
               .then((response) => {
                 io.emit('voiceMemo', {
                   status: 'all deleted',
@@ -94,8 +85,11 @@ io.on('connection', function(socket) {
               var timervalue = response.split('timer ')[1];
               var duration = timervalue.split(' minuten')[0];
               // Attention: currently only duration in minutes are possible!
+              speechCtrl.deleteRecording()
+              .then((msg) {
               io.emit('timer', {
                 duration: duration,
+              });
               });
             }
           } else {
