@@ -18,6 +18,16 @@ exports.addMemo = (params) => {
   return newMemo.save();
 };
 
+// Return all memos
+exports.getAllMemos = (params) => {
+
+  let query = Memo.find({})
+  .lean();
+
+  return query.exec();
+
+};
+
 // Return a memo by memo name
 exports.getMemoByName = (params) => {
 
@@ -45,31 +55,6 @@ exports.deleteMemoById = (params) => {
   /* Query Promise */
   return query.exec();
 
-};
-
-// Delete all voice memos
-exports.deleteAllMemos = (params) => {
-  var now = new Date();
-  var del;
-  let query = Memo.find({})
-    .lean();
-  query.then((memos) => {
-    console.log('FOUND MEMOS:' + JSON.stringify(memos, null, 4));
-    memos.forEach((memo) => {
-        console.log('one memo of list: ' + JSON.stringify(memo, null, 4));
-        Helpers.removeFile({path: memo.path,})
-        .then((msg) => {
-          console.log('deleted memo file of: ' + memo._id);
-          let deleteQuery = Memo.findByIdAndRemove(memo._id);
-          return deleteQuery.exec();
-        });
-
-      });
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-  return query;
 };
 
 // Delete old voice memos

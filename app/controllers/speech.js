@@ -161,6 +161,27 @@ exports.playVoiceMemoFeedback = function() {
 
     });
 }
+// Delete all voice memos
+exports.deleteAllMemos = (params) => {
+    // Return new Promise
+    return new Promise((resolve, reject) => {
+      memoCtrl.getAllMemos()
+      .then((memos) => {
+          console.log('FOUND MEMOS:' + JSON.stringify(memos, null, 4));
+          memos.forEach((memo) => {
+              console.log('one memo of list: ' + JSON.stringify(memo, null, 4));
+              Helpers.removeFile({path: memo.path,})
+              .then((msg) => {
+                console.log('deleted memo file of: ' + memo._id);
+                return memoCtrl.deleteMemoById(memo._id)
+              });
+            })
+        })
+      .then(() => {
+            return Helpers.removeFile({path: filePath,})
+          });
+    });
+  };
 
 // Delete a voice memo
 exports.deleteVoiceMemo = function() {

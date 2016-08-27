@@ -73,7 +73,7 @@ io.on('connection', function(socket) {
             } else
             if (natural.JaroWinklerDistance(response, 'löschen') > probabilityRate) {
               console.log('call nachrichten löschen function');
-              memoCtrl.deleteAllMemos(response)
+              speechCtrl.deleteAllMemos(response)
               .then((response) => {
                 console.log('GET RESPONSE FROM METHOD');
                 io.emit('voiceMemo', {
