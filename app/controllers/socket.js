@@ -75,6 +75,7 @@ io.on('connection', function(socket) {
               console.log('call nachrichten löschen function');
               memoCtrl.deleteAllMemos(response)
               .then((response) => {
+                console.log('GET RESPONSE FROM METHOD');
                 io.emit('voiceMemo', {
                   status: 'all deleted',
                 });

@@ -2,6 +2,7 @@
 
 var Memo = require('../models/memo');
 var ObjectID = require('mongodb').ObjectID;
+var Helpers = require('./helpers');
 
 // Create Memo
 exports.addMemo = (params) => {
@@ -46,28 +47,23 @@ exports.deleteMemoById = (params) => {
 
 };
 
-// Delete a memo by id
-exports.deleteMemoById = (params) => {
-
-  /* Query for deleting a user by id */
-  let query = Memo.findByIdAndRemove(params.id);
-
-  /* Query Promise */
-  return query.exec();
-
-};
-
 // Delete all voice memos
 exports.deleteAllMemos = (params) => {
   var now = new Date();
   var del;
   let query = Memo.find({})
     .lean();
-
   query.then((memos) => {
+    console.log('FOUND MEMOS:' + JSON.stringify(memos, null, 4));
     memos.forEach((memo) => {
-        let deleteQuery = Memo.findByIdAndRemove(memo._id);
-        return deleteQuery.exec();
+        console.log('one memo of list: ' + JSON.stringify(memo, null, 4));
+        Helpers.removeFile({path: memo.path,})
+        .then((msg) => {
+          console.log('deleted memo file of: ' + memo._id);
+          let deleteQuery = Memo.findByIdAndRemove(memo._id);
+          return deleteQuery.exec();
+        });
+
       });
   })
   .catch((err) => {
@@ -87,8 +83,11 @@ exports.deleteOldMemos = (params) => {
     memos.forEach((memo) => {
       del = calculateDateDiff(now, memo.lifetime);
       if (del) {
-        let deleteQuery = Memo.findByIdAndRemove(memo._id);
-        return deleteQuery.exec();
+        Helpers.removeFile({path: memo.path,})
+        .then((msg) => {
+          let deleteQuery = Memo.findByIdAndRemove(memo._id);
+          return deleteQuery.exec();
+        });
       }
     });
   })
