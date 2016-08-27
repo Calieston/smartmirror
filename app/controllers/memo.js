@@ -68,7 +68,7 @@ exports.deleteAllMemos = (params) => {
     memos.forEach((memo) => {
         let deleteQuery = Memo.findByIdAndRemove(memo._id);
         return deleteQuery.exec();
-    });
+      });
   })
   .catch((err) => {
     console.log(err);

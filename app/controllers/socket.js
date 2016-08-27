@@ -38,7 +38,19 @@ io.on('connection', function(socket) {
             let probabilityRate = 0.8;
             if (natural.JaroWinklerDistance(response, 'profil') > probabilityRate) {
               console.log('call load user profil function');
-              loadUserProfile(response);
+              var username = response.split('profil ')[1];
+              speechCtrl.loadUserProfile(username)
+              .then((user) => {
+                  // Load user profile if user was found
+                  if (user['0']) {
+                    console.log('load user profile of ' + user['0'].username);
+                    io.emit('loadUser', {
+                      user: user['0']._id,
+                    });
+                  } else {
+                    console.log('user \"' + username + '\" was not found in database');
+                  }
+                });
             } else
             if (natural.JaroWinklerDistance(response, 'notiz') > probabilityRate) {
               console.log('call sprach notiz function');
@@ -66,8 +78,7 @@ io.on('connection', function(socket) {
                   status: 'deleted',
                 });
               });
-            }
-            else
+            } else
             if (natural.JaroWinklerDistance(response, 'alle sprachnachrichten löschen') > probabilityRate) {
               console.log('call alle sprach nachrichten löschen function');
               memoCtrl.deleteAllMemos(response)
@@ -101,24 +112,6 @@ io.on('connection', function(socket) {
   });
 });
 
-// Load a user profile mirror interface with a voice command
-function loadUserProfile(response) {
-  var username = response.split('profil ')[1];
-  userCtrl.getUserByName({
-      username: username,
-    })
-    .then((user) => {
-      // Load user profile if user was found
-      if (user['0']) {
-        console.log('load user profile of ' + user['0'].username);
-        io.emit('loadUser', {
-          user: user['0']._id,
-        });
-      } else {
-        console.log('user \"' + username + '\" was not found in database');
-      }
-    })
-}
 exports.reload = () => {
   io.emit('reload');
 };

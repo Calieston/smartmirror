@@ -63,6 +63,19 @@ exports.speechToText = function() {
   });
 }
 
+// Load a user profile mirror interface with a voice command
+exports.loadUserProfile = function(username) {
+      // Return new Promise
+      return new Promise((resolve, reject) => {
+        userCtrl.getUserByName({
+            username: username,
+          })
+          .then((user) => {
+              Helpers.removeFile({path: filePath,})
+              resolve(user);
+            });
+      });
+    }
 // Create a new voice memo file and entry in database
 exports.createVoiceMemo = function() {
     // Return new Promise
@@ -101,7 +114,7 @@ exports.createVoiceMemo = function() {
       });
   }
 
-// play a voice memo
+// Play a voice memo
 exports.playVoiceMemo = function() {
   // Return new Promise
   return new Promise((resolve, reject) => {
@@ -122,7 +135,7 @@ exports.playVoiceMemo = function() {
     });
 }
 
-// play a certain voice memo
+// Play a certain voice memo
 exports.playVoiceMemoFeedback = function() {
   // Return new Promise
   return new Promise((resolve, reject) => {
