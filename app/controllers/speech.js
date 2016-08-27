@@ -6,6 +6,7 @@ var config = require('./../config');
 var path = require('path');
 var memoCtrl = require('./memo');
 var Helpers = require('./helpers');
+var userCtrl = require('./user');
 
 const key = config.googleSpeechApiKey;
 const file = config.fileName;
@@ -67,12 +68,14 @@ exports.speechToText = function() {
 exports.loadUserProfile = function(username) {
       // Return new Promise
       return new Promise((resolve, reject) => {
-        userCtrl.getUserByName({
-            username: username,
-          })
-          .then((user) => {
-              Helpers.removeFile({path: filePath,})
-              resolve(user);
+        Helpers.removeFile({path: filePath,})
+          .then((msg) => {
+              return userCtrl.getUserByName({
+                  username: username,
+                })
+            .then((user) => {
+                  resolve(user);
+                });
             });
       });
     }
@@ -99,7 +102,7 @@ exports.createVoiceMemo = function() {
           oldPath: filePath,
           newPath: memoFilePath,
         })
-        .then((msg) => {
+        .then(() => {
           console.log('created voice memo file');
           return memoCtrl.addMemo(params)
         })
@@ -107,8 +110,8 @@ exports.createVoiceMemo = function() {
           console.log('saved voice memo entry in db: ' + JSON.stringify(memo));
           return Helpers.removeFile({path: filePath,})
         })
-        .then((msg) => {
-          console.log('removed audio file');
+        .then(() => {
+          console.log('removed old audio file');
           resolve();
         });
       });
@@ -165,7 +168,7 @@ exports.deleteVoiceMemo = function() {
             // Delete voice memo file
             return Helpers.removeFile({path: memo.path,})
           })
-          .then((msg) => {
+          .then(() => {
             // Delete voice memo entry
             return memoCtrl.deleteMemoById(memo._id);
           })
@@ -175,3 +178,14 @@ exports.deleteVoiceMemo = function() {
         });
   };
 
+// Delete recording file
+exports.deleteRecording = function() {
+    // Return new Promise
+    return new Promise((resolve, reject) => {
+
+      Helpers.removeFile({path: filePath,})
+      .then(() => {
+        resolve();
+      });
+    });
+  };

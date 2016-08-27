@@ -65,19 +65,18 @@ exports.saveFile = function(params) {
 exports.copyFile = function(params) {
 
   return new Promise((resolve, reject) => {
-
-    if (!fs.existsSync(params.path)) {
+    var msg;
+    if (!fs.existsSync(params.oldPath)) {
       reject();
     }
 
-    fse.copy(params.oldPath, params.newPath, function(err) {
+    fse.copy(params.oldPath, params.newPath, (err) => {
       if (err) {
         console.log(err);
         reject(err);
       }
       resolve();
-    })
-
+    });
   });
 
 }

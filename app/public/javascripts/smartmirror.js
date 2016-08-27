@@ -65,6 +65,11 @@ socket.on('smartmirror-video-tagesschau100sek', function(data) {
   playPause();
 })
 
+socket.on('timer', function(data) {
+  console.log('timer duration: '+data.duration);
+  startTimer(data.duration);
+})
+
 socket.on('voiceMemo', function(data) {
   switch(data) {
     case 'created':
@@ -77,10 +82,10 @@ socket.on('voiceMemo', function(data) {
     // TODO
     break;
   }
-  playPause();
 })
 
 socket.on('recording', function(data) {
+  console.log('DATA:'+ JSON.stringify(data));
   if (data.status == 'enabled') {
     document.getElementById("Record").style.display = "block";
   } else {

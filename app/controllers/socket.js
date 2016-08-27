@@ -19,7 +19,7 @@ io.on('connection', function(socket) {
     switch (data.action) {
       case 'record': {
         console.log('action: record');
-        socket.emit('recording', {
+        io.emit('recording', {
           status: 'enabled',
         });
         // Start recording
@@ -30,7 +30,7 @@ io.on('connection', function(socket) {
         })
         .then((response) => {
           console.log('Response speech to text: ' + JSON.stringify(response));
-          socket.emit('recording', {
+          io.emit('recording', {
             status: 'disabled',
           });
           // Check speech to text response
@@ -56,6 +56,7 @@ io.on('connection', function(socket) {
               console.log('call sprach notiz function');
               speechCtrl.createVoiceMemo(response)
               .then((response) => {
+                console.log('created voice memo: ' + response);
                 io.emit('voiceMemo', {
                   status: 'created',
                 });
@@ -92,12 +93,15 @@ io.on('connection', function(socket) {
             if (natural.JaroWinklerDistance(response, 'timer') > probabilityRate) {
               console.log('call timer function');
               var timervalue = response.split('timer ')[1];
+              var duration = response.split(' minuten')[0];
+              // attention: currently only duration in minutes are possible!
               io.emit('timer', {
-                value: timervalue,
+                duration: duration,
               });
             }
           } else {
             console.log('speech to text: no result')
+            speechCtrl.deleteRecording();
           }
         });
         break;
