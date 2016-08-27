@@ -122,6 +122,27 @@ exports.playVoiceMemo = function() {
     });
 }
 
+// play a certain voice memo
+exports.playVoiceMemoFeedback = function() {
+  // Return new Promise
+  return new Promise((resolve, reject) => {
+      memoCtrl.getMemoByName()
+     .then((memo) => {
+        // Play voice memo on smart mirror
+        var exec = require('child_process').exec;
+        exec('aplay ' + memo.path, function(error, stdout, stderr) {
+              if (error !== null) {
+                console.log('exec error: ' + error);
+              }else {
+                console.log('successful');
+                resolve(stdout);
+              }
+            });
+      });
+
+    });
+}
+
 // Delete a voice memo
 exports.deleteVoiceMemo = function() {
     // Return new Promise

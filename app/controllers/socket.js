@@ -49,8 +49,8 @@ io.on('connection', function(socket) {
                 });
               });
             } else
-            if (natural.JaroWinklerDistance(response, 'notiz abspielen') > probabilityRate) {
-              console.log('call notiz abspielen function');
+            if (natural.JaroWinklerDistance(response, 'nachrichten abspielen') > probabilityRate) {
+              console.log('call nachrichten abspielen function');
               speechCtrl.playVoiceMemo()
               .then((response) => {
                 io.emit('voiceMemo', {
@@ -58,12 +58,22 @@ io.on('connection', function(socket) {
                 });
               });
             } else
-            if (natural.JaroWinklerDistance(response, 'notiz löschen') > probabilityRate) {
-              console.log('call notiz löschen function');
+            if (natural.JaroWinklerDistance(response, 'nachrichten löschen') > probabilityRate) {
+              console.log('call nachrichten löschen function');
               speechCtrl.deleteVoiceMemo(response)
               .then((response) => {
                 io.emit('voiceMemo', {
                   status: 'deleted',
+                });
+              });
+            }
+            else
+            if (natural.JaroWinklerDistance(response, 'alle sprachnachrichten löschen') > probabilityRate) {
+              console.log('call alle sprach nachrichten löschen function');
+              memoCtrl.deleteAllMemos(response)
+              .then((response) => {
+                io.emit('voiceMemo', {
+                  status: 'all deleted',
                 });
               });
             } else

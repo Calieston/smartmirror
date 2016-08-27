@@ -57,6 +57,25 @@ exports.deleteMemoById = (params) => {
 
 };
 
+// Delete all voice memos
+exports.deleteAllMemos = (params) => {
+  var now = new Date();
+  var del;
+  let query = Memo.find({})
+    .lean();
+
+  query.then((memos) => {
+    memos.forEach((memo) => {
+        let deleteQuery = Memo.findByIdAndRemove(memo._id);
+        return deleteQuery.exec();
+    });
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+  return query;
+};
+
 // Delete old voice memos
 exports.deleteOldMemos = (params) => {
   var now = new Date();
