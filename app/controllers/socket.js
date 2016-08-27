@@ -4,6 +4,7 @@ var socketIO = require('socket.io');
 var speechCtrl = require('./speech');
 var recorderCtrl = require('./record');
 var userCtrl = require('./user');
+var memoCtrl = require('./memo');
 var io = socketIO();
 var natural = require('natural');
 
@@ -72,7 +73,7 @@ io.on('connection', function(socket) {
             } else
             if (natural.JaroWinklerDistance(response, 'löschen') > probabilityRate) {
               console.log('call nachrichten löschen function');
-              speechCtrl.deleteAllMemos(response)
+              memoCtrl.deleteAllMemos(response)
               .then((response) => {
                 io.emit('voiceMemo', {
                   status: 'all deleted',
@@ -86,10 +87,10 @@ io.on('connection', function(socket) {
               var duration = timervalue.split(' minuten')[0];
               // Attention: currently only duration in minutes are possible!
               speechCtrl.deleteRecording()
-              .then((msg) {
-              io.emit('timer', {
-                duration: duration,
-              });
+              .then((msg) => {
+                io.emit('timer', {
+                  duration: duration,
+                });
               });
             }
           } else {
