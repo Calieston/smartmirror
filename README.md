@@ -13,7 +13,6 @@ The goal of the module was to realize an innovation project with focus on the te
 
 ## Technologies and Tools
 - Node.js
-- Kinect
 - Leap Motion
 - Sensors (temperature, motion, ...)
 
