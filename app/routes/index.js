@@ -104,21 +104,6 @@ router.route('/users/:user/delete')
     });
   });
 
-/* GET sensors overview */
-router.route('/sensors')
-  .get((req, res) => {
-    // Load sensors initial page
-    res.render('backend/sensors')
-    .catch((err) => {
-      console.log(err);
-      res.sendStatus(500);
-    });
-  })
-  .post((req, res) => {
-    res.redirect('/gestures/' +  req.body.user);
-  });
-
-
 /* GET list users to load gesture-widget configuration for a a certain user */
 router.route('/gesture_interface')
   .get((req, res) => {
