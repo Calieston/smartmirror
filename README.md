@@ -6,10 +6,10 @@ The Smart Mirror allows the user to display personalized widgets on the mirror f
 The goal of the module was to realize an innovation project with focus on the technology and architecture. The core component which controls sensors, the frontend and the backend is a Raspberry Pi which will be fit behind the mirror.
 
 ## Team
-- [Calieston](https://github.com/Calieston)
-- [RomanKol](https://github.com/RomanKo)
-- [Coriux](https://github.com/Coriux)
-- [ma4a](https://github.com/ma4a)
+- [Calieston Varatharajah](https://github.com/Calieston)
+- [Roman Kollatschny](https://github.com/RomanKo)
+- [Christopher Uhrig ](https://github.com/Coriux)
+- [Matthias Schmidt](https://github.com/ma4a)
 
 ## Technologies and Tools
 - Node.js
