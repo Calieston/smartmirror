@@ -34,7 +34,8 @@ exports.getDefaultUser = () => {
 exports.getWidget = (params) => {
   let query = Widget.findById(params.id)
     .lean()
-    .populate('module');
+    .populate('module')
+    .populate('gesture');
 
   return query.exec();
 };

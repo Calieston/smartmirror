@@ -13,8 +13,8 @@ const file = config.fileName;
 const lang = config.language;
 var urlStart = 'https://www.google.com/speech-api/v2/recognize?key=' + key;
 var urlEnd = '&lang=' + lang + '&output=json';
-var fPath = path.join(__dirname, './../../samples/');
-var filePath = path.join(__dirname, './../../samples/' + file);
+var fPath = path.join(__dirname, './../../recordings/');
+var filePath = path.join(__dirname, './../../recordings/' + file);
 
 
 // Parse audio file

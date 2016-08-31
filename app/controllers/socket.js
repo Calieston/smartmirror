@@ -104,7 +104,7 @@ io.on('connection', function(socket) {
       case 'gesture': {
         console.log('action: gesture');
         // Send socket message to client
-        io.emit(data.widget);
+        io.emit(data.gesture);
         break;
       }
     }
