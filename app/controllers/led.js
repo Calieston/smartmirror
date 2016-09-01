@@ -3,6 +3,8 @@
 const blinkstick = require('blinkstick');
 const device = blinkstick.findFirst();
 
+device.setMode(1);
+
 // Set to color
 //  params: {
 //    color: 'Red color intensity 0-255 OR string CSS color keyword OR hex color, eg "#BADA55".',
