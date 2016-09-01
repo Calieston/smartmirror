@@ -26,7 +26,7 @@ exports.record = function() {
             recorder.stop();
             console.log('recording stop');
             resolve(audioFileName);
-          }, config.duration);
+          }, 5000);
       });
     recorder.start();
   });

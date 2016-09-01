@@ -90,7 +90,7 @@ io.on('connection', function(socket) {
               speechCtrl.deleteRecording()
               .then((msg) => {
                 io.emit('timer', {
-                  duration: duration,
+                  timer: duration,
                 });
               });
             }

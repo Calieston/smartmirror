@@ -59,7 +59,7 @@ exports.speechToText = function() {
         console.log('requested file ' + file + ' not found');
         resolve('empty');
       }
-    }, config.duration);
+    }, 5000);
 
   });
 }

@@ -11,8 +11,25 @@ exports.sht31 = function(params) {
       if (err !== null) {
         reject(new Error('Nope'));
       } else {
-        resolve(JSON.parse(stdout));
+        if(jsonIsValid(stdout)){
+          resolve(JSON.parse(stdout));
+        }else{
+          var response = JSON.stringify({
+           temp: '-',
+           humidity: '-'
+          });
+          resolve(response);
+        }
       }
     });
   });
 };
+
+function jsonIsValid(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
