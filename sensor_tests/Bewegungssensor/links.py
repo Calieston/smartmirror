@@ -4,7 +4,6 @@ import datetime
 import os
  
 print "BEWEGUNGSMELDER"
-print ""
  
 #Board Mode: Angabe der Pin-Nummer
 GPIO.setmode(GPIO.BCM)
