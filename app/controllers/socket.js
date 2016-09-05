@@ -55,31 +55,15 @@ io.on('connection', function(socket) {
             } else
             if (natural.JaroWinklerDistance(response, 'notiz') > probabilityRate) {
               console.log('call sprach notiz function');
-              speechCtrl.createVoiceMemo(response)
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'created',
-                });
-              });
+              speechCtrl.createVoiceMemo(response);
             } else
             if (natural.JaroWinklerDistance(response, 'nachrichten abspielen') > probabilityRate) {
               console.log('call nachrichten abspielen function');
-              speechCtrl.playVoiceMemo()
-              .then((response) => {
-                io.emit('voiceMemo', {
-                  status: 'play',
-                });
-              });
+              speechCtrl.playVoiceMemo();
             } else
             if (natural.JaroWinklerDistance(response, 'löschen') > probabilityRate) {
               console.log('call nachrichten löschen function');
-              speechCtrl.deleteAllMemos(response)
-              .then((response) => {
-                console.log('GET RESPONSE FROM METHOD');
-                io.emit('voiceMemo', {
-                  status: 'all deleted',
-                });
-              });
+              speechCtrl.deleteAllMemos(response);
             } else
             // Timer module
             if (natural.JaroWinklerDistance(response, 'timer') > probabilityRate) {

@@ -61,31 +61,7 @@ socket.on('loadUser', function(data) {
   window.location.href = 'http://localhost:3000/smartmirror/' + data.user;
 })
 
-socket.on('smartmirror-video-tagesschau100sek', function(data) {
-  playPause();
-})
-
-socket.on('timer', function(data) {
-  console.log('timer duration: '+data.duration);
-  startTimer(data.duration);
-})
-
-socket.on('voiceMemo', function(data) {
-  switch(data) {
-    case 'created':
-    // TODO
-    break;
-    case 'play':
-    // TODO
-    break;
-    case 'deleted':
-    // TODO
-    break;
-  }
-})
-
 socket.on('recording', function(data) {
-  console.log('DATA:'+ JSON.stringify(data));
   if (data.status == 'enabled') {
     document.getElementById("Record").style.display = "block";
   } else {
@@ -99,5 +75,4 @@ socket.on('test', function(data) {
   socket.emit('clientTest', {
     msg: 'Message from Client'
   });
-  //socket.emit('smartmirror', {msg: 'record' });
 });

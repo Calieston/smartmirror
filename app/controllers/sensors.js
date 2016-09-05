@@ -11,12 +11,12 @@ exports.sht31 = function(params) {
       if (err !== null) {
         reject(new Error('Nope'));
       } else {
-        if(jsonIsValid(stdout)){
+        if (jsonIsValid(stdout)) {
           resolve(JSON.parse(stdout));
-        }else{
+        }else {
           var response = JSON.stringify({
-           temp: '-',
-           humidity: '-'
+            temp: '-',
+            humidity: '-',
           });
           resolve(response);
         }
@@ -26,10 +26,10 @@ exports.sht31 = function(params) {
 };
 
 function jsonIsValid(str) {
-    try {
-        JSON.parse(str);
-    } catch (e) {
-        return false;
-    }
-    return true;
+  try {
+    JSON.parse(str);
+  } catch (e) {
+    return false;
+  }
+  return true;
 }
